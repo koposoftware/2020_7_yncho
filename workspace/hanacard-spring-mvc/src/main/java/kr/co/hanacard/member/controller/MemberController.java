@@ -51,9 +51,9 @@ public class MemberController {
 			mav.setViewName("redirect:/login");
 		} else {
 			// 로그인 성공
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/"); // ModelAndView 생성자에 넣으면 자동으로 setViewName이 되는거였겠군?
 			mav.addObject("loginVO", loginVO);
-			// 이렇게 하면 안된다. 왜? addObject() 하면 request 영역에 저장되기 때문이다.
+			// 이렇게 하면 사용자 정보가 세션에 저장되지 않는다. 왜? addObject() 하면 request 영역에 저장되기 때문이다.
 			// 그렇게 하려면 어떻게 해야하는가 : 클래스 위에 @SessionAttributes 어노테이션을 붙인다.
 			// 그런데, sessionAttributes에 저장한 세션은 session.invalidate로 세션을 삭제할 수 없다!
 			// 이때는, SessionStatus.setComplete() 메소드로 지워야 한다.

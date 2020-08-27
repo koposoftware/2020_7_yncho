@@ -7,9 +7,15 @@
 
 	<select id ="login" parameterType="MemberVO" resultType="MemberVO">
 		
+		SELECT ID, PASSWORD
+		FROM MEMBER_TEST01
+		WHERE ID = #{id} AND PASSWORD = #{password}
+		
+		<!-- 
 		select id, password, type
 		from t_member
-		where id = #{id} and password = #{password}
+		where id = #{id} and password = #{password} 
+		-->
 	
 	</select>
 
