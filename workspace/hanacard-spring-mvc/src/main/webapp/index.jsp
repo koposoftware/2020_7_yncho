@@ -10,18 +10,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/fonts/icomoon/style.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/jquery-ui.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/aos.css">
-  <link href="/final-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/final-spring-mvc/resources/css/style.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
+  <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -67,7 +67,7 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="${ pageContext.request.contextPath }/index.jsp" class="d-block">
-              <img src="/final-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid">
+              <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid">
             </a>
           </div>
           <div class="mr-auto">
@@ -115,7 +115,7 @@
 
     
     <div class="hero-slide owl-carousel site-blocks-cover">
-      <div class="intro-section" style="background-image: url('/final-spring-mvc/resources/images/hero_1.jpg');">
+      <div class="intro-section" style="background-image: url('/hanacard-spring-mvc/resources/images/hero_1.jpg');">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
@@ -125,7 +125,7 @@
         </div>
       </div>
 
-      <div class="intro-section" style="background-image: url('/final-spring-mvc/resources/images/hero_1.jpg');">
+      <div class="intro-section" style="background-image: url('/hanacard-spring-mvc/resources/images/hero_1.jpg');">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
@@ -209,7 +209,7 @@
               <div class="owl-slide-3 owl-carousel">
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_1.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Mobile Application</h3></div>  
                     </figure>
@@ -229,7 +229,7 @@
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_2.jpg" alt="Image" class="img-fluid"></a>
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_2.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Web Design</h3></div>  
                     </figure>
@@ -249,7 +249,7 @@
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_3.jpg" alt="Image" class="img-fluid"></a>
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_3.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Arithmetic</h3></div>  
                     </figure>
@@ -269,7 +269,7 @@
 
                   <div class="course-1-item">
                     <figure class="thumnail">
-                        <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_4.jpg" alt="Image" class="img-fluid"></a>
+                        <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_4.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Mobile Application</h3></div>  
                     </figure>
@@ -289,7 +289,7 @@
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                        <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_5.jpg" alt="Image" class="img-fluid"></a>
+                        <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_5.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Web Design</h3></div>  
                     </figure>
@@ -309,7 +309,7 @@
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                        <a href="course-single.html"><img src="/final-spring-mvc/resources/images/course_6.jpg" alt="Image" class="img-fluid"></a>
+                        <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_6.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
                       <div class="category"><h3>Mobile Application</h3></div>  
                     </figure>
@@ -354,21 +354,21 @@
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
 
-  <script src="/final-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery-ui.js"></script>
-  <script src="/final-spring-mvc/resources/js/popper.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/bootstrap.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/owl.carousel.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.stellar.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.countdown.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/bootstrap-datepicker.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.easing.1.3.js"></script>
-  <script src="/final-spring-mvc/resources/js/aos.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.fancybox.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.sticky.js"></script>
-  <script src="/final-spring-mvc/resources/js/jquery.mb.YTPlayer.min.js"></script>
-  <script src="/final-spring-mvc/resources/js/main.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery-ui.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/popper.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/bootstrap.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/owl.carousel.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.stellar.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.countdown.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/bootstrap-datepicker.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.easing.1.3.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/aos.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.fancybox.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.sticky.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery.mb.YTPlayer.min.js"></script>
+  <script src="/hanacard-spring-mvc/resources/js/main.js"></script>
 
 </body>
 </html>
