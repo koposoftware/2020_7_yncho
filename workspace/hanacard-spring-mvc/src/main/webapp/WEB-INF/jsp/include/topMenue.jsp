@@ -36,7 +36,7 @@
     </div>
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
+ <div class="container">
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="${ pageContext.request.contextPath }/index.jsp" class="d-block">
@@ -47,25 +47,38 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li>
+                <!-- <li class="active"> -->
                   <a href = "${ pageContext.request.contextPath }/mypage" class="nav-link text-left">마이페이지</a>
                 </li>
                 <li class="has-children">
-                <!-- <li class="has-children active"> -->
-                  <a href="about.html" class="nav-link text-left">About Us</a>
+                  <a href="about.html" class="nav-link text-left">하나차트</a>
                   <ul class="dropdown">
-                    <li><a href="teachers.html">Our Teachers</a></li>
-                    <li><a href="about.html">Our School</a></li>
+                    <li><a href="teachers.html">카드타입별순위</a></li>
+                    <li><a href="about.html">인기혜택별순위</a></li>
+                    <li><a href="about.html">연회비별순위</a></li>
+                    <li><a href="about.html">전월실적별순위</a></li>
+                    <li><a href="about.html">전월실적별순위</a></li>
                   </ul>
                 </li>
-                <li>
-                  <a href="admissions.html" class="nav-link text-left">Admissions</a>
+                
+                <li class="has-children">
+                  <a href="about.html" class="nav-link text-left">검색/비교</a>
+                  <ul class="dropdown">
+                    <li><a href="teachers.html">조건별검색</a></li>
+                    <li><a href="about.html">키워드검색</a></li>
+                    <li><a href="about.html">개인화추천</a></li>
+                  </ul>
                 </li>
+                
+                <!-- <li>
+                  <a href="admissions.html" class="nav-link text-left">검색/비교</a>
+                </li> -->
                 <li>
-                  <a href="courses.html" class="nav-link text-left">Courses</a>
+                  <a href="courses.html" class="nav-link text-left">고객센터</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="contact.html" class="nav-link text-left">Contact</a>
-                  </li>
+                  </li> -->
               </ul>                                                                                                                                                                                                                                                                                          </ul>
             </nav>
 
