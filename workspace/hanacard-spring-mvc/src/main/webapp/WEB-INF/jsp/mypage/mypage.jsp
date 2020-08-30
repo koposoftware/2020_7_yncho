@@ -171,6 +171,15 @@
 		    <option>1월</option>
 		    <option>2월</option>
 		    <option>3월</option>
+		    <option>4월</option>
+		    <option>5월</option>
+		    <option>6월</option>
+		    <option>7월</option>
+		    <option>8월</option>
+		    <option>9월</option>
+		    <option>10월</option>
+		    <option>11월</option>
+		    <option>12월</option>
 		  </select>&nbsp;&nbsp;&nbsp;
 		 
 		  <button>조회</button>
@@ -237,8 +246,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                  
-                 	 <canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;">
+                 	 <canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
