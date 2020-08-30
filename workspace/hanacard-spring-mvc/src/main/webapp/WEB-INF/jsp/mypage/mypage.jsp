@@ -153,22 +153,22 @@
                   <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                  
 				  <!-- Example single danger button -->
-					<!-- <div class="btn-group">
+					<div class="btn-group">
 					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Year
 					  </button>
 					  <div class="dropdown-menu">
-					    <a class="dropdown-item" >Action</a>
+					    <a class="dropdown-item active" href="#">Action</a>
 					    <a class="dropdown-item" href="#">Another action</a>
 					    <a class="dropdown-item" href="#">Something else here</a>
 					    <div class="dropdown-divider"></div>
 					    <a class="dropdown-item" href="#">Separated link</a>
 					  </div>
-					</div>   -->
+					</div>   
 				       
 				       
 				                 
-                  <div class="dropdown no-arrow">
+                  <!-- <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
@@ -179,7 +179,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                  </div>
+                  </div> -->
                   
                   
                 </div>
