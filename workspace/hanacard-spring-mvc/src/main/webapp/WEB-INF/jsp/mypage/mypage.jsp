@@ -27,7 +27,8 @@
 			alert('실행되냐')
 			
 			// 이걸 ajax 써서 써보자.
-		 /*
+		 
+		/*
 	      $.ajax({
 	          url : '${ pageContext.request.contextPath }/mypage/update',
 	          type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
@@ -64,12 +65,13 @@
 	          }, error : function() {
 	            alert('error')
 	         }
-	      }) */
+	      }) 
 			
+	      */
 			
 			myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45,
 					440, 50, 70, 4504, 578 ];
-			myLineChart.update();
+			myLineChart.update(); 
 		}; 
 		
 	</script>
