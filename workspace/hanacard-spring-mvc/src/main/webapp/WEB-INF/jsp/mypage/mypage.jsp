@@ -74,6 +74,12 @@
 			myLineChart.update(); 
 		}; 
 		
+		
+		
+		function updateChart2() {
+			alert('소비패턴 조회 버튼')
+		};
+		
 	</script>
 
 </head>
@@ -322,7 +328,7 @@
 			    <option>11월</option>
 			    <option>12월</option>
 			  </select>&nbsp;&nbsp;&nbsp;
-			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick ="updateChart()"><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
+			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick ="updateChart2()" ><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
 			  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 			  
           </div>

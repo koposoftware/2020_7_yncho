@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.hanacard.mypage.service.MypageService;
+import kr.co.hanacard.mypage.vo.MypageVO;
 
 @Controller
 public class MypageController {
@@ -23,10 +24,14 @@ public class MypageController {
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/mypage/update") // ajax를 통해 post 방식으로 data(즉, 파라미터)가 날라온다. 
-	public void getData() { 
+	public MypageVO getData() { 
 		
-		mypageService;
+		MypageVO mypageVO = mypageService.getDataCurrentYear();
 		
+		return mypageVO; 
+		// ajax를 사용한 jsp로 날라가며, ajax의 success 부분에서 이를 받아 처리한다. 
+		// String 형태로 날라가기 때문에, JSON 형태로 parsing이 필요하다.
+
 	}
 	
 	

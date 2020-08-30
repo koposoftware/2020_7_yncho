@@ -1,24 +1,22 @@
 package kr.co.hanacard.mypage.service;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.hanacard.board.dao.BoardDAO;
-import kr.co.hanacard.board.vo.BoardVO;
+import kr.co.hanacard.mypage.dao.MypageDAO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 @Service
 public class MypageServiceImpl implements MypageService{
 
+	@Autowired
+	private MypageDAO mypageDAO;
+	
 	@Override
 	public MypageVO getDataCurrentYear() {
 		
-		MypageVO mypageVO;
+		MypageVO mypageVO = mypageDAO.getDataCurrentYear();
 		
-		
-		return null;
+		return mypageVO;
 	}
 
 	
