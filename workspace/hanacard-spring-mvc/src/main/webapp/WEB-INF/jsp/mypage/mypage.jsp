@@ -21,6 +21,7 @@
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
 
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -236,7 +237,8 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                 	 <canvas id="myPieChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
+                  
+                 	 <canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;">
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
