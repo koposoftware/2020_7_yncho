@@ -141,8 +141,40 @@
             </div>
           </div>
 
-          <!-- Content Row -->
 
+		  <!-- Example single danger button -->
+			<div class="btn-group">
+			  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Year
+			  </button>
+			  <div class="dropdown-menu">
+			    <a class="dropdown-item" href="#">2020년</a>
+			    <!-- <a class="dropdown-item active" href="#">2020년</a> -->
+			    <a class="dropdown-item" href="#">2019년</a>
+			    <a class="dropdown-item" href="#">2018년</a>
+			    <!-- <div class="dropdown-divider"></div>
+			    <a class="dropdown-item" href="#">Separated link</a> -->
+			  </div>
+			</div>   
+			
+		 <select class="selectpicker" data-style="btn-success">
+		  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+		    <option>2020년</option>
+		    <option>2019년</option>
+		    <option>2018년</option>
+		  </select>&nbsp;&nbsp;&nbsp;
+		  
+		  <select class="selectpicker" data-style="btn-success">
+		  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+		    <option>전체</option>
+		    <option>1월</option>
+		    <option>2월</option>
+		    <option>3월</option>
+		  </select>&nbsp;&nbsp;&nbsp;
+		 
+		  <button>조회</button>
+			
+          <!-- Content Row -->
           <div class="row">
 
             <!-- Area Chart -->
@@ -152,20 +184,6 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">${ year }년 소비 개요</h6>
                  
-				  <!-- Example single danger button -->
-					<div class="btn-group">
-					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Year
-					  </button>
-					  <div class="dropdown-menu">
-					    <a class="dropdown-item" href="#">2020년</a>
-					    <!-- <a class="dropdown-item active" href="#">2020년</a> -->
-					    <a class="dropdown-item" href="#">2019년</a>
-					    <a class="dropdown-item" href="#">2018년</a>
-					    <!-- <div class="dropdown-divider"></div>
-					    <a class="dropdown-item" href="#">Separated link</a> -->
-					  </div>
-					</div>   
 				       
 				       
 				                 
