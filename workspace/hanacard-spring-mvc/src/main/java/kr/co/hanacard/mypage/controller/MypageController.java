@@ -30,8 +30,9 @@ public class MypageController {
 	public MypageVO getData(HttpSession session) { 
 		
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
 		
-		MypageVO mypageVO = mypageService.getDataCurrentYear();
+		MypageVO mypageVO = mypageService.getDataCurrentYear(resiNum);
 		
 		return mypageVO; 
 		// ajax를 사용한 jsp로 날라가며, ajax의 success 부분에서 이를 받아 처리한다. 
