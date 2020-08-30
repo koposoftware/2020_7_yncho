@@ -19,6 +19,8 @@ public class MypageDAOImpl implements MypageDAO{
 	public MypageVO getDataCurrentYear() {
 		
 		//MypageVO mypageVO = sqlSession.selectOne(statement);
+		//selectOne("매퍼의 namespace + <select> 등 태그의 id")
+
 		return null;
 	}
 	
