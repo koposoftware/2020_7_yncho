@@ -1,10 +1,13 @@
 package kr.co.hanacard.mypage.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.mypage.service.MypageService;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
@@ -24,7 +27,9 @@ public class MypageController {
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/mypage/update") // ajax를 통해 post 방식으로 data(즉, 파라미터)가 날라온다. 
-	public MypageVO getData() { 
+	public MypageVO getData(HttpSession session) { 
+		
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
 		
 		MypageVO mypageVO = mypageService.getDataCurrentYear();
 		

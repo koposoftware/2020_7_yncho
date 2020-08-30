@@ -3,7 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace = "member.dao.MemberDAO"> <!-- namespace에 뭘 적어준거더라... 내마음대로 적는거였나? -->
+<mapper namespace = "member.dao.MemberDAO"> 
+	<!-- 
+			namespace에 뭘 적어준거더라... 내마음대로 적는거였나? 
+			==> 맞음. mapper들을 구분하기 위해 적는 것임. 마치 같은 이름의 클래스를 구분하기 위해 패키지가 쓰이는 것처럼
+			==> 같은 id를 가지는(가질 수 있는) select, insert 등의 태그를 구분하기 위해 쓰인다.  
+	-->
 
 	<select id ="login" parameterType="MemberVO" resultType="MemberVO">
 		
