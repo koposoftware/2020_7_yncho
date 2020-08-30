@@ -6,5 +6,7 @@
 	<typeAliases>
 		<typeAlias type="kr.co.hanacard.board.vo.BoardVO" alias = "BoardVO"/>
 		<typeAlias type="kr.co.hanacard.member.vo.MemberVO" alias = "MemberVO"/>
+		<typeAlias type="kr.co.hanacard.mypage.vo.MypageVO" alias = "MypageVO"/>
+		
 	</typeAliases>
 </configuration>

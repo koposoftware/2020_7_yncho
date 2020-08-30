@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+			namespace에 뭘 적어준거더라... 내마음대로 적는거였나? 
+			==> 맞음. mapper들을 구분하기 위해 적는 것임. 마치 같은 이름의 클래스를 구분하기 위해 패키지가 쓰이는 것처럼
+			==> 같은 id를 가지는(가질 수 있는) select, insert 등의 태그를 구분하기 위해 쓰인다.  
+-->
+<mapper namespace ="mypage.dao.MypageDAO">
+
+	<!-- 
+			type : type alias를 sqlMapConfig.xml에서 정했음. 원래는 패키지명+자바파일명까지 써줘야 했음. 
+			id : resultMap 태그의 id값인듯. (다른 resultMap 태그와 구분하려고 주는 것 같다. 
+				  지금은 하나의 테이블에서만 select하니 구분이 필요없지만, 나중에 여러 테이블이 쓰이면 resultMap 태그도 구분이 필요할듯.)
+	-->
+	<!-- <resultMap type="MypageVO" id ="mypageMap">
+		<result column="resi_num" property ="regiNum"/>
+	</resultMap> -->
+
+	<!-- 파라미터 resiNum으로 들어온다. 파라미터 입력하는걸로 다시 수정해야 함. -->
+	<select id = "dataCurrentYear" parameterType = "String" resultType ="MypageVO">
+	
+		
+		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",
+        SUBQUERY5.NUM AS "may", SUBQUERY6.NUM AS "jun", SUBQUERY7.NUM AS "jul", SUBQUERY8.NUM AS "aug",
+        SUBQUERY9.NUM AS "sept", SUBQUERY10.NUM AS "oct", SUBQUERY11.NUM AS "nov", SUBQUERY12.NUM AS "dec"
+FROM (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-01'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY1,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-02'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY2,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-03'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY3,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-04'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY4,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-05'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY5,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-06'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY6,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-07'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY7,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-08'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY8,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-09'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY9,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-10'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY10,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-11'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY11,
+      
+     (SELECT * 
+       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+             FROM CARD_TRANSACTION_TEST01
+             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = '2020-12'
+             
+             UNION ALL
+             
+             -- SELECT NULL AS NUM
+             SELECT 0 AS NUM
+             FROM DUAL)
+       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY12
+	 WHERE ROWNUM = 1 <!-- 세미콜론 쓰지 않는 것에 주의! -->
+		
+	
+	</select>
+
+
+</mapper>
