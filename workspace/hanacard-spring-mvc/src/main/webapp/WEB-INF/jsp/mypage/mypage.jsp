@@ -20,7 +20,17 @@
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
-  
+
+	<script>
+		
+		/* function updateChart() {
+			alert('실행되냐')
+			myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45,
+					440, 50, 70, 4504, 578 ];
+			myLineChart.update();
+		}; */
+		
+	</script>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -141,7 +151,6 @@
               </div>
             </div>
           </div>
-
 		
 		  <div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 		  	<!-- Example single danger button -->
@@ -182,7 +191,7 @@
 			    <option>11월</option>
 			    <option>12월</option>
 			  </select>&nbsp;&nbsp;&nbsp;
-			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50" onclick ="updateChart()"></i> 조회</button>
+			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick ="updateChart()"><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
 			  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 			  
           </div>
@@ -442,10 +451,11 @@
 		<script>
 		  
 		  	  //Update all chart function
-		  	  /* function updateChart(){
+		  	  function updateChart(){
+		  		alert('실행되냐')
 		  		myLineChart.data.datasets[0].data = [0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578];
 		  		myLineChart.update();  
-		  	  }; */
+		  	  };  
 		  	  
 		  
 		  
@@ -487,7 +497,7 @@
 									"Dec" ],
 							datasets : [ {
 								label : "Earnings",
-								lineTension : 0.3,
+								/* lineTension : 0.3,
 								backgroundColor : "rgba(78, 115, 223, 0.05)",
 								borderColor : "rgba(78, 115, 223, 1)",
 								pointRadius : 3,
@@ -497,12 +507,12 @@
 								pointHoverBackgroundColor : "rgba(78, 115, 223, 1)",
 								pointHoverBorderColor : "rgba(78, 115, 223, 1)",
 								pointHitRadius : 10,
-								pointBorderWidth : 2,
+								pointBorderWidth : 2, */ 
 								data : [ 0, 10000, 5000, 15000, 10000, 20000,
 										15000, 25000, 20000, 30000, 25000,
 										40000 ],
 							} ],
-						},
+						}/* ,
 						options : {
 							maintainAspectRatio : false,
 							layout : {
@@ -572,7 +582,7 @@
 									}
 								}
 							}
-						}
+						}  */
 					});
 		</script>
 
