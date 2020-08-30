@@ -150,7 +150,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">${ year }년 소비 개요</h6>
                  
 				  <!-- Example single danger button -->
 					<div class="btn-group">
@@ -158,11 +158,12 @@
 					    Year
 					  </button>
 					  <div class="dropdown-menu">
-					    <a class="dropdown-item active" href="#">Action</a>
-					    <a class="dropdown-item" href="#">Another action</a>
-					    <a class="dropdown-item" href="#">Something else here</a>
-					    <div class="dropdown-divider"></div>
-					    <a class="dropdown-item" href="#">Separated link</a>
+					    <a class="dropdown-item" href="#">2020년</a>
+					    <!-- <a class="dropdown-item active" href="#">2020년</a> -->
+					    <a class="dropdown-item" href="#">2019년</a>
+					    <a class="dropdown-item" href="#">2018년</a>
+					    <!-- <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#">Separated link</a> -->
 					  </div>
 					</div>   
 				       
