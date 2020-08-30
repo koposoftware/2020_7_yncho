@@ -57,7 +57,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h2 class="h3 mb-0 text-gray-800">종합 대시보드</h2>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
@@ -142,47 +142,51 @@
             </div>
           </div>
 
+		
+		  <div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
+		  	<!-- Example single danger button -->
+				<!-- <div class="btn-group">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Year
+				  </button>
+				  <div class="dropdown-menu">
+				    <a class="dropdown-item" href="#">2020년</a>
+				    <a class="dropdown-item active" href="#">2020년</a>
+				    <a class="dropdown-item" href="#">2019년</a>
+				    <a class="dropdown-item" href="#">2018년</a>
+				    <div class="dropdown-divider"></div>
+				    <a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+				</div>  -->  
+				
+			 <select class="selectpicker" data-style="btn-success">
+			  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+			    <option>2020년</option>
+			    <option>2019년</option>
+			    <option>2018년</option>
+			  </select>&nbsp;&nbsp;&nbsp;
+			  
+			  <select class="selectpicker" data-style="btn-success">
+			  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+			    <option>전체</option>
+			    <option>1월</option>
+			    <option>2월</option>
+			    <option>3월</option>
+			    <option>4월</option>
+			    <option>5월</option>
+			    <option>6월</option>
+			    <option>7월</option>
+			    <option>8월</option>
+			    <option>9월</option>
+			    <option>10월</option>
+			    <option>11월</option>
+			    <option>12월</option>
+			  </select>&nbsp;&nbsp;&nbsp;
+			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
+			  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+			  
+          </div>
 
-		  <!-- Example single danger button -->
-			<div class="btn-group">
-			  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Year
-			  </button>
-			  <div class="dropdown-menu">
-			    <a class="dropdown-item" href="#">2020년</a>
-			    <!-- <a class="dropdown-item active" href="#">2020년</a> -->
-			    <a class="dropdown-item" href="#">2019년</a>
-			    <a class="dropdown-item" href="#">2018년</a>
-			    <!-- <div class="dropdown-divider"></div>
-			    <a class="dropdown-item" href="#">Separated link</a> -->
-			  </div>
-			</div>   
-			
-		 <select class="selectpicker" data-style="btn-success">
-		  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
-		    <option>2020년</option>
-		    <option>2019년</option>
-		    <option>2018년</option>
-		  </select>&nbsp;&nbsp;&nbsp;
-		  
-		  <select class="selectpicker" data-style="btn-success">
-		  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
-		    <option>전체</option>
-		    <option>1월</option>
-		    <option>2월</option>
-		    <option>3월</option>
-		    <option>4월</option>
-		    <option>5월</option>
-		    <option>6월</option>
-		    <option>7월</option>
-		    <option>8월</option>
-		    <option>9월</option>
-		    <option>10월</option>
-		    <option>11월</option>
-		    <option>12월</option>
-		  </select>&nbsp;&nbsp;&nbsp;
-		 
-		  <button>조회</button>
 			
           <!-- Content Row -->
           <div class="row">
