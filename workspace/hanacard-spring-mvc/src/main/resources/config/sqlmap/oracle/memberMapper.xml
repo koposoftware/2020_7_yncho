@@ -26,10 +26,12 @@
 				  지금은 하나의 테이블에서만 select하니 구분이 필요없지만, 나중에 여러 테이블이 쓰이면 resultMap 태그도 구분이 필요할듯.)
 	-->
 	<resultMap type="MemberVO" id ="memberMap">
-		<result column="resi_num" property ="regiNum"/>
+		<result column="resi_num" property ="resiNum"/>
 	</resultMap>
 
-	<select id ="login" parameterType="MemberVO" resultType="MemberVO">
+	<!-- resultMap 혹은 resultType 둘 중 하나만 써야하는구나. 이때까지 계속 resiNum이 null로 나왔는데, 이제야 해결함. -->
+	<select id ="login" parameterType="MemberVO" resultMap = "memberMap">
+	<!-- <select id ="login" parameterType="MemberVO" resultType="MemberVO"> -->
 		
 		SELECT RESI_NUM, ID, PASSWORD
 		FROM MEMBER_TEST01

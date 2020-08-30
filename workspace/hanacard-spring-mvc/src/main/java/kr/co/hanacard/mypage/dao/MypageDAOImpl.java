@@ -18,10 +18,10 @@ public class MypageDAOImpl implements MypageDAO{
 	@Override
 	public MypageVO getDataCurrentYear(String resiNum) {
 		
-		//MypageVO mypageVO = sqlSession.selectOne(statement);
+		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.dataCurrentYear", resiNum);
 		//selectOne("매퍼의 namespace + <select> 등 태그의 id")
 
-		return null;
+		return mypageVO;
 	}
 	
 	

@@ -29,10 +29,21 @@ public class MypageController {
 	@GetMapping("/mypage/update") // ajax를 통해 post 방식으로 data(즉, 파라미터)가 날라온다. 
 	public MypageVO getData(HttpSession session) { 
 		
+		
+		// 로그인이 안되어 있는 경우 ajax error난다. 얼른 인터셉터 얼른 추가하자.
+		
+		
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
 		String resiNum = loginVO.getResiNum();
 		
+		System.out.println("loginVO : " + loginVO);
+		System.out.println("resiNum : " + resiNum);
+		
 		MypageVO mypageVO = mypageService.getDataCurrentYear(resiNum);
+		System.out.println("mapping은 되는건가?");
+		System.out.println("mypageVO : " + mypageVO); 
+		// 왜 null 찍히지. 아 dao단에서 처리안했음. 디버깅의 중요성! 디버깅을 단계별로 하니 금방 잡힌다.
+		// 이제부터 jUnit 테스트를 활용해보자!
 		
 		return mypageVO; 
 		// ajax를 사용한 jsp로 날라가며, ajax의 success 부분에서 이를 받아 처리한다. 

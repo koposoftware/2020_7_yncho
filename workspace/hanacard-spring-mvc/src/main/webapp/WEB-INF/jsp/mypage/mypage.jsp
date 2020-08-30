@@ -21,33 +21,53 @@
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
 
-	<script>
+  <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
+  
+  
+	<script type="text/javascript">
 		
+	
+	
+	    $(document).ready(function(){
+	        alert('jquery 테스트'); // 맨 밑의 slim 버전 때문. jquery-3.5.1.slim.min.js
+	     })
+		
+	
 		function updateChart() {
 			alert('실행되냐')
 			
 			// 이걸 ajax 써서 써보자.
 		 
-		/*
 	      $.ajax({
 	          url : '${ pageContext.request.contextPath }/mypage/update',
 	          type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 	          success : function(data){  // data의 type : string --> json으로 바꾸자  ::  이용~ 
 	             
-	        	  
-	        	  
-	        	  
-	        	  //console.log(data)
-	             let list = JSON.parse(data)
-	             console.log(list)
+	        	 alert('ajax 성공');
+	        	 alert(data);
+	        	 console.log('하하하하');
+	        	 console.log(data);
+	             
+	        	 let list = JSON.parse(data);
+	             console.log(list);
+	             
+	             alert(list.jan);
+	             
+	             //myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578 ];
+				 myLineChart.data.datasets[0].data = [list.jan, list.feb, list.mar, list.apr, list.may,
+					 list.jun, list.jul, list.aug, list.sept, list.oct, list.nov, list.dec]
+	             
+	        	 myLineChart.update();
+	             
 	             
 	        	 //$('#replyList').empty();
 	             // jQuery 삭제
 	            	 // remove : 셀렉터까지 지운다.
 					//empty : 셀렉터는 두고, 자식들만 지움
 					
-	             $('#replyList').html('');
-	             alert('언제 뜨는데 이게?')
+	             // $('#replyList').html('');
+	            
+	             /*
 	             $(list).each(function(){
 	                console.log(this)
 	                let str='';
@@ -60,18 +80,22 @@
 	                str += '</div>'
 	                $('#replyList').append(str);
 	             })
-	             
+	             */
 	             
 	          }, error : function() {
-	            alert('error')
+	            alert('ajax 실패')
 	         }
-	      }) 
+	          
+	          
+	          
+	      })  
 			
-	      */
-			
+	      
+			/*
 			myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45,
 					440, 50, 70, 4504, 578 ];
-			myLineChart.update(); 
+			myLineChart.update();
+			*/
 		}; 
 		
 		
@@ -737,9 +761,10 @@
   
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
   
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
   
 </body>
 </html>

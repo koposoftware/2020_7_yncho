@@ -6,7 +6,6 @@ public class MemberVO {
 	private String password;
 	private String type;
 	private String resiNum;
-	
 	public String getId() {
 		return id;
 	}
@@ -25,18 +24,17 @@ public class MemberVO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
 	public String getResiNum() {
 		return resiNum;
 	}
 	public void setResiNum(String resiNum) {
 		this.resiNum = resiNum;
 	}
-	
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", type=" + type + ", resiNum=" + resiNum + "]";
 	}
+	
 	
 	
 }
