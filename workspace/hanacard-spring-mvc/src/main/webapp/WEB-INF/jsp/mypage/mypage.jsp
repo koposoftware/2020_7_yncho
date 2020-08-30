@@ -23,12 +23,54 @@
 
 	<script>
 		
-		/* function updateChart() {
+		function updateChart() {
 			alert('실행되냐')
+			
+			// 이걸 ajax 써서 써보자.
+		 /*
+	      $.ajax({
+	          url : '${ pageContext.request.contextPath }/mypage/update',
+	          type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+	          success : function(data){  // data의 type : string --> json으로 바꾸자  ::  이용~ 
+	             
+	        	  
+	        	  
+	        	  
+	        	  //console.log(data)
+	             let list = JSON.parse(data)
+	             console.log(list)
+	             
+	        	 //$('#replyList').empty();
+	             // jQuery 삭제
+	            	 // remove : 셀렉터까지 지운다.
+					//empty : 셀렉터는 두고, 자식들만 지움
+					
+	             $('#replyList').html('');
+	             alert('언제 뜨는데 이게?')
+	             $(list).each(function(){
+	                console.log(this)
+	                let str='';
+	                str += '<hr>'
+	                str += '<div>'
+	                str+= '<strong>'+this.content+'</strong>';
+	                str+= '  ('+ this.writer +')';
+	                str+= '  '+ this.regDate;
+	                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
+	                str += '</div>'
+	                $('#replyList').append(str);
+	             })
+	             
+	             
+	          }, error : function() {
+	            alert('error')
+	         }
+	      }) */
+			
+			
 			myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45,
 					440, 50, 70, 4504, 578 ];
 			myLineChart.update();
-		}; */
+		}; 
 		
 	</script>
 
@@ -175,8 +217,8 @@
 			    <option>2018년</option>
 			  </select>&nbsp;&nbsp;&nbsp;
 			  
-			  <select class="selectpicker" data-style="btn-success">
-			  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+			  <!-- <select class="selectpicker" data-style="btn-success">
+			  <select class="selectpicker" multiple data-max-options="2">
 			    <option>전체</option>
 			    <option>1월</option>
 			    <option>2월</option>
@@ -190,7 +232,7 @@
 			    <option>10월</option>
 			    <option>11월</option>
 			    <option>12월</option>
-			  </select>&nbsp;&nbsp;&nbsp;
+			  </select>&nbsp;&nbsp;&nbsp; -->
 			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick ="updateChart()"><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
 			  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 			  
@@ -235,6 +277,54 @@
             </div>
 			<!-- Area Chart ends -->
 		</div>			
+
+
+
+
+  		<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
+		  	<!-- Example single danger button -->
+				<!-- <div class="btn-group">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Year
+				  </button>
+				  <div class="dropdown-menu">
+				    <a class="dropdown-item" href="#">2020년</a>
+				    <a class="dropdown-item active" href="#">2020년</a>
+				    <a class="dropdown-item" href="#">2019년</a>
+				    <a class="dropdown-item" href="#">2018년</a>
+				    <div class="dropdown-divider"></div>
+				    <a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+				</div>  -->  
+				
+			 <select class="selectpicker" data-style="btn-success">
+			  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+			    <option>2020년</option>
+			    <option>2019년</option>
+			    <option>2018년</option>
+			  </select>&nbsp;&nbsp;&nbsp;
+			  
+			  <select class="selectpicker" data-style="btn-success">
+			  <!-- <select class="selectpicker" multiple data-max-options="2"> -->
+			    <option>전체</option>
+			    <option>1월</option>
+			    <option>2월</option>
+			    <option>3월</option>
+			    <option>4월</option>
+			    <option>5월</option>
+			    <option>6월</option>
+			    <option>7월</option>
+			    <option>8월</option>
+			    <option>9월</option>
+			    <option>10월</option>
+			    <option>11월</option>
+			    <option>12월</option>
+			  </select>&nbsp;&nbsp;&nbsp;
+			  <button class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick ="updateChart()"><i class="fas fa-download fa-sm text-white-50"></i> 조회</button>
+			  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+			  
+          </div>
+
 
 		<div class="row">
             <!-- Pie Chart -->
@@ -451,12 +541,12 @@
 		<script>
 		  
 		  	  //Update all chart function
-		  	  function updateChart(){
+		  	  /* function updateChart(){
 		  		alert('실행되냐')
 		  		myLineChart.data.datasets[0].data = [0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578];
 		  		myLineChart.update();  
 		  	  };  
-		  	  
+		  	   */
 		  
 		  
 			//Area Chart Example
