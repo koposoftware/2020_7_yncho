@@ -22,9 +22,14 @@
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript">
+
+
 	$(document).ready(function() {
-		alert('jquery 테스트'); // 맨 밑의 slim 버전 때문. jquery-3.5.1.slim.min.js
+		
+		alert('jquery 테스트'); // 맨 밑의 slim 버전 때문에 안됐었음. 주석처리하여 해결(jquery-3.5.1.slim.min.js)
+		
 	})
+	
 
 	function updateChart() {
 
@@ -76,26 +81,27 @@
 
 			},
 			error : function() {
+				
 				alert('ajax 실패')
+				
 			}
-
 		})
-
-		/*
-		myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45,
-				440, 50, 70, 4504, 578 ];
-		myLineChart.update();
-		 */
 	};
 
+	
 	function updateChart2() {
+		
 		alert('소비패턴 조회 버튼')
+		
 	};
+	
+	
 </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+	
+	<!-- .site-wrap starts -->
 	<div class="site-wrap">
 
 		<%-- 헤더 시작 :  header 태그가 topMenue.jsp내에 있어서 <header>로 감싸면 제대로 안나옴. --%>
@@ -134,6 +140,7 @@
 				<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 			</div>
 
+			<%-- 첫번째 로우 시작 : 4개의 작은 카드 --%>
 			<!-- Content Row -->
 			<div class="row">
 
@@ -215,7 +222,10 @@
 					</div>
 				</div>
 			</div>
+			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
+
+			<%-- 소비 개요 버튼 시작 --%>
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 				<!-- <div class="btn-group">
@@ -262,8 +272,10 @@
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 
 			</div>
+			<%-- 소비 개요 버튼 끝 --%>
+		
 
-
+			<%-- 두번째 로우 시작 : 소비 개요 그래프 --%>
 			<!-- Content Row -->
 			<div class="row">
 
@@ -302,10 +314,11 @@
 				</div>
 				<!-- Area Chart ends -->
 			</div>
+			<%-- 두번째 로우 끝 : 소비 개요 그래프 --%>
 
 
 
-
+			<%-- 소비 패턴 버튼 시작 --%>
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 				<!-- <div class="btn-group">
@@ -352,8 +365,10 @@
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 
 			</div>
+			<%-- 소비 패턴 버튼 끝 --%>
 
 
+			<%-- 세번째 로우 시작 : 소비 패턴 그래프  --%>
 			<div class="row">
 				<!-- Pie Chart -->
 				<div class="col-xl-4 col-lg-5">
@@ -418,7 +433,10 @@
 				<!-- Bar Chart ends -->
 
 			</div>
+			<%-- 세번째 로우 끝 : 소비 패턴  그래프 --%>
 
+
+			<%-- 네번째 로우 시작 : Projects --%>
 			<!-- Content Row -->
 			<div class="row">
 
@@ -565,20 +583,16 @@
 
 				</div>
 			</div>
+			<%-- 네번째 로우 끝 : Projects --%>
 
 		</div>
+		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
+		
 
 		<!-- Page level plugins -->
 		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
 
 		<script>
-			//Update all chart function
-			/* function updateChart(){
-			alert('실행되냐')
-			myLineChart.data.datasets[0].data = [0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578];
-			myLineChart.update();  
-			};  
-			 */
 
 			//Area Chart Example
 			function number_format(number, decimals, dec_point, thousands_sep) {
@@ -703,7 +717,6 @@
 		</script>
 
 
-
 		<!-- Bootstrap core JavaScript-->
 		<script src="/hanacard-spring-mvc/resources/vendor/jquery/jquery.min.js"></script>
 		<script src="/hanacard-spring-mvc/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -714,25 +727,19 @@
 		<!-- Custom scripts for all pages-->
 		<script src="/hanacard-spring-mvc/resources/js/sb-admin-2.min.js"></script>
 
-
 		<!-- Page level custom scripts -->
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script>
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script>
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script>
 
-
 		<!-- /.container-fluid -->
-
-		<%-- 본문 코드 종료 --%>
-
-
 		<footer>
 			<jsp:include page="../include/footer.jsp" />
 		</footer>
 
 
 	</div>
-	<!-- .site-wrap -->
+	<!-- .site-wrap ends -->
 
 	<!-- loader -->
 	<div id="loader" class="show fullscreen">
