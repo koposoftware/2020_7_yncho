@@ -28,28 +28,81 @@
 		
 		alert('jquery 테스트'); // 맨 밑의 slim 버전 때문에 안됐었음. 주석처리하여 해결(jquery-3.5.1.slim.min.js)
 		
-		getTopChartCurrentYear(); // (로그인 전제) 문서 로딩 후 현재년도 버전으로 연소비개요 그래프를 보여준다.
-		getBottomChartCurrentYear(); // (로그인 전제) 문서 로딩 후 현재년도 버전으로 소비패턴 그래프를 보여준다. (도넛차트, 막대그래프)
+		getTopCurrentYear(); // (로그인 전제, JAVA단 인터셉터 추가 필요) 문서 로딩 후 현재년도 버전으로 연소비개요 그래프를 보여준다.
+		getBottomCurrentYear(); // (로그인 전제, JAVA단 인터셉터 추가 필요) 문서 로딩 후 현재년도 버전으로 소비패턴 그래프를 보여준다. (도넛차트, 막대그래프)
 		
 	})
 	
 	
-	function getTopChartCurrentYear(){
-		alert('getTopChartCurrentYear()');
+	function getTopCurrentYear(){
+		
+		alert('getTopCurrentYear()');
+		
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/topcurrent',
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+				alert('ajax 성공');
+				//alert(data);
+				// console.log('하하하하');
+
+				console.log(data);
+				let list = JSON.parse(data);
+				console.log(list);
+
+				alert(list.jan);
+
+				//myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578 ];
+				myLineChart.data.datasets[0].data = [ list.jan, list.feb,
+						list.mar, list.apr, list.may, list.jun, list.jul,
+						list.aug, list.sept, list.oct, list.nov, list.dec ]
+
+				myLineChart.update();
+
+				//$('#replyList').empty();
+				// jQuery 삭제
+				// remove : 셀렉터까지 지운다.
+				//empty : 셀렉터는 두고, 자식들만 지움
+
+				// $('#replyList').html('');
+
+				/*
+				$(list).each(function(){
+				   console.log(this)
+				   let str='';
+				   str += '<hr>'
+				   str += '<div>'
+				   str+= '<strong>'+this.content+'</strong>';
+				   str+= '  ('+ this.writer +')';
+				   str+= '  '+ this.regDate;
+				   str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
+				   str += '</div>'
+				   $('#replyList').append(str);
+				})
+				 */
+
+			},
+			error : function() {
+				
+				alert('ajax 실패')
+				
+			}
+		})
 	}
 	
 	
-	function getBottomChartCurrentYear(){
-		alert('getBottomChartCurrentYear()');
+	function getBottomCurrentYear(){
+		alert('getBottomCurrentYear()');
 	}
 	
 
-	function updateTopChart() {
+	function getTopSpecific() {
 
-		alert('updateTopChart()')
+		alert('getTopSpecific()')
 
 		$.ajax({
-			url : '${ pageContext.request.contextPath }/mypage/update',
+			url : '${ pageContext.request.contextPath }/mypage/topspecific',
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
@@ -101,10 +154,9 @@
 		})
 	};
 
-	
-	function updateBottomChart() {
+	function getBottomSpecific() {
 		
-		alert('updateBottomChart()');
+		alert('getBottomSpecific()');
 		
 	};
 	
@@ -279,7 +331,7 @@
 			    <option>11월</option>
 			    <option>12월</option>
 			  </select>&nbsp;&nbsp;&nbsp; -->
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateTopChart()">
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
 				</button>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
@@ -372,7 +424,7 @@
 					<option>12월</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateBottomChart()">
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()">
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
 				</button>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->

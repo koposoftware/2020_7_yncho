@@ -14,7 +14,7 @@ import kr.co.hanacard.mypage.vo.MypageVO;
 @Controller
 public class MypageController {
 	
-	@Autowired //BoardService 클래스 위에 어노테이션이 있기 때문에, 빈이 생성되기 때문에 Autowired 하면 자동으로 그것을 여기에 자동으로 넣는다.
+	@Autowired //MypageService 클래스 위에 어노테이션이 있기 때문에, 빈이 생성되기 때문에 Autowired 하면 자동으로 그것을 여기에 자동으로 넣는다.
 	private MypageService mypageService;
 	
 	
@@ -23,6 +23,36 @@ public class MypageController {
 		
 		return "/mypage/mypage";
 	}
+	
+	/**
+	 * 마이페이지 화면 로딩 후 자동으로 현재 연도의 월별 소비 합계를 가져온다. 이후 top chart(area chart)에서 데이터를 받아서 화면에 뿌림.
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@GetMapping("/mypage/topcurrent")
+	public MypageVO getTopCurrentYear(HttpSession session) {
+		
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
+		
+		MypageVO mypageVO = mypageService.getDataCurrentYear(resiNum);
+		
+		return mypageVO;
+	}
+	
+	@ResponseBody
+	@GetMapping("/mypage/bottomcurrent")
+	public MypageVO getBottomCurrentYear(HttpSession session) {
+
+		
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
+
+		
+		return null;
+	}
+	
 	
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
