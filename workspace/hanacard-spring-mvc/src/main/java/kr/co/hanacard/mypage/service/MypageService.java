@@ -12,7 +12,7 @@ public interface MypageService {
 
 	 */
 	
-	 MypageVO getDataCurrentYear(String resiNum);
+	 MypageVO getTopCurrentYear(String resiNum);
 	 
 	 //MypageVO getDataByYear();
 	  

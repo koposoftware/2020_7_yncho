@@ -16,9 +16,9 @@ public class MypageDAOImpl implements MypageDAO{
 	// 전에는 conn 객체를 만들었는데, 이제는 sqlSession 객체를 활용해서 처리한다.
 	
 	@Override
-	public MypageVO getDataCurrentYear(String resiNum) {
+	public MypageVO getTopCurrentYear(String resiNum) {
 		
-		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.dataCurrentYear", resiNum);
+		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYear", resiNum);
 		//selectOne("매퍼의 namespace + <select> 등 태그의 id")
 
 		return mypageVO;

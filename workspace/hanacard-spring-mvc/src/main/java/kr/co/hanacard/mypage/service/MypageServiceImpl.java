@@ -12,9 +12,9 @@ public class MypageServiceImpl implements MypageService{
 	private MypageDAO mypageDAO;
 	
 	@Override
-	public MypageVO getDataCurrentYear(String resiNum) {
+	public MypageVO getTopCurrentYear(String resiNum) {
 		
-		MypageVO mypageVO = mypageDAO.getDataCurrentYear(resiNum);
+		MypageVO mypageVO = mypageDAO.getTopCurrentYear(resiNum);
 		
 		return mypageVO;
 	}

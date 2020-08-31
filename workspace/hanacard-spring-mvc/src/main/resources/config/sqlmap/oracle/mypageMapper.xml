@@ -20,7 +20,7 @@
 	</resultMap> -->
 
 	<!-- 파라미터 resiNum으로 들어온다. 파라미터 입력하는걸로 다시 수정해야 함. -->
-	<select id = "dataCurrentYear" parameterType = "String" resultType ="MypageVO">
+	<select id = "getTopCurrentYear" parameterType = "String" resultType ="MypageVO">
 	
 		
 		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.hanacard.member.vo.MemberVO;
@@ -29,66 +30,46 @@ public class MypageController {
 	 * @param session
 	 * @return
 	 */
-	@ResponseBody
-	@GetMapping("/mypage/topcurrent")
+	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
+	@GetMapping("/mypage/topcurrent") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
 	public MypageVO getTopCurrentYear(HttpSession session) {
 		
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
 		String resiNum = loginVO.getResiNum();
 		
-		MypageVO mypageVO = mypageService.getDataCurrentYear(resiNum);
-		
-		return mypageVO;
-	}
-	
-	@ResponseBody
-	@GetMapping("/mypage/bottomcurrent")
-	public MypageVO getBottomCurrentYear(HttpSession session) {
-
-		
-		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
-		String resiNum = loginVO.getResiNum();
-
-		
-		return null;
-	}
-	
-	
-	
-	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
-	@GetMapping("/mypage/update") // ajax를 통해 post 방식으로 data(즉, 파라미터)가 날라온다. 
-	public MypageVO getData(HttpSession session) { 
-		
-		
-		// 로그인이 안되어 있는 경우 ajax error난다. 얼른 인터셉터 얼른 추가하자.
-		
-		
-		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
-		String resiNum = loginVO.getResiNum();
-		
-		System.out.println("loginVO : " + loginVO);
-		System.out.println("resiNum : " + resiNum);
-		
-		MypageVO mypageVO = mypageService.getDataCurrentYear(resiNum);
+		MypageVO mypageVO = mypageService.getTopCurrentYear(resiNum);
 		System.out.println("mapping은 되는건가?");
 		System.out.println("mypageVO : " + mypageVO); 
 		// 왜 null 찍히지. 아 dao단에서 처리안했음. 디버깅의 중요성! 디버깅을 단계별로 하니 금방 잡힌다.
 		// 이제부터 jUnit 테스트를 활용해보자!
 		
-		return mypageVO; 
+		return mypageVO;
 		// ajax를 사용한 jsp로 날라가며, ajax의 success 부분에서 이를 받아 처리한다. 
 		// String 형태로 날라가기 때문에, JSON 형태로 parsing이 필요하다.
-
 	}
+	
+	
+//	@ResponseBody
+//	@PostMapping
+//	public MypageVO getTopSpecific() {
+//		
+//		return null;
+//	}
 	
 	
 	
 //	@ResponseBody
-//	@GetMapping("/mypage/update") // ajax를 통해 post 방식으로 data(즉, 파라미터)가 날라온다. 
-//	public void addReply(ReplyVO replyVO) { // (3) ReplyVO reployVO 하면, jsp의 댓글관련 form 태그에서 전송하는 데이터들을(ajax를 활용하여. data : {} 를 사용하여) replyVO 타입으로 받을 수 있다.
-//		//System.out.println("/reply controller 호출");
-//		replyService.insertReply(replyVO);
+//	@GetMapping("/mypage/bottomcurrent")
+//	public MypageVO getBottomCurrentYear(HttpSession session) {
+//
+//		
+//		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+//		String resiNum = loginVO.getResiNum();
+//
+//		
+//		return null;
 //	}
+	
 	
 	
 }
