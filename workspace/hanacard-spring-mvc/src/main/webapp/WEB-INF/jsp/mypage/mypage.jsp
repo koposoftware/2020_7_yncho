@@ -28,12 +28,25 @@
 		
 		alert('jquery 테스트'); // 맨 밑의 slim 버전 때문에 안됐었음. 주석처리하여 해결(jquery-3.5.1.slim.min.js)
 		
+		getTopChartCurrentYear(); // (로그인 전제) 문서 로딩 후 현재년도 버전으로 연소비개요 그래프를 보여준다.
+		getBottomChartCurrentYear(); // (로그인 전제) 문서 로딩 후 현재년도 버전으로 소비패턴 그래프를 보여준다. (도넛차트, 막대그래프)
+		
 	})
 	
+	
+	function getTopChartCurrentYear(){
+		alert('getTopChartCurrentYear()');
+	}
+	
+	
+	function getBottomChartCurrentYear(){
+		alert('getBottomChartCurrentYear()');
+	}
+	
 
-	function updateChart() {
+	function updateTopChart() {
 
-		alert('실행되냐')
+		alert('updateTopChart()')
 
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/update',
@@ -89,9 +102,9 @@
 	};
 
 	
-	function updateChart2() {
+	function updateBottomChart() {
 		
-		alert('소비패턴 조회 버튼')
+		alert('updateBottomChart()');
 		
 	};
 	
@@ -266,7 +279,7 @@
 			    <option>11월</option>
 			    <option>12월</option>
 			  </select>&nbsp;&nbsp;&nbsp; -->
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateChart()">
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateTopChart()">
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
 				</button>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
@@ -359,7 +372,7 @@
 					<option>12월</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateChart2()">
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="updateBottomChart()">
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
 				</button>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
