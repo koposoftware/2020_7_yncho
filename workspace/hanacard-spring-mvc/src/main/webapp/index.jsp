@@ -89,7 +89,7 @@
                 </li>
                 
                 <li class="has-children">
-                  <a href="about.html" class="nav-link text-left">검색/비교</a>
+                  <a href="about.html" class="nav-link text-left">검색/추천</a>
                   <ul class="dropdown">
                     <li><a href="teachers.html">조건별검색</a></li>
                     <li><a href="about.html">키워드검색</a></li>
