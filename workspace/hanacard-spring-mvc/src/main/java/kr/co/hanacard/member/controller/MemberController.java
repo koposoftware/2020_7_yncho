@@ -44,6 +44,11 @@ public class MemberController {
 		// 그럴 때는 아예 객채로 받는 방법을 쓴다. 그냥 객체명을 쓰면, 내부적으로 setter가 작동해서 form 태그 내의 데이터를 담아오는 듯하다. 
 		
 		MemberVO loginVO = memberService.login(member);
+		
+		System.out.println("========login 시작========");
+		System.out.println("toString의 힘! loginVO : " + loginVO);
+		System.out.println("========login 완료========");
+		
 		ModelAndView mav = new ModelAndView();
 		
 		// 로그인 실패

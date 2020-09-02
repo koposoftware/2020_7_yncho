@@ -33,7 +33,8 @@
 	<select id ="login" parameterType="MemberVO" resultMap = "memberMap">
 	<!-- <select id ="login" parameterType="MemberVO" resultType="MemberVO"> -->
 		
-		SELECT RESI_NUM, ID, PASSWORD
+		SELECT RESI_NUM, ID, PASSWORD, NAME, PHONE, EMAIL, CHN, CSH, CSS, CHD, CKM, CLT,
+				CWR, CBC, CCT, CNH, CSHB, CKJB, CJBB, CJJB
 		FROM MEMBER_TEST01
 		WHERE ID = #{id} AND PASSWORD = #{password}
 		

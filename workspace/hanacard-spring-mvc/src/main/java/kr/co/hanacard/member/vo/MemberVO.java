@@ -2,12 +2,14 @@ package kr.co.hanacard.member.vo;
 
 public class MemberVO {
 
+	private String resiNum;
 	private String id;
 	private String password;
-	private String type;
-	private String resiNum;
+	private String name;
+	private String phone;
+	private String email;
 	
-	private String cha;
+	private String chn;
 	private String csh;
 	private String css;
 	private String chd;
@@ -22,7 +24,12 @@ public class MemberVO {
 	private String cjbb;
 	private String cjjb;
 	
-	
+	public String getResiNum() {
+		return resiNum;
+	}
+	public void setResiNum(String resiNum) {
+		this.resiNum = resiNum;
+	}
 	public String getId() {
 		return id;
 	}
@@ -35,23 +42,29 @@ public class MemberVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getResiNum() {
-		return resiNum;
+	public String getPhone() {
+		return phone;
 	}
-	public void setResiNum(String resiNum) {
-		this.resiNum = resiNum;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getCha() {
-		return cha;
+	public String getEmail() {
+		return email;
 	}
-	public void setCha(String cha) {
-		this.cha = cha;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getChn() {
+		return chn;
+	}
+	public void setChn(String chn) {
+		this.chn = chn;
 	}
 	public String getCsh() {
 		return csh;
@@ -134,12 +147,10 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", password=" + password + ", type=" + type + ", resiNum=" + resiNum + ", cha="
-				+ cha + ", csh=" + csh + ", css=" + css + ", chd=" + chd + ", ckm=" + ckm + ", clt=" + clt + ", cwr="
-				+ cwr + ", cbc=" + cbc + ", cct=" + cct + ", cnh=" + cnh + ", cshb=" + cshb + ", ckjb=" + ckjb
-				+ ", cjbb=" + cjbb + ", cjjb=" + cjjb + "]";
+		return "MemberVO [resiNum=" + resiNum + ", id=" + id + ", password=" + password + ", name=" + name + ", phone="
+				+ phone + ", email=" + email + ", chn=" + chn + ", csh=" + csh + ", css=" + css + ", chd=" + chd
+				+ ", ckm=" + ckm + ", clt=" + clt + ", cwr=" + cwr + ", cbc=" + cbc + ", cct=" + cct + ", cnh=" + cnh
+				+ ", cshb=" + cshb + ", ckjb=" + ckjb + ", cjbb=" + cjbb + ", cjjb=" + cjjb + "]";
 	}
-	
-	
 	
 }
