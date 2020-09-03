@@ -19,15 +19,29 @@
 		<result column="resi_num" property ="regiNum"/>
 	</resultMap> -->
 
+	<!-- resultMap 혹은 resultType 둘 중 하나만 써야함 -->
 	<!-- 파라미터 resiNum으로 들어온다. 파라미터 입력하는걸로 다시 수정해야 함. -->
 	<select id = "getTopCurrentYear" parameterType = "String" resultType ="MypageVO">
-		
+		WITH WHOLE AS (SELECT T.CARD_TRANSACTION_TIME, T.CARD_TRANSACTION_CONTENT, T.CARD_TRANSACTION_AMOUNT, T.PAYMENT, (SELECT L.CARD_PRODUCT_NAME 
+                                                                FROM CARD_PRODUCT_LIST_TEST01 L 
+                                                                WHERE L.CARD_PRODUCT_CODE = (SELECT C.CARD_PRODUCT_CODE
+                                                                                            FROM CARD_CONTRACT_TEST01 C
+                                                                                            WHERE C.CARD_NUM = T.CARD_NUM)
+                                                                ) AS MEANS
+            FROM CARD_TRANSACTION_TEST01 T WHERE CARD_NUM IN (SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = '9203101937988')
+            
+            UNION ALL 
+            
+            SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_CONTENT, CARD_TRANSACTION_AMOUNT, PAYMENT, MEANS
+            FROM OPEN_CARD_TRANSACTION_TEST01
+            WHERE RESI_NUM = '9203101937988' AND MEANS IN ('신한카드')
+            ORDER BY CARD_TRANSACTION_TIME)
 		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",
 		        SUBQUERY5.NUM AS "may", SUBQUERY6.NUM AS "jun", SUBQUERY7.NUM AS "jul", SUBQUERY8.NUM AS "aug",
 		        SUBQUERY9.NUM AS "sept", SUBQUERY10.NUM AS "oct", SUBQUERY11.NUM AS "nov", SUBQUERY12.NUM AS "dec"
 		FROM (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-01' FROM DUAL)
 		             
@@ -40,7 +54,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-02' FROM DUAL)
 		             
@@ -53,7 +67,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-03' FROM DUAL)
 		             
@@ -66,7 +80,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-04' FROM DUAL)
 		             
@@ -79,7 +93,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-05' FROM DUAL)
 		             
@@ -92,7 +106,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-06' FROM DUAL)
 		             
@@ -105,7 +119,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-07' FROM DUAL)
 		             
@@ -118,7 +132,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-08' FROM DUAL)
 		             
@@ -131,7 +145,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-09' FROM DUAL)
 		             
@@ -144,7 +158,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-10' FROM DUAL)
 		             
@@ -157,7 +171,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-11' FROM DUAL)
 		             
@@ -170,7 +184,7 @@
 		      
 		     (SELECT * 
 		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
-		             FROM CARD_TRANSACTION_TEST01
+		             FROM WHOLE
 		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
 		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-12' FROM DUAL)
 		             
@@ -184,6 +198,7 @@
 		<!-- 세미콜론 쓰지 않는 것에 주의! 또한 ROWNUM <=1 하니까 빨간 밑줄 뜬다. 에러는 안나겠지만, 그냥 등호(=)로 바꿔줌. -->
 	
 	</select>
+
 
 
 </mapper>
