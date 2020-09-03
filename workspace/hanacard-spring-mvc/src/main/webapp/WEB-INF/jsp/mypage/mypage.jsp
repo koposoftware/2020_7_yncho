@@ -36,7 +36,7 @@
 	
 	function getTopCurrentYear(){
 		
-		alert('getTopCurrentYear()');
+		//alert('getTopCurrentYear()');
 		
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/topcurrent',

@@ -211,7 +211,7 @@
             
             SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_CONTENT, CARD_TRANSACTION_AMOUNT, PAYMENT, MEANS
             FROM OPEN_CARD_TRANSACTION_TEST01
-            WHERE RESI_NUM = #{resiNum} AND MEANS IN (#{cardListString})
+            WHERE RESI_NUM = #{resiNum} AND MEANS IN (${cardListString}) <!-- $ # 차이가 있음! java 단에서 싱글쿼테이션 붙여서 날라오기 때문에 $ 쓴다. -->
             
             ORDER BY CARD_TRANSACTION_TIME)
 		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",

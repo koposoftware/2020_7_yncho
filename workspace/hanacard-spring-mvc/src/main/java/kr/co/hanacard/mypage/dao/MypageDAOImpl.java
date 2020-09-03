@@ -35,6 +35,8 @@ public class MypageDAOImpl implements MypageDAO{
 		map.put("resiNum", resiNum);
 		map.put("cardListString", cardListString);
 		
+		System.out.println("map.get(\"resiNum\") : " + map.get("resiNum") );
+		System.out.println("map.get(\"cardListString\") : " + map.get("cardListString"));
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYearOpen", map);
 		
 		
