@@ -1,5 +1,9 @@
 package kr.co.hanacard.mypage.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +25,23 @@ public class MypageDAOImpl implements MypageDAO{
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYear", resiNum);
 		//selectOne("매퍼의 namespace + <select> 등 태그의 id")
 
+		return mypageVO;
+	}
+	
+	@Override // 이렇게 @Param으로 날라갈까?
+	public MypageVO getTopCurrentYear(String resiNum, String cardListString) {
+				
+		Map<String, String> map = new HashMap<>();
+		map.put("resiNum", resiNum);
+		map.put("cardListString", cardListString);
+		
+		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYearOpen", map);
+		
+		
+		//MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYear", resiNum);
+		// 이렇게는 안되는듯 MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopCurrentYear", resiNum, cardListString);
+		//selectOne("매퍼의 namespace + <select> 등 태그의 id")
+		
 		return mypageVO;
 	}
 	

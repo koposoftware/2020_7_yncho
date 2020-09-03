@@ -18,6 +18,14 @@ public class MypageServiceImpl implements MypageService{
 		
 		return mypageVO;
 	}
+	
+	@Override
+	public MypageVO getTopCurrentYear(String resiNum, String cardListString) {
+		
+		MypageVO mypageVO = mypageDAO.getTopCurrentYear(resiNum, cardListString);
+		
+		return mypageVO;
+	}
 
 	
 	/*

@@ -13,6 +13,7 @@ public interface MypageService {
 	 */
 	
 	 MypageVO getTopCurrentYear(String resiNum);
+	 MypageVO getTopCurrentYear(String resiNum, String cardListString);
 	 
 	 //MypageVO getDataByYear();
 	  

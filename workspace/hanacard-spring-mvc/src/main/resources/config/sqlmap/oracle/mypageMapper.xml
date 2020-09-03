@@ -7,6 +7,8 @@
 			namespace에 뭘 적어준거더라... 내마음대로 적는거였나? 
 			==> 맞음. mapper들을 구분하기 위해 적는 것임. 마치 같은 이름의 클래스를 구분하기 위해 패키지가 쓰이는 것처럼
 			==> 같은 id를 가지는(가질 수 있는) select, insert 등의 태그를 구분하기 위해 쓰인다.  
+			
+			반복되는 문장 <sql>에 담을 수 있다. include로 활용 가능. 이를 적극 활용하자. 수업 코드 블로그에 있으니 참조하여 작성 하기.
 -->
 <mapper namespace ="mypage.dao.MypageDAO">
 
@@ -22,19 +24,195 @@
 	<!-- resultMap 혹은 resultType 둘 중 하나만 써야함 -->
 	<!-- 파라미터 resiNum으로 들어온다. 파라미터 입력하는걸로 다시 수정해야 함. -->
 	<select id = "getTopCurrentYear" parameterType = "String" resultType ="MypageVO">
+		WITH WHOLE AS (SELECT T.CARD_TRANSACTION_TIME, T.CARD_TRANSACTION_CONTENT, T.CARD_TRANSACTION_AMOUNT, 
+                        (SELECT VALUE FROM CODE WHERE CODE = T.PAYMENT) AS PAYMENT, (SELECT L.CARD_PRODUCT_NAME 
+                                                                                    FROM CARD_PRODUCT_LIST_TEST01 L 
+                                                                                    WHERE L.CARD_PRODUCT_CODE = (SELECT C.CARD_PRODUCT_CODE
+                                                                                                                FROM CARD_CONTRACT_TEST01 C
+                                                                                                                WHERE C.CARD_NUM = T.CARD_NUM)
+                                                                                    ) AS MEANS
+            FROM CARD_TRANSACTION_TEST01 T 
+            WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = #{resiNum})
+            ORDER BY CARD_TRANSACTION_TIME)
+		
+		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",
+		        SUBQUERY5.NUM AS "may", SUBQUERY6.NUM AS "jun", SUBQUERY7.NUM AS "jul", SUBQUERY8.NUM AS "aug",
+		        SUBQUERY9.NUM AS "sept", SUBQUERY10.NUM AS "oct", SUBQUERY11.NUM AS "nov", SUBQUERY12.NUM AS "dec"
+		FROM (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-01' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY1,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-02' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY2,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-03' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY3,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-04' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY4,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-05' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY5,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-06' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY6,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-07' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY7,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-08' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY8,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-09' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY9,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-10' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY10,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-11' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY11,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS NUM
+		             FROM WHOLE
+		             GROUP BY TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM')
+		             HAVING TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY-MM') = (SELECT TO_CHAR(SYSDATE, 'YYYY')||'-12' FROM DUAL)
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS NUM
+		             FROM DUAL)
+		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY12
+		WHERE ROWNUM = 1
+		<!-- 세미콜론 쓰지 않는 것에 주의! 또한 ROWNUM <=1 하니까 빨간 밑줄 뜬다. 에러는 안나겠지만, 그냥 등호(=)로 바꿔줌. -->
+	
+	</select>
+
+	<select id = "getTopCurrentYearOpen" parameterType = "map" resultType ="MypageVO">
 		WITH WHOLE AS (SELECT T.CARD_TRANSACTION_TIME, T.CARD_TRANSACTION_CONTENT, T.CARD_TRANSACTION_AMOUNT, T.PAYMENT, (SELECT L.CARD_PRODUCT_NAME 
                                                                 FROM CARD_PRODUCT_LIST_TEST01 L 
                                                                 WHERE L.CARD_PRODUCT_CODE = (SELECT C.CARD_PRODUCT_CODE
                                                                                             FROM CARD_CONTRACT_TEST01 C
                                                                                             WHERE C.CARD_NUM = T.CARD_NUM)
                                                                 ) AS MEANS
-            FROM CARD_TRANSACTION_TEST01 T WHERE CARD_NUM IN (SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = '9203101937988')
+            FROM CARD_TRANSACTION_TEST01 T WHERE CARD_NUM IN (SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = #{resiNum})
             
             UNION ALL 
             
             SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_CONTENT, CARD_TRANSACTION_AMOUNT, PAYMENT, MEANS
             FROM OPEN_CARD_TRANSACTION_TEST01
-            WHERE RESI_NUM = '9203101937988' AND MEANS IN ('신한카드')
+            WHERE RESI_NUM = #{resiNum} AND MEANS IN (#{cardListString})
+            
             ORDER BY CARD_TRANSACTION_TIME)
 		SELECT SUBQUERY1.NUM AS "jan", SUBQUERY2.NUM AS "feb", SUBQUERY3.NUM AS "mar", SUBQUERY4.NUM AS "apr",
 		        SUBQUERY5.NUM AS "may", SUBQUERY6.NUM AS "jun", SUBQUERY7.NUM AS "jul", SUBQUERY8.NUM AS "aug",

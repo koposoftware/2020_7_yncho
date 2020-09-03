@@ -45,9 +45,13 @@ public class MemberController {
 		
 		MemberVO loginVO = memberService.login(member);
 		
-		System.out.println("========login 시작========");
-		System.out.println("toString의 힘! loginVO : " + loginVO);
-		System.out.println("========login 완료========");
+//		System.out.println("========login 시작========");
+//		System.out.println("toString의 힘! loginVO : " + loginVO);
+//		System.out.println("아이디 : " + loginVO.getId());
+//		System.out.println("하나카드 연동 : " + loginVO.getChn());
+//		System.out.println("신한카드 연동 : " + loginVO.getCsh());
+//		System.out.println("현대카드 연동 : " + loginVO.getChd());
+//		System.out.println("========login 완료========");
 		
 		ModelAndView mav = new ModelAndView();
 		

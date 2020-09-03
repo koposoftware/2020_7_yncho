@@ -1,11 +1,13 @@
 package kr.co.hanacard.mypage.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.hanacard.member.vo.MemberVO;
@@ -33,13 +35,60 @@ public class MypageController {
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/mypage/topcurrent") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
 	public MypageVO getTopCurrentYear(HttpSession session) {
-		
+		MypageVO mypageVO;
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
 		String resiNum = loginVO.getResiNum();
 		
-		MypageVO mypageVO = mypageService.getTopCurrentYear(resiNum);
+	
+		List<String> cardList = new ArrayList<>();
+		
+		// 하.. 문자열 비교는 equals 잖아 ㅠㅠ
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("비씨카드");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("씨티카드");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("현대카드");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("전북은행카드");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("제주은행카드");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("광주은행카드");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("국민카드");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("롯데카드");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("농협카드");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("신한카드");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("수협은행카드");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("삼성카드");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("우리카드");
+				
+		
+		//GetMapping이므로, 현재년도의 자료를 조회하는 것이다.
+		if(cardList.isEmpty()) {
+			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+			mypageVO = mypageService.getTopCurrentYear(resiNum);
+			
+		} else {
+			System.out.println("타 카드사와 연동되어 있습니다.");
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			System.out.println("cardListString : " + cardListString);
+			mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
+			
+		}
+		
+			
+		
+		
+		
 		System.out.println("mapping은 되는건가?");
-		System.out.println("mypageVO : " + mypageVO); 
 		// 왜 null 찍히지. 아 dao단에서 처리안했음. 디버깅의 중요성! 디버깅을 단계별로 하니 금방 잡힌다.
 		// 이제부터 jUnit 테스트를 활용해보자!
 		
