@@ -806,6 +806,104 @@
 					
 				}
 			})  
+			
+			
+
+			// Bar Chart Example
+			var ctx = document.getElementById("myBarChart");
+			var myBarChart = new Chart(
+					ctx,
+					{
+						type : 'bar',
+						data : {
+							labels : [ "교통/주유", "통신", "마트/쇼핑", "반려동물",
+									"보건/의료", "생활", "식음료", "레저/여행/항공" ],
+							datasets : [ {
+								label : "Revenue",
+								/* backgroundColor : "#4e73df", */
+								backgroundColor : ["#6DC1FF", "#36b9cc", "#7462CB", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
+								/* backgroundColor : ["#6DC1FF", "#B2DDFF", "#224B8B", "#ECD711", "#F19C1B", "#F17D28", "#A3D292", "#7EBE91"], */
+								hoverBackgroundColor : "#2e59d9",
+								borderColor : "#4e73df",
+								data : [ 4215, 5312, 6251, 7841, 9821, 14984, 8500, 9500 ],
+							} ],
+						},
+						options : {
+							maintainAspectRatio : false,
+							layout : {
+								padding : {
+									left : 10,
+									right : 25,
+									top : 25,
+									bottom : 0
+								}
+							},
+							scales : {
+								xAxes : [ {
+									time : {
+										unit : 'month'
+									},
+									gridLines : {
+										display : false,
+										drawBorder : false
+									},
+									ticks : {
+										//maxTicksLimit : 6
+										maxTicksLimit : 8,
+										maxRotation: 0, // 기울기
+										minRotation: 0 // 기울기
+										
+									},
+									maxBarThickness : 25,
+								} ],
+								yAxes : [ {
+									ticks : {
+										min : 0,
+										max : 15000,
+										maxTicksLimit : 5,
+										padding : 10,
+										// Include a dollar sign in the ticks
+										callback : function(value, index,
+												values) {
+											return '$' + number_format(value);
+										}
+									},
+									gridLines : {
+										color : "rgb(234, 236, 244)",
+										zeroLineColor : "rgb(234, 236, 244)",
+										drawBorder : false,
+										borderDash : [ 2 ],
+										zeroLineBorderDash : [ 2 ]
+									}
+								} ],
+							},
+							legend : {
+								display : false
+							},
+							tooltips : {
+								titleMarginBottom : 10,
+								titleFontColor : '#6e707e',
+								titleFontSize : 14,
+								backgroundColor : "rgb(255,255,255)",
+								bodyFontColor : "#858796",
+								borderColor : '#dddfeb',
+								borderWidth : 1,
+								xPadding : 15,
+								yPadding : 15,
+								displayColors : false,
+								caretPadding : 10,
+								callbacks : {
+									label : function(tooltipItem, chart) {
+										var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label
+												|| '';
+										return datasetLabel
+												+ ': $'
+												+ number_format(tooltipItem.yLabel);
+									}
+								}
+							},
+						}
+					});
 		</script>
 
 
@@ -822,7 +920,7 @@
 		<!-- Page level custom scripts -->
 		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script> -->
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script>
-		<script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script>
+		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script> -->
 
 		<!-- /.container-fluid -->
 		<footer>
