@@ -111,7 +111,7 @@
 		alert(year);
 
 		$.ajax({
-			url : '${ pageContext.request.contextPath }/mypage/topspecific/',
+			url : '${ pageContext.request.contextPath }/mypage/topspecific/' + year,
 			//url : '${ pageContext.request.contextPath }/mypage/topspecific/${year}',
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 

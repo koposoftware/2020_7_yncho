@@ -3,6 +3,7 @@ package kr.co.hanacard.mypage.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,14 +104,19 @@ public class MypageController {
 	
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
-	@GetMapping("/mypage/topspecific") // 해당 주소로 post 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
+	@GetMapping("/mypage/topspecific/{year}") // 해당 주소로 post 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
 	//@GetMapping("/mypage/topspecific/${year}") // 해당 주소로 post 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
-	public MypageVO getTopSpecific(HttpSession session) {
+	public MypageVO getTopSpecific(@PathVariable("year") String year, HttpServletRequest request, HttpSession session) {
 	//public MypageVO getTopSpecific(@PathVariable("year") String year, HttpSession session) {
+		//String uri = request.getRequestURI();
 		
-		System.out.println("들어오긴 하는가 /mypage/topspecific/${year}");
+		//System.out.println("요청 uri : " + uri);
+		System.out.println("들어오긴 하는가 /mypage/topspecific/{year}");
 		
-		String year = "2019";
+		//String year = request.getParameter("year");
+		System.out.println("year : " + year);
+		
+		//String year = "2019";
 		
 		
 		
