@@ -91,11 +91,7 @@
 		})
 	}
 	
-	
-	function getBottomCurrentYear(){
-		alert('getBottomCurrentYear()');
-	}
-	
+
 
 	function getTopSpecific() {
 
@@ -103,12 +99,10 @@
 
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/topspecific',
-			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			type : 'post', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 				alert('ajax 성공');
-				//alert(data);
-				// console.log('하하하하');
 
 				console.log(data);
 				let list = JSON.parse(data);
@@ -116,34 +110,11 @@
 
 				alert(list.jan);
 
-				//myLineChart.data.datasets[0].data = [ 0, 552, 30, 120, 10, 20000, 45, 440, 50, 70, 4504, 578 ];
 				myLineChart.data.datasets[0].data = [ list.jan, list.feb,
 						list.mar, list.apr, list.may, list.jun, list.jul,
 						list.aug, list.sept, list.oct, list.nov, list.dec ]
 
 				myLineChart.update();
-
-				//$('#replyList').empty();
-				// jQuery 삭제
-				// remove : 셀렉터까지 지운다.
-				//empty : 셀렉터는 두고, 자식들만 지움
-
-				// $('#replyList').html('');
-
-				/*
-				$(list).each(function(){
-				   console.log(this)
-				   let str='';
-				   str += '<hr>'
-				   str += '<div>'
-				   str+= '<strong>'+this.content+'</strong>';
-				   str+= '  ('+ this.writer +')';
-				   str+= '  '+ this.regDate;
-				   str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
-				   str += '</div>'
-				   $('#replyList').append(str);
-				})
-				 */
 
 			},
 			error : function() {
@@ -154,6 +125,12 @@
 		})
 	};
 
+	
+	function getBottomCurrentYear(){
+		alert('getBottomCurrentYear()');
+	}
+	
+	
 	function getBottomSpecific() {
 		
 		alert('getBottomSpecific()');
@@ -290,96 +267,100 @@
 			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
 
-			<%-- 소비 개요 버튼 시작 --%>
-			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
-				<!-- Example single danger button -->
-				<!-- <div class="btn-group">
-				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Year
-				  </button>
-				  <div class="dropdown-menu">
-				    <a class="dropdown-item" href="#">2020년</a>
-				    <a class="dropdown-item active" href="#">2020년</a>
-				    <a class="dropdown-item" href="#">2019년</a>
-				    <a class="dropdown-item" href="#">2018년</a>
-				    <div class="dropdown-divider"></div>
-				    <a class="dropdown-item" href="#">Separated link</a>
-				  </div>
-				</div>  -->
-
-				<select class="selectpicker" data-style="btn-success">
-					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
-					<option>2020년</option>
-					<option>2019년</option>
-					<option>2018년</option>
-				</select>
-				&nbsp;&nbsp;&nbsp;
-
-				<!-- <select class="selectpicker" data-style="btn-success">
-			  <select class="selectpicker" multiple data-max-options="2">
-			    <option>전체</option>
-			    <option>1월</option>
-			    <option>2월</option>
-			    <option>3월</option>
-			    <option>4월</option>
-			    <option>5월</option>
-			    <option>6월</option>
-			    <option>7월</option>
-			    <option>8월</option>
-			    <option>9월</option>
-			    <option>10월</option>
-			    <option>11월</option>
-			    <option>12월</option>
-			  </select>&nbsp;&nbsp;&nbsp; -->
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">
-					<i class="fas fa-download fa-sm text-white-50"></i> 조회
-				</button>
-				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
-
-			</div>
-			<%-- 소비 개요 버튼 끝 --%>
-		
-
-			<%-- 두번째 로우 시작 : 소비 개요 그래프 --%>
-			<!-- Content Row -->
-			<div class="row">
-
-				<!-- Area Chart -->
-				<div class="col-xl-12 col-lg-12">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">${ year }년소비개요</h6>
-
-
-
-
-							<!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div> -->
-
-
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<canvas id="myAreaChart" style="display: block; width: 629px; height: 320px;" width="629" height="320" class="chartjs-render-monitor"></canvas>
+			<%-- 소비 개요 form 시작 --%>
+			<form name="tForm"> <%--top에 대한 form --%>
+				<%-- 소비 개요 버튼 시작 --%>
+				<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
+					<!-- Example single danger button -->
+					<!-- <div class="btn-group">
+					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Year
+					  </button>
+					  <div class="dropdown-menu">
+					    <a class="dropdown-item" href="#">2020년</a>
+					    <a class="dropdown-item active" href="#">2020년</a>
+					    <a class="dropdown-item" href="#">2019년</a>
+					    <a class="dropdown-item" href="#">2018년</a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#">Separated link</a>
+					  </div>
+					</div>  -->
+	
+					<select class="selectpicker" data-style="btn-success" name ="year">
+						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<option>2020년</option>
+						<option>2019년</option>
+						<option>2018년</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;
+	
+					<!-- <select class="selectpicker" data-style="btn-success">
+				  <select class="selectpicker" multiple data-max-options="2">
+				    <option>전체</option>
+				    <option>1월</option>
+				    <option>2월</option>
+				    <option>3월</option>
+				    <option>4월</option>
+				    <option>5월</option>
+				    <option>6월</option>
+				    <option>7월</option>
+				    <option>8월</option>
+				    <option>9월</option>
+				    <option>10월</option>
+				    <option>11월</option>
+				    <option>12월</option>
+				  </select>&nbsp;&nbsp;&nbsp; -->
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">
+						<i class="fas fa-download fa-sm text-white-50"></i> 조회
+					</button>
+					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+	
+				</div>
+				<%-- 소비 개요 버튼 끝 --%>
+			
+	
+				<%-- 두번째 로우 시작 : 소비 개요 그래프 --%>
+				<!-- Content Row -->
+				<div class="row">
+	
+					<!-- Area Chart -->
+					<div class="col-xl-12 col-lg-12">
+						<div class="card shadow mb-4">
+							<!-- Card Header - Dropdown -->
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요</h6>
+	
+	
+	
+	
+								<!-- <div class="dropdown no-arrow">
+	                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+	                    </a>
+	                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+	                      <div class="dropdown-header">Dropdown Header:</div>
+	                      <a class="dropdown-item" href="#">Action</a>
+	                      <a class="dropdown-item" href="#">Another action</a>
+	                      <div class="dropdown-divider"></div>
+	                      <a class="dropdown-item" href="#">Something else here</a>
+	                    </div>
+	                  </div> -->
+	
+	
+							</div>
+							<!-- Card Body -->
+							<div class="card-body">
+								<div class="chart-area">
+									<canvas id="myAreaChart" style="display: block; width: 629px; height: 320px;" width="629" height="320" class="chartjs-render-monitor"></canvas>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- Area Chart ends -->
 				</div>
-				<!-- Area Chart ends -->
-			</div>
-			<%-- 두번째 로우 끝 : 소비 개요 그래프 --%>
+				<%-- 두번째 로우 끝 : 소비 개요 그래프 --%>
+			</form>
+			<%-- 소비 개요 form 끝 --%>
 
 
 
