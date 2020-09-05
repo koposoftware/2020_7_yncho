@@ -436,9 +436,9 @@
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
 						</div>
-						<div class="card-body">
+						<div class="card-body"  style ="height : 365px">
 							<div class="chart-bar">
-								<canvas id="myBarChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
+								<canvas id="myBarChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 300px;"></canvas>
 							</div>
 
 							<!-- <div class="mt-4 text-center small">
@@ -465,7 +465,7 @@
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 							<h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-							<div class="dropdown no-arrow">
+							<!-- <div class="dropdown no-arrow">
 								<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
@@ -474,19 +474,19 @@
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Something else here</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<!-- Card Body -->
-						<div class="card-body">
+						<div class="card-body" style ="height : 365px">
 							<div class="chart-pie pt-4 pb-2">
 								<canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
 							</div>
-							<div class="mt-4 text-center small">
+							<!-- <div class="mt-4 text-center small">
 								<span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct
 								</span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Social
 								</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i> Referral
 								</span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -823,7 +823,8 @@
 							datasets : [ {
 								label : "Revenue",
 								/* backgroundColor : "#4e73df", */
-								backgroundColor : ["#6DC1FF", "#36b9cc", "#7462CB", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
+								backgroundColor : ["#6DC1FF", "#36b9cc", "#4e73df", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
+								/* backgroundColor : ["#6DC1FF", "#36b9cc", "#7462CB", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"], */
 								/* backgroundColor : ["#6DC1FF", "#B2DDFF", "#224B8B", "#ECD711", "#F19C1B", "#F17D28", "#A3D292", "#7EBE91"], */
 								hoverBackgroundColor : "#2e59d9",
 								borderColor : "#4e73df",
@@ -906,6 +907,41 @@
 							},
 						}
 					});
+			
+			// Pie Chart Example
+			
+			var ctx = document.getElementById("myPieChart");
+			var myPieChart = new Chart(ctx, {
+				type : 'doughnut',
+				data : {
+					labels : [ "Direct", "Referral", "Social" ],
+					datasets : [ {
+						data : [ 4215, 5312, 6251, 7841, 9821, 14984, 8500, 9500 ],
+						backgroundColor : ["#6DC1FF", "#36b9cc", "#4e73df", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
+						/* backgroundColor : [ '#4e73df', '#1cc88a', '#36b9cc' ], */
+						hoverBackgroundColor : [ '#2e59d9', '#17a673',
+								'#2c9faf' ],
+						hoverBorderColor : "rgba(234, 236, 244, 1)",
+					} ],
+				},
+				options : {
+					maintainAspectRatio : false,
+					tooltips : {
+						backgroundColor : "rgb(255,255,255)",
+						bodyFontColor : "#858796",
+						borderColor : '#dddfeb',
+						borderWidth : 1,
+						xPadding : 15,
+						yPadding : 15,
+						displayColors : false,
+						caretPadding : 10,
+					},
+					legend : {
+						display : false
+					},
+					cutoutPercentage : 80,
+				},
+			});
 		</script>
 
 
@@ -921,7 +957,7 @@
 
 		<!-- Page level custom scripts -->
 		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script> -->
-		<script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script>
+		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script> -->
 		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script> -->
 
 		<!-- /.container-fluid -->
