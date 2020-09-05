@@ -428,6 +428,37 @@
 
 			<%-- 세번째 로우 시작 : 소비 패턴 그래프  --%>
 			<div class="row">
+			
+				<!-- Bar Chart -->
+				<div class="col-xl-8 col-lg-7">
+
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+						</div>
+						<div class="card-body">
+							<div class="chart-bar">
+								<canvas id="myBarChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
+							</div>
+
+							<!-- <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> 
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i>
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i>
+                    </span>
+                  </div> -->
+
+						</div>
+					</div>
+				</div>
+				<!-- Bar Chart ends -->
+				
+				
 				<!-- Pie Chart -->
 				<div class="col-xl-4 col-lg-5">
 					<div class="card shadow mb-4">
@@ -460,35 +491,6 @@
 					</div>
 				</div>
 				<!-- Pie Chart ends -->
-
-				<!-- Bar Chart -->
-				<div class="col-xl-8 col-lg-7">
-
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-						</div>
-						<div class="card-body">
-							<div class="chart-bar">
-								<canvas id="myBarChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
-							</div>
-
-							<!-- <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> 
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i>
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i>
-                    </span>
-                  </div> -->
-
-						</div>
-					</div>
-				</div>
-				<!-- Bar Chart ends -->
 
 			</div>
 			<%-- 세번째 로우 끝 : 소비 패턴  그래프 --%>
