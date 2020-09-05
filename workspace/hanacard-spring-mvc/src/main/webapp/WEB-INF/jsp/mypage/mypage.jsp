@@ -438,7 +438,7 @@
 						</div>
 						<div class="card-body"  style ="height : 365px">
 							<div class="chart-bar">
-								<canvas id="myBarChart" width="281" height="245" class="chartjs-render-monitor" style="display: block; width: 281px; height: 300px;"></canvas>
+								<canvas id="myBarChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 320px;"></canvas>
 							</div>
 
 							<!-- <div class="mt-4 text-center small">
@@ -479,7 +479,7 @@
 						<!-- Card Body -->
 						<div class="card-body" style ="height : 365px">
 							<div class="chart-pie pt-4 pb-2">
-								<canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 245px;"></canvas>
+								<canvas id="myPieChart" class="chartjs-render-monitor" style="display: block; width: 281px; height: 270px;"></canvas>
 							</div>
 							<!-- <div class="mt-4 text-center small">
 								<span class="mr-2"> <i class="fas fa-circle text-primary"></i> Direct
@@ -691,7 +691,7 @@
 								"Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
 								"Dec" ], */
 						datasets : [ {
-							label : "Earnings",
+							label : "소비 금액",
 							lineTension : 0.3,
 							backgroundColor : "rgba(78, 115, 223, 0.05)",
 							borderColor : "rgba(78, 115, 223, 1)",
@@ -821,12 +821,13 @@
 							labels : [ "교통/주유", "통신", "마트/쇼핑", "반려동물",
 									"보건/의료", "생활", "식음료", "레저/여행/항공" ],
 							datasets : [ {
-								label : "Revenue",
+								label : "소비 금액",
 								/* backgroundColor : "#4e73df", */
 								backgroundColor : ["#6DC1FF", "#36b9cc", "#4e73df", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
 								/* backgroundColor : ["#6DC1FF", "#36b9cc", "#7462CB", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"], */
 								/* backgroundColor : ["#6DC1FF", "#B2DDFF", "#224B8B", "#ECD711", "#F19C1B", "#F17D28", "#A3D292", "#7EBE91"], */
-								hoverBackgroundColor : "#2e59d9",
+							
+								/* hoverBackgroundColor : "#2e59d9", */
 								borderColor : "#4e73df",
 								data : [ 4215, 5312, 6251, 7841, 9821, 14984, 8500, 9500 ],
 							} ],
@@ -868,7 +869,7 @@
 										// Include a dollar sign in the ticks
 										callback : function(value, index,
 												values) {
-											return '$' + number_format(value);
+											return '￦' + number_format(value);
 										}
 									},
 									gridLines : {
@@ -899,49 +900,85 @@
 									label : function(tooltipItem, chart) {
 										var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label
 												|| '';
+										
 										return datasetLabel
-												+ ': $'
+												+ ': ￦'
 												+ number_format(tooltipItem.yLabel);
 									}
-								}
+								} 
 							},
 						}
 					});
 			
+			
 			// Pie Chart Example
 			
+			//var tmpTotal = 4215 + 5312 + 6251 + 7841 + 9821 + 14984 + 8500 + 9500;
+			
 			var ctx = document.getElementById("myPieChart");
-			var myPieChart = new Chart(ctx, {
-				type : 'doughnut',
-				data : {
-					labels : [ "Direct", "Referral", "Social" ],
-					datasets : [ {
-						data : [ 4215, 5312, 6251, 7841, 9821, 14984, 8500, 9500 ],
-						backgroundColor : ["#6DC1FF", "#36b9cc", "#4e73df", "#ECD711", "#F19C1B", "#e74a3b", "#1cc88a", "#7EBE91"],
-						/* backgroundColor : [ '#4e73df', '#1cc88a', '#36b9cc' ], */
-						hoverBackgroundColor : [ '#2e59d9', '#17a673',
-								'#2c9faf' ],
-						hoverBorderColor : "rgba(234, 236, 244, 1)",
-					} ],
-				},
-				options : {
-					maintainAspectRatio : false,
-					tooltips : {
-						backgroundColor : "rgb(255,255,255)",
-						bodyFontColor : "#858796",
-						borderColor : '#dddfeb',
-						borderWidth : 1,
-						xPadding : 15,
-						yPadding : 15,
-						displayColors : false,
-						caretPadding : 10,
-					},
-					legend : {
-						display : false
-					},
-					cutoutPercentage : 80,
-				},
-			});
+			var myPieChart = new Chart(
+					ctx,
+					{
+						type : 'doughnut',
+						data : {
+							labels : [ "교통/주유", "통신", "마트/쇼핑", "반려동물", "보건/의료", "생활", "식음료", "레저/여행/항공" ],
+							datasets : [ {
+								label : "소비 비율",
+								backgroundColor : [ "#6DC1FF", "#36b9cc",
+										"#4e73df", "#ECD711", "#F19C1B",
+										"#e74a3b", "#1cc88a", "#7EBE91" ],
+								/* backgroundColor : [ '#4e73df', '#1cc88a', '#36b9cc' ], */
+								/* hoverBackgroundColor : [ '#2e59d9', '#17a673', '#2c9faf' ], */
+								hoverBorderColor : "rgba(234, 236, 244, 1)",
+								data : [ 4215, 5312, 6251, 7841, 9821, 14984, 8500, 9500 ]
+							} ],
+						},
+						options : {
+							maintainAspectRatio : false,
+							tooltips : { // 툴팁 : 차트에 hover 시 보이는 데이터
+								
+								backgroundColor : "rgb(255,255,255)",
+								bodyFontColor : "#858796",
+								borderColor : '#dddfeb',
+								borderWidth : 1,
+								xPadding : 15,
+								yPadding : 15,
+								displayColors : false,
+								caretPadding : 10, 
+
+								
+							    mode: 'label',
+							    callbacks: {
+							        label: function(tooltipItem, data) { 
+							            var indice = tooltipItem.index;     
+							            
+							            //추가 코드
+							            var dataset = data.datasets[tooltipItem.datasetIndex];
+							            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+											return previousValue + currentValue;
+										});
+							            
+										var currentValue = dataset.data[tooltipItem.index];
+										var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+							            //추가코드
+										
+										//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+										return  data.labels[indice] +': '+ percentage + '%';
+							        }
+							    }
+								
+			
+							},
+							legend : {
+								//display : true,
+								//position : 'bottom'
+								display : false
+							},
+
+							//cutoutPercentage : 80, //도넛 굵기
+							cutoutPercentage : 75
+						},
+					});
 		</script>
 
 
