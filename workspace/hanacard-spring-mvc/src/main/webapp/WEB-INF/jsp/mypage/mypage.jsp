@@ -24,26 +24,37 @@
 <script type="text/javascript">
 
 
+	/*
 	$(document).ready(function() {
 		
-		alert('jquery 테스트'); // 맨 밑의 slim 버전 때문에 안됐었음. 주석처리하여 해결(jquery-3.5.1.slim.min.js)
+		//alert('jquery 테스트'); // 맨 밑의 slim 버전 때문에 안됐었음. 주석처리하여 해결(jquery-3.5.1.slim.min.js)
 		
 		getTopCurrentYear(); // (로그인 전제, JAVA단 인터셉터 추가 필요) 문서 로딩 후 현재년도 버전으로 연소비개요 그래프를 보여준다.
 		getBottomCurrentYear(); // (로그인 전제, JAVA단 인터셉터 추가 필요) 문서 로딩 후 현재년도 버전으로 소비패턴 그래프를 보여준다. (도넛차트, 막대그래프)
 		
+		
 	})
+	*/
 	
+	$(document).ready(function(){
+		$('#topBtn').click(function(){
+			alert('하하');
+			getTopSpecific();
+			
+		})
+	})
+
 	
 	function getTopCurrentYear(){
 		
-		//alert('getTopCurrentYear()');
+		alert('getTopCurrentYear()');
 		
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/topcurrent',
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-				alert('ajax 성공');
+				//alert('ajax 성공');
 				//alert(data);
 				// console.log('하하하하');
 
@@ -95,25 +106,29 @@
 
 	function getTopSpecific() {
 
-		alert('getTopSpecific()')
+		alert('getTopSpecific()');
+		let year = $('#year').val().substring(0,4);
+		alert(year);
 
 		$.ajax({
-			url : '${ pageContext.request.contextPath }/mypage/topspecific',
-			type : 'post', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			url : '${ pageContext.request.contextPath }/mypage/topspecific/',
+			//url : '${ pageContext.request.contextPath }/mypage/topspecific/${year}',
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-				alert('ajax 성공');
+				//alert('getTopSpecific ajax 성공');
 
 				console.log(data);
 				let list = JSON.parse(data);
 				console.log(list);
 
-				alert(list.jan);
+				//alert(list.jan);
 
 				myLineChart.data.datasets[0].data = [ list.jan, list.feb,
 						list.mar, list.apr, list.may, list.jun, list.jul,
 						list.aug, list.sept, list.oct, list.nov, list.dec ]
 
+				alert('ajax 새로고침이 update 떄문인가 => 아님.')
 				myLineChart.update();
 
 			},
@@ -145,7 +160,8 @@
 	
 	<!-- .site-wrap starts -->
 	<div class="site-wrap">
-
+		
+		
 		<%-- 헤더 시작 :  header 태그가 topMenue.jsp내에 있어서 <header>로 감싸면 제대로 안나옴. --%>
 		<jsp:include page="../include/topMenue.jsp" />
 
@@ -266,101 +282,97 @@
 			</div>
 			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
+			<%-- 소비 개요 버튼 시작 --%>
+			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
+				<!-- Example single danger button -->
+				<!-- <div class="btn-group">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Year
+				  </button>
+				  <div class="dropdown-menu">
+				    <a class="dropdown-item" href="#">2020년</a>
+				    <a class="dropdown-item active" href="#">2020년</a>
+				    <a class="dropdown-item" href="#">2019년</a>
+				    <a class="dropdown-item" href="#">2018년</a>
+				    <div class="dropdown-divider"></div>
+				    <a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+				</div>  -->
 
-			<%-- 소비 개요 form 시작 --%>
-			<form name="tForm"> <%--top에 대한 form --%>
-				<%-- 소비 개요 버튼 시작 --%>
-				<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
-					<!-- Example single danger button -->
-					<!-- <div class="btn-group">
-					  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Year
-					  </button>
-					  <div class="dropdown-menu">
-					    <a class="dropdown-item" href="#">2020년</a>
-					    <a class="dropdown-item active" href="#">2020년</a>
-					    <a class="dropdown-item" href="#">2019년</a>
-					    <a class="dropdown-item" href="#">2018년</a>
-					    <div class="dropdown-divider"></div>
-					    <a class="dropdown-item" href="#">Separated link</a>
-					  </div>
-					</div>  -->
-	
-					<select class="selectpicker" data-style="btn-success" name ="year">
-						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
-						<option>2020년</option>
-						<option>2019년</option>
-						<option>2018년</option>
-					</select>
-					&nbsp;&nbsp;&nbsp;
-	
-					<!-- <select class="selectpicker" data-style="btn-success">
-				  <select class="selectpicker" multiple data-max-options="2">
-				    <option>전체</option>
-				    <option>1월</option>
-				    <option>2월</option>
-				    <option>3월</option>
-				    <option>4월</option>
-				    <option>5월</option>
-				    <option>6월</option>
-				    <option>7월</option>
-				    <option>8월</option>
-				    <option>9월</option>
-				    <option>10월</option>
-				    <option>11월</option>
-				    <option>12월</option>
-				  </select>&nbsp;&nbsp;&nbsp; -->
-					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">
-						<i class="fas fa-download fa-sm text-white-50"></i> 조회
-					</button>
-					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
-	
-				</div>
-				<%-- 소비 개요 버튼 끝 --%>
-			
-	
-				<%-- 두번째 로우 시작 : 소비 개요 그래프 --%>
-				<!-- Content Row -->
-				<div class="row">
-	
-					<!-- Area Chart -->
-					<div class="col-xl-12 col-lg-12">
-						<div class="card shadow mb-4">
-							<!-- Card Header - Dropdown -->
-							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-								<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요</h6>
-	
-	
-	
-	
-								<!-- <div class="dropdown no-arrow">
-	                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-	                    </a>
-	                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-	                      <div class="dropdown-header">Dropdown Header:</div>
-	                      <a class="dropdown-item" href="#">Action</a>
-	                      <a class="dropdown-item" href="#">Another action</a>
-	                      <div class="dropdown-divider"></div>
-	                      <a class="dropdown-item" href="#">Something else here</a>
-	                    </div>
-	                  </div> -->
-	
-	
-							</div>
-							<!-- Card Body -->
-							<div class="card-body">
-								<div class="chart-area">
-									<canvas id="myAreaChart" style="display: block; width: 629px; height: 320px;" width="629" height="320" class="chartjs-render-monitor"></canvas>
-								</div>
+				<select class="selectpicker" data-style="btn-success" id ="year">
+					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+					<option>2020년</option>
+					<option>2019년</option>
+					<option>2018년</option>
+				</select>
+				&nbsp;&nbsp;&nbsp;
+
+				<!-- <select class="selectpicker" data-style="btn-success">
+			  <select class="selectpicker" multiple data-max-options="2">
+			    <option>전체</option>
+			    <option>1월</option>
+			    <option>2월</option>
+			    <option>3월</option>
+			    <option>4월</option>
+			    <option>5월</option>
+			    <option>6월</option>
+			    <option>7월</option>
+			    <option>8월</option>
+			    <option>9월</option>
+			    <option>10월</option>
+			    <option>11월</option>
+			    <option>12월</option>
+			  </select>&nbsp;&nbsp;&nbsp; -->
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id = "topBtn"> 
+				<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">  -->
+					<i class="fas fa-download fa-sm text-white-50"></i> 조회
+				</button>
+				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+
+			</div>
+			<%-- 소비 개요 버튼 끝 --%>
+		
+
+			<%-- 두번째 로우 시작 : 소비 개요 그래프 --%>
+			<!-- Content Row -->
+			<div class="row">
+
+				<!-- Area Chart -->
+				<div class="col-xl-12 col-lg-12">
+					<div class="card shadow mb-4">
+						<!-- Card Header - Dropdown -->
+						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+							<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요</h6>
+
+
+
+
+							<!-- <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div> -->
+
+
+						</div>
+						<!-- Card Body -->
+						<div class="card-body">
+							<div class="chart-area">
+								<canvas id="myAreaChart" style="display: block; width: 629px; height: 320px;" width="629" height="320" class="chartjs-render-monitor"></canvas>
 							</div>
 						</div>
 					</div>
-					<!-- Area Chart ends -->
 				</div>
-				<%-- 두번째 로우 끝 : 소비 개요 그래프 --%>
-			</form>
-			<%-- 소비 개요 form 끝 --%>
+				<!-- Area Chart ends -->
+			</div>
+			<%-- 두번째 로우 끝 : 소비 개요 그래프 --%>
 
 
 
@@ -639,8 +651,8 @@
 		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
 
 		<script>
-
 			//Area Chart Example
+
 			function number_format(number, decimals, dec_point, thousands_sep) {
 				// *     example: number_format(1234.56, 2, ',', ' ');
 				// *     return: '1 234,56'
@@ -666,100 +678,129 @@
 			}
 
 			var ctx = document.getElementById("myAreaChart");
+			
 			var myLineChart = new Chart(ctx, {
-				type : 'line',
-				data : {
-					labels : [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
-							"Aug", "Sep", "Oct", "Nov", "Dec" ],
-					datasets : [ {
-						label : "Earnings",
-						/* lineTension : 0.3,
-						backgroundColor : "rgba(78, 115, 223, 0.05)",
-						borderColor : "rgba(78, 115, 223, 1)",
-						pointRadius : 3,
-						pointBackgroundColor : "rgba(78, 115, 223, 1)",
-						pointBorderColor : "rgba(78, 115, 223, 1)",
-						pointHoverRadius : 3,
-						pointHoverBackgroundColor : "rgba(78, 115, 223, 1)",
-						pointHoverBorderColor : "rgba(78, 115, 223, 1)",
-						pointHitRadius : 10,
-						pointBorderWidth : 2, */
-						data : [ 0, 10000, 5000, 15000, 10000, 20000, 15000,
-								25000, 20000, 30000, 25000, 40000 ],
-					} ],
-				}
-			/* ,
-									options : {
-										maintainAspectRatio : false,
-										layout : {
-											padding : {
-												left : 10,
-												right : 25,
-												top : 25,
-												bottom : 0
-											}
-										},
-										scales : {
-											xAxes : [ {
-												time : {
-													unit : 'date'
-												},
-												gridLines : {
-													display : false,
-													drawBorder : false
-												},
-												ticks : {
-													maxTicksLimit : 7
-												}
-											} ],
-											yAxes : [ {
-												ticks : {
-													maxTicksLimit : 5,
-													padding : 10,
-													// Include a dollar sign in the ticks
-													callback : function(value, index,
-															values) {
-														return '$' + number_format(value);
-													}
-												},
-												gridLines : {
-													color : "rgb(234, 236, 244)",
-													zeroLineColor : "rgb(234, 236, 244)",
-													drawBorder : false,
-													borderDash : [ 2 ],
-													zeroLineBorderDash : [ 2 ]
-												}
-											} ],
-										},
-										legend : {
-											display : false
-										},
-										tooltips : {
-											backgroundColor : "rgb(255,255,255)",
-											bodyFontColor : "#858796",
-											titleMarginBottom : 10,
-											titleFontColor : '#6e707e',
-											titleFontSize : 14,
-											borderColor : '#dddfeb',
-											borderWidth : 1,
-											xPadding : 15,
-											yPadding : 15,
-											displayColors : false,
-											intersect : false,
-											mode : 'index',
-											caretPadding : 10,
-											callbacks : {
-												label : function(tooltipItem, chart) {
-													var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label
-															|| '';
-													return datasetLabel
-															+ ': $'
-															+ number_format(tooltipItem.yLabel);
-												}
-											}
-										}
-									}  */
+					type : 'line',
+					data : {
+						labels : [ "Jan", "Feb", "Mar", "Apr", "May",
+								"Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
+								"Dec" ],
+						datasets : [ {
+							label : "Earnings",
+							lineTension : 0.3,
+							backgroundColor : "rgba(78, 115, 223, 0.05)",
+							borderColor : "rgba(78, 115, 223, 1)",
+							pointRadius : 3,
+							pointBackgroundColor : "rgba(78, 115, 223, 1)",
+							pointBorderColor : "rgba(78, 115, 223, 1)",
+							pointHoverRadius : 3,
+							pointHoverBackgroundColor : "rgba(78, 115, 223, 1)",
+							pointHoverBorderColor : "rgba(78, 115, 223, 1)",
+							pointHitRadius : 10,
+							pointBorderWidth : 2,
+							data : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+							/* data : [ 0, 10000, 5000, 15000, 10000, 20000,
+									15000, 25000, 20000, 30000, 25000,
+									40000 ] */
+						} ],
+					},
+					options : {
+						maintainAspectRatio : false,
+						layout : {
+							padding : {
+								left : 10,
+								right : 25,
+								top : 25,
+								bottom : 0
+							}
+						},
+						scales : {
+							xAxes : [ {
+								time : {
+									unit : 'date'
+								},
+								gridLines : {
+									display : false,
+									drawBorder : false
+								},
+								ticks : {
+									maxTicksLimit : 7
+								}
+							} ],
+							yAxes : [ {
+								ticks : {
+									maxTicksLimit : 5,
+									padding : 10,
+									// Include a dollar sign in the ticks
+									callback : function(value, index,
+											values) {
+										return '$' + number_format(value);
+									}
+								},
+								gridLines : {
+									color : "rgb(234, 236, 244)",
+									zeroLineColor : "rgb(234, 236, 244)",
+									drawBorder : false,
+									borderDash : [ 2 ],
+									zeroLineBorderDash : [ 2 ]
+								}
+							} ],
+						},
+						legend : {
+							display : false
+						},
+						tooltips : {
+							backgroundColor : "rgb(255,255,255)",
+							bodyFontColor : "#858796",
+							titleMarginBottom : 10,
+							titleFontColor : '#6e707e',
+							titleFontSize : 14,
+							borderColor : '#dddfeb',
+							borderWidth : 1,
+							xPadding : 15,
+							yPadding : 15,
+							displayColors : false,
+							intersect : false,
+							mode : 'index',
+							caretPadding : 10,
+							callbacks : {
+								label : function(tooltipItem, chart) {
+									var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label
+											|| '';
+									return datasetLabel
+											+ ': $'
+											+ number_format(tooltipItem.yLabel);
+								}
+							}
+						}
+					}
 			});
+			
+		 	$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/topcurrent',
+				type : 'get', 
+				success : function(data) { 
+
+					console.log(data);
+					let list = JSON.parse(data);
+					console.log(list);
+
+					//alert(list.jan);
+
+					myLineChart.data.datasets[0].data = [ list.jan, list.feb,
+							list.mar, list.apr, list.may, list.jun, list.jul,
+							list.aug, list.sept, list.oct, list.nov, list.dec ]
+
+					
+					myLineChart.update();
+
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})  
 		</script>
 
 
@@ -774,7 +815,7 @@
 		<script src="/hanacard-spring-mvc/resources/js/sb-admin-2.min.js"></script>
 
 		<!-- Page level custom scripts -->
-		<script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script>
+		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script> -->
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script>
 		<script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script>
 

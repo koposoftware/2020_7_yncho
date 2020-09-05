@@ -46,6 +46,38 @@ public class MypageDAOImpl implements MypageDAO{
 		
 		return mypageVO;
 	}
+
+	
+	@Override
+	public MypageVO getTopSpecific(String resiNum, String year) {
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("resiNum", resiNum);
+		map.put("year", year);
+		
+		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopSpecific", map);
+
+		return mypageVO;
+	}
+
+	@Override
+	public MypageVO getTopSpecific(String resiNum, String cardListString, String year) {
+		Map<String, String> map = new HashMap<>();
+		map.put("resiNum", resiNum);
+		map.put("cardListString", cardListString);
+		map.put("year", year);
+		
+		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getTopSpecificOpen", map);
+		
+		return mypageVO;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
