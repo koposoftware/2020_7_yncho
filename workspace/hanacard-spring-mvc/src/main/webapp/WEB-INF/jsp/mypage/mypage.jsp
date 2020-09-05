@@ -682,9 +682,12 @@
 			var myLineChart = new Chart(ctx, {
 					type : 'line',
 					data : {
-						labels : [ "Jan", "Feb", "Mar", "Apr", "May",
+						labels : [ "1월", "2월", "3월", "4월", "5월",
+								"6월", "7월", "8월", "9월", "10월", "11월",
+								"12월" ],
+						/* labels : [ "Jan", "Feb", "Mar", "Apr", "May",
 								"Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
-								"Dec" ],
+								"Dec" ], */
 						datasets : [ {
 							label : "Earnings",
 							lineTension : 0.3,
@@ -724,17 +727,19 @@
 									drawBorder : false
 								},
 								ticks : {
-									maxTicksLimit : 7
+									//maxTicksLimit : 12
+									maxTicksLimit : 6
 								}
 							} ],
 							yAxes : [ {
 								ticks : {
-									maxTicksLimit : 5,
+									maxTicksLimit : 7,
+									//maxTicksLimit : 5,
 									padding : 10,
 									// Include a dollar sign in the ticks
 									callback : function(value, index,
 											values) {
-										return '$' + number_format(value);
+										return '￦' + number_format(value);
 									}
 								},
 								gridLines : {
@@ -768,7 +773,7 @@
 									var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label
 											|| '';
 									return datasetLabel
-											+ ': $'
+											+ ': ￦'
 											+ number_format(tooltipItem.yLabel);
 								}
 							}
