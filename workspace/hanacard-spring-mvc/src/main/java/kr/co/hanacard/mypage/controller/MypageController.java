@@ -238,20 +238,24 @@ public class MypageController {
 		if(cardList.isEmpty()) {
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
 			
-			if(month.equals("all"))
-				month = null;
+//			if(month.equals("all"))
+//				//month = "01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12";
+//				month = null;
 				
 			mypageVO = mypageService.getBottomSpecific(resiNum, year, month); 
 			// WHERE 연도 == YEAR AND 월 == MONTH 여야함
 			// 근데 월이 all로 넘어오면..흠
 			// 마이바티스는 동적으로 작동해서  MONTH 부분 all이면 처리안되게 해볼까. 그럼 all이 null로 들어가야하네.
-			
 
 			
 		} else {
 
 			System.out.println("연동된 카드사가 있습니다.");
 			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+//			if(month.equals("all"))
+//				//month = "01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12";
+//				month = null;
+			
 			System.out.println("resiNum : " + resiNum);
 			System.out.println("cardListString : " + cardListString);
 			System.out.println("year : " + year);

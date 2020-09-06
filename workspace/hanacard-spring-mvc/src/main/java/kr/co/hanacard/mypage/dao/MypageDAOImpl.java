@@ -96,6 +96,7 @@ public class MypageDAOImpl implements MypageDAO{
 		map.put("year", year);
 		map.put("month", month);
 
+		System.out.println("DAOImpl 단에서 받는 month : " + month);
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getBottomSpecificOpen", map);
 
 		
