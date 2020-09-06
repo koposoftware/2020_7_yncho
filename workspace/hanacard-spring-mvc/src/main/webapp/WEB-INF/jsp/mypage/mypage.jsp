@@ -107,11 +107,52 @@
 				myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.Leisure_travel_flight];
 			
-				/* myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.Leisure_travel_flight]; */
+				myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.leisure_travel_flight]; 
+				
+				var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
+								list.life + list.food_beverage + list.leisure_travel_flight
+				
+				/* myPieChart.options.tooltips.callbacks.label = function(tooltipItem, data) { 
+														            var indice = tooltipItem.index;     
+														            
+														            //추가 코드
+														            var dataset = myPieChart.data.datasets[tooltipItem.datasetIndex];
+														            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+																		return previousValue + currentValue;
+																	});
+														            
+																	var currentValue = dataset.data[tooltipItem.index];
+																	var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+														            //추가코드
+																	
+																	return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+																	//return  data.labels[indice] +': '+ percentage + '%';
+														        }   */
+					
+				    /* callbacks: {
+				        label: function(tooltipItem, data) { 
+				            var indice = tooltipItem.index;     
+				            
+				            //추가 코드
+				            var dataset = data.datasets[tooltipItem.datasetIndex];
+				            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+								return previousValue + currentValue;
+							});
+				            
+							var currentValue = dataset.data[tooltipItem.index];
+							var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+				            //추가코드
+							
+							//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+							return  data.labels[indice] +': '+ percentage + '%';
+				        }
+				    } */
+				
+				
 				
 				myBarChart.update();
-				//myPieChart.update();
+				myPieChart.update();
 
 			},
 			error : function() {
@@ -852,7 +893,43 @@
 
 								
 							    mode: 'label',
+							    
+							
+							
 							    callbacks: {
+							        label: function(tooltipItem, data) { 
+							            var indice = tooltipItem.index;     
+							            
+							            //추가 코드 시작
+							            
+							            // 아..array에 undefinde로 들어오는구나.으로 들어오는구나.
+							          /*   var dataset = data.datasets[tooltipItem.datasetIndex];
+							            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+											return previousValue + currentValue;
+										}); */
+							            
+							            //alert('total : ' + total);
+							            
+										/* var currentValue = dataset.data[tooltipItem.index];
+										var percentage = Math.floor(((currentValue / total) * 100) + 0.5);  */
+										
+										var currentValue = data.datasets[0].data[indice];
+										var total = data.datasets[0].data.reduce((a, b) => a + b);
+										var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+										
+										//alert('data.datasets[0].data : ' + data.datasets[0].data); 
+							            //alert('currentValue : ' + currentValue);
+							            //alert('total : ' + total);
+							            //alert('percentage : ' + percentage);
+							         
+							            //추가코드 끝
+										
+										//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+										return  data.labels[indice] +': '+ percentage + '%';
+							        }
+							    }
+							
+							    /* callbacks: {
 							        label: function(tooltipItem, data) { 
 							            var indice = tooltipItem.index;     
 							            
@@ -869,7 +946,7 @@
 										//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
 										return  data.labels[indice] +': '+ percentage + '%';
 							        }
-							    }
+							    } */
 								
 			
 							},
@@ -906,11 +983,13 @@
 					let list = JSON.parse(data);
 					console.log(list);
 					
+					//alert('list : ' + list);
+					
 					myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.Leisure_travel_flight];
+						list.life, list.food_beverage, list.leisure_travel_flight];
 				
-					/* myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.Leisure_travel_flight]; */
+					myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+						list.life, list.food_beverage, list.leisure_travel_flight]; 
 					
 					
 					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
@@ -919,7 +998,7 @@
 																} */
 					
 					myBarChart.update();
-					//myPieChart.update();
+					myPieChart.update();
 
 				},
 				error : function() {

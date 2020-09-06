@@ -2,148 +2,197 @@ package kr.co.hanacard.mypage.vo;
 
 public class MypageVO {
 
-	private String jan;
-	private String feb;
-	private String mar; 
-	private String apr; 
-	private String may; 
-	private String jun; 
-	private String jul; 
-	private String aug; 
-	private String sept; 
-	private String oct; 
-	private String nov; 
-	private String dec;
+	private long jan;
+	private long feb;
+	private long mar; 
+	private long apr; 
+	private long may; 
+	private long jun; 
+	private long jul; 
+	private long aug; 
+	private long sept; 
+	private long oct; 
+	private long nov; 
+	private long dec;
 	
-	private String trans_gas;
-	private String Leisure_travel_flight;
-	private String mart_shopping;
-	private String pet;
-	private String health_medical;
-	private String life;
-	private String food_beverage;
-	private String communication;
-	//private String etc;
+	private long trans_gas;
+	private long Leisure_travel_flight;
+	private long mart_shopping;
+	private long pet;
+	private long health_medical;
+	private long life;
+	private long food_beverage;
+	private long communication;
+	//private double etc;
 	
-	public String getJan() {
+	
+	public long getJan() {
 		return jan;
 	}
-	public void setJan(String jan) {
+	public void setJan(long jan) {
 		this.jan = jan;
 	}
-	public String getFeb() {
+	public long getFeb() {
 		return feb;
 	}
-	public void setFeb(String feb) {
+	public void setFeb(long feb) {
 		this.feb = feb;
 	}
-	public String getMar() {
+	public long getMar() {
 		return mar;
 	}
-	public void setMar(String mar) {
+	public void setMar(long mar) {
 		this.mar = mar;
 	}
-	public String getApr() {
+	public long getApr() {
 		return apr;
 	}
-	public void setApr(String apr) {
+	public void setApr(long apr) {
 		this.apr = apr;
 	}
-	public String getMay() {
+	public long getMay() {
 		return may;
 	}
-	public void setMay(String may) {
+	public void setMay(long may) {
 		this.may = may;
 	}
-	public String getJun() {
+	public long getJun() {
 		return jun;
 	}
-	public void setJun(String jun) {
+	public void setJun(long jun) {
 		this.jun = jun;
 	}
-	public String getJul() {
+	public long getJul() {
 		return jul;
 	}
-	public void setJul(String jul) {
+	public void setJul(long jul) {
 		this.jul = jul;
 	}
-	public String getAug() {
+	public long getAug() {
 		return aug;
 	}
-	public void setAug(String aug) {
+	public void setAug(long aug) {
 		this.aug = aug;
 	}
-	public String getSept() {
+	public long getSept() {
 		return sept;
 	}
-	public void setSept(String sept) {
+	public void setSept(long sept) {
 		this.sept = sept;
 	}
-	public String getOct() {
+	public long getOct() {
 		return oct;
 	}
-	public void setOct(String oct) {
+	public void setOct(long oct) {
 		this.oct = oct;
 	}
-	public String getNov() {
+	public long getNov() {
 		return nov;
 	}
-	public void setNov(String nov) {
+	public void setNov(long nov) {
 		this.nov = nov;
 	}
-	public String getDec() {
+	public long getDec() {
 		return dec;
 	}
-	public void setDec(String dec) {
+	public void setDec(long dec) {
 		this.dec = dec;
 	}
-	public String getTrans_gas() {
+	public long getTrans_gas() {
 		return trans_gas;
 	}
-	public void setTrans_gas(String trans_gas) {
+	public void setTrans_gas(long trans_gas) {
 		this.trans_gas = trans_gas;
 	}
-	public String getLeisure_travel_flight() {
+	public long getLeisure_travel_flight() {
 		return Leisure_travel_flight;
 	}
-	public void setLeisure_travel_flight(String leisure_travel_flight) {
+	public void setLeisure_travel_flight(long leisure_travel_flight) {
 		Leisure_travel_flight = leisure_travel_flight;
 	}
-	public String getMart_shopping() {
+	public long getMart_shopping() {
 		return mart_shopping;
 	}
-	public void setMart_shopping(String mart_shopping) {
+	public void setMart_shopping(long mart_shopping) {
 		this.mart_shopping = mart_shopping;
 	}
-	public String getPet() {
+	public long getPet() {
 		return pet;
 	}
-	public void setPet(String pet) {
+	public void setPet(long pet) {
 		this.pet = pet;
 	}
-	public String getHealth_medical() {
+	public long getHealth_medical() {
 		return health_medical;
 	}
-	public void setHealth_medical(String health_medical) {
+	public void setHealth_medical(long health_medical) {
 		this.health_medical = health_medical;
 	}
-	public String getLife() {
+	public long getLife() {
 		return life;
 	}
-	public void setLife(String life) {
+	public void setLife(long life) {
 		this.life = life;
 	}
-	public String getFood_beverage() {
+	public long getFood_beverage() {
 		return food_beverage;
 	}
-	public void setFood_beverage(String food_beverage) {
+	public void setFood_beverage(long food_beverage) {
 		this.food_beverage = food_beverage;
 	}
-	public String getCommunication() {
+	public long getCommunication() {
 		return communication;
 	}
-	public void setCommunication(String communication) {
+	public void setCommunication(long communication) {
 		this.communication = communication;
+	}
+	
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MypageVO [jan=");
+		builder.append(jan);
+		builder.append(", feb=");
+		builder.append(feb);
+		builder.append(", mar=");
+		builder.append(mar);
+		builder.append(", apr=");
+		builder.append(apr);
+		builder.append(", may=");
+		builder.append(may);
+		builder.append(", jun=");
+		builder.append(jun);
+		builder.append(", jul=");
+		builder.append(jul);
+		builder.append(", aug=");
+		builder.append(aug);
+		builder.append(", sept=");
+		builder.append(sept);
+		builder.append(", oct=");
+		builder.append(oct);
+		builder.append(", nov=");
+		builder.append(nov);
+		builder.append(", dec=");
+		builder.append(dec);
+		builder.append(", trans_gas=");
+		builder.append(trans_gas);
+		builder.append(", Leisure_travel_flight=");
+		builder.append(Leisure_travel_flight);
+		builder.append(", mart_shopping=");
+		builder.append(mart_shopping);
+		builder.append(", pet=");
+		builder.append(pet);
+		builder.append(", health_medical=");
+		builder.append(health_medical);
+		builder.append(", life=");
+		builder.append(life);
+		builder.append(", food_beverage=");
+		builder.append(food_beverage);
+		builder.append(", communication=");
+		builder.append(communication);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 	

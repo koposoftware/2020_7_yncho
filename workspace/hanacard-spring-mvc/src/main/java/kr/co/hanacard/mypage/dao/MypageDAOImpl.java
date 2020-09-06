@@ -1,5 +1,6 @@
 package kr.co.hanacard.mypage.dao;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,6 +84,29 @@ public class MypageDAOImpl implements MypageDAO{
 		
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getBottomSpecific", map);
 
+		//하드코딩이다. mypageVO를 mypagetopVO, mypagebottomVO로 나누어야 한다. 
+		// 지금은 혹시나 월별 소비합계랑과 영역별 소비합계를 같이 사용할 일이 있지 않을까싶어서 그냥 두는 것임.
+		// 나중에 따로 사용할 일이 없을거같으면 과감하게 객체를 분리한다.
+		// 지금 여기서 0으로 값을 변경하는 이유는, 도넛차트에서 option에서 array 가져올 때 null 때문에 total 값이 NaN이 되어버리는 문제때문임.
+		// 이것때문이 아닌거같다. 아직도 nan으로 뜨네..뭐지
+		// 하하. 1) list.leisure_travel_flight을 list.Leisure_travel_flight 오타.
+		// 2) MypageVO에서 영역별 소비금액이 String으로 되어있다. java script에서 reduce 활용해 배열의 합계를 구할 때, 문자열이라 이어붙여져버렸다. 그래서 제대로 안나옴.
+		// 그냥 mypageVO의 멤버변수들을 double로 바꿔버림.
+		// 이렇게 되면, 객체가 생겨날 때 모든 멤버변수들의 초기값이 0이 되어버린다. vs 문자열은 null이 초기값이다.
+
+//		mypageVO.setJan("0");
+//		mypageVO.setFeb("0");
+//		mypageVO.setMar("0");
+//		mypageVO.setApr("0");
+//		mypageVO.setMay("0");
+//		mypageVO.setJun("0");
+//		mypageVO.setJul("0");
+//		mypageVO.setAug("0");
+//		mypageVO.setSept("0");
+//		mypageVO.setOct("0");
+//		mypageVO.setNov("0");
+//		mypageVO.setDec("0");
+		
 		
 		return mypageVO;
 	}
@@ -99,6 +123,29 @@ public class MypageDAOImpl implements MypageDAO{
 		System.out.println("DAOImpl 단에서 받는 month : " + month);
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getBottomSpecificOpen", map);
 
+		
+		//하드코딩이다. mypageVO를 mypagetopVO, mypagebottomVO로 나누어야 한다. 
+		// 지금은 혹시나 월별 소비합계랑과 영역별 소비합계를 같이 사용할 일이 있지 않을까싶어서 그냥 두는 것임.
+		// 나중에 따로 사용할 일이 없을거같으면 과감하게 객체를 분리한다.
+		// 지금 여기서 0으로 값을 변경하는 이유는, 도넛차트에서 option에서 array 가져올 때 null 때문에 total 값이 NaN이 되어버리는 문제때문임.
+		// 이것때문이 아닌거같다. 아직도 nan으로 뜨네..뭐지
+		// 하하. 1) list.leisure_travel_flight을 list.Leisure_travel_flight 오타.
+		// 2) MypageVO에서 영역별 소비금액이 String으로 되어있다. java script에서 reduce 활용해 배열의 합계를 구할 때, 문자열이라 이어붙여져버렸다. 그래서 제대로 안나옴.
+		// 그냥 mypageVO의 멤버변수들을 long으로 바꿔버림. int : 2147483647(20억) long : 매우 긴 숫자. 혹시나 모를 20억 이상의 소비합계를 대비하여...은행은 안정적인게 중요함.
+		
+//		mypageVO.setJan("0");
+//		mypageVO.setFeb("0");
+//		mypageVO.setMar("0");
+//		mypageVO.setApr("0");
+//		mypageVO.setMay("0");
+//		mypageVO.setJun("0");
+//		mypageVO.setJul("0");
+//		mypageVO.setAug("0");
+//		mypageVO.setSept("0");
+//		mypageVO.setOct("0");
+//		mypageVO.setNov("0");
+//		mypageVO.setDec("0");
+		System.out.println("mypageVO : " + mypageVO);
 		
 		return mypageVO;
 	}
