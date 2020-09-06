@@ -107,11 +107,11 @@
 				myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.Leisure_travel_flight];
 			
-				myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.Leisure_travel_flight];
+				/* myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.Leisure_travel_flight]; */
 				
 				myBarChart.update();
-				myPieChart.update();
+				//myPieChart.update();
 
 			},
 			error : function() {
@@ -742,7 +742,7 @@
 									},
 									maxBarThickness : 25,
 								} ],
-								yAxes : [ {
+							/* 	yAxes : [ {
 									ticks : {
 										min : 0,
 										max : 15000,
@@ -761,7 +761,29 @@
 										borderDash : [ 2 ],
 										zeroLineBorderDash : [ 2 ]
 									}
+								} ], */
+								
+								
+								yAxes : [ {
+									ticks : {
+										//maxTicksLimit : 7,
+										maxTicksLimit : 5,
+										padding : 10,
+										// Include a dollar sign in the ticks
+										callback : function(value, index,
+												values) {
+											return '￦' + number_format(value);
+										}
+									},
+									gridLines : {
+										color : "rgb(234, 236, 244)",
+										zeroLineColor : "rgb(234, 236, 244)",
+										drawBorder : false,
+										borderDash : [ 2 ],
+										zeroLineBorderDash : [ 2 ]
+									}
 								} ],
+								
 							},
 							legend : {
 								display : false
@@ -861,6 +883,53 @@
 							cutoutPercentage : 75
 						},
 					});
+			
+			
+			
+			let year = $('#bottomYear').val().substring(0,4);
+			let month = $('#bottomMonth').val();
+			
+			if(month == '전체'){
+				month = 'all';
+			} else{
+				month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+				if(month.length == 1)
+					month = '0' + month;
+			}
+
+			$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
+				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+					console.log(data);
+					let list = JSON.parse(data);
+					console.log(list);
+					
+					myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+						list.life, list.food_beverage, list.Leisure_travel_flight];
+				
+					/* myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+						list.life, list.food_beverage, list.Leisure_travel_flight]; */
+					
+					
+					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
+																		var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+																  return datasetLabel + ': ￦' + number_format(tooltipItem.yLabel);
+																} */
+					
+					myBarChart.update();
+					//myPieChart.update();
+
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})
+			
+			
 		</script>
 
 
