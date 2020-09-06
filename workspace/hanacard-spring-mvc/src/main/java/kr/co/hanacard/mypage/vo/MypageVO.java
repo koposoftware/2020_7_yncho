@@ -15,7 +15,7 @@ public class MypageVO {
 	private String nov; 
 	private String dec;
 	
-	private String trans_gas_car;
+	private String trans_gas;
 	private String Leisure_travel_flight;
 	private String mart_shopping;
 	private String pet;
@@ -23,8 +23,7 @@ public class MypageVO {
 	private String life;
 	private String food_beverage;
 	private String communication;
-	private String etc;
-	
+	//private String etc;
 	
 	public String getJan() {
 		return jan;
@@ -98,11 +97,11 @@ public class MypageVO {
 	public void setDec(String dec) {
 		this.dec = dec;
 	}
-	public String getTrans_gas_car() {
-		return trans_gas_car;
+	public String getTrans_gas() {
+		return trans_gas;
 	}
-	public void setTrans_gas_car(String trans_gas_car) {
-		this.trans_gas_car = trans_gas_car;
+	public void setTrans_gas(String trans_gas) {
+		this.trans_gas = trans_gas;
 	}
 	public String getLeisure_travel_flight() {
 		return Leisure_travel_flight;
@@ -146,13 +145,6 @@ public class MypageVO {
 	public void setCommunication(String communication) {
 		this.communication = communication;
 	}
-	public String getEtc() {
-		return etc;
-	}
-	public void setEtc(String etc) {
-		this.etc = etc;
-	}
-	
 	
 	
 	

@@ -732,6 +732,258 @@
 	
 	</select>
 	
+	<select id = "getBottomSpecific" parameterType = "map" resultType ="MypageVO">
+	
+		WITH WHOLE AS( SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
+		                FROM CARD_TRANSACTION_TEST01
+		                WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = #{resiNum})
+		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year} 
+		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}
+		              )
+		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "communication", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
+		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "Leisure_travel_flight"
+		FROM (SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I1', 'I2')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY1,
+		      
+		(SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I4', 'I5', 'I6')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY2,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I7', 'I8')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY3,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I9')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY4,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I10')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY5,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I11')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY6,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I12')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY7,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I13')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY8
+		WHERE ROWNUM = 1
+
+	</select>
+	
+	<select id = "getBottomSpecificOpen" parameterType = "map" resultType ="MypageVO">
+		WITH WHOLE AS (SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
+		                FROM CARD_TRANSACTION_TEST01
+		                WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = #{resiNum})
+		                      AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year}
+		                      AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}
+		                      
+		                UNION ALL
+		                
+		                SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
+		                 FROM OPEN_CARD_TRANSACTION_TEST01     
+		                 WHERE RESI_NUM = '9203101937988'
+		                      AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year} 
+		                      AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}    
+		                      AND MEANS IN(${cardListString})
+		                )
+		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "communication", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
+		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "Leisure_travel_flight"
+		FROM (SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I1', 'I2')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY1,
+		      
+		(SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I4', 'I5', 'I6')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY2,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(RESULT) AS RESULT
+		             FROM(
+		                    SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		                    FROM WHOLE
+		                    GROUP BY INDUSTRY_CODE
+		                    HAVING INDUSTRY_CODE IN('I7', 'I8')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL))
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY3,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I9')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY4,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I10')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY5,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I11')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY6,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I12')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY7,
+		      
+		     (SELECT * 
+		       FROM (SELECT SUM(CARD_TRANSACTION_AMOUNT) AS RESULT
+		             FROM WHOLE
+		             GROUP BY INDUSTRY_CODE
+		             HAVING INDUSTRY_CODE IN('I13')
+		             
+		             UNION ALL
+		             
+		             -- SELECT NULL AS NUM
+		             SELECT 0 AS RESULT
+		             FROM DUAL)
+		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY8
+		WHERE ROWNUM = 1
+	</select>
 
 
 

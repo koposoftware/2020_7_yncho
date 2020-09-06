@@ -42,7 +42,24 @@ public class MypageServiceImpl implements MypageService{
 		return mypageVO;
 	}
 
+	@Override
+	public MypageVO getBottomSpecific(String resiNum, String year, String month) {
+
+		MypageVO mypageVO = mypageDAO.getBottomSpecific(resiNum, year, month);
+
+		return mypageVO;
+	}
+
+	@Override
+	public MypageVO getBottomSpecific(String resiNum, String cardListString, String year, String month) {
+		MypageVO mypageVO = mypageDAO.getBottomSpecific(resiNum, cardListString, year, month);
 		
+		return mypageVO;
+	}
+
+		
+	
+	
 	
 	
 	

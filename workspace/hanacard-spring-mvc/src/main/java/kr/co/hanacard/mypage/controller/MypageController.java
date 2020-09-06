@@ -110,6 +110,10 @@ public class MypageController {
 	//public MypageVO getTopSpecific(@PathVariable("year") String year, HttpSession session) {
 		//String uri = request.getRequestURI();
 		
+		
+		// request 매개변수 필요없네. 지우자.
+		
+		
 		//System.out.println("요청 uri : " + uri);
 		System.out.println("들어오긴 하는가 /mypage/topspecific/{year}");
 		
@@ -188,5 +192,76 @@ public class MypageController {
 	}
 	
 	
+		
+	@ResponseBody
+	@GetMapping("/mypage/bottomspecific/{year}/{month}")
+	public MypageVO getBottomSpecific(@PathVariable("year") String year, @PathVariable("month") String month, HttpSession session) {	
+		
+		System.out.println("들어오나요 /mypage/bottomspecific/{year}/{month} ");
+		
+		MypageVO mypageVO;
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
+		
 	
+		List<String> cardList = new ArrayList<>();
+		
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("'비씨카드'");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("'씨티카드'");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("'현대카드'");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("'전북은행카드'");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("'제주은행카드'");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("'광주은행카드'");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("'국민카드'");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("'롯데카드'");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("'농협카드'");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("'신한카드'");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("'수협은행카드'");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("'삼성카드'");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("'우리카드'");
+				
+		
+		//PostMapping이므로 특정 연,월을 조회
+		if(cardList.isEmpty()) {
+			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+			
+			if(month.equals("all"))
+				month = null;
+				
+			mypageVO = mypageService.getBottomSpecific(resiNum, year, month); 
+			// WHERE 연도 == YEAR AND 월 == MONTH 여야함
+			// 근데 월이 all로 넘어오면..흠
+			// 마이바티스는 동적으로 작동해서  MONTH 부분 all이면 처리안되게 해볼까. 그럼 all이 null로 들어가야하네.
+			
+
+			
+		} else {
+
+			System.out.println("연동된 카드사가 있습니다.");
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			System.out.println("resiNum : " + resiNum);
+			System.out.println("cardListString : " + cardListString);
+			System.out.println("year : " + year);
+			System.out.println("month : " + month);
+			mypageVO = mypageService.getBottomSpecific(resiNum, cardListString, year, month);
+			//mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
+			
+		}
+		
+		
+		return mypageVO;
+	}
 }

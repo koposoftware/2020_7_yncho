@@ -30,13 +30,20 @@
 			getTopSpecific();
 			
 		})
+		
+		$('#bottomBtn').click(function(){
+			
+			getBottomSpecific();
+			
+		})
+		
 	})
 
 
 	function getTopSpecific() {
 
 		alert('getTopSpecific()');
-		let year = $('#year').val().substring(0,4);
+		let year = $('#topYear').val().substring(0,4);
 		alert(year);
 
 		$.ajax({
@@ -52,7 +59,7 @@
 						list.mar, list.apr, list.may, list.jun, list.jul,
 						list.aug, list.sept, list.oct, list.nov, list.dec ]
 
-				alert('ajax 새로고침이 update 떄문인가 => 아님.')
+				//alert('ajax 새로고침이 update 떄문인가 => 아님.')
 				myLineChart.update();
 
 			},
@@ -72,7 +79,47 @@
 	
 	function getBottomSpecific() {
 		
+		
 		alert('getBottomSpecific()');
+		let year = $('#bottomYear').val().substring(0,4);
+		let month = $('#bottomMonth').val();
+		
+		if(month == '전체'){
+			month = 'all';
+		} else{
+			month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+			if(month.length == 1)
+				month = '0' + month;
+		}
+		
+		alert(year);
+		alert(month);
+
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+				console.log(data);
+				let list = JSON.parse(data);
+				console.log(list);
+				
+				myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.Leisure_travel_flight];
+			
+				myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.Leisure_travel_flight];
+				
+				myBarChart.update();
+				myPieChart.update();
+
+			},
+			error : function() {
+				
+				alert('ajax 실패')
+				
+			}
+		})
 		
 	};
 	
@@ -209,7 +256,7 @@
 			<%-- 소비 개요 버튼 시작 --%>
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 
-				<select class="selectpicker" data-style="btn-success" id ="year">
+				<select class="selectpicker" data-style="btn-success" id ="topYear">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>2020년</option>
 					<option>2019년</option>
@@ -255,14 +302,14 @@
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 
-				<select class="selectpicker" data-style="btn-success">
+				<select class="selectpicker" data-style="btn-success" id="bottomYear">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>2020년</option>
 					<option>2019년</option>
 					<option>2018년</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<select class="selectpicker" data-style="btn-success">
+				<select class="selectpicker" data-style="btn-success" id="bottomMonth">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>전체</option>
 					<option>1월</option>
@@ -279,7 +326,8 @@
 					<option>12월</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()">
+				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="bottomBtn">
+				<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
 				</button>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->

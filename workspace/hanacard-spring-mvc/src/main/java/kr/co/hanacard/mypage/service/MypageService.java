@@ -18,6 +18,8 @@ public interface MypageService {
 	 MypageVO getTopSpecific(String resiNum, String year);
 	 MypageVO getTopSpecific(String resiNum, String cardListString, String year);
 
+	 MypageVO getBottomSpecific(String resiNum, String year, String month);
+	 MypageVO getBottomSpecific(String resiNum, String cardListString, String year, String month);
 	 
 	 //MypageVO getDataByYear();
 	  

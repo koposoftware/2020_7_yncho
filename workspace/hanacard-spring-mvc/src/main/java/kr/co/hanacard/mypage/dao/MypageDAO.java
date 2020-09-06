@@ -12,6 +12,9 @@ public interface MypageDAO {
 	 public MypageVO getTopSpecific(String resiNum, String year);
 	 public MypageVO getTopSpecific(String resiNum, String cardListString, String year);
 	 
+	 public MypageVO getBottomSpecific(String resiNum, String year, String month);
+	 public MypageVO getBottomSpecific(String resiNum, String cardListString, String year, String month);
+	 
 	 //public MypageVO getTopCurrentYear(@Param("loginVO") MemberVO loginVO, @Param("card") );
 
 }
