@@ -743,8 +743,8 @@
 					{
 						type : 'bar',
 						data : {
-							labels : [ "교통/주유", "통신", "마트/쇼핑", "반려동물",
-									"보건/의료", "생활", "식음료", "레저/여행/항공" ],
+							labels : [ "교통/주유", "레저/여행/항공", "마트/쇼핑", "반려동물",
+									"보건/의료", "생활", "식음료", "통신" ],
 							datasets : [ {
 								label : "소비 금액",
 								/* backgroundColor : "#4e73df", */
@@ -868,7 +868,7 @@
 					{
 						type : 'doughnut',
 						data : {
-							labels : [ "교통/주유", "통신", "마트/쇼핑", "반려동물", "보건/의료", "생활", "식음료", "레저/여행/항공" ],
+							labels : [ "교통/주유", "레저/여행/항공", "마트/쇼핑", "반려동물", "보건/의료", "생활", "식음료", "통신" ],
 							datasets : [ {
 								label : "소비 비율",
 								backgroundColor : [ "#6DC1FF", "#36b9cc",
@@ -981,9 +981,11 @@
 				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-					//console.log(data);
+					console.log('ajax===========시작')
+					console.log(data);
 					let list = JSON.parse(data);
-					//console.log(list);
+					console.log(list);
+					console.log('ajax===========끝')
 					
 					//alert('list : ' + list);
 					myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
