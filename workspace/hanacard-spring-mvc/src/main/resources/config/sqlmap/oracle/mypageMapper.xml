@@ -740,8 +740,8 @@
 		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year} 
 		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}
 		              )
-		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "communication", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
-		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "Leisure_travel_flight"
+		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "Leisure_travel_flight", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
+		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "communication"
 		FROM (SELECT * 
 		       FROM (SELECT SUM(RESULT) AS RESULT
 		             FROM(
@@ -875,8 +875,8 @@
 			                  AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}    
 		                      </if>
 		                )
-		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "communication", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
-		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "Leisure_travel_flight"
+		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "Leisure_travel_flight", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
+		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "communication"
 		FROM (SELECT * 
 		       FROM (SELECT SUM(RESULT) AS RESULT
 		             FROM(

@@ -42,18 +42,18 @@
 
 	function getTopSpecific() {
 
-		alert('getTopSpecific()');
+		//alert('getTopSpecific()');
 		let year = $('#topYear').val().substring(0,4);
-		alert(year);
+		//alert(year);
 
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/topspecific/' + year,
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-				console.log(data);
+				//console.log(data);
 				let list = JSON.parse(data);
-				console.log(list);
+				//console.log(list);
 
 				myLineChart.data.datasets[0].data = [ list.jan, list.feb,
 						list.mar, list.apr, list.may, list.jun, list.jul,
@@ -80,7 +80,7 @@
 	function getBottomSpecific() {
 		
 		
-		alert('getBottomSpecific()');
+		//alert('getBottomSpecific()');
 		let year = $('#bottomYear').val().substring(0,4);
 		let month = $('#bottomMonth').val();
 		
@@ -92,23 +92,25 @@
 				month = '0' + month;
 		}
 		
-		alert(year);
-		alert(month);
+		//alert(year);
+		//alert(month);
 
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
+				console.log('==========getBotttomSpecific===========')
 				console.log(data);
 				let list = JSON.parse(data);
 				console.log(list);
-				
-				myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.Leisure_travel_flight];
+				console.log('==========getBotttomSpecific===========')
+
+				myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.communication];
 			
-				myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.leisure_travel_flight]; 
+				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.communication]; 
 				
 				var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
 								list.life + list.food_beverage + list.leisure_travel_flight
@@ -711,9 +713,9 @@
 				type : 'get', 
 				success : function(data) { 
 
-					console.log(data);
+					//console.log(data);
 					let list = JSON.parse(data);
-					console.log(list);
+					//console.log(list);
 
 					//alert(list.jan);
 
@@ -979,18 +981,16 @@
 				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-					console.log(data);
+					//console.log(data);
 					let list = JSON.parse(data);
-					console.log(list);
+					//console.log(list);
 					
 					//alert('list : ' + list);
-					
-					myBarChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.leisure_travel_flight];
+					myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+						list.life, list.food_beverage, list.communication];
 				
-					myPieChart.data.datasets[0].data = [list.trans_gas, list.communication, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.leisure_travel_flight]; 
-					
+					myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+						list.life, list.food_beverage, list.communication]; 
 					
 					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
 																		var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
