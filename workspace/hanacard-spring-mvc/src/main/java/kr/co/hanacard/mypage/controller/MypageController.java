@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.mypage.service.MypageService;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
+@SessionAttributes({"mypageVO", "cardList"})// mav.addObject() 메소드로 저장하는 객체이름이 mypageVO라면, 세션에 등록하라!
 @Controller
 public class MypageController {
 	
@@ -26,9 +29,58 @@ public class MypageController {
 	
 	
 	@GetMapping("/mypage")
-	public String loginForm() {
+	public ModelAndView loginForm(HttpSession session) {
 		
-		return "/mypage/mypage";
+		ModelAndView mav = new ModelAndView();
+		
+		MypageVO mypageVO;
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
+		
+		
+		List<String> cardList = new ArrayList<>();
+		
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("'비씨카드'");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("'씨티카드'");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("'현대카드'");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("'전북은행카드'");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("'제주은행카드'");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("'광주은행카드'");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("'국민카드'");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("'롯데카드'");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("'농협카드'");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("'신한카드'");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("'수협은행카드'");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("'삼성카드'");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("'우리카드'");
+		
+		mav.addObject("cardList", cardList);
+		
+		if(cardList.isEmpty()) {
+			mypageVO = mypageService.getTopCurrentYear(resiNum);
+			
+		} else {
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
+		}
+			
+		mav.setViewName("/mypage/mypage");
+		mav.addObject("mypageVO", mypageVO);
+		//return "/mypage/mypage";
+		return mav;
 	}
 	
 	/**
