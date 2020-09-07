@@ -1,7 +1,11 @@
 package kr.co.hanacard.mypage.service;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.hanacard.member.dao.MemberDAO;
+import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.mypage.dao.MypageDAO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
@@ -10,6 +14,10 @@ public class MypageServiceImpl implements MypageService{
 
 	@Autowired
 	private MypageDAO mypageDAO;
+	
+	@Autowired
+	private MemberDAO memberDAO;
+	
 	
 	@Override
 	public MypageVO getTopCurrentYear(String resiNum) {
@@ -55,6 +63,16 @@ public class MypageServiceImpl implements MypageService{
 		MypageVO mypageVO = mypageDAO.getBottomSpecific(resiNum, cardListString, year, month);
 		
 		return mypageVO;
+	}
+
+	@Override
+	public MemberVO doUpdateLink(Map<String, String> map, MemberVO loginVO) {
+		
+		mypageDAO.doUpdateLink(map);
+		
+		loginVO = memberDAO.login(loginVO);
+		
+		return loginVO;
 	}
 
 		

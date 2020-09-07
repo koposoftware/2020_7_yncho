@@ -1,16 +1,20 @@
 package kr.co.hanacard.mypage.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -320,4 +324,45 @@ public class MypageController {
 		
 		return mypageVO;
 	}
+	
+	@ResponseBody
+	@GetMapping("/mypage/update") 	
+	public MemberVO doUpdateLink(MemberVO cardList, HttpSession session) {	
+		// 날라오는 parameter가 많다면, @ReqeustParam도 엄청난 노가다가 된다.
+		// 그럴 때는 아예 객채로 받는 방법을 쓴다. 그냥 객체명을 쓰면, 내부적으로 setter가 작동해서 form 태그 내의 데이터를 담아오는 듯하다. 
+		System.out.println("member : " + cardList);
+		
+		ModelAndView mav = new ModelAndView();
+
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String id = loginVO.getId();
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("chn", "Y");
+		map.put("csh", cardList.getCsh());
+		map.put("css", cardList.getCss());
+		map.put("chd", cardList.getChd());
+		map.put("ckm", cardList.getCkm());
+		map.put("clt", cardList.getClt());
+		map.put("cwr", cardList.getCwr());
+		map.put("cbc", cardList.getCbc());
+		map.put("cct", cardList.getCct());
+		map.put("cnh", cardList.getCnh());
+		map.put("cshb", cardList.getCshb());
+		map.put("ckjb", cardList.getCkjb());
+		map.put("cjbb", cardList.getCjbb());
+		map.put("cjjb", cardList.getCjjb());
+		
+		// DB에 사용자의 카드 연동정보를 변경해야 함.
+		loginVO = mypageService.doUpdateLink(map, loginVO);
+		System.out.println("업데이트된 loginVO : " + loginVO);
+		//업데이트된 정보로 다시 loginVO 세션에 등록.
+		session.setAttribute("loginVO", loginVO); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+		//mav.addObject("loginVO", loginVO);
+		
+		return null;
+	}
+	
+	
 }

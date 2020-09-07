@@ -32,7 +32,7 @@
 		})
 		
 		$('#bottomBtn').click(function(){
-			
+
 			getBottomSpecific();
 			
 		})
@@ -42,7 +42,7 @@
 			alert('하하 모달입니다.')
 			doReflect();
 			
-		})
+		}) 
 		
 	})
 
@@ -119,8 +119,8 @@
 				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.communication]; 
 				
-				var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
-								list.life + list.food_beverage + list.leisure_travel_flight
+				/* var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
+								list.life + list.food_beverage + list.leisure_travel_flight */
 				
 				/* myPieChart.options.tooltips.callbacks.label = function(tooltipItem, data) { 
 														            var indice = tooltipItem.index;     
@@ -175,10 +175,122 @@
 	
 	
 	function doReflect(){
+		alert('해 DB에 반영하고, 화면의 그래프 함수를 호출하여 (새로고침 없이) 연동된 정보로 그래프를 그립니다.');
 		
-		alert('Ajax를 통해 DB에 반영하고, 화면의 그래프 함수를 호출하여 새로고침 없이 연동된 정보로 그래프를 그립니다.')
+		var list = [];
+		list.push('hello');
 		
-	}
+		var chn = 'Y';
+		if($("input:checkbox[id='csh']").is(":checked") == true){
+			list.push('csh');
+			csh = 'Y'
+		}else{
+			csh = 'N'
+		}
+		if($("input:checkbox[id='css']").is(":checked") == true){
+			css = 'Y'
+		}else{
+			css = 'N'
+		}
+		if($("input:checkbox[id='chd']").is(":checked") == true){
+			chd = 'Y'
+		}else{
+			chd = 'N'
+		}
+		if($("input:checkbox[id='ckm']").is(":checked") == true){
+			ckm = 'Y'
+			list.push('ckm');
+
+		}else{
+			ckm = 'N'
+		}
+		if($("input:checkbox[id='clt']").is(":checked") == true){
+			clt = 'Y'
+		}else{
+			clt = 'N'
+		}
+		if($("input:checkbox[id='cwr']").is(":checked") == true){
+			cwr = 'Y'
+		}else{
+			cwr = 'N'
+		}
+		if($("input:checkbox[id='cbc']").is(":checked") == true){
+			cbc = 'Y'
+		}else{
+			cbc = 'N'
+		}
+		if($("input:checkbox[id='cct']").is(":checked") == true){
+			cct = 'Y'
+		}else{
+			cct = 'N'
+		}
+		if($("input:checkbox[id='cnh']").is(":checked") == true){
+			cnh = 'Y'
+		}else{
+			cnh = 'N'
+		}
+		if($("input:checkbox[id='cshb']").is(":checked") == true){
+			cshb = 'Y'
+		}else{
+			cshb = 'N'
+		}
+		if($("input:checkbox[id='ckjb']").is(":checked") == true){
+			ckjb = 'Y'
+		}else{
+			ckjb = 'N'
+		}
+		if($("input:checkbox[id='cjbb']").is(":checked") == true){
+			cjbb = 'Y'
+		}else{
+			cjbb = 'N'
+		}
+		if($("input:checkbox[id='cjjb']").is(":checked") == true){
+			cjjb = 'Y'
+		}else{
+			cjjb = 'N'
+		}
+		
+		
+		alert('list : ' + list);
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/update',
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			data : {
+				chn : chn,
+				csh : csh,
+				css : css,
+				chd : chd,
+				ckm : ckm,
+				clt : clt,
+				cwr : cwr,
+				cbc : cbc,
+				cct : cct,
+				cnh : cnh,
+				cshb : cshb,
+				ckjb : ckjb,
+				cjbb : cjbb,
+				cjjb : cjjb
+				
+			},
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+				alert('ajax 성공');
+			
+				getTopSpecific();
+				getBottomSpecific();
+				
+
+			},
+			error : function() {
+				
+				alert('ajax 실패')
+				
+			}
+		})
+		
+		
+		
+	} 
 
 	
 	
@@ -349,8 +461,8 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 						
-							<form>
-							<%-- <form action="${ pageContext.request.contextPath }/mypage"> --%>
+							<form name = "mform">
+							<%-- <form action="${ pageContext.request.contextPath }/mypage/update" method="post"> --%>
 							<%-- <form action = "${ pageContext.request.contextPath }/mypage" method = "post"> --%> 
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">타사 카드 거래내역 연동</h5>
@@ -361,61 +473,62 @@
 								<div class="modal-body">
 									<!-- Material unchecked -->
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="csh" name ="card" value = "csh">
 									    <label class="form-check-label" for="materialUnchecked">신한카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="css" name ="card" value = "css">
 									    <label class="form-check-label" for="materialUnchecked">삼성카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="chd" name ="card" value = "chd">
 									    <label class="form-check-label" for="materialUnchecked">현대카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="ckm" name ="card" value = "ckm">
 									    <label class="form-check-label" for="materialUnchecked">국민카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="clt" name ="card" value = "clt">
 									    <label class="form-check-label" for="materialUnchecked">롯데카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cwr" name ="card" value = "cwr">
 									    <label class="form-check-label" for="materialUnchecked">우리카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cbc" name ="card" value = "cbc">
 									    <label class="form-check-label" for="materialUnchecked">비씨카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cct" name ="card" value = "cct">
 									    <label class="form-check-label" for="materialUnchecked">씨티카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cnh" name ="card" value = "cnh">
 									    <label class="form-check-label" for="materialUnchecked">농협카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cshb" name ="card" value = "cshb">
 									    <label class="form-check-label" for="materialUnchecked">수협은행카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="ckjb" name ="card" value = "ckjb">
 									    <label class="form-check-label" for="materialUnchecked">광주은행카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cjbb" name ="card" value = "cjbb">
 									    <label class="form-check-label" for="materialUnchecked">전북은행카드</label>
 									</div>
 									<div class="form-check">
-									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <input type="checkbox" class="form-check-input" id="cjjb" name ="card" value = "cjjb">
 									    <label class="form-check-label" for="materialUnchecked">제주은행카드</label>
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary" id = "modalBtn">Save changes</button>
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <!-- dismiss : 해산. 즉 닫는다. -->
+									<button type="button" class="btn btn-primary" id = "modalBtn">연동하기</button>
+									<!-- <button type="submit" class="btn btn-primary" id = "modalBtn">연동하기</button> -->
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button> <!-- dismiss : 해산. 즉 닫는다. -->
 									<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 								</div>
 							</form>
@@ -1135,6 +1248,52 @@
 				}
 			})
 			
+			
+			// javascript 에서 el 사용하기   <c:out value='${loginVO}'/>
+			
+			/* if("${ not empty loginVO }"){
+				alert('good'); */
+			
+			
+			if("${loginVO.csh}" == 'Y')
+				$("input:checkbox[id='csh']").prop("checked", true);
+			
+			if("${loginVO.css}" == "Y")
+				$("input:checkbox[id='css']").prop("checked", true);
+				
+			if("${loginVO.chd}" == "Y")
+				$("input:checkbox[id='chd']").prop("checked", true);
+				
+			if("${loginVO.ckm}" == 'Y')
+				$("input:checkbox[id='ckm']").prop("checked", true);
+				
+			if("${loginVO.clt}" == 'Y')
+				$("input:checkbox[id='clt']").prop("checked", true);
+				
+			if("${loginVO.cwr}" == 'Y')
+				$("input:checkbox[id='cwr']").prop("checked", true);
+			
+			if("${loginVO.cbc}" == 'Y')
+				$("input:checkbox[id='cbc']").prop("checked", true);
+			
+			if("${loginVO.cct}" == 'Y')
+				$("input:checkbox[id='cct']").prop("checked", true);
+			
+			if("${loginVO.cnh}" == 'Y')
+				$("input:checkbox[id='cnh']").prop("checked", true);
+			
+			if("${loginVO.cshb}" == 'Y')
+				$("input:checkbox[id='cshb']").prop("checked", true);
+			
+			if("${loginVO.ckjb}" == 'Y')
+				$("input:checkbox[id='ckjb']").prop("checked", true);
+			
+			if("${loginVO.cjbb}" == 'Y')
+				$("input:checkbox[id='cjbb']").prop("checked", true);
+			
+			if("${loginVO.cjjb}" == 'Y')
+				$("input:checkbox[id='cjjb']").prop("checked", true);
+
 			
 		</script>
 

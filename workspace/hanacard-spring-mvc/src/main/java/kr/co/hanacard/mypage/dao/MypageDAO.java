@@ -1,4 +1,6 @@
 package kr.co.hanacard.mypage.dao;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import kr.co.hanacard.member.vo.MemberVO;
@@ -17,4 +19,5 @@ public interface MypageDAO {
 	 
 	 //public MypageVO getTopCurrentYear(@Param("loginVO") MemberVO loginVO, @Param("card") );
 
+	 public void doUpdateLink(Map<String, String> map);
 }

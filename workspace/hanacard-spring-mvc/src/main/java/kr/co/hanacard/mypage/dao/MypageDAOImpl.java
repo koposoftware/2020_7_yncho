@@ -149,6 +149,14 @@ public class MypageDAOImpl implements MypageDAO{
 		
 		return mypageVO;
 	}
+
+	@Override
+	public void doUpdateLink(Map<String, String> map) {
+		
+		sqlSession.update("mypage.dao.MypageDAO.doUpdateLink", map);
+		
+	}
+	
 	
 	
 	

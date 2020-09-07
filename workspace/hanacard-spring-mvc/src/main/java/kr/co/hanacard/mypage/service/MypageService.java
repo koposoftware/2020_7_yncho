@@ -1,5 +1,8 @@
 package kr.co.hanacard.mypage.service;
 
+import java.util.Map;
+
+import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 public interface MypageService {
@@ -20,6 +23,10 @@ public interface MypageService {
 
 	 MypageVO getBottomSpecific(String resiNum, String year, String month);
 	 MypageVO getBottomSpecific(String resiNum, String cardListString, String year, String month);
+	 
+	 
+	 MemberVO doUpdateLink(Map<String, String> map, MemberVO loginVo);
+	 
 	 
 	 //MypageVO getDataByYear();
 	  

@@ -738,7 +738,9 @@
 		                FROM CARD_TRANSACTION_TEST01
 		                WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT_TEST01 WHERE RESI_NUM = #{resiNum})
 		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year} 
-		                        AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}
+		                        <if test = "month != 'all'">
+			                    AND TO_CHAR(CARD_TRANSACTION_TIME, 'MM') = #{month}    
+		                        </if>
 		              )
 		SELECT SUBQUERY1.RESULT AS "trans_gas", SUBQUERY2.RESULT AS "Leisure_travel_flight", SUBQUERY3.RESULT AS "mart_shopping", SUBQUERY4.RESULT AS "pet",
 		        SUBQUERY5.RESULT AS "health_medical", SUBQUERY6.RESULT AS "life", SUBQUERY7.RESULT AS "food_beverage", SUBQUERY8.RESULT AS "communication"
@@ -868,7 +870,8 @@
 		                
 		                SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
 		                 FROM OPEN_CARD_TRANSACTION_TEST01     
-		                 WHERE RESI_NUM = '9203101937988'
+		                 WHERE RESI_NUM = #{resiNum}
+		                 <!-- WHERE RESI_NUM = '9203101937988' -->
 		                      AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY') = #{year} 
 		                      AND MEANS IN(${cardListString})
 		                      <if test = "month != 'all'">
@@ -990,5 +993,11 @@
 	</select>
 
 
+	<update id = "doUpdateLink" parameterType = "map">
+		UPDATE MEMBER_TEST01 SET CSH = #{csh}, CSS = #{css}, CHD = #{chd} , CKM = #{ckm}, CLT = #{clt} , 
+                         CWR = #{cwr}, CBC = #{cbc}, CCT = #{cct}, CNH = #{cnh}, CSHB = #{cshb} , 
+                         CKJB = #{ckjb} , CJBB = #{cjbb}, CJJB = #{cjjb}
+                     WHERE ID = #{id}
+	</update>
 
 </mapper>
