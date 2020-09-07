@@ -37,6 +37,13 @@
 			
 		})
 		
+		$('#modalBtn').click(function(){
+	
+			alert('하하 모달입니다.')
+			doReflect();
+			
+		})
+		
 	})
 
 
@@ -167,6 +174,14 @@
 	};
 	
 	
+	function doReflect(){
+		
+		alert('Ajax를 통해 DB에 반영하고, 화면의 그래프 함수를 호출하여 새로고침 없이 연동된 정보로 그래프를 그립니다.')
+		
+	}
+
+	
+	
 </script>
 </head>
 
@@ -209,38 +224,63 @@
 			<!-- Page Heading -->
 			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 				<h2 class="h3 mb-0 text-gray-800">종합 대시보드</h2>
-				<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 			</div>
 
 			<%-- 첫번째 로우 시작 : 4개의 작은 카드 --%>
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+
+
+
 			<!-- Content Row -->
 			<div class="row">
-
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-12 mt-12" style ="width : 100%"> -->
+			
+				<!-- <div class="card" style="width: 18rem; height:18rem;">
+					<img class="card-img-top" src="..." alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>
+				</div> -->
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-3 col-md-6 mb-4">
+				<div class="col-xl-6 col-lg-6" style = "height : 300px;" >
+				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
+				<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
 					<div class="card border-left-primary shadow h-100 py-2">
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
-									<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 소비 합계</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div>
+									<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">카드 보유목록</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">haha</div>
+									
+										<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --> 
+										<!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
 								</div>
-								<div class="col-auto">
+								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-3 col-md-6 mb-4">
+				<div class="col-xl-6 col-lg-6" style = "height : 300px;">
+				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 py-2">
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
-									<div class="text-xs font-weight-bold text-success text-uppercase mb-1">카드 보유목록</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+									<div class="text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -251,7 +291,7 @@
 				</div>
 
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-3 col-md-6 mb-4">
+				<!-- <div class="col-xl-3 col-md-6 mb-4">
 					<div class="card border-left-info shadow h-100 py-2">
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
@@ -274,11 +314,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- Pending Requests Card Example -->
-				<div class="col-xl-3 col-md-6 mb-4">
-					<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
+				<!-- <div class="col-xl-3 col-md-6 mb-4">
+					col-md-6(열-디바이스크기-열크기) margin top , margin bottom ,
 					<div class="card border-left-warning shadow h-100 py-2">
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
@@ -292,26 +332,111 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
+			<!-- </div> -->
 			</div>
 			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
 			<%-- 소비 개요 버튼 시작 --%>
-			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
-
-				<select class="selectpicker" data-style="btn-success" id ="topYear">
-					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
-					<option>2020년</option>
-					<option>2019년</option>
-					<option>2018년</option>
-				</select>
-				&nbsp;&nbsp;&nbsp;
-				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id = "topBtn"> 
-				<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">  -->
-					<i class="fas fa-download fa-sm text-white-50"></i> 조회
-				</button>
-				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
-
+			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+			<!-- <div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5"> -->
+			
+				<!-- Button trigger modal -->										<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">타사 카드 거래내역 연동</button>
+	
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						
+							<form>
+							<%-- <form action="${ pageContext.request.contextPath }/mypage"> --%>
+							<%-- <form action = "${ pageContext.request.contextPath }/mypage" method = "post"> --%> 
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">타사 카드 거래내역 연동</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!-- Material unchecked -->
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">신한카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">삼성카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">현대카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">국민카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">롯데카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">우리카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">비씨카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">씨티카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">농협카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">수협은행카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">광주은행카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">전북은행카드</label>
+									</div>
+									<div class="form-check">
+									    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+									    <label class="form-check-label" for="materialUnchecked">제주은행카드</label>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary" id = "modalBtn">Save changes</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <!-- dismiss : 해산. 즉 닫는다. -->
+									<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+				<div>
+					<select class="selectpicker" data-style="btn-success" id ="topYear">
+						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<option>2020년</option>
+						<option>2019년</option>
+						<option>2018년</option>
+					</select>
+					&nbsp;&nbsp;
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id = "topBtn" style = "float :right;"> 
+					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">  -->
+						<i class="fas fa-download fa-sm text-white-50"></i> 조회
+					</button>
+					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+				</div>
 			</div>
 			<%-- 소비 개요 버튼 끝 --%>
 		
