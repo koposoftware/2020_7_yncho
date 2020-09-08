@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -341,17 +343,6 @@
 
 			<%-- 첫번째 로우 시작 : 4개의 작은 카드 --%>
 
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
-
-
-
 			<!-- Content Row -->
 			<div class="row">
 			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-12 mt-12" style ="width : 100%"> -->
@@ -367,14 +358,24 @@
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 				<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
 					<div class="card border-left-primary shadow h-100 py-2">
+						<%--보유카드 중 첫번째 카드의 이미지를 보여준다. --%>
+						<a href = "${ pageContext.request.contextPath }/mypage"> </a>
+						<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> 
+						<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --> 
+						<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap">  -->
+						<!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
-									<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">카드 보유목록</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">haha</div>
+									<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드 </div>
+									<%-- <c:forEach var = "item" items = "${ hanaList }">
+										good~~ <span>${ item }</span>
+									</c:forEach> --%>
 									
-										<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --> 
-										<!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
+									<span><a href = "${ pageContext.request.contextPath }/mypage">개인카드  ${hanaList.size()}개</a></span>
+									
+									<!-- <div class="h5 mb-0 font-weight-bold text-gray-800">개인카드</div> -->
+									
 								</div>
 								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -658,6 +659,15 @@
 			</div>
 			<%-- 세번째 로우 끝 : 소비 패턴  그래프 --%>
 
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/branch_card24.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
 
 			<%-- 네번째 로우 시작 : Projects --%>
 			<!-- Content Row -->
@@ -1293,7 +1303,7 @@
 			
 			if("${loginVO.cjjb}" == 'Y')
 				$("input:checkbox[id='cjjb']").prop("checked", true);
-
+			
 			
 		</script>
 

@@ -1,5 +1,7 @@
 package kr.co.hanacard.member.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,6 +25,17 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return loginVO;
 	}
+
+	@Override
+	public List<String> getHanaList(String resiNum) {
+		
+		List<String> hanaList = sqlSession.selectList("member.dao.MemberDAO.getHanaList", resiNum);
+		
+		return hanaList;
+	}
+	
+	
+	
 
 	
 }

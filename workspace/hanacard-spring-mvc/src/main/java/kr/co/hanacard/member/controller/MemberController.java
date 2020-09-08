@@ -1,5 +1,7 @@
 package kr.co.hanacard.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,10 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.hanacard.member.service.MemberService;
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.mypage.service.MypageService;
 
 
 //@SessionAttributes({"loginVO", "boardVO"}) 식으로 배열로 만들 수 있다.
-@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@SessionAttributes({"loginVO", "hanaList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+//@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 @Controller
 public class MemberController {
 	
@@ -28,7 +32,6 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-
 //	@RequestMapping(value="/login", method = RequestMethod.GET)
 	@GetMapping("/login")
 	public String loginForm() {
@@ -66,9 +69,14 @@ public class MemberController {
 			// 그렇게 하려면 어떻게 해야하는가 : 클래스 위에 @SessionAttributes 어노테이션을 붙인다.
 			// 그런데, sessionAttributes에 저장한 세션은 session.invalidate로 세션을 삭제할 수 없다!
 			// 이때는, SessionStatus.setComplete() 메소드로 지워야 한다.
+			
+			List<String> hanaList = memberService.getHanaList(loginVO.getResiNum());
+			System.out.println("hanaList : " + hanaList);
+			mav.addObject("hanaList", hanaList);
+			// 하나카드 보유 목록 가져오기 & 공유영역에 등록하여 jsp에서 보유카드에 나타내기
+			
+			
 		}
-		
-		
 		
 		
 		return mav;

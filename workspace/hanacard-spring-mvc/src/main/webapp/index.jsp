@@ -73,18 +73,21 @@
           <div class="mr-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li>
+                <li class="has-children">
                 <!-- <li class="active"> -->
                   <a href = "${ pageContext.request.contextPath }/mypage" class="nav-link text-left">마이페이지</a>
+                  <ul class="dropdown">
+                    <li><a href="${ pageContext.request.contextPath }/mypage">보유카드정보</a></li>
+                  </ul>
                 </li>
                 <li class="has-children">
                   <a href="about.html" class="nav-link text-left">하나차트</a>
                   <ul class="dropdown">
-                    <li><a href="teachers.html">카드타입별순위</a></li>
+                    <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
                     <li><a href="about.html">인기혜택별순위</a></li>
                     <li><a href="about.html">연회비별순위</a></li>
                     <li><a href="about.html">전월실적별순위</a></li>
-                    <li><a href="about.html">전월실적별순위</a></li>
+                    <!-- <li><a href="about.html">전월실적별순위</a></li> -->
                   </ul>
                 </li>
                 

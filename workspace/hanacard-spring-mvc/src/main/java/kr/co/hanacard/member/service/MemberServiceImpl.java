@@ -1,5 +1,7 @@
 package kr.co.hanacard.member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,13 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.login(member);
 	}
+
+	@Override
+	public List<String> getHanaList(String resiNum) {
+		
+		return memberDAO.getHanaList(resiNum);
+	}
+	
+	
 
 }
