@@ -66,7 +66,27 @@
 		<!-- Begin Page Content -->
 		<div class="container">
 			<!-- <div class="container-fluid"> -->
-			<h3><em>개인/카드정보</em>보유카드정보</h3>
+			<div>
+				<h1>카드 보유 목록입니다.</h1>
+			</div>
+			<div>
+				<hr size = "5">
+				<ul>
+					<li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')">
+					<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
+					
+					<!-- <img class="ui-li-icon" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;"> -->
+		
+						<!-- <p><img src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;"></p> -->
+						<span>
+							<dt>${hanaList[0]}</dt>
+							<dd>${loginVO.id} | 신청일 2020.00.00 | 정상</dd>
+						</span>
+						
+					</li>
+				</ul>
+				
+			</div>
 
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
