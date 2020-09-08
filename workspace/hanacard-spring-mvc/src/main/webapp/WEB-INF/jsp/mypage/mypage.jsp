@@ -354,26 +354,34 @@
 					</div>
 				</div> -->
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 300px;" >
+				<div class="col-xl-4 col-lg-4" style = "height : 320px;" >
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;" > -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 				<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
-					<div class="card border-left-primary shadow h-100 py-1">
+					<div class="card border-left-primary shadow h-100">
+					<!-- <div class="card border-left-primary shadow h-100 py-1"> -->
 					<!-- <div class="card border-left-primary shadow h-100 py-2">   py-2 : 카드 상단 여백-->
 					
-					<!-- <div class="card-header">
-						<span class="h5 mb-0 font-weight-bold text-gray-800">보유 카드</span>
-						<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</span>
-					</div> -->
+						<!-- <div class="card-header">
+							<span class="h5 mb-0 font-weight-bold text-gray-800">보유 카드</span>
+							<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</span>
+						</div> -->
 
+						<div class ="card-header">
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</div> 
+						</div>
+						
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;">
+									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;">
+									<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
 									<div style = "text-align: center;">${hanaList[0]}</div>
 								</div>
 								<div class="carousel-item">
 									<!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;">
+									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 180px;">
+									<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;"> --%>
 									<div style = "text-align: center;">${hanaList[1]}</div>
 								</div>
 								<!-- <div class="carousel-item">
@@ -418,7 +426,8 @@
 				</div>
 
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 300px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;"> -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 ">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> py : 카드 상단 여백! -->
@@ -433,6 +442,7 @@
 									<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>  -->
 									<!-- <div class="h4 text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div>  -->
 									<!-- <div class="h4 text-xs font-weight-bold text-dark text-uppercase mb-1">결제 예정 금액</div> -->
+									<br>
 									<br>
 									<br>
 									<br>
@@ -451,7 +461,7 @@
 					</div>
 				</div>
 				
-				<div class="col-xl-4 col-lg-4" style = "height : 300px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 py">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> -->
