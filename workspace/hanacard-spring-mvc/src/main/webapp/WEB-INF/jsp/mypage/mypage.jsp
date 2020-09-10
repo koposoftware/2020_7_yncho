@@ -373,17 +373,30 @@
 						
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;">
-									<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
+							
+									<div class="carousel-item active">
+										<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
+										<div style = "text-align: center;">${hanaList[0]}</div>
+									</div>
+								<c:forEach items = "${hanaList}" var ="card" varStatus = "vs" begin = "1">
+									<div class="carousel-item">
+										<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
+										<div style = "text-align: center;">${card}</div>
+									</div>
+								</c:forEach>
+								<%-- <div class="carousel-item active">
+									<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;">
 									<div style = "text-align: center;">${hanaList[0]}</div>
 								</div>
 								<div class="carousel-item">
 									<!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
 									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 180px;">
-									<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;"> --%>
-									<div style = "text-align: center;">${hanaList[1]}</div>
-								</div>
+									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;">
+									<div style = "text-align: center;"><a href = "${ pageContext.request.contextPath }/mypage/card">${hanaList[1]}</a></div>
+								</div> --%>
 								<!-- <div class="carousel-item">
 									<img class="d-block w-100" src="..." alt="Third slide">
 								</div> -->
@@ -414,8 +427,8 @@
 									
 									<!-- <div class="h5 mb-0 font-weight-bold text-gray-800">개인카드</div> -->
 									<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage">가족카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/card">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/card">가족카드 <span class="badge badge-dark">0</span></a></span>
 								</div>
 								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -483,7 +496,7 @@
 									</div>
 									<div>
 										<button type="button" class="btn btn-light btn-sm">개인정보 변경</button> 
-										<button type="button" class="btn btn-light btn-sm">마케딩 수신동의 변경</button>
+										<button type="button" class="btn btn-light btn-sm">마케팅 수신동의 변경</button>
 									</div>
 									<hr>
 								</div>
