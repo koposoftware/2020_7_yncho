@@ -373,5 +373,10 @@ public class MypageController {
 		return mav;
 	}
 	
+//	@ResponseBody
+//	@GetMapping("/mypage/recocard")
+	//public MypageVO getTopCurrentYear(HttpSession session) {
+	
+	
 	
 }

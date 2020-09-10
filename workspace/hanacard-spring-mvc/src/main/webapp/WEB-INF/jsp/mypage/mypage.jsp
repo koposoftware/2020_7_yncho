@@ -35,7 +35,10 @@
 		
 		$('#bottomBtn').click(function(){
 
+			// 소비패턴 조회 버튼을 누르면 실행되어야 하는 함수들
+			
 			getBottomSpecific();
+			getRecoCard(); // 추천카드 갱신하는 ajax 실행 함수
 			
 		})
 		
@@ -293,6 +296,29 @@
 		
 		
 	} 
+	
+	
+	function getRecoCard(){
+		// 소비패턴 조회할 때마다 카드추천 ajax 실행되어야 함.
+
+		alert('getRecoCard()')
+		
+		/* $.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/recocard/',
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+				alert('ajax 성공')
+			},
+			error : function() {
+				
+				alert('ajax 실패')
+				
+			}
+		}) */
+		
+		
+	}
 
 	
 	
@@ -332,14 +358,16 @@
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
 		<div class="container">
+			<br>
 			<!-- <div class="container-fluid"> -->
 
 
 			<!-- Page Heading -->
-			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+			
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 				<h2 class="h3 mb-0 text-gray-800">종합 대시보드</h2>
-				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-			</div>
+				<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+			</div> -->
 
 			<%-- 첫번째 로우 시작 : 4개의 작은 카드 --%>
 
@@ -764,6 +792,10 @@
 			</div>
 			<%-- 세번째 로우 끝 : 소비 패턴  그래프 --%>
 
+			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+				<h2 class="h3 mb-0 text-gray-800">소비패턴 기반 추천 카드</h2>
+				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+			</div>
 
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
@@ -1408,6 +1440,8 @@
 			
 			if("${loginVO.cjjb}" == 'Y')
 				$("input:checkbox[id='cjjb']").prop("checked", true);
+			
+			
 			
 			
 		</script>
