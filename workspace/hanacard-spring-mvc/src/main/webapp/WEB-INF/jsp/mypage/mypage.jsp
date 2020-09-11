@@ -801,7 +801,7 @@
 				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
 				<div class="card-body">
 					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<p class="card-text" id ="recocard">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>
@@ -1440,6 +1440,50 @@
 			
 			if("${loginVO.cjjb}" == 'Y')
 				$("input:checkbox[id='cjjb']").prop("checked", true);
+			
+			
+			
+			$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/card',
+				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+					alert('ajax 성공')
+					alert(data);
+					$('#recocard').text(data);
+					
+				
+				
+				  	 //$('#replyList').empty();
+		             // jQuery 삭제
+		            	 // remove : 셀렉터까지 지운다.
+						//empty : 셀렉터는 두고, 자식들만 지움
+						
+	/* 	             $('#replyList').html('');
+		             alert('언제 뜨는데 이게?')
+		             $(list).each(function(){
+		                console.log(this)
+		                let str='';
+		                str += '<hr>'
+		                str += '<div>'
+		                str+= '<strong>'+this.content+'</strong>';
+		                str+= '  ('+ this.writer +')';
+		                str+= '  '+ this.regDate;
+		                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
+		                str += '</div>'
+		                $('#replyList').append(str);
+		             }) */
+		             
+		             
+
+             
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})
 			
 			
 			

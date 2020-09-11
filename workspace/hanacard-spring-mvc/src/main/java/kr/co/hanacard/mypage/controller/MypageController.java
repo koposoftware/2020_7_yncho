@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.rosuda.REngine.REXP;
+import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -364,13 +366,85 @@ public class MypageController {
 		return null;
 	}
 	
+	
+	@ResponseBody
 	@GetMapping("/mypage/card")
-	public ModelAndView getMyCard(HttpSession session) {
+	public Double getMyCard(HttpSession session) {
+		
+		MypageVO mypageVO;
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		String resiNum = loginVO.getResiNum();
+	
+		List<String> cardList = new ArrayList<>();
+		
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("'비씨카드'");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("'씨티카드'");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("'현대카드'");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("'전북은행카드'");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("'제주은행카드'");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("'광주은행카드'");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("'국민카드'");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("'롯데카드'");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("'농협카드'");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("'신한카드'");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("'수협은행카드'");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("'삼성카드'");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("'우리카드'");
+		
+		
+		
+		
+		RConnection connection = null;
+		
+		try {
+			/*
+			 * Create a connection to Rserve instance running IP Addr, UserID, Password
+			 * required (/etc/Ruser.txt)
+			 */
+			connection = new RConnection("34.64.132.162", 6311);
+			connection.login("rserv", "rserv"); // R 계정 추가해놨음. /etc/Ruser.txt
+			
+			
+			
+			String vector = "c(1,2,3,4)";
+			connection.eval("meanVal=mean(" + vector + ")");
+			double mean = connection.eval("meanVal").asDouble();
+			System.out.println("The mean of given vector is=" + mean);
 
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/mypage/card"); //jsp 경로. View resolver의 suffix 등등 설정에 의해 이렇게만 써도 됨. 
+			REXP x = connection.eval("R.version.string");
+			System.out.println(x.asString());
+			double[] myvalues = { 1.0, 1.5, 2.2, 0.5, 0.9, 1.12 };
+			connection.assign("myvalues", myvalues);
+			x = connection.eval("mean(myvalues)");
+			System.out.println(x.asDouble());
+			x = connection.eval("sd(myvalues)");
+			System.out.println(x.asDouble());
+			
+			
+			
+			return mean;
 
-		return mav;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+		
+		
+		return null;
 	}
 	
 //	@ResponseBody
