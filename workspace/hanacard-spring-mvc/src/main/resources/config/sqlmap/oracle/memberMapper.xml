@@ -35,7 +35,7 @@
 		
 		SELECT RESI_NUM, ID, PASSWORD, NAME, PHONE, EMAIL, CHN, CSH, CSS, CHD, CKM, CLT,
 				CWR, CBC, CCT, CNH, CSHB, CKJB, CJBB, CJJB
-		FROM MEMBER_TEST01
+		FROM MEMBER
 		WHERE ID = #{id} AND PASSWORD = #{password}
 		
 		<!-- 
@@ -49,9 +49,9 @@
 	
 	<select id = "getHanaList" parameterType ="String" resultType = "String">
 	SELECT L.CARD_PRODUCT_NAME 
-	FROM CARD_PRODUCT_LIST_TEST01 L
+	FROM CARD_PRODUCT_LIST L
 	WHERE L.CARD_PRODUCT_CODE IN (SELECT C. CARD_PRODUCT_CODE
-                              		FROM CARD_CONTRACT_TEST01 C
+                              		FROM CARD_CONTRACT C
                               		WHERE C.RESI_NUM = #{resiNum}) <!-- 끝에 세미콜론 안붙이는것에 주의!!! -->
 	
 	</select>

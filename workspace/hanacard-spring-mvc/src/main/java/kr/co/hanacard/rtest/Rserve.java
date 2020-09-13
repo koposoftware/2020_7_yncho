@@ -23,7 +23,7 @@ public class Rserve {
 
 			REXP x = connection.eval("R.version.string");
 			System.out.println(x.asString());
-			double[] myvalues = { 1.0, 1.5, 2.2, 0.5, 0.9, 1.12 };
+			double[] myvalues = { 1.0, 1.5, 2.2, 0.5, 0.9, 1.12, 500 };
 			connection.assign("myvalues", myvalues);
 			x = connection.eval("mean(myvalues)");
 			System.out.println(x.asDouble());
