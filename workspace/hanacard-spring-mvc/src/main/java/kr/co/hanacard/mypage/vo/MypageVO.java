@@ -15,16 +15,30 @@ public class MypageVO {
 	private long nov; 
 	private long dec;
 	
-	private long trans_gas;
-	private long Leisure_travel_flight;
-	private long mart_shopping;
-	private long pet;
-	private long health_medical;
-	private long life;
-	private long food_beverage;
-	private long communication;
+//	private long trans_gas;
+//	private long Leisure_travel_flight;
+//	private long mart_shopping;
+//	private long pet;
+//	private long health_medical;
+//	private long life;
+//	private long food_beverage;
+//	private long communication;
+	
 	//private double etc;
 	
+	private long i1;
+	private long i2;
+	private long i3;
+	private long i4;
+	private long i5;
+	private long i6;
+	private long i7;
+	private long i8;
+	private long i9;
+	private long i10;
+	private long i11;
+	private long i12;
+	private long i13;
 	
 	public long getJan() {
 		return jan;
@@ -98,56 +112,84 @@ public class MypageVO {
 	public void setDec(long dec) {
 		this.dec = dec;
 	}
-	public long getTrans_gas() {
-		return trans_gas;
+	public long getI1() {
+		return i1;
 	}
-	public void setTrans_gas(long trans_gas) {
-		this.trans_gas = trans_gas;
+	public void setI1(long i1) {
+		this.i1 = i1;
 	}
-	public long getLeisure_travel_flight() {
-		return Leisure_travel_flight;
+	public long getI2() {
+		return i2;
 	}
-	public void setLeisure_travel_flight(long leisure_travel_flight) {
-		Leisure_travel_flight = leisure_travel_flight;
+	public void setI2(long i2) {
+		this.i2 = i2;
 	}
-	public long getMart_shopping() {
-		return mart_shopping;
+	public long getI3() {
+		return i3;
 	}
-	public void setMart_shopping(long mart_shopping) {
-		this.mart_shopping = mart_shopping;
+	public void setI3(long i3) {
+		this.i3 = i3;
 	}
-	public long getPet() {
-		return pet;
+	public long getI4() {
+		return i4;
 	}
-	public void setPet(long pet) {
-		this.pet = pet;
+	public void setI4(long i4) {
+		this.i4 = i4;
 	}
-	public long getHealth_medical() {
-		return health_medical;
+	public long getI5() {
+		return i5;
 	}
-	public void setHealth_medical(long health_medical) {
-		this.health_medical = health_medical;
+	public void setI5(long i5) {
+		this.i5 = i5;
 	}
-	public long getLife() {
-		return life;
+	public long getI6() {
+		return i6;
 	}
-	public void setLife(long life) {
-		this.life = life;
+	public void setI6(long i6) {
+		this.i6 = i6;
 	}
-	public long getFood_beverage() {
-		return food_beverage;
+	public long getI7() {
+		return i7;
 	}
-	public void setFood_beverage(long food_beverage) {
-		this.food_beverage = food_beverage;
+	public void setI7(long i7) {
+		this.i7 = i7;
 	}
-	public long getCommunication() {
-		return communication;
+	public long getI8() {
+		return i8;
 	}
-	public void setCommunication(long communication) {
-		this.communication = communication;
+	public void setI8(long i8) {
+		this.i8 = i8;
 	}
-	
-	
+	public long getI9() {
+		return i9;
+	}
+	public void setI9(long i9) {
+		this.i9 = i9;
+	}
+	public long getI10() {
+		return i10;
+	}
+	public void setI10(long i10) {
+		this.i10 = i10;
+	}
+	public long getI11() {
+		return i11;
+	}
+	public void setI11(long i11) {
+		this.i11 = i11;
+	}
+	public long getI12() {
+		return i12;
+	}
+	public void setI12(long i12) {
+		this.i12 = i12;
+	}
+	public long getI13() {
+		return i13;
+	}
+	public void setI13(long i13) {
+		this.i13 = i13;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -175,25 +217,36 @@ public class MypageVO {
 		builder.append(nov);
 		builder.append(", dec=");
 		builder.append(dec);
-		builder.append(", trans_gas=");
-		builder.append(trans_gas);
-		builder.append(", Leisure_travel_flight=");
-		builder.append(Leisure_travel_flight);
-		builder.append(", mart_shopping=");
-		builder.append(mart_shopping);
-		builder.append(", pet=");
-		builder.append(pet);
-		builder.append(", health_medical=");
-		builder.append(health_medical);
-		builder.append(", life=");
-		builder.append(life);
-		builder.append(", food_beverage=");
-		builder.append(food_beverage);
-		builder.append(", communication=");
-		builder.append(communication);
+		builder.append(", i1=");
+		builder.append(i1);
+		builder.append(", i2=");
+		builder.append(i2);
+		builder.append(", i3=");
+		builder.append(i3);
+		builder.append(", i4=");
+		builder.append(i4);
+		builder.append(", i5=");
+		builder.append(i5);
+		builder.append(", i6=");
+		builder.append(i6);
+		builder.append(", i7=");
+		builder.append(i7);
+		builder.append(", i8=");
+		builder.append(i8);
+		builder.append(", i9=");
+		builder.append(i9);
+		builder.append(", i10=");
+		builder.append(i10);
+		builder.append(", i11=");
+		builder.append(i11);
+		builder.append(", i12=");
+		builder.append(i12);
+		builder.append(", i13=");
+		builder.append(i13);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	
 	

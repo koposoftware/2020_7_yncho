@@ -110,6 +110,7 @@
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 				console.log('==========getBotttomSpecific===========')
@@ -117,13 +118,33 @@
 				let list = JSON.parse(data);
 				console.log(list);
 				console.log('==========getBotttomSpecific===========')
+				
+				
+				let trans_gas = list.i1 + list.i2;
+				let leisure_travel_flight = list.i4 + list.i5 + list.i6;
+				let mart_shopping = list.i7 + list.i8;
+				let pet = list.i9;
+				let health_medical = list.i10;
+				let life = list.i11;
+				let food_beverage = list.i12;
+				let communication = list.i13;
+				
 
-				myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+				myBarChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+					life, food_beverage, communication];
+			
+				myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+					life, food_beverage, communication];
+
+				
+/* 				myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.communication];
 			
 				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.communication]; 
+					list.life, list.food_beverage, list.communication];  */
 				
+					
+					
 				/* var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
 								list.life + list.food_beverage + list.leisure_travel_flight */
 				
@@ -303,19 +324,100 @@
 
 		alert('getRecoCard()')
 		
-		/* $.ajax({
-			url : '${ pageContext.request.contextPath }/mypage/recocard/',
-			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+		
+		let year = $('#bottomYear').val().substring(0,4);
+		let month = $('#bottomMonth').val();
+		
+		if(month == '전체'){
+			month = 'all';
+		} else{
+			month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+			if(month.length == 1)
+				month = '0' + month;
+		}
+		
+		
+		//alert(year);
+		//alert(month);
+
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			//url : '${ pageContext.request.contextPath }/mypage/recocard',
+			type : 'get', 
+			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-				alert('ajax 성공')
+				// data는 2차원 스트링 배열이 온다. 
+				// String[][]
+				
+				let test = JSON.parse(data);
+				
+				//console.log(test);
+				//console.log(test[0]);
+				//console.log(test[0][0]);
+				console.log(test[0][0]);
+				console.log(test[1][0]);
+				
+				/*
+				console.log(test[1][1]);
+				
+				console.log(data);
+				console.log(data[0][0]);
+				console.log(data[0][1]);
+				console.log(data[1][0]);
+				console.log(data[1][1]);
+				*/
+	
+				let value = test[0][0];
+				value = parseInt(value);
+				let cardname = test[1][0];
+				let first = cardname.substring(0, 1);
+				
+				//alert(value);
+				//alert(cardname);
+				//alert(first);
+				//alert(cardname.length);
+				
+				if(first == '#'){
+					cardname = cardname.substring(1, cardname.length)
+				}
+				
+				//alert('변경된 카드이름 ' + cardname)
+				//$('#recocard').text(data);
+				
+				let attr = $('#recocardImage').attr('src');
+				let path = '/hanacard-spring-mvc/resources/images/';
+				path = path + cardname + '.png';
+				$('#recocardImage').attr('src', path);
+				
+				alert('추천카드 성공')
+				
+				$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+				$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+				//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+				
+				
+				//alert(path);
+				
+				//alert(path); // /hanacard-spring-mvc/resources/images/#tag1카드 Orange.png
+				//$('#recocardImage').attr('src', path);
+				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/tag1카드 Orange.png');
+				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/1Q My Cafe.png');
+				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/#tag1카드 Orange.png');
+				
+				//$('#recocardImage').attr('src','/material/images/jQuery/asimo.png');
+				//alert(attr);
+				//#recocardImage
+				//#recocardText
+		
+
 			},
 			error : function() {
 				
 				alert('ajax 실패')
 				
 			}
-		}) */
+		})
 		
 		
 	}
@@ -403,19 +505,19 @@
 							<div class="carousel-inner">
 							
 									<div class="carousel-item active">
-										<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
 										<div style = "text-align: center;">${hanaList[0]}</div>
 									</div>
 								<c:forEach items = "${hanaList}" var ="card" varStatus = "vs" begin = "1">
 									<div class="carousel-item">
-										<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
 										<div style = "text-align: center;">${card}</div>
 									</div>
 								</c:forEach>
 								<%-- <div class="carousel-item active">
-									<a  href = "${ pageContext.request.contextPath }/mypage/card"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+									<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
 									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;">
 									<div style = "text-align: center;">${hanaList[0]}</div>
 								</div>
@@ -423,7 +525,7 @@
 									<!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
 									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 180px;">
 									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;">
-									<div style = "text-align: center;"><a href = "${ pageContext.request.contextPath }/mypage/card">${hanaList[1]}</a></div>
+									<div style = "text-align: center;"><a href = "${ pageContext.request.contextPath }/mypage/owncard">${hanaList[1]}</a></div>
 								</div> --%>
 								<!-- <div class="carousel-item">
 									<img class="d-block w-100" src="..." alt="Third slide">
@@ -455,8 +557,8 @@
 									
 									<!-- <div class="h5 mb-0 font-weight-bold text-gray-800">개인카드</div> -->
 									<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/card">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/card">가족카드 <span class="badge badge-dark">0</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">가족카드 <span class="badge badge-dark">0</span></a></span>
 								</div>
 								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -799,10 +901,9 @@
 
 			<div class="card" style="width: 18rem;">
 
-				<!-- <div class="card-header">
+				<div class="card-header">
 					<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">소비패턴 기반 추천</div>
-				</div> -->
-				
+				</div>
 				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
 				<div class="card-body">
 					<h5 class="card-title" id = "recocardTitle">Card title</h5>
@@ -1369,6 +1470,7 @@
 			$.ajax({
 				url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
 				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+				//async : false,
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 					console.log('ajax===========시작')
@@ -1377,13 +1479,33 @@
 					console.log(list);
 					console.log('ajax===========끝')
 					
+					
+					let trans_gas = list.i1 + list.i2;
+					let leisure_travel_flight = list.i4 + list.i5 + list.i6;
+					let mart_shopping = list.i7 + list.i8;
+					let pet = list.i9;
+					let health_medical = list.i10;
+					let life = list.i11;
+					let food_beverage = list.i12;
+					let communication = list.i13;
+				
+
+					myBarChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+														life, food_beverage, communication];
+				
+					myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+														life, food_beverage, communication];
+					
+					
+					
+					
 					//alert('list : ' + list);
-					myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 						list.life, list.food_beverage, list.communication];
 				
 					myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 						list.life, list.food_beverage, list.communication]; 
-					
+					 */
 					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
 																		var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
 																  return datasetLabel + ': ￦' + number_format(tooltipItem.yLabel);
@@ -1447,49 +1569,51 @@
 				$("input:checkbox[id='cjjb']").prop("checked", true);
 			
 			
+			/* mypage/owncard로 포워딩만 해주기 때문에 ajax 필요없다.
 			
 			$.ajax({
-				url : '${ pageContext.request.contextPath }/mypage/card',
+				url : '${ pageContext.request.contextPath }/mypage/owncard',
 				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 					alert('ajax 성공')
 					//alert(data);
-				
+             
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})
+			*/
+			
+			
+			$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+				//url : '${ pageContext.request.contextPath }/mypage/recocard',
+				type : 'get', 
+				//async : false,
+				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+					// data는 2차원 스트링 배열이 온다. 
+					// String[][]
+					
 					let test = JSON.parse(data);
 					
-					//console.log(test);
-					//console.log(test[0]);
-					//console.log(test[0][0]);
 					console.log(test[0][0]);
 					console.log(test[1][0]);
-					
-					/*
-					console.log(test[1][1]);
-					
-					console.log(data);
-					console.log(data[0][0]);
-					console.log(data[0][1]);
-					console.log(data[1][0]);
-					console.log(data[1][1]);
-					*/
 		
 					let value = test[0][0];
 					value = parseInt(value);
 					let cardname = test[1][0];
 					let first = cardname.substring(0, 1);
 					
-					//alert(value);
-					//alert(cardname);
-					//alert(first);
-					//alert(cardname.length);
-					
 					if(first == '#'){
 						cardname = cardname.substring(1, cardname.length)
 					}
 					
 					//alert('변경된 카드이름 ' + cardname)
-					
 					//$('#recocard').text(data);
 					
 					let attr = $('#recocardImage').attr('src');
@@ -1499,51 +1623,10 @@
 					
 					alert('추천카드 성공')
 					
-					
-					
 					$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 					$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 					//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
-					
-					
-					//alert(path);
-					
-					//alert(path); // /hanacard-spring-mvc/resources/images/#tag1카드 Orange.png
-					//$('#recocardImage').attr('src', path);
-					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/tag1카드 Orange.png');
-					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/1Q My Cafe.png');
-					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/#tag1카드 Orange.png');
-					
-					//$('#recocardImage').attr('src','/material/images/jQuery/asimo.png');
-					//alert(attr);
-					//#recocardImage
-					//#recocardText
-					
-				
-				
-				  	 //$('#replyList').empty();
-		             // jQuery 삭제
-		            	 // remove : 셀렉터까지 지운다.
-						//empty : 셀렉터는 두고, 자식들만 지움
-						
-	/* 	             $('#replyList').html('');
-		             alert('언제 뜨는데 이게?')
-		             $(list).each(function(){
-		                console.log(this)
-		                let str='';
-		                str += '<hr>'
-		                str += '<div>'
-		                str+= '<strong>'+this.content+'</strong>';
-		                str+= '  ('+ this.writer +')';
-		                str+= '  '+ this.regDate;
-		                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
-		                str += '</div>'
-		                $('#replyList').append(str);
-		             }) */
-		             
-		             
-
-             
+			
 				},
 				error : function() {
 					

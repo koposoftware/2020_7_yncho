@@ -325,6 +325,8 @@ public class MypageController {
 		}
 		
 		
+		//session.setAttribute("recocard", mypageVO); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+		
 		return mypageVO;
 	}
 	
@@ -368,13 +370,34 @@ public class MypageController {
 	}
 	
 	
+		
+		
+	@GetMapping("/mypage/owncard")
+	public ModelAndView getMyCard() {
+	//public ModelAndView getMyCard(HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/mypage/card"); //jsp 경로. View resolver의 suffix 등등 설정에 의해 이렇게만 써도 됨. 
+		
+		return mav;
+	}
+	
+	
+	
 	@ResponseBody
-	@GetMapping("/mypage/card")
-	public String[][] getMyCard(HttpSession session) {
+	@GetMapping("/mypage/recocard/{year}/{month}")
+	public String[][] getBestOneCard(@PathVariable("year") String year, @PathVariable("month") String month, HttpSession session) {
+		
+		
+		//MypageVO recocard = (MypageVO)session.getAttribute("recocard"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		// 아.. 왜 자꾸 java.lang.NullPointerException 나는거지. => ajax 비동기통신 특성 때문임. async = fale 하면 그 문제는 해결됨.
+		// 그냥 bottomspecific이랑 별도로 쿼리 가져와서 처리하자 ㅠㅠ
+		// 그러면 bottomspecific은 이전의 IN(i1, i2) 쿼리가 더 빠르니까 그렇게 해도 되겠는데?
 		
 		MypageVO mypageVO;
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
 		String resiNum = loginVO.getResiNum();
+		
 	
 		List<String> cardList = new ArrayList<>();
 		
@@ -404,30 +427,136 @@ public class MypageController {
 			cardList.add("'삼성카드'");
 		if(loginVO.getCwr().equals("Y"))
 			cardList.add("'우리카드'");
+				
+		
+		if(cardList.isEmpty()) {
+			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+			mypageVO = mypageService.getBottomSpecific(resiNum, year, month); 
+
+		} else {
+
+			System.out.println("연동된 카드사가 있습니다.");
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			mypageVO = mypageService.getBottomSpecific(resiNum, cardListString, year, month);
+			
+		}
 		
 		
 		
 		
-		RConnection c = null;
+		long i1 = mypageVO.getI1();
+		long i2 = mypageVO.getI2();
+		long i3 = mypageVO.getI3();
+		long i4 = mypageVO.getI4();
+		long i5 = mypageVO.getI5();
+		long i6 = mypageVO.getI6();
+		long i7 = mypageVO.getI7();
+		long i8 = mypageVO.getI8();
+		long i9 = mypageVO.getI9();
+		long i10 = mypageVO.getI10();
+		long i11 = mypageVO.getI11();
+		long i12 = mypageVO.getI12();
+		long i13 = mypageVO.getI13();
+		
+		RConnection rconn = null;
 		
 		try {
-			/*
-			 * Create a connection to Rserve instance running IP Addr, UserID, Password
-			 * required (/etc/Ruser.txt)
-			 */
 			
+			rconn = new RConnection("34.64.132.162", 6311);
+			rconn.login("rserv", "rserv");
+			rconn.eval("library(recocard)");
 			
+
+			System.out.println("*********************");
+			System.out.println("*********************");
+			System.out.println("i1: " + i1 + "  i2: " +  i2 + "  i3: " +  i13 + "  i4 : " + i4);
+			System.out.println("*********************");
+			System.out.println("*********************");
 			
-			c = new RConnection("34.64.132.162", 6311);
-			c.login("rserv", "rserv");
-			c.eval("library(recocard)");
+			//rconn.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			rconn.eval("result <- getBestOneCard(" + i1 + "," + i2 + "," + i3 + "," + i4 + "," + i5 + "," + i6 + "," 
+					+ i7 + "," + i8 + "," + i9 + "," +  i10 + "," + i11 + "," + i12 + "," + i13 + ")");
+			
 
 			
-			c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
-			//c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
-			//c.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
+			RList table = rconn.eval("result").asList();
 			
-			RList table = c.eval("result").asList();
+			int cols = table.size();
+			int rows = table.at(0).length();
+
+			String[][] s = new String[cols][];
+
+			for (int i = 0; i < cols; i++) {
+				s[i] = table.at(i).asStrings();
+			}
+			
+			
+			return s;
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			rconn.close();
+		}
+		
+		return null;
+	}
+	
+	
+	
+	/* recocard : bottomchart 결과를 세션에 등록하고, 그걸 받아서 추천카드 처리하는 로직. (asyn = false를 사용하면 되나, 화면이 멈춰서 답답함.)
+	@ResponseBody
+	@GetMapping("/mypage/recocard")
+	public String[][] getBestOneCard(HttpSession session) {
+		
+		MypageVO recocard = (MypageVO)session.getAttribute("recocard"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		// 아.. 왜 자꾸 java.lang.NullPointerException 나는거지.
+		// 그냥 bottomspecific이랑 별도로 쿼리 가져와서 처리하자 ㅠㅠ
+		// 그러면 bottomspecific은 이전의 IN(i1, i2) 쿼리가 더 빠르니까 그렇게 해도 되겠는데?
+		
+		long i1 = recocard.getI1();
+		long i2 = recocard.getI2();
+		long i3 = recocard.getI3();
+		long i4 = recocard.getI4();
+		long i5 = recocard.getI5();
+		long i6 = recocard.getI6();
+		long i7 = recocard.getI7();
+		long i8 = recocard.getI8();
+		long i9 = recocard.getI9();
+		long i10 = recocard.getI10();
+		long i11 = recocard.getI11();
+		long i12 = recocard.getI12();
+		long i13 = recocard.getI13();
+		
+		RConnection rconn = null;
+		
+		try {
+			
+//			  Create a connection to Rserve instance running IP Addr, UserID, Password
+//			  required (/etc/Ruser.txt)
+//			 
+//			
+//			
+//			
+//			rconn = new RConnection("34.64.132.162", 6311);
+//			rconn.login("rserv", "rserv");
+//			rconn.eval("library(recocard)");
+//			
+//			rconn.eval("result <- getBestOneCard(" + i1 + "," + i2 + "," + i3 + "," + i4 + "," + i5 + "," + i6 + "," 
+//													+ i7 + "," + i8 + "," + i9 + "," +  i10 + "," + i11 + "," + i12 + "," + i13 + ")");
+			
+			
+			// 이런식으로 i1
+			//rconn.eval("result <- getBestOneCard('" + type1 + ", " + type2.. ,2,3,4,5,6,7,8,9,10,11,12,13)");
+			
+			
+			
+			//rconn.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			//rconn.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			//rconn.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
+			
+			RList table = rconn.eval("result").asList();
 			
 			
 			int cols = table.size();
@@ -451,47 +580,68 @@ public class MypageController {
 			
 			
 			return s;
+			 
 			
 			
 			
-			/*
-			connection = new RConnection("34.64.132.162", 6311);
-			connection.login("rserv", "rserv"); // R 계정 추가해놨음. /etc/Ruser.txt
+			
+			
+			rconn = new RConnection("34.64.132.162", 6311);
+			rconn.login("rserv", "rserv");
+			rconn.eval("library(recocard)");
+			
+			
+			System.out.println("*********************");
+			System.out.println("*********************");
+			System.out.println("i1: " + i1 + "  i2: " +  i2 + "  i3: " +  i13 + "  i4 : " + i4);
+			System.out.println("*********************");
+			System.out.println("*********************");
+			
+			//rconn.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			rconn.eval("result <- getBestOneCard(" + i1 + "," + i2 + "," + i3 + "," + i4 + "," + i5 + "," + i6 + "," 
+					+ i7 + "," + i8 + "," + i9 + "," +  i10 + "," + i11 + "," + i12 + "," + i13 + ")");
 			
 			
 			
-			String vector = "c(1,2,3,4)";
-			connection.eval("meanVal=mean(" + vector + ")");
-			double mean = connection.eval("meanVal").asDouble();
-			System.out.println("The mean of given vector is=" + mean);
-
-			REXP x = connection.eval("R.version.string");
-			System.out.println(x.asString());
-			double[] myvalues = { 1.0, 1.5, 2.2, 0.5, 0.9, 1.12 };
-			connection.assign("myvalues", myvalues);
-			x = connection.eval("mean(myvalues)");
-			System.out.println(x.asDouble());
-			x = connection.eval("sd(myvalues)");
-			System.out.println(x.asDouble());
-		
-			return mean;
-			*/
+//			rconn.eval("df <- doReadCSV('"+ dataPath + csvFileNm+ "')");			
+//			rconn.eval("doSaveRDS(df, '"+ dataPath +"','"+ fileSaveName+"')");
+//			
+//			rconn.assign("colname", colName); //결측치가 있는 컬럼명
 			
 			
-
+			//c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			//c.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
+			
+			RList table = rconn.eval("result").asList();
+			
+			
+			int cols = table.size();
+			int rows = table.at(0).length();
+			
+			String[][] s = new String[cols][];
+			
+			for (int i = 0; i < cols; i++) {
+				s[i] = table.at(i).asStrings();
+			}
+			
+			return s;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			c.close();
+			rconn.close();
 		}
-		
 		
 		return null;
 	}
 	
-//	@ResponseBody
-//	@GetMapping("/mypage/recocard")
-	//public MypageVO getTopCurrentYear(HttpSession session) {
+	
+	*/
+	
+	
+	
+	
+	
 	
 	
 	
