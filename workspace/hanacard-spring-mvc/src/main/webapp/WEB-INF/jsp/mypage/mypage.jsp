@@ -798,6 +798,11 @@
 			</div>
 
 			<div class="card" style="width: 18rem;">
+
+				<!-- <div class="card-header">
+					<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">소비패턴 기반 추천</div>
+				</div> -->
+				
 				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
 				<div class="card-body">
 					<h5 class="card-title" id = "recocardTitle">Card title</h5>
@@ -1470,6 +1475,7 @@
 					*/
 		
 					let value = test[0][0];
+					value = parseInt(value);
 					let cardname = test[1][0];
 					let first = cardname.substring(0, 1);
 					
@@ -1494,7 +1500,10 @@
 					alert('추천카드 성공')
 					
 					
-					$('#recocardText').text('소비를 통합하시면, ' + value + '(원)의 혜택을 누리실 수 있어요!');
+					
+					$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+					$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+					//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 					
 					
 					//alert(path);
