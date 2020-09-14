@@ -35,12 +35,24 @@
 		
 		$('#bottomBtn').click(function(){
 
+			// 소비패턴 조회 버튼을 누르면 실행되어야 하는 함수들 통합(getBottomSpecific, getRecoCard)
+			
+			getBottomAndReco();
+	
+			
+		})
+		
+		/*
+		$('#bottomBtn').click(function(){
+
 			// 소비패턴 조회 버튼을 누르면 실행되어야 하는 함수들
 			
 			getBottomSpecific();
 			getRecoCard(); // 추천카드 갱신하는 ajax 실행 함수
 			
 		})
+		*/
+		
 		
 		$('#modalBtn').click(function(){
 	
@@ -336,9 +348,6 @@
 				month = '0' + month;
 		}
 		
-		
-		//alert(year);
-		//alert(month);
 
 		$.ajax({
 			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
@@ -421,6 +430,180 @@
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	function getBottomAndReco() {
+		
+		
+		//alert('getBottomSpecific()');
+		let year = $('#bottomYear').val().substring(0,4);
+		let month = $('#bottomMonth').val();
+		
+		if(month == '전체'){
+			month = 'all';
+		} else{
+			month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+			if(month.length == 1)
+				month = '0' + month;
+		}
+		
+		//alert(year);
+		//alert(month);
+
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
+			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+			//async : false,
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+				console.log('==========getBotttomSpecific===========')
+				console.log(data);
+				let list = JSON.parse(data);
+				console.log(list);
+				console.log('==========getBotttomSpecific===========')
+				
+				
+		 		let trans_gas = list.i1 + list.i2;
+				let leisure_travel_flight = list.i4 + list.i5 + list.i6;
+				let mart_shopping = list.i7 + list.i8;
+				let pet = list.i9;
+				let health_medical = list.i10;
+				let life = list.i11;
+				let food_beverage = list.i12;
+				let communication = list.i13;
+				
+
+				myBarChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+					life, food_beverage, communication];
+			
+				myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+					life, food_beverage, communication];
+ 
+				
+ 				/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.communication];
+			
+				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					list.life, list.food_beverage, list.communication];   */
+				
+					
+					
+				/* var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
+								list.life + list.food_beverage + list.leisure_travel_flight */
+				
+				/* myPieChart.options.tooltips.callbacks.label = function(tooltipItem, data) { 
+														            var indice = tooltipItem.index;     
+														            
+														            //추가 코드
+														            var dataset = myPieChart.data.datasets[tooltipItem.datasetIndex];
+														            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+																		return previousValue + currentValue;
+																	});
+														            
+																	var currentValue = dataset.data[tooltipItem.index];
+																	var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+														            //추가코드
+																	
+																	return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+																	//return  data.labels[indice] +': '+ percentage + '%';
+														        }   */
+					
+				    /* callbacks: {
+				        label: function(tooltipItem, data) { 
+				            var indice = tooltipItem.index;     
+				            
+				            //추가 코드
+				            var dataset = data.datasets[tooltipItem.datasetIndex];
+				            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+								return previousValue + currentValue;
+							});
+				            
+							var currentValue = dataset.data[tooltipItem.index];
+							var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+				            //추가코드
+							
+							//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+							return  data.labels[indice] +': '+ percentage + '%';
+				        }
+				    } */
+				myBarChart.update();
+				myPieChart.update();
+				
+				
+				$.ajax({
+					//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+					url : '${ pageContext.request.contextPath }/mypage/recocard',
+					type : 'get', 
+					//async : false,
+					success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+						// data는 2차원 스트링 배열이 온다. 
+						// String[][]
+						
+						let test = JSON.parse(data);
+						
+						//console.log(test);
+						//console.log(test[0]);
+						//console.log(test[0][0]);
+						console.log(test[0][0]);
+						console.log(test[1][0]);
+						
+						let value = test[0][0];
+						value = parseInt(value);
+						let cardname = test[1][0];
+						let first = cardname.substring(0, 1);
+						
+						if(first == '#'){
+							cardname = cardname.substring(1, cardname.length)
+						}
+						
+						//alert('변경된 카드이름 ' + cardname)
+						//$('#recocard').text(data);
+						
+						let attr = $('#recocardImage').attr('src');
+						let path = '/hanacard-spring-mvc/resources/images/';
+						path = path + cardname + '.png';
+						$('#recocardImage').attr('src', path);
+						
+						alert('추천카드 성공')
+						
+						$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+						$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+
+					},
+					error : function() {
+						
+						alert('ajax 실패')
+						
+					}
+				})
+				
+				
+
+			},
+			error : function() {
+				
+				alert('ajax 실패')
+				
+			}
+		})
+		
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	
@@ -1407,7 +1590,7 @@
 										var percentage = Math.floor(((currentValue / total) * 100) + 0.5);  */
 										
 										var currentValue = data.datasets[0].data[indice];
-										var total = data.datasets[0].data.reduce((a, b) => a + b);
+										var total = data.datasets[0].data.reduce((a, b) => a + b); //화살표 이거  빨간 에러남 주석쓰는순간 사라졌네 ㅋㅋ
 										var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
 										
 										//alert('data.datasets[0].data : ' + data.datasets[0].data); 
@@ -1455,7 +1638,7 @@
 					});
 			
 			
-			
+			/*
 			let year = $('#bottomYear').val().substring(0,4);
 			let month = $('#bottomMonth').val();
 			
@@ -1500,18 +1683,18 @@
 					
 					
 					//alert('list : ' + list);
-					/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.communication];
+					// myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					//	list.life, list.food_beverage, list.communication];
 				
-					myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.communication];  */
+					//myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+					//	list.life, list.food_beverage, list.communication];  
 					 
 					
 					
-					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
-																		var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-																  return datasetLabel + ': ￦' + number_format(tooltipItem.yLabel);
-																} */
+					// myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
+					//													var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+					//											  return datasetLabel + ': ￦' + number_format(tooltipItem.yLabel);
+					//											} 
 					
 					myBarChart.update();
 					myPieChart.update();
@@ -1523,6 +1706,8 @@
 					
 				}
 			})
+			*/
+
 			
 			
 			// javascript 에서 el 사용하기   <c:out value='${loginVO}'/>
@@ -1530,6 +1715,8 @@
 			/* if("${ not empty loginVO }"){
 				alert('good'); */
 			
+				
+				
 			
 			if("${loginVO.csh}" == 'Y')
 				$("input:checkbox[id='csh']").prop("checked", true);
@@ -1591,6 +1778,7 @@
 			*/
 			
 			
+			/*
 			$.ajax({
 				//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
 				url : '${ pageContext.request.contextPath }/mypage/recocard',
@@ -1636,6 +1824,115 @@
 					
 				}
 			})
+			*/
+			
+			
+			
+			
+			//alert('getBottomSpecific()');
+			let year = $('#bottomYear').val().substring(0,4);
+			let month = $('#bottomMonth').val();
+			
+			if(month == '전체'){
+				month = 'all';
+			} else{
+				month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+				if(month.length == 1)
+					month = '0' + month;
+			}
+			
+			//alert(year);
+			//alert(month);
+
+			$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
+				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
+				//async : false,
+				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+					console.log('==========getBotttomSpecific===========')
+					console.log(data);
+					let list = JSON.parse(data);
+					console.log(list);
+					console.log('==========getBotttomSpecific===========')
+					
+					
+			 		let trans_gas = list.i1 + list.i2;
+					let leisure_travel_flight = list.i4 + list.i5 + list.i6;
+					let mart_shopping = list.i7 + list.i8;
+					let pet = list.i9;
+					let health_medical = list.i10;
+					let life = list.i11;
+					let food_beverage = list.i12;
+					let communication = list.i13;
+					
+
+					myBarChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+						life, food_beverage, communication];
+				
+					myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+						life, food_beverage, communication];
+	 
+					myBarChart.update();
+					myPieChart.update();
+					
+					
+					$.ajax({
+						//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+						url : '${ pageContext.request.contextPath }/mypage/recocard',
+						type : 'get', 
+						//async : false,
+						success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+
+							// data는 2차원 스트링 배열이 온다. 
+							// String[][]
+							
+							let test = JSON.parse(data);
+							
+							console.log(test[0][0]);
+							console.log(test[1][0]);
+							
+							let value = test[0][0];
+							value = parseInt(value);
+							let cardname = test[1][0];
+							let first = cardname.substring(0, 1);
+							
+							if(first == '#'){
+								cardname = cardname.substring(1, cardname.length)
+							}
+							
+							//alert('변경된 카드이름 ' + cardname)
+							//$('#recocard').text(data);
+							
+							let attr = $('#recocardImage').attr('src');
+							let path = '/hanacard-spring-mvc/resources/images/';
+							path = path + cardname + '.png';
+							$('#recocardImage').attr('src', path);
+							
+							alert('추천카드 성공')
+							
+							$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+
+						},
+						error : function() {
+							
+							alert('ajax 실패')
+							
+						}
+					})
+					
+
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})
+			
+			
 			
 			
 			
