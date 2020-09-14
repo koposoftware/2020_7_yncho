@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -586,7 +587,7 @@
 						$('#recocardImageTotal').attr('src', path);
 						
 						$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextTotal').html('소비를 통합하시면, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리실 수 있어요!');
 						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 						
 						
@@ -596,7 +597,7 @@
 						$('#recocardImageDis').attr('src', path);
 						
 						$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextDis').html('소비를 통합하시면, \n' + disValue + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextDis').html('소비를 통합하시면, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리실 수 있어요!');
 					
 						
 						
@@ -605,7 +606,7 @@
 						$('#recocardImagePoint').attr('src', path);
 						
 						$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextPoint').html('소비를 통합하시면, \n' + pointValue + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextPoint').html('소비를 통합하시면, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리실 수 있어요!');
 						
 						
 						
@@ -614,7 +615,7 @@
 						$('#recocardImageMile').attr('src', path);
 						
 						$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextMile').html('소비를 통합하시면, \n' + mileValue + '(마일)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
 
 						
 						
@@ -675,10 +676,13 @@
 	
 	
 	
-	// 세자리수 마다 콤마 찍는 함수
+	// 세자리수 마다 콤마 찍는 함수 => EL 값을 사용할 수 없다. JSTL 세자리 콤마 찾았음.
+	// <fmt:formatNumber type="number" maxFractionDigits="3" value="${price}" />
+	
 	function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
+
 
 
 
@@ -836,7 +840,7 @@
 					<!-- <div class="card border-left-success shadow h-100 py-2"> py : 카드 상단 여백! -->
 					
 						<div class ="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 결제 예정 금액</div> 
 						</div>
 					
 						<div class="card-body">
@@ -850,7 +854,8 @@
 									<br>
 									<br>
 									<div style = "text-align: right">
-										<span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span>
+										<span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span> --%>
 										<!-- <span class="h1 mb-0 font-weight-bold text-gray-800"><script>numberWithCommas(${mypageVO.sept})</script></span> -->
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800 justify-content-end" >${mypageVO.sept}</span> --%>
 										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end">원</span>
@@ -2093,7 +2098,8 @@
 							$('#recocardImageTotal').attr('src', path);
 							
 							$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextTotal').html('소비를 통합하시면, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
 							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 							
 							
@@ -2103,7 +2109,7 @@
 							$('#recocardImageDis').attr('src', path);
 							
 							$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextDis').html('소비를 통합하시면, \n' + disValue + '(원)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextDis').html('소비를 통합하시면, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리실 수 있어요!');
 						
 							
 							
@@ -2112,7 +2118,7 @@
 							$('#recocardImagePoint').attr('src', path);
 							
 							$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextPoint').html('소비를 통합하시면, \n' + pointValue + '(원)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextPoint').html('소비를 통합하시면, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리실 수 있어요!');
 							
 							
 							
@@ -2121,7 +2127,7 @@
 							$('#recocardImageMile').attr('src', path);
 							
 							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextMile').html('소비를 통합하시면, \n' + mileValue + '(마일)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
 
 							
 							
