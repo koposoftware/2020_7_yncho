@@ -40,8 +40,8 @@ public class Rserve {
 				}
 			}
 			
-			System.out.println("total num : " + s[0][0]);
-			System.out.println("best card : " + s[1][0]);
+			//System.out.println("total num : " + s[0][0]);
+			//System.out.println("best card : " + s[1][0]);
 			
 			
 			

@@ -540,15 +540,92 @@
 					type : 'get', 
 					//async : false,
 					success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+						
+						let test = JSON.parse(data);
+					
+						let totalValue = parseInt(test[0][0]);
+						let totalCardName = test[1][0];
+						let firstTotal = totalCardName.substring(0, 1);
+						
+						if(firstTotal == '#'){
+							totalCardName = totalCardName.substring(1, totalCardName.length)
+						}
+						
+						
+						let disValue = parseInt(test[2][0]);
+						let disCardName = test[3][0];
+						let firstDis = disCardName.substring(0, 1);
+						
+						if(firstDis == '#'){
+							disCardName = disCardName.substring(1, disCardName.length)
+						}
+						
+						
+						let pointValue = parseInt(test[4][0]);
+						let pointCardName = test[5][0];
+						let firstPoint = pointCardName.substring(0, 1);
+						
+						if(firstPoint == '#'){
+							pointCardName = pointCardName.substring(1, pointCardName.length)
+						}
+						
+						
+						let mileValue = parseInt(test[6][0]);
+						let mileCardName = test[7][0];
+						let firstMile = mileCardName.substring(0, 1);
+						
+						if(firstMile == '#'){
+							mileCardName = mileCardName.substring(1, mileCardName.length)
+						}
+						
+						
+						
+						//let attr = $('#recocardImage').attr('src');
+						let path = '/hanacard-spring-mvc/resources/images/';
+						path = path + totalCardName + '.png';
+						$('#recocardImageTotal').attr('src', path);
+						
+						$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+						$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
+						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+						
+						
+						
+						path = '/hanacard-spring-mvc/resources/images/';
+						path = path + disCardName + '.png';
+						$('#recocardImageDis').attr('src', path);
+						
+						$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+						$('#recocardTextDis').html('소비를 통합하시면, \n' + disValue + '(원)의 혜택을 누리실 수 있어요!');
+					
+						
+						
+						path = '/hanacard-spring-mvc/resources/images/';
+						path = path + pointCardName + '.png';
+						$('#recocardImagePoint').attr('src', path);
+						
+						$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+						$('#recocardTextPoint').html('소비를 통합하시면, \n' + pointValue + '(원)의 혜택을 누리실 수 있어요!');
+						
+						
+						
+						path = '/hanacard-spring-mvc/resources/images/';
+						path = path + mileCardName + '.png';
+						$('#recocardImageMile').attr('src', path);
+						
+						$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+						$('#recocardTextMile').html('소비를 통합하시면, \n' + mileValue + '(마일)의 혜택을 누리실 수 있어요!');
 
+						
+						
+						alert('추천카드 성공');
+						
+						/*
 						// data는 2차원 스트링 배열이 온다. 
 						// String[][]
 						
 						let test = JSON.parse(data);
 						
-						//console.log(test);
-						//console.log(test[0]);
-						//console.log(test[0][0]);
 						console.log(test[0][0]);
 						console.log(test[1][0]);
 						
@@ -574,6 +651,7 @@
 						$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 						$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+						*/
 
 					},
 					error : function() {
@@ -597,13 +675,12 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	// 세자리수 마다 콤마 찍는 함수
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+
 
 	
 	
@@ -774,6 +851,7 @@
 									<br>
 									<div style = "text-align: right">
 										<span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span>
+										<!-- <span class="h1 mb-0 font-weight-bold text-gray-800"><script>numberWithCommas(${mypageVO.sept})</script></span> -->
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800 justify-content-end" >${mypageVO.sept}</span> --%>
 										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end">원</span>
 										<!-- <span class="h3 mb-0 font-weight-bold text-gray-800" style = "float : right">원</span> -->
@@ -1077,32 +1155,110 @@
 			</div>
 			<%-- 세번째 로우 끝 : 소비 패턴  그래프 --%>
 
+
+			<%-- 카드추천 시작 --%> 
 			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 				<h2 class="h3 mb-0 text-gray-800">소비패턴 기반 추천 카드</h2>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 			</div>
+			<div class="row">
+				
+				<div class="col-xl-3 col-lg-3" style = "height : 450px;">
+					<div class="card border-left-primary shadow h-100">
 
-			<div class="card" style="width: 18rem;">
-
-				<div class="card-header">
-					<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">소비패턴 기반 추천</div>
+						<div class ="card-header">
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">통합 BEST</div> 
+						</div>
+						
+						<img id = "recocardImageTotal" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body">
+							<h5 class="card-title" id = "recocardTitleTotal">통합 BEST</h5>
+							<p class="card-text" id ="recocardTextTotal">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+							<br>
+							<a href="#" class="btn btn-primary">카드 보러가기</a>
+						</div>
+					</div>
 				</div>
-				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
-				<div class="card-body">
-					<h5 class="card-title" id = "recocardTitle">Card title</h5>
-					<p class="card-text" id ="recocardText">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">카드 보러가기</a>
+				
+				<div class="col-xl-3 col-lg-3" style = "height : 450px;">
+					<div class="card border-left-primary shadow h-100">
+
+						<div class ="card-header">
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">할인 BEST</div> 
+						</div>
+						
+						<img id = "recocardImageDis" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title" id = "recocardTitleDis">할인 BEST</h5>
+							<p class="card-text" id ="recocardTextDis">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+							<br>
+							<a href="#" class="btn btn-primary">카드 보러가기</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xl-3 col-lg-3" style = "height : 450px;">
+					<div class="card border-left-primary shadow h-100">
+
+						<div class ="card-header">
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">적립 BEST</div> 
+						</div>
+						
+						<img id = "recocardImagePoint" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body">
+							<h5 class="card-title" id = "recocardTitlePoint">적립 BEST</h5>
+							<p class="card-text" id ="recocardTextPoint">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+							<br>
+							<a href="#" class="btn btn-primary">카드 보러가기</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xl-3 col-lg-3" style = "height : 450px;">
+					<div class="card border-left-primary shadow h-100">
+
+						<div class ="card-header">
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">마일리지 BEST</div> 
+						</div>
+						
+						<img id = "recocardImageMile" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body">
+							<h5 class="card-title" id = "recocardTitleMile">마일리지 BEST</h5>
+							<p class="card-text" id ="recocardTextMile">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+							<br>
+							<a href="#" class="btn btn-primary">카드 보러가기</a>
+						</div>
+					</div>
 				</div>
 			</div>
+			
+
+			<!-- <div class="card" style="width: 18rem;">
+
+				<div class="card-header">
+					<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">BEST ONE CARD</div>
+				</div>
+				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 286 x 180 오..자동으로 리사이징 된다.
+				<div class="card-body">
+					<h5 class="card-title" id = "recocardTitle">BEST ONE CARD</h5>
+					<p class="card-text" id ="recocardText">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+					<a href="#" class="btn btn-primary">카드 보러가기</a>
+				</div>
+			</div> -->
+
+
+			<%-- 카드추천 끝 --%> 
+
+
 
 			<%-- 네번째 로우 시작 : Projects --%>
 			<!-- Content Row -->
-			<div class="row">
+			<!-- <div class="row">
 
-				<!-- Content Column -->
+				Content Column
 				<div class="col-lg-6 mb-4">
 
-					<!-- Project Card Example -->
+					Project Card Example
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
@@ -1141,7 +1297,7 @@
 						</div>
 					</div>
 
-					<!-- Color System -->
+					Color System
 					<div class="row">
 						<div class="col-lg-6 mb-4">
 							<div class="card bg-primary text-white shadow">
@@ -1213,7 +1369,7 @@
 
 				<div class="col-lg-6 mb-4">
 
-					<!-- Illustrations -->
+					Illustrations
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
@@ -1229,7 +1385,7 @@
 						</div>
 					</div>
 
-					<!-- Approach -->
+					Approach
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -1241,9 +1397,17 @@
 					</div>
 
 				</div>
-			</div>
+			</div> -->
 			<%-- 네번째 로우 끝 : Projects --%>
 
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
 		
@@ -1883,7 +2047,87 @@
 						type : 'get', 
 						//async : false,
 						success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+							
+							let test = JSON.parse(data);
+						
+							let totalValue = parseInt(test[0][0]);
+							let totalCardName = test[1][0];
+							let firstTotal = totalCardName.substring(0, 1);
+							
+							if(firstTotal == '#'){
+								totalCardName = totalCardName.substring(1, totalCardName.length)
+							}
+							
+							
+							let disValue = parseInt(test[2][0]);
+							let disCardName = test[3][0];
+							let firstDis = disCardName.substring(0, 1);
+							
+							if(firstDis == '#'){
+								disCardName = disCardName.substring(1, disCardName.length)
+							}
+							
+							
+							let pointValue = parseInt(test[4][0]);
+							let pointCardName = test[5][0];
+							let firstPoint = pointCardName.substring(0, 1);
+							
+							if(firstPoint == '#'){
+								pointCardName = pointCardName.substring(1, pointCardName.length)
+							}
+							
+							
+							let mileValue = parseInt(test[6][0]);
+							let mileCardName = test[7][0];
+							let firstMile = mileCardName.substring(0, 1);
+							
+							if(firstMile == '#'){
+								mileCardName = mileCardName.substring(1, mileCardName.length)
+							}
+							
+							
+							
+							//let attr = $('#recocardImage').attr('src');
+							let path = '/hanacard-spring-mvc/resources/images/';
+							path = path + totalCardName + '.png';
+							$('#recocardImageTotal').attr('src', path);
+							
+							$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+							
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + disCardName + '.png';
+							$('#recocardImageDis').attr('src', path);
+							
+							$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextDis').html('소비를 통합하시면, \n' + disValue + '(원)의 혜택을 누리실 수 있어요!');
+						
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + pointCardName + '.png';
+							$('#recocardImagePoint').attr('src', path);
+							
+							$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextPoint').html('소비를 통합하시면, \n' + pointValue + '(원)의 혜택을 누리실 수 있어요!');
+							
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + mileCardName + '.png';
+							$('#recocardImageMile').attr('src', path);
+							
+							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextMile').html('소비를 통합하시면, \n' + mileValue + '(마일)의 혜택을 누리실 수 있어요!');
 
+							
+							
+							alert('추천카드 성공');
+							
+							/*
 							// data는 2차원 스트링 배열이 온다. 
 							// String[][]
 							
@@ -1914,6 +2158,7 @@
 							$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 							$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+							*/
 
 						},
 						error : function() {
