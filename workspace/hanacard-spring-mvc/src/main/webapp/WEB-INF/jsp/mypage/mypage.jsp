@@ -110,7 +110,7 @@
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
-			//async : false,
+			async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 				console.log('==========getBotttomSpecific===========')
@@ -120,7 +120,7 @@
 				console.log('==========getBotttomSpecific===========')
 				
 				
-				let trans_gas = list.i1 + list.i2;
+		 		let trans_gas = list.i1 + list.i2;
 				let leisure_travel_flight = list.i4 + list.i5 + list.i6;
 				let mart_shopping = list.i7 + list.i8;
 				let pet = list.i9;
@@ -135,13 +135,13 @@
 			
 				myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
 					life, food_beverage, communication];
-
+ 
 				
-/* 				myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
+ 				/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.communication];
 			
 				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.communication];  */
+					list.life, list.food_beverage, list.communication];   */
 				
 					
 					
@@ -341,10 +341,10 @@
 		//alert(month);
 
 		$.ajax({
-			url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
-			//url : '${ pageContext.request.contextPath }/mypage/recocard',
+			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			url : '${ pageContext.request.contextPath }/mypage/recocard',
 			type : 'get', 
-			//async : false,
+			async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 				// data는 2차원 스트링 배열이 온다. 
@@ -1470,7 +1470,7 @@
 			$.ajax({
 				url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
 				type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
-				//async : false,
+				async : false,
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 					console.log('ajax===========시작')
@@ -1494,7 +1494,7 @@
 														life, food_beverage, communication];
 				
 					myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
-														life, food_beverage, communication];
+														life, food_beverage, communication]; 
 					
 					
 					
@@ -1504,8 +1504,10 @@
 						list.life, list.food_beverage, list.communication];
 				
 					myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-						list.life, list.food_beverage, list.communication]; 
-					 */
+						list.life, list.food_beverage, list.communication];  */
+					 
+					
+					
 					/* myBarChart.options.tooltips.callbacks.label = function(tooltipItem, chart) {
 																		var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
 																  return datasetLabel + ': ￦' + number_format(tooltipItem.yLabel);
@@ -1590,10 +1592,10 @@
 			
 			
 			$.ajax({
-				url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
-				//url : '${ pageContext.request.contextPath }/mypage/recocard',
+				//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+				url : '${ pageContext.request.contextPath }/mypage/recocard',
 				type : 'get', 
-				//async : false,
+				async : false,
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 					// data는 2차원 스트링 배열이 온다. 

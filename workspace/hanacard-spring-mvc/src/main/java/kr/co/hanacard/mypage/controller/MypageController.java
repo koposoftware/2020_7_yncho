@@ -325,7 +325,7 @@ public class MypageController {
 		}
 		
 		
-		//session.setAttribute("recocard", mypageVO); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+		session.setAttribute("recocard", mypageVO); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
 		
 		return mypageVO;
 	}
@@ -384,79 +384,32 @@ public class MypageController {
 	
 	
 	
+	/* bottomchart reco카드 별도로 구성하려고 만들던 코드
 	@ResponseBody
-	@GetMapping("/mypage/recocard/{year}/{month}")
-	public String[][] getBestOneCard(@PathVariable("year") String year, @PathVariable("month") String month, HttpSession session) {
-		
-		
-		//MypageVO recocard = (MypageVO)session.getAttribute("recocard"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
-		// 아.. 왜 자꾸 java.lang.NullPointerException 나는거지. => ajax 비동기통신 특성 때문임. async = fale 하면 그 문제는 해결됨.
+	@GetMapping("/mypage/recocard")
+	public String[][] getBestOneCard(HttpSession session) {
+	
+		MypageVO recocard = (MypageVO)session.getAttribute("recocard"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		// 아.. 왜 자꾸 java.lang.NullPointerException 나는거지. => ajax 비동기통신 특성 때문임. async = fale 하면 그 문제는 해결됨. 속도문제가... => ajax 내에 ajax
 		// 그냥 bottomspecific이랑 별도로 쿼리 가져와서 처리하자 ㅠㅠ
 		// 그러면 bottomspecific은 이전의 IN(i1, i2) 쿼리가 더 빠르니까 그렇게 해도 되겠는데?
 		
-		MypageVO mypageVO;
-		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
-		String resiNum = loginVO.getResiNum();
-		
-	
-		List<String> cardList = new ArrayList<>();
-		
-		if(loginVO.getCbc().equals("Y")) 
-			cardList.add("'비씨카드'");
-		if(loginVO.getCct().equals("Y")) 
-			cardList.add("'씨티카드'");
-		if(loginVO.getChd().equals("Y"))
-			cardList.add("'현대카드'");
-		if(loginVO.getCjbb().equals("Y"))
-			cardList.add("'전북은행카드'");
-		if(loginVO.getCjjb().equals("Y"))
-			cardList.add("'제주은행카드'");
-		if(loginVO.getCkjb().equals("Y"))
-			cardList.add("'광주은행카드'");
-		if(loginVO.getCkm().equals("Y"))
-			cardList.add("'국민카드'");
-		if(loginVO.getClt().equals("Y"))
-			cardList.add("'롯데카드'");
-		if(loginVO.getCnh().equals("Y"))
-			cardList.add("'농협카드'");
-		if(loginVO.getCsh().equals("Y"))
-			cardList.add("'신한카드'");
-		if(loginVO.getCshb().equals("Y"))
-			cardList.add("'수협은행카드'");
-		if(loginVO.getCss().equals("Y"))
-			cardList.add("'삼성카드'");
-		if(loginVO.getCwr().equals("Y"))
-			cardList.add("'우리카드'");
-				
-		
-		if(cardList.isEmpty()) {
-			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
-			mypageVO = mypageService.getBottomSpecific(resiNum, year, month); 
-
-		} else {
-
-			System.out.println("연동된 카드사가 있습니다.");
-			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
-			mypageVO = mypageService.getBottomSpecific(resiNum, cardListString, year, month);
-			
-		}
 		
 		
 		
-		
-		long i1 = mypageVO.getI1();
-		long i2 = mypageVO.getI2();
-		long i3 = mypageVO.getI3();
-		long i4 = mypageVO.getI4();
-		long i5 = mypageVO.getI5();
-		long i6 = mypageVO.getI6();
-		long i7 = mypageVO.getI7();
-		long i8 = mypageVO.getI8();
-		long i9 = mypageVO.getI9();
-		long i10 = mypageVO.getI10();
-		long i11 = mypageVO.getI11();
-		long i12 = mypageVO.getI12();
-		long i13 = mypageVO.getI13();
+		long i1 = recocard.getI1();
+		long i2 = recocard.getI2();
+		long i3 = recocard.getI3();
+		long i4 = recocard.getI4();
+		long i5 = recocard.getI5();
+		long i6 = recocard.getI6();
+		long i7 = recocard.getI7();
+		long i8 = recocard.getI8();
+		long i9 = recocard.getI9();
+		long i10 = recocard.getI10();
+		long i11 = recocard.getI11();
+		long i12 = recocard.getI12();
+		long i13 = recocard.getI13();
 		
 		RConnection rconn = null;
 		
@@ -502,10 +455,10 @@ public class MypageController {
 		
 		return null;
 	}
+	*/
 	
 	
-	
-	/* recocard : bottomchart 결과를 세션에 등록하고, 그걸 받아서 추천카드 처리하는 로직. (asyn = false를 사용하면 되나, 화면이 멈춰서 답답함.)
+	//recocard : bottomchart 결과를 세션에 등록하고, 그걸 받아서 추천카드 처리하는 로직. (asyn = false를 사용하면 되나, 화면이 멈춰서 답답함.)
 	@ResponseBody
 	@GetMapping("/mypage/recocard")
 	public String[][] getBestOneCard(HttpSession session) {
@@ -556,30 +509,30 @@ public class MypageController {
 			//rconn.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
 			//rconn.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
 			
-			RList table = rconn.eval("result").asList();
-			
-			
-			int cols = table.size();
-			int rows = table.at(0).length();
-
-			String[][] s = new String[cols][];
-
-			for (int i = 0; i < cols; i++) {
-				s[i] = table.at(i).asStrings();
-			}
-
-			for (int i = 0; i < cols; i++) {
-				for (int j = 0; j < rows; j++) {
-					System.out.println(s[i][j]);
-				}
-			}
-			
-			System.out.println("total num : " + s[0][0]);
-			System.out.println("best card : " + s[1][0]);
-			
-			
-			
-			return s;
+//			RList table = rconn.eval("result").asList();
+//			
+//			
+//			int cols = table.size();
+//			int rows = table.at(0).length();
+//
+//			String[][] s = new String[cols][];
+//
+//			for (int i = 0; i < cols; i++) {
+//				s[i] = table.at(i).asStrings();
+//			}
+//
+//			for (int i = 0; i < cols; i++) {
+//				for (int j = 0; j < rows; j++) {
+//					System.out.println(s[i][j]);
+//				}
+//			}
+//			
+//			System.out.println("total num : " + s[0][0]);
+//			System.out.println("best card : " + s[1][0]);
+//			
+//			
+//			
+//			return s;
 			 
 			
 			
@@ -634,11 +587,6 @@ public class MypageController {
 		
 		return null;
 	}
-	
-	
-	*/
-	
-	
 	
 	
 	
