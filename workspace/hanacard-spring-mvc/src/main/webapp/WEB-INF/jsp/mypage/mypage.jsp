@@ -798,11 +798,11 @@
 			</div>
 
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
+				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" alt="Card image cap"> <!-- 286 x 180 오..자동으로 리사이징 된다. -->
 				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text" id ="recocard">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<h5 class="card-title" id = "recocardTitle">Card title</h5>
+					<p class="card-text" id ="recocardText">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="btn btn-primary">카드 보러가기</a>
 				</div>
 			</div>
 
@@ -1449,8 +1449,66 @@
 				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
 					alert('ajax 성공')
-					alert(data);
-					$('#recocard').text(data);
+					//alert(data);
+				
+					let test = JSON.parse(data);
+					
+					//console.log(test);
+					//console.log(test[0]);
+					//console.log(test[0][0]);
+					console.log(test[0][0]);
+					console.log(test[1][0]);
+					
+					/*
+					console.log(test[1][1]);
+					
+					console.log(data);
+					console.log(data[0][0]);
+					console.log(data[0][1]);
+					console.log(data[1][0]);
+					console.log(data[1][1]);
+					*/
+		
+					let value = test[0][0];
+					let cardname = test[1][0];
+					let first = cardname.substring(0, 1);
+					
+					//alert(value);
+					//alert(cardname);
+					//alert(first);
+					//alert(cardname.length);
+					
+					if(first == '#'){
+						cardname = cardname.substring(1, cardname.length)
+					}
+					
+					//alert('변경된 카드이름 ' + cardname)
+					
+					//$('#recocard').text(data);
+					
+					let attr = $('#recocardImage').attr('src');
+					let path = '/hanacard-spring-mvc/resources/images/';
+					path = path + cardname + '.png';
+					$('#recocardImage').attr('src', path);
+					
+					alert('추천카드 성공')
+					
+					
+					$('#recocardText').text('소비를 통합하시면, ' + value + '(원)의 혜택을 누리실 수 있어요!');
+					
+					
+					//alert(path);
+					
+					//alert(path); // /hanacard-spring-mvc/resources/images/#tag1카드 Orange.png
+					//$('#recocardImage').attr('src', path);
+					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/tag1카드 Orange.png');
+					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/1Q My Cafe.png');
+					//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/#tag1카드 Orange.png');
+					
+					//$('#recocardImage').attr('src','/material/images/jQuery/asimo.png');
+					//alert(attr);
+					//#recocardImage
+					//#recocardText
 					
 				
 				

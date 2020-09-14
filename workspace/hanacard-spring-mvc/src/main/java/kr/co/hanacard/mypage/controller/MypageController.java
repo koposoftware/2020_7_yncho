@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.rosuda.REngine.REXP;
+import org.rosuda.REngine.RList;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -369,7 +370,7 @@ public class MypageController {
 	
 	@ResponseBody
 	@GetMapping("/mypage/card")
-	public Double getMyCard(HttpSession session) {
+	public String[][] getMyCard(HttpSession session) {
 		
 		MypageVO mypageVO;
 		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
@@ -407,13 +408,53 @@ public class MypageController {
 		
 		
 		
-		RConnection connection = null;
+		RConnection c = null;
 		
 		try {
 			/*
 			 * Create a connection to Rserve instance running IP Addr, UserID, Password
 			 * required (/etc/Ruser.txt)
 			 */
+			
+			
+			
+			c = new RConnection("34.64.132.162", 6311);
+			c.login("rserv", "rserv");
+			c.eval("library(recocard)");
+
+			
+			c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			//c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			//c.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
+			
+			RList table = c.eval("result").asList();
+			
+			
+			int cols = table.size();
+			int rows = table.at(0).length();
+
+			String[][] s = new String[cols][];
+
+			for (int i = 0; i < cols; i++) {
+				s[i] = table.at(i).asStrings();
+			}
+
+			for (int i = 0; i < cols; i++) {
+				for (int j = 0; j < rows; j++) {
+					System.out.println(s[i][j]);
+				}
+			}
+			
+			System.out.println("total num : " + s[0][0]);
+			System.out.println("best card : " + s[1][0]);
+			
+			
+			
+			return s;
+			
+			
+			
+			/*
 			connection = new RConnection("34.64.132.162", 6311);
 			connection.login("rserv", "rserv"); // R 계정 추가해놨음. /etc/Ruser.txt
 			
@@ -432,15 +473,16 @@ public class MypageController {
 			System.out.println(x.asDouble());
 			x = connection.eval("sd(myvalues)");
 			System.out.println(x.asDouble());
-			
-			
-			
+		
 			return mean;
+			*/
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			connection.close();
+			c.close();
 		}
 		
 		
