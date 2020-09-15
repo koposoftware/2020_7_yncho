@@ -139,7 +139,11 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-              <h1>Academics University</h1>
+              <!-- <h1>Smart Life를 선도하는 Smart 금융 </h1> -->
+              <h1>Smart Life</h1>
+              <h1>Smart Life</h1>
+              <h3>Smart Life를 선도하는 Smart 금융 </h3>
+              <!-- <h5>INNOVATOR by KEB Hana Card</h5> -->
             </div>
           </div>
         </div>
@@ -149,7 +153,11 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-              <h1>You Can Learn Anything</h1>
+              <h1>INNOVATOR by</h1>
+              <h1>KEB Hana Card</h1>
+            
+              <!-- <h1>고객님과 함께 하나카드의 새로운 도전을 시작합니다.</h1> -->
+              <!-- <h1>INNOVATOR by KEB Hana Card</h1> -->
             </div>
           </div>
         </div>
