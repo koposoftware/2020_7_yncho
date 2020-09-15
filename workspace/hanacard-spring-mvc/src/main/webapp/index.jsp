@@ -141,8 +141,8 @@
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
               <!-- <h1>Smart Life를 선도하는 Smart 금융 </h1> -->
               <h1>Smart Life</h1>
-              <h1>Smart Life</h1>
-              <h3>Smart Life를 선도하는 Smart 금융 </h3>
+              <h1>Smart Finance</h1>
+              <!-- <h3>Smart Life를 선도하는 Smart 금융 </h3> -->
               <!-- <h5>INNOVATOR by KEB Hana Card</h5> -->
             </div>
           </div>
@@ -172,7 +172,8 @@
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-4 mb-5">
             <h2 class="section-title-underline mb-5">
-              <span>Why Academics Works</span>
+              <span>전체 BEST 3 CARD</span>
+              <!-- <span>Why Academics Works</span> -->
             </h2>
           </div>
         </div>
@@ -226,7 +227,7 @@
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
             <h2 class="section-title-underline mb-3">
-              <span>Popular Courses</span>
+              <span>영역별 BEST CARD</span>
             </h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?</p>
           </div>
