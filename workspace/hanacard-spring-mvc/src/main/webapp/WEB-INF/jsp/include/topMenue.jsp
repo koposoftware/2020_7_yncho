@@ -55,30 +55,31 @@
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="about.html" class="nav-link text-left">나만의 차트</a>
+                  <a href="${ pageContext.request.contextPath }/chart" class="nav-link text-left">나만의 차트</a>
                   <ul class="dropdown">
                     <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
-                    <li><a href="about.html">인기혜택별순위</a></li>
-                    <li><a href="about.html">연회비별순위</a></li>
-                    <li><a href="about.html">전월실적별순위</a></li>
+                    <li><a href="${ pageContext.request.contextPath }/chart/benefitRank">인기혜택별순위</a></li>
+                    <li><a href="${ pageContext.request.contextPath }/chart/annualfeeRank">연회비별순위</a></li>
+                    <li><a href="${ pageContext.request.contextPath }/chart/performRank">전월실적별순위</a></li>
                     <!-- <li><a href="about.html">전월실적별순위</a></li> -->
                   </ul>
                 </li>
                 
-                <li class="has-children">
-                  <a href="about.html" class="nav-link text-left">검색/추천</a>
-                  <ul class="dropdown">
+                <li>
+                <!-- <li class="has-children"> -->
+                  <a href="${ pageContext.request.contextPath }/search" class="nav-link text-left">검색/비교</a>
+                  <!-- <ul class="dropdown">
                     <li><a href="teachers.html">조건별검색</a></li>
                     <li><a href="about.html">키워드검색</a></li>
                     <li><a href="about.html">개인화추천</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 
                 <!-- <li>
                   <a href="admissions.html" class="nav-link text-left">검색/비교</a>
                 </li> -->
                 <li>
-                  <a href="courses.html" class="nav-link text-left">고객센터</a>
+                  <a href="${ pageContext.request.contextPath }/board" class="nav-link text-left">고객센터</a>
                 </li>
                 <!-- <li>
                     <a href="contact.html" class="nav-link text-left">Contact</a>

@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="kr.co.hanacard" /> <!-- 클래스에 Coponent 등의 어노테이션을 붙이면, 자동으로 인스턴스를 만들어서 컨테이너로 관리하겠다. -->
+	<context:component-scan base-package="kr.co.hanacard" /> <!-- 클래스에 Coponent 등의 어노테이션을 붙이면, 자동으로 인스턴스를 만들어서 컨테이너로 관리하겠다. 즉, kr.co.hanacard.~~ 등 하부의 패키지내용까지 다 인스턴스 등록 -->
 	<!-- <context:component-scan base-package="kr.ac.kopo" />    디버깅의 중요성... 하...-->
 	
     <mvc:annotation-driven > <!-- 어노테이션 방식을 쓰겠다. -->
