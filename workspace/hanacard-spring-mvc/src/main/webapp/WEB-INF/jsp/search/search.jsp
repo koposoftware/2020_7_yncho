@@ -43,7 +43,7 @@
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
 						<h2 class="mb-0">검색/비교</h2>
-						<p>연회비별순위</p>
+						<p>다양한 옵션으로 카드를 검색/비교 해보세요!</p>
 					</div>
 				</div>
 			</div>
@@ -52,7 +52,8 @@
 		<%-- 페이지 소개 시작 --%>
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
-				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> <span class="current">마이페이지</span>
+				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span class="current">검색/비교</span>
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>

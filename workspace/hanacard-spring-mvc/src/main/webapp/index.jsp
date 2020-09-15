@@ -54,6 +54,7 @@
 		            <a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> 회원가입</a>
           		</c:when>
           		<c:otherwise>
+          			<span class="small mr-3">${loginVO.name}님</span>
 		            <a href = "${ pageContext.request.contextPath }/logout" class="small mr-3"><span class="icon-unlock-alt"></span> 로그아웃</a>
           		</c:otherwise>
           	</c:choose>
