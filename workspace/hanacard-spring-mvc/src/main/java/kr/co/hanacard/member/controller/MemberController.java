@@ -1,5 +1,7 @@
 package kr.co.hanacard.member.controller;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +22,11 @@ import kr.co.hanacard.member.service.MemberService;
 import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.member.vo.OwncardVO;
 import kr.co.hanacard.mypage.service.MypageService;
+import kr.co.hanacard.mypage.vo.CardTransactionVO;
 
 
 //@SessionAttributes({"loginVO", "boardVO"}) 식으로 배열로 만들 수 있다.
-@SessionAttributes({"loginVO", "hanaList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@SessionAttributes({"loginVO", "hanaList", "cardTrans"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 //@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 @Controller
 public class MemberController {
@@ -32,6 +35,10 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private MypageService mypageService;
+	
 	
 //	@RequestMapping(value="/login", method = RequestMethod.GET)
 	@GetMapping("/login")
@@ -71,12 +78,73 @@ public class MemberController {
 			// 그런데, sessionAttributes에 저장한 세션은 session.invalidate로 세션을 삭제할 수 없다!
 			// 이때는, SessionStatus.setComplete() 메소드로 지워야 한다.
 			
+
+			// 로그인 시 하나카드 보유 목록 가져오기 & 공유영역(세션)에 등록하여 jsp에서 보유카드에 나타내기
 			List<OwncardVO> hanaList = memberService.getHanaList(loginVO.getResiNum());
 			//List<String> hanaList = memberService.getHanaList(loginVO.getResiNum());
 			System.out.println("hanaList : " + hanaList);
 			mav.addObject("hanaList", hanaList);
-			// 하나카드 보유 목록 가져오기 & 공유영역에 등록하여 jsp에서 보유카드에 나타내기
 			
+			
+			// 로그인 시 거래내역 데이터 가져오기(최근 1개월) & 세션에 미리 등록해서 마이페이지 누를 시 부하 줄이기
+			List<String> cardList = new ArrayList<>();
+			
+			if(loginVO.getCbc().equals("Y")) 
+				cardList.add("'비씨카드'");
+			if(loginVO.getCct().equals("Y")) 
+				cardList.add("'씨티카드'");
+			if(loginVO.getChd().equals("Y"))
+				cardList.add("'현대카드'");
+			if(loginVO.getCjbb().equals("Y"))
+				cardList.add("'전북은행카드'");
+			if(loginVO.getCjjb().equals("Y"))
+				cardList.add("'제주은행카드'");
+			if(loginVO.getCkjb().equals("Y"))
+				cardList.add("'광주은행카드'");
+			if(loginVO.getCkm().equals("Y"))
+				cardList.add("'국민카드'");
+			if(loginVO.getClt().equals("Y"))
+				cardList.add("'롯데카드'");
+			if(loginVO.getCnh().equals("Y"))
+				cardList.add("'농협카드'");
+			if(loginVO.getCsh().equals("Y"))
+				cardList.add("'신한카드'");
+			if(loginVO.getCshb().equals("Y"))
+				cardList.add("'수협은행카드'");
+			if(loginVO.getCss().equals("Y"))
+				cardList.add("'삼성카드'");
+			if(loginVO.getCwr().equals("Y"))
+				cardList.add("'우리카드'");
+					
+			
+			
+			//처음 보여주는 데이터는 현재 달이다. 사용자가 선택하는 기간을 처리하는 것은 mypage.jsp에서 ajax로 처리
+			//현재 월 구하기
+			Calendar cal = Calendar.getInstance();
+			String year = Integer.toString(cal.get( cal.YEAR ));
+			String month = Integer.toString(cal.get( cal.MONTH ) + 1);
+			if(month.length() == 1) {
+				month = "0" + month;
+			}
+			String period = year+month;
+			
+			System.out.println("period : " + period);
+
+			String resiNum = loginVO.getResiNum();
+			if(cardList.isEmpty()) {
+				
+				System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, period);
+				mav.addObject("cardTrans", cardTrans);
+
+				
+			} else {
+				
+				String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, cardListString, period);
+				mav.addObject("cardTrans", cardTrans);
+				
+			}
 			
 		}
 		

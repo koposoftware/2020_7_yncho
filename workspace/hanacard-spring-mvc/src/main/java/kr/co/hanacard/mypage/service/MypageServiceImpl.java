@@ -1,4 +1,5 @@
 package kr.co.hanacard.mypage.service;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.co.hanacard.member.dao.MemberDAO;
 import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.mypage.dao.MypageDAO;
+import kr.co.hanacard.mypage.vo.CardTransactionVO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 @Service
@@ -73,6 +75,20 @@ public class MypageServiceImpl implements MypageService{
 		loginVO = memberDAO.login(loginVO);
 		
 		return loginVO;
+	}
+
+	@Override
+	public List<CardTransactionVO> getCardTrans(String resiNum, String period) {
+		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum, period);
+		
+		return cardTransVO;
+	}
+
+	@Override
+	public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period) {
+		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum,cardListString, period);
+
+		return cardTransVO;
 	}
 
 		

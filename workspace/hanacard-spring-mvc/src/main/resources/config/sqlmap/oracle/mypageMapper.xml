@@ -1382,5 +1382,68 @@
                          CKJB = #{ckjb} , CJBB = #{cjbb}, CJJB = #{cjjb}
                      WHERE ID = #{id}
 	</update>
+	
+	
+	
+	<resultMap type="CardTransVO" id ="CardTransMap">
+		<result column="CARD_TRANSACTION_TIME" property ="time"/>
+	</resultMap>
+	
+	<select id = "getCardTransaction" parameterType = "map" resultMap ="CardTransMap">
+		WITH TMP AS(
+			SELECT CARD_TRANSACTION_NUM AS num
+			        ,TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY.MM.DD HH24:MI:SS') AS CARD_TRANSACTION_TIME <!-- time이라 쓰니 에러난다. -->
+			        , CARD_TRANSACTION_AMOUNT AS amount 
+			        , CARD_TRANSACTION_CONTENT AS content
+			        ,(SELECT VALUE FROM COMMON_CODE WHERE CODE = T.INDUSTRY_CODE) AS code
+			        ,(SELECT '하나카드' FROM DUAL) AS means
+			        ,(SELECT VALUE FROM COMMON_CODE WHERE CODE = T.PAYMENT) AS payment
+			FROM CARD_TRANSACTION T
+			WHERE CARD_NUM IN(
+			                    SELECT CARD_NUM
+			                    FROM CARD_CONTRACT 
+			                    WHERE RESI_NUM = #{resiNum}))
+		<![CDATA[
+		SELECT * FROM TMP WHERE ROWNUM <= 10
+		]]>
+			                      <!-- 끝에 세미콜론 안붙이는것에 주의!!! -->
+			                      <!-- 부등호 쓰려면, <![CDATA[ 여기에 부등호 포함 문장  ]]> -->
+			                 
+	</select>
+	
+	<select id = "getCardTransactionOpen" parameterType = "map" resultMap ="CardTransMap">
+	WITH TMP AS(
+		SELECT CARD_TRANSACTION_NUM AS num
+		        ,TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY.MM.DD HH24:MI:SS') AS CARD_TRANSACTION_TIME
+		        , CARD_TRANSACTION_AMOUNT AS amount
+		        , CARD_TRANSACTION_CONTENT AS content
+		        ,(SELECT VALUE FROM COMMON_CODE WHERE CODE = T.INDUSTRY_CODE) AS code
+		        ,(SELECT '하나카드' FROM DUAL) AS means
+		        ,(SELECT VALUE FROM COMMON_CODE WHERE CODE = T.PAYMENT) AS payment
+		FROM CARD_TRANSACTION T
+		WHERE CARD_NUM IN(
+		                    SELECT CARD_NUM
+		                    FROM CARD_CONTRACT 
+		                    WHERE RESI_NUM = #{resiNum})
+		        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYYMM') = #{period}
+		UNION ALL
+		SELECT CARD_TRANSACTION_NUM AS num
+		        , TO_CHAR(CARD_TRANSACTION_TIME, 'YYYY.MM.DD HH24:MI:SS') AS CARD_TRANSACTION_TIME
+		        , CARD_TRANSACTION_AMOUNT AS amount
+		        , CARD_TRANSACTION_CONTENT AS content
+		        ,(SELECT VALUE FROM COMMON_CODE WHERE CODE = O.INDUSTRY_CODE) AS code
+		        , MEANS
+		        , PAYMENT
+		FROM OPEN_CARD_TRANSACTION O
+		WHERE RESI_NUM = #{resiNum}
+		        AND MEANS IN (${cardListString}) <!-- 이미 java에서 콤마가 붙어서 오기 때문에 $을 쓴다. -->
+		        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYYMM') = #{period}
+		ORDER BY CARD_TRANSACTION_TIME)
+		<![CDATA[
+		SELECT * FROM TMP WHERE ROWNUM <= 10   
+		]]> <!-- 끝에 세미콜론 안붙이는것에 주의!!! ORA-00911: invalid character 에러난다. -->
+		
+	</select>
+	
 
 </mapper>

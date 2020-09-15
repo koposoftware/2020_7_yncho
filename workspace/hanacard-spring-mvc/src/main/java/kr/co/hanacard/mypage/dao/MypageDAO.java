@@ -1,9 +1,11 @@
 package kr.co.hanacard.mypage.dao;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.mypage.vo.CardTransactionVO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 public interface MypageDAO {
@@ -20,4 +22,10 @@ public interface MypageDAO {
 	 //public MypageVO getTopCurrentYear(@Param("loginVO") MemberVO loginVO, @Param("card") );
 
 	 public void doUpdateLink(Map<String, String> map);
+	 
+	 
+	 public List<CardTransactionVO> getCardTrans(String resiNum, String period);
+	 public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period);
+	 
+	 
 }

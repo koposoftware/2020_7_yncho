@@ -2,6 +2,7 @@ package kr.co.hanacard.mypage.dao;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
@@ -9,6 +10,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.hanacard.mypage.vo.CardTransactionVO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 @Repository
@@ -156,6 +158,30 @@ public class MypageDAOImpl implements MypageDAO{
 		sqlSession.update("mypage.dao.MypageDAO.doUpdateLink", map);
 		
 	}
+
+	@Override
+	public List<CardTransactionVO> getCardTrans(String resiNum, String period) {
+		Map<String, String> map = new HashMap<>();
+		map.put("resiNum", resiNum);
+		map.put("period", period);
+
+		List<CardTransactionVO> cardTransVO = sqlSession.selectList("mypage.dao.MypageDAO.getCardTransaction", map);
+		
+		return cardTransVO;
+	}
+
+	@Override
+	public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period) {
+		Map<String, String> map = new HashMap<>();
+		map.put("resiNum", resiNum);
+		map.put("period", period);
+		map.put("cardListString", cardListString);
+
+		List<CardTransactionVO> cardTransVO = sqlSession.selectList("mypage.dao.MypageDAO.getCardTransactionOpen", map);
+		
+		return cardTransVO;
+	}
+	
 	
 	
 	

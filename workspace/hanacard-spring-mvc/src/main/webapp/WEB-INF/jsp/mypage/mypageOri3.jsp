@@ -1240,62 +1240,23 @@
 					</div>
 				</div>
 			</div>
+			
+
+			<!-- <div class="card" style="width: 18rem;">
+
+				<div class="card-header">
+					<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">BEST ONE CARD</div>
+				</div>
+				<img id = "recocardImage" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 286 x 180 오..자동으로 리사이징 된다.
+				<div class="card-body">
+					<h5 class="card-title" id = "recocardTitle">BEST ONE CARD</h5>
+					<p class="card-text" id ="recocardText">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+					<a href="#" class="btn btn-primary">카드 보러가기</a>
+				</div>
+			</div> -->
+
+
 			<%-- 카드추천 끝 --%> 
-			
-			
-			<%-- 카드 거래내역 시작 --%>
-			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
-				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">카드 이용 내역</span>
-				<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: black;">카드 이용 내역</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-				
-				<span>
-					<select class="selectpicker" data-style="btn-success" id="transPeriod">
-						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
-						<option>이번 달</option>
-						<option>2주</option>
-						<option>1개월</option>
-						<option>3개월</option>
-					</select>
-					&nbsp;&nbsp;
-					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="transPeriodBtn">
-					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
-						<i class="fas fa-download fa-sm text-white-50"></i> 조회
-					</button>
-				</span>
-				
-			</div>
-			
-			<div>
-				<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-				<!-- <hr style="height:30px"> -->
-				<ul type = "none"> 
-					<c:forEach items = "${cardTrans}" var ="trans" varStatus="loop">
-						<li>
-							<div style = "margin-top: 30px; margin-bottom: 30px;">
-							<!-- <div style = "background-color: #E8F5FF;"> -->
-								<%-- <span>${ trans.num }</span> --%>
-								<span>${ trans.time }</span>&nbsp;&nbsp;
-								<span>국내 | </span>
-								<span>${ trans.payment } | </span>
-								<span>정상 | </span>
-								<span>${ trans.code }</span>
-								<div>
-									<span style = "font-size: 20px; color: black; font-weight : bolder;">${ trans.content }</span>
-									<%-- <span style = "font-size: 20px; color: black; font-weight : bold;">${ trans.content }</span> --%>
-									<span style = "color: black; font-weight : bolder;">(${ trans.means })</span>
-									<span style = "float : right;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<span style = "float : right; font-size: 20px; color: black; font-weight : bolder;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${ trans.amount }" />원</span>
-								</div>
-								<%-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>\
-								<span style = "font-size: 30px; vertical-align: sub; color: black;">${ card.cardProductName }</span> --%>
-							</div>
-						</li>
-						<hr>
-						<!-- <br> -->
-					</c:forEach>
-				</ul>
-			</div>
-			<%-- 카드 거래내역 종료 --%>
 
 
 
