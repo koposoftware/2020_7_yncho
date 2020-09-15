@@ -57,7 +57,7 @@
 		
 		$('#modalBtn').click(function(){
 	
-			alert('하하 모달입니다.')
+			//alert('하하 모달입니다.')
 			doReflect();
 			
 		}) 
@@ -214,7 +214,7 @@
 	
 	
 	function doReflect(){
-		alert('해 DB에 반영하고, 화면의 그래프 함수를 호출하여 (새로고침 없이) 연동된 정보로 그래프를 그립니다.');
+		//alert('해 DB에 반영하고, 화면의 그래프 함수를 호출하여 (새로고침 없이) 연동된 정보로 그래프를 그립니다.');
 		
 		var list = [];
 		list.push('hello');
@@ -290,7 +290,7 @@
 		}
 		
 		
-		alert('list : ' + list);
+		//alert('list : ' + list);
 		$.ajax({
 			url : '${ pageContext.request.contextPath }/mypage/update',
 			type : 'get', // get 방식은 최초에 document.ready 했을 때 보여주는 것이고, 연도와 월을 선택하여 조회를 했을 땐 post 방식으로 보내야 함. (form 태그로 감싸야지.)
@@ -313,7 +313,7 @@
 			},
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 
-				alert('ajax 성공');
+				//alert('ajax 성공');
 			
 				getTopSpecific();
 				getBottomSpecific();
@@ -335,7 +335,7 @@
 	function getRecoCard(){
 		// 소비패턴 조회할 때마다 카드추천 ajax 실행되어야 함.
 
-		alert('getRecoCard()')
+		//alert('getRecoCard()')
 		
 		
 		let year = $('#bottomYear').val().substring(0,4);
@@ -400,7 +400,7 @@
 				path = path + cardname + '.png';
 				$('#recocardImage').attr('src', path);
 				
-				alert('추천카드 성공')
+				//alert('추천카드 성공')
 				
 				$('#recocardTitle').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 				$('#recocardText').html('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
@@ -619,7 +619,7 @@
 
 						
 						
-						alert('추천카드 성공');
+						//alert('추천카드 성공');
 						
 						/*
 						// data는 2차원 스트링 배열이 온다. 
