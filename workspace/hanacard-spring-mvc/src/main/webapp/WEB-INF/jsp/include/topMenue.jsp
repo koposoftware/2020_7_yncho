@@ -50,11 +50,12 @@
                 <!-- <li class="active"> -->
                   <a href = "${ pageContext.request.contextPath }/mypage" class="nav-link text-left">마이페이지</a>
                    <ul class="dropdown">
+                     <li><a href="${ pageContext.request.contextPath }/mypage">종합 대시보드</a></li>
                     <li><a href="${ pageContext.request.contextPath }/mypage/owncard">보유카드정보</a></li>
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="about.html" class="nav-link text-left">하나차트</a>
+                  <a href="about.html" class="nav-link text-left">나만의 차트</a>
                   <ul class="dropdown">
                     <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
                     <li><a href="about.html">인기혜택별순위</a></li>
