@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.hanacard.member.dao.MemberDAO;
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.member.vo.OwncardVO;
 
 
 @Service
@@ -22,10 +23,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<String> getHanaList(String resiNum) {
+	public List<OwncardVO> getHanaList(String resiNum) {
 		
 		return memberDAO.getHanaList(resiNum);
 	}
+	
+//	@Override
+//	public OwncardVO getHanaList(String resiNum) {
+//		
+//		return memberDAO.getHanaList(resiNum);
+//	}
+	
+//	@Override
+//	public List<String> getHanaList(String resiNum) {
+//		
+//		return memberDAO.getHanaList(resiNum);
+//	}
 	
 	
 

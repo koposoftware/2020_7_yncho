@@ -47,7 +47,30 @@
 	</select>
 	
 	
-	<select id = "getHanaList" parameterType ="String" resultType = "String">
+	<!-- <resultMap type="OwncardVO" id ="owncardMap">
+		<result column="resi_num" property ="resiNum"/>
+	</resultMap> -->
+	
+	<select id = "getHanaList" parameterType ="String" resultType = "OwncardVO">
+	
+	WITH TMP AS(
+        SELECT * 
+        FROM CARD_CONTRACT C, CARD_PRODUCT_LIST L
+        WHERE C.CARD_PRODUCT_CODE = L.CARD_PRODUCT_CODE AND C.RESI_NUM = #{resiNum}
+    )
+    
+    SELECT CARD_PRODUCT_NAME AS cardProductName
+            , CARD_NUM AS cardNum
+            , REG_DATE AS regDate
+            , CVC AS cvc
+    FROM TMP
+                                
+                                
+                                <!-- 끝에 세미콜론 안붙이는것에 주의!!! -->
+	
+	</select>
+	
+	<select id = "getHanaListOri" parameterType ="String" resultType = "String">
 	SELECT L.CARD_PRODUCT_NAME 
 	FROM CARD_PRODUCT_LIST L
 	WHERE L.CARD_PRODUCT_CODE IN (SELECT C. CARD_PRODUCT_CODE

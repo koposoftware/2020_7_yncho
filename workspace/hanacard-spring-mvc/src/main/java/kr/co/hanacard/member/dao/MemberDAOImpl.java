@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.member.vo.OwncardVO;
 
 
 
@@ -27,12 +28,22 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public List<String> getHanaList(String resiNum) {
+	public List<OwncardVO> getHanaList(String resiNum) {
 		
-		List<String> hanaList = sqlSession.selectList("member.dao.MemberDAO.getHanaList", resiNum);
+		List<OwncardVO> hanaList = sqlSession.selectList("member.dao.MemberDAO.getHanaList", resiNum);
+		//OwncardVO hanaList = sqlSession.selectOne("member.dao.MemberDAO.getHanaList", resiNum);
+		//List<String> hanaList = sqlSession.selectList("member.dao.MemberDAO.getHanaList", resiNum);
 		
 		return hanaList;
 	}
+	
+//	@Override
+//	public List<String> getHanaList(String resiNum) {
+//		
+//		List<String> hanaList = sqlSession.selectList("member.dao.MemberDAO.getHanaList", resiNum);
+//		
+//		return hanaList;
+//	}
 	
 	
 	

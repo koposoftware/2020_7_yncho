@@ -133,7 +133,19 @@
 				<ul type = "none">
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${hanaList}" var ="card">
-						<li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 67px; height : 42px;">${ card }</li>
+						<li><img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
+						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
+							<span>${ card.cardProductName }</span>
+							<span>${ card.cardNum }</span>
+							<span>${ card.regDate }</span>
+							
+							<%-- <div>${ card }</div>
+							<div>${ cardNum }</div> --%>
+						
+						</li>
+						<hr>
+						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 134px; height : 84px;">${ card }</li> --%>
+						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 67px; height : 42px;">${ card }</li> --%>
 						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
 						<!-- <li style = "display: inline-block;">  -->
 						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->

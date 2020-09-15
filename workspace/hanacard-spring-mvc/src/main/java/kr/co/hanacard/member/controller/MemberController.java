@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.hanacard.member.service.MemberService;
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.member.vo.OwncardVO;
 import kr.co.hanacard.mypage.service.MypageService;
 
 
@@ -70,7 +71,8 @@ public class MemberController {
 			// 그런데, sessionAttributes에 저장한 세션은 session.invalidate로 세션을 삭제할 수 없다!
 			// 이때는, SessionStatus.setComplete() 메소드로 지워야 한다.
 			
-			List<String> hanaList = memberService.getHanaList(loginVO.getResiNum());
+			List<OwncardVO> hanaList = memberService.getHanaList(loginVO.getResiNum());
+			//List<String> hanaList = memberService.getHanaList(loginVO.getResiNum());
 			System.out.println("hanaList : " + hanaList);
 			mav.addObject("hanaList", hanaList);
 			// 하나카드 보유 목록 가져오기 & 공유영역에 등록하여 jsp에서 보유카드에 나타내기

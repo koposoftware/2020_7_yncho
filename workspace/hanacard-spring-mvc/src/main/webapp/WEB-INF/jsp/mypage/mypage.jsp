@@ -769,15 +769,19 @@
 							<div class="carousel-inner">
 							
 									<div class="carousel-item active">
-										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0].cardProductName}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a> --%>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${hanaList[0]}</div>
+										<div style = "text-align: center;">${hanaList[0].cardProductName}</div>
+										<%-- <div style = "text-align: center;">${hanaList[0]}</div> --%>
 									</div>
 								<c:forEach items = "${hanaList}" var ="card" varStatus = "vs" begin = "1">
 									<div class="carousel-item">
-										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card.cardProductName}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a> --%>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${card}</div>
+										<div style = "text-align: center;">${card.cardProductName}</div>
+										<%-- <div style = "text-align: center;">${card}</div> --%>
 									</div>
 								</c:forEach>
 								<%-- <div class="carousel-item active">
