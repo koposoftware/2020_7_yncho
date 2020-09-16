@@ -62,7 +62,7 @@
 			
 		}) 
 		
-		$('#transBtn').click(function(){
+		$('#transMoreBtn').click(function(){
 			
 			getMoreList();
 		})
@@ -727,7 +727,7 @@
 		/*
 	     $.ajax({
 	 		
-	    	 url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod + '/' + lastNum,
+	    	 url : '${ pageContext.request.contextPath }/mypage/transaction/more' + transPeriod + '/' + lastNum,
 	         //url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod,
 	         type : "get",
 	         //dataType : "json",
@@ -1407,7 +1407,7 @@
 				
 				<div align = "center"> <!-- div 가운데 정렬 -->
 				<!-- <div style = "margin-left : auto; margin-right: auto"> -->
-					<button id="transBtn" type="button" class="btn btn-outline-light"><span style = "color: black; font-weight : bolder;">더보기</span></button>
+					<button id="transMoreBtn" type="button" class="btn btn-outline-light"><span style = "color: black; font-weight : bolder;">더보기</span></button>
 					<!-- <button id="transBtn" type="button" class="btn btn-light"><span style = "color: black; font-weight : bolder;">더보기</span></button> -->
 				</div>
 				

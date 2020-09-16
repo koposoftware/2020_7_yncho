@@ -600,7 +600,7 @@ public class MypageController {
 	
 	
 	@ResponseBody
-	@GetMapping("/mypage/transaction/{transPeriod}/{lastNum}")
+	@GetMapping("/mypage/transaction/more/{transPeriod}/{lastNum}")
 	public List<CardTransactionVO> getMoreList(@PathVariable("transPeriod") String transPeriod, @PathVariable("lastNum") String lastNum,  HttpSession session) {	
 		
 		
@@ -640,13 +640,13 @@ public class MypageController {
 				
 		
 		//처음 보여주는 데이터는 현재 달이다. 사용자가 선택하는 기간을 처리하는 것은 mypage.jsp에서 ajax로 처리
-		//현재 월 구하기
+		//현재 월 구하기 => 필요없다. DB단에서 처리하면 된다.
 		
-		System.out.println(transPeriod);
-		
-		Calendar cal = Calendar.getInstance();
-		String year = Integer.toString(cal.get( cal.YEAR ));
-		String month = Integer.toString(cal.get( cal.MONTH ) + 1);
+//		System.out.println(transPeriod);
+//		
+//		Calendar cal = Calendar.getInstance();
+//		String year = Integer.toString(cal.get( cal.YEAR ));
+//		String month = Integer.toString(cal.get( cal.MONTH ) + 1);
 				
 //		if(transPeriod.equals("thisMonth")) {
 //			if(month.length() == 1) {
@@ -671,12 +671,12 @@ public class MypageController {
 //		}
 		
 		
-		if(month.length() == 1) {
-			month = "0" + month;
-		}
-		
-		String period = year + month;
-		System.out.println("period : " + period);
+//		if(month.length() == 1) {
+//			month = "0" + month;
+//		}
+//		
+//		String period = year + month;
+//		System.out.println("period : " + period);
 
 		String resiNum = loginVO.getResiNum();
 		List<CardTransactionVO> cardTrans;
