@@ -62,6 +62,11 @@
 			
 		}) 
 		
+		$('#transBtn').click(function(){
+			
+			getMoreList();
+		})
+		
 	})
 
 
@@ -682,6 +687,45 @@
 	function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
+	
+	function getMoreList(){
+		
+		alert('getMoreList() 버튼 작동합니다');
+		
+		var lastNum = $("#transUl li").length;  //마지막 리스트 번호를 알아내기 위해서 li 태그의 length를 구함.
+		
+		alert('lastNum : ' + lastNum);
+		//var addListHtml = "";  
+		//console.log("lastNum", lastNum); //콘솔로그로 lastNum에 값이 들어오는지 확인
+		
+		let transPeriod = $('#transPeriod').val();
+		//let year = $('#topYear').val().substring(0,4);
+
+		
+		alert('transPeriod : ' + transPeriod);
+		
+		if(transPeriod == '이번 달'){
+			transPeriod = 'thisMonth';
+		} else if(transPeriod == '2주'){
+			transPeriod = '2weeks';
+		} else if(transPeriod == '1개월'){
+			transPeriod = '1month';
+		} else if(transPeriod == '3개월'){
+			transPeriod = '3month';
+		}
+		
+		alert('transPeriod : ' + transPeriod);
+		
+		/* <option>이번 달</option>
+		<option>2주</option>
+		<option>1개월</option>
+		<option>3개월</option> */
+		
+		
+		
+		
+		
+	}
 
 
 
@@ -1268,9 +1312,14 @@
 			<div>
 				<hr style="height:2px;border-width:0;color:gray;background-color:gray">
 				<!-- <hr style="height:30px"> -->
-				<ul type = "none"> 
+				<ul id = "transUl" type = "none"> 
 					<c:forEach items = "${cardTrans}" var ="trans" varStatus="loop">
+						
 						<li>
+						<%-- <li id = "<c:out value = "${loop.count}"/>"> --%>
+						<%-- <tr <c:if test ="${ loop.count mod 2 == 0 }">class="even"</c:if>> --%>
+						<%-- <li id = <c:out> ${loop.count} </c:out> > --%>
+						<!-- <li class = "transLi"> -->
 							<div style = "margin-top: 30px; margin-bottom: 30px;">
 							<!-- <div style = "background-color: #E8F5FF;"> -->
 								<%-- <span>${ trans.num }</span> --%>
@@ -1291,9 +1340,17 @@
 							</div>
 						</li>
 						<hr>
-						<!-- <br> -->
 					</c:forEach>
 				</ul>
+				
+				<!-- <button id="transBtn" onclick="moreList();"><span>더보기</span></button> -->
+				
+				<div align = "center"> <!-- div 가운데 정렬 -->
+				<!-- <div style = "margin-left : auto; margin-right: auto"> -->
+					<button id="transBtn" type="button" class="btn btn-outline-light"><span style = "color: black; font-weight : bolder;">더보기</span></button>
+					<!-- <button id="transBtn" type="button" class="btn btn-light"><span style = "color: black; font-weight : bolder;">더보기</span></button> -->
+				</div>
+				
 			</div>
 			<%-- 카드 거래내역 종료 --%>
 
