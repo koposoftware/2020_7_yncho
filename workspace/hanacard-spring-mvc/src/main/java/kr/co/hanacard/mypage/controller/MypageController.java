@@ -700,4 +700,69 @@ public class MypageController {
 	}
 	
 	
+	//   /mypage/transaction/' + transPeriod
+	@ResponseBody
+	@GetMapping("/mypage/transaction/{transPeriod}")
+	public List<CardTransactionVO> getPeriodList(@PathVariable("transPeriod") String transPeriod, HttpSession session) {	
+		
+		
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); 
+		
+		// 이번 달(thisMonth), 2주(2weeks), 1개월(1month), 3개월(3month)로 transPeriod 날라온다.
+		// 무조건 15건만 가져오면 되고, 더보기는 다른 ajax로 처리한다.
+		
+		
+		List<String> cardList = new ArrayList<>();
+		
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("'비씨카드'");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("'씨티카드'");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("'현대카드'");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("'전북은행카드'");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("'제주은행카드'");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("'광주은행카드'");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("'국민카드'");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("'롯데카드'");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("'농협카드'");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("'신한카드'");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("'수협은행카드'");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("'삼성카드'");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("'우리카드'");
+				
+
+		//String transPeriod = "thisMonth";
+		
+		
+		String resiNum = loginVO.getResiNum();
+		List<CardTransactionVO> cardTrans;
+		
+		if(cardList.isEmpty()) {
+			
+			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+			cardTrans = mypageService.getCardTrans(resiNum, transPeriod, "0");
+
+			
+		} else {
+			
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			cardTrans = mypageService.getCardTransOpen(resiNum, cardListString, transPeriod, "0");
+			
+		}
+		
+		return cardTrans;
+	}
+	
+	
 }

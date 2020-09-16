@@ -67,10 +67,6 @@
 			getMoreList();
 		})
 		
-		$('#transPeriodBtn').click(function(){
-			getPeriodList();
-		})
-		
 	})
 
 
@@ -847,168 +843,13 @@
 				}
 	     });
 		
-	}
-
-
-
-	
-	function getPeriodList(){
-		
-		alert('getPeriodList() 버튼 작동합니다');
-		
-		//var lastNum = $("#transUl li").length;  //마지막 리스트 번호를 알아내기 위해서 li 태그의 length를 구함.
-		//alert('lastNum : ' + lastNum);
-		//var addListHtml = "";  
-		//console.log("lastNum", lastNum); //콘솔로그로 lastNum에 값이 들어오는지 확인
 		
 		
-		let transPeriod = $('#transPeriod').val();
-		//let year = $('#topYear').val().substring(0,4);
-		alert('transPeriod : ' + transPeriod);
-		
-		if(transPeriod == '이번 달'){
-			transPeriod = 'thisMonth';
-		} else if(transPeriod == '2주'){
-			transPeriod = '2weeks';
-		} else if(transPeriod == '1개월'){
-			transPeriod = '1month';
-		} else if(transPeriod == '3개월'){
-			transPeriod = '3month';
-		}
-		
-		alert('transPeriod : ' + transPeriod);
-		
-		/* <option>이번 달</option>
-		<option>2주</option>
-		<option>1개월</option>
-		<option>3개월</option> */
-		
-
-		
-		
-	     $.ajax({
-	 		
-	    	 url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod,
-	         //url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod,
-	         type : "get",
-	         //dataType : "json",
-	        /*  data : {
-	        	 
-	        	 "lastNum":lastNum
-
-	         }, */
-	         
-	         
-	         success : function(data) {
-	        	 
-	        	 alert('거래내역 ajax 성공!');
-	        	
-	        	 console.log('===========more===========');
-				 console.log('type========>' + typeof(data));
-	        	 //console.log(data);
-				 let more = JSON.parse(data);
-				 console.log('type========>' + typeof(more));
-				 console.log(more)
-				 console.log('more.length : ' + more.length)
-				 
-				 //console.log('type========>' + typeof(JSON.stringify(data)));
-				 //console.log(JSON.stringify(data))
-	        	 console.log('===========more===========');
-	        	 
-				 alert('more.length : ' + more.length);
-				 alert('data.length : ' + data.length);
-				 
-	            // let list = JSON.parse(data)
-		          /*  $('#replyList').html('');
-		             alert('언제 뜨는데 이게?')
-		             $(list).each(function(){
-		                console.log(this)
-		                let str='';
-		                str += '<hr>'
-		                str += '<div>'
-		                str+= '<strong>'+this.content+'</strong>';
-		                str+= '  ('+ this.writer +')';
-		                str+= '  '+ this.regDate;
-		                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
-		                str += '</div>'
-		                $('#replyList').append(str);
-		             }) */
-	        	 
-	        	 
-	        	// alert('more : ' + more);
-
-		         $("#transUl").empty();
-	             if(more.length < 15){
-	            	 
-	            	 //alert('<15 로직을 탑니다.');
-	            	 
-	                 var addListHtml ="";
-		             $(more).each(function(){
-		                 addListHtml += "<li>";
-	                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
-	                     addListHtml += "<span>" + more[i].time + "</span>&nbsp;&nbsp;";
-	                     addListHtml += "<span>국내 | </span>";
-	                     addListHtml += "<span>" + more[i].payment + " | </span>";
-	                     addListHtml += "<span>정상 | </span>";
-	                     addListHtml += "<span>" + more[i].code + "</span>";
-	                     addListHtml += "<div>";
-	                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + more[i].content + "</span>";
-	                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" + more[i].means + ")</span>";
-	                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
-	                     addListHtml += "<span>" + more[i].amount + "</span>"; 
-	                     addListHtml += "</div>";
-	                     addListHtml += "</div>";
-	                     addListHtml += "</li>";
-	                     addListHtml += "<hr>";
-		            	 
-		             })
-
-	                 
-		             //일단 더보기 없애는 기능은 잠시 보류
-	                 //$("#transMoreBtn").remove();   // 더보기 버튼을 div 클래스로 줘야 할 수도 있음
-	                 
-	                 
-	             } else{
-	            	 
-	                 var addListHtml ="";
-		             $(more).each(function(){
-		                 addListHtml += "<li>";
-	                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
-	                     addListHtml += "<span>" + this.time + "</span>&nbsp;&nbsp;";
-	                     addListHtml += "<span>국내 | </span>";
-	                     addListHtml += "<span>" + this.payment + " | </span>";
-	                     addListHtml += "<span>정상 | </span>";
-	                     addListHtml += "<span>" + this.code + "</span>";
-	                     addListHtml += "<div>";
-	                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + this.content + "</span>";
-	                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" +this.means + ")</span>";
-	                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
-	                     //addListHtml += "<span>" + this.amount + "</span>"; 
-	                     addListHtml += "<span style = \"float : right; font-size: 20px; color: black; font-weight : bolder;\">" + numberWithCommas(this.amount) + "원</span>";   
-
-	                     addListHtml += "</div>";
-	                     addListHtml += "</div>";
-	                     addListHtml += "</li>";
-	                     addListHtml += "<hr>";
-
-		             })
-	             }
-	             
-		         $("#transUl").append(addListHtml);
-	             
-	             
-	         }, //success ends
-				error : function() {
-					
-					alert('거래내역 ajax 실패')
-					
-				}
-	     });
 		
 	}
-	
-	
-	
+
+
+
 
 	
 	
@@ -1581,7 +1422,7 @@
 						<option>3개월</option>
 					</select>
 					&nbsp;&nbsp;
-					<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="transPeriodBtn">
 					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
 						<i class="fas fa-download fa-sm text-white-50"></i> 조회
 					</button>
