@@ -59,7 +59,8 @@
 	
 			//alert('하하 모달입니다.')
 			doReflect();
-			
+			getPeriodList();
+
 		}) 
 		
 		$('#transMoreBtn').click(function(){
@@ -695,11 +696,11 @@
 	
 	function getMoreList(){
 		
-		alert('getMoreList() 버튼 작동합니다');
+		//alert('getMoreList() 버튼 작동합니다');
 		
 		var lastNum = $("#transUl li").length;  //마지막 리스트 번호를 알아내기 위해서 li 태그의 length를 구함.
 		
-		alert('lastNum : ' + lastNum);
+		//alert('lastNum : ' + lastNum);
 		//var addListHtml = "";  
 		//console.log("lastNum", lastNum); //콘솔로그로 lastNum에 값이 들어오는지 확인
 		
@@ -707,7 +708,7 @@
 		//let year = $('#topYear').val().substring(0,4);
 
 		
-		alert('transPeriod : ' + transPeriod);
+		//alert('transPeriod : ' + transPeriod);
 		
 		if(transPeriod == '이번 달'){
 			transPeriod = 'thisMonth';
@@ -719,7 +720,7 @@
 			transPeriod = '3month';
 		}
 		
-		alert('transPeriod : ' + transPeriod);
+		//alert('transPeriod : ' + transPeriod);
 		
 		/* <option>이번 달</option>
 		<option>2주</option>
@@ -744,7 +745,7 @@
 	         
 	         success : function(data) {
 	        	 
-	        	 alert('거래내역 ajax 성공!');
+	        	 //alert('거래내역 ajax 성공!');
 	        	
 	        	 console.log('===========more===========');
 				 console.log('type========>' + typeof(data));
@@ -758,8 +759,8 @@
 				 //console.log(JSON.stringify(data))
 	        	 console.log('===========more===========');
 	        	 
-				 alert('more.length : ' + more.length);
-				 alert('data.length : ' + data.length);
+				 //alert('more.length : ' + more.length);
+				// alert('data.length : ' + data.length);
 				 
 	            // let list = JSON.parse(data)
 		          /*  $('#replyList').html('');
@@ -783,7 +784,7 @@
 		         $("#transUl").empty();
 	             if(more.length < 15){
 	            	 
-	            	 alert('<15 로직을 탑니다.');
+	            	 //alert('<15 로직을 탑니다.');
 	            	 
 	                 var addListHtml ="";
 		             $(more).each(function(){
@@ -854,7 +855,7 @@
 	
 	function getPeriodList(){
 		
-		alert('getPeriodList() 버튼 작동합니다');
+		//alert('getPeriodList() 버튼 작동합니다');
 		
 		//var lastNum = $("#transUl li").length;  //마지막 리스트 번호를 알아내기 위해서 li 태그의 length를 구함.
 		//alert('lastNum : ' + lastNum);
@@ -864,7 +865,7 @@
 		
 		let transPeriod = $('#transPeriod').val();
 		//let year = $('#topYear').val().substring(0,4);
-		alert('transPeriod : ' + transPeriod);
+		//alert('transPeriod : ' + transPeriod);
 		
 		if(transPeriod == '이번 달'){
 			transPeriod = 'thisMonth';
@@ -876,7 +877,7 @@
 			transPeriod = '3month';
 		}
 		
-		alert('transPeriod : ' + transPeriod);
+		//alert('transPeriod : ' + transPeriod);
 		
 		/* <option>이번 달</option>
 		<option>2주</option>
@@ -901,7 +902,7 @@
 	         
 	         success : function(data) {
 	        	 
-	        	 alert('거래내역 ajax 성공!');
+	        	 //alert('거래내역 ajax 성공!');
 	        	
 	        	 console.log('===========more===========');
 				 console.log('type========>' + typeof(data));
@@ -915,8 +916,8 @@
 				 //console.log(JSON.stringify(data))
 	        	 console.log('===========more===========');
 	        	 
-				 alert('more.length : ' + more.length);
-				 alert('data.length : ' + data.length);
+				 //alert('more.length : ' + more.length);
+				 //alert('data.length : ' + data.length);
 				 
 	            // let list = JSON.parse(data)
 		          /*  $('#replyList').html('');
@@ -1357,6 +1358,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-primary" id = "modalBtn">연동하기</button>
+									<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" id = "modalBtn">연동하기</button> --> <!-- dismiss : 해산. 즉 버튼을 누르면 모달창을 닫음 -->
 									<!-- <button type="submit" class="btn btn-primary" id = "modalBtn">연동하기</button> -->
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button> <!-- dismiss : 해산. 즉 닫는다. -->
 									<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
