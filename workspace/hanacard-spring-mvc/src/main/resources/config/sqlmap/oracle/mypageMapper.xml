@@ -1421,7 +1421,7 @@
 			        </if>
 			        
 		<![CDATA[
-		SELECT * FROM TMP WHERE ROWNUM <= 15
+		SELECT * FROM TMP WHERE ROWNUM <= (15 + #{lastNum})
 		]]>
 			                      <!-- 끝에 세미콜론 안붙이는것에 주의!!! -->
 			                      <!-- 부등호 쓰려면, <![CDATA[ 여기에 부등호 포함 문장  ]]> -->
