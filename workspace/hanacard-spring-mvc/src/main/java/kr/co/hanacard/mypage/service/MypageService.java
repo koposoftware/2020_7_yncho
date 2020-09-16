@@ -30,8 +30,8 @@ public interface MypageService {
 	 MemberVO doUpdateLink(Map<String, String> map, MemberVO loginVo);
 	 
 	 
-	 List<CardTransactionVO> getCardTrans(String resiNum, String period);
-	 List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period);
+	 List<CardTransactionVO> getCardTrans(String resiNum, String period, String lastNum);
+	 List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period, String lastNum);
 	 
 	 
 	 //MypageVO getDataByYear();

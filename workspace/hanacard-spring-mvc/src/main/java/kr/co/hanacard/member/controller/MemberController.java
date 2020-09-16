@@ -134,14 +134,14 @@ public class MemberController {
 			if(cardList.isEmpty()) {
 				
 				System.out.println("하나카드 외 연동된 카드사가 없습니다.");
-				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, period);
+				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, period, "0");
 				mav.addObject("cardTrans", cardTrans);
 
 				
 			} else {
 				
 				String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
-				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, cardListString, period);
+				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, cardListString, period, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
 			}

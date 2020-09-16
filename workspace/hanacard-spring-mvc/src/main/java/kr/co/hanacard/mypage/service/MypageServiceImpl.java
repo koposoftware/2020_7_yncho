@@ -78,15 +78,15 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public List<CardTransactionVO> getCardTrans(String resiNum, String period) {
-		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum, period);
+	public List<CardTransactionVO> getCardTrans(String resiNum, String period, String lastNum) {
+		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum, period, lastNum);
 		
 		return cardTransVO;
 	}
 
 	@Override
-	public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period) {
-		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum,cardListString, period);
+	public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period, String lastNum) {
+		List<CardTransactionVO> cardTransVO = mypageDAO.getCardTrans(resiNum,cardListString, period, lastNum);
 
 		return cardTransVO;
 	}

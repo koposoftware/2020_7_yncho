@@ -1404,7 +1404,7 @@
 			                    FROM CARD_CONTRACT 
 			                    WHERE RESI_NUM = #{resiNum}))
 		<![CDATA[
-		SELECT * FROM TMP WHERE ROWNUM <= 15
+		SELECT * FROM TMP WHERE ROWNUM <= (15 + #{lastNum})
 		]]>
 			                      <!-- 끝에 세미콜론 안붙이는것에 주의!!! -->
 			                      <!-- 부등호 쓰려면, <![CDATA[ 여기에 부등호 포함 문장  ]]> -->
@@ -1441,7 +1441,7 @@
 		        AND TO_CHAR(CARD_TRANSACTION_TIME, 'YYYYMM') = #{period}
 		ORDER BY CARD_TRANSACTION_TIME)
 		<![CDATA[
-		SELECT * FROM TMP WHERE ROWNUM <= 15
+		SELECT * FROM TMP WHERE ROWNUM <= (15 + #{lastNum})
 		]]> <!-- 끝에 세미콜론 안붙이는것에 주의!!! ORA-00911: invalid character 에러난다. --> <!-- SELECT * FROM TMP WHERE ROWNUM <= 10  -->
 		
 	</select>

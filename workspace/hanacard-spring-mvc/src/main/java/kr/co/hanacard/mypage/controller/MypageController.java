@@ -1,6 +1,7 @@
 package kr.co.hanacard.mypage.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +24,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.hanacard.member.service.MemberService;
 import kr.co.hanacard.member.vo.MemberVO;
+import kr.co.hanacard.member.vo.OwncardVO;
 import kr.co.hanacard.mypage.service.MypageService;
+import kr.co.hanacard.mypage.vo.CardTransactionVO;
 import kr.co.hanacard.mypage.vo.MypageVO;
 
 @SessionAttributes({"mypageVO", "cardList"})// mav.addObject() 메소드로 저장하는 객체이름이 mypageVO라면, 세션에 등록하라!
@@ -33,6 +37,9 @@ public class MypageController {
 	
 	@Autowired //MypageService 클래스 위에 어노테이션이 있기 때문에, 빈이 생성되기 때문에 Autowired 하면 자동으로 그것을 여기에 자동으로 넣는다.
 	private MypageService mypageService;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	
 	@GetMapping("/mypage")
@@ -591,6 +598,96 @@ public class MypageController {
 	
 	
 	
+	
+	@ResponseBody
+	@GetMapping("/mypage/transaction/{transPeriod}/{lastNum}")
+	public List<CardTransactionVO> getMoreList(@PathVariable("transPeriod") String transPeriod, @PathVariable("lastNum") String lastNum,  HttpSession session) {	
+		
+		
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); 
+		
+		// 거래내역 데이터 더보기 누를 시 AJAX로 15건 더 가져오기 
+		// 요청하고자 하는 기간 : ROWNUM <= lastNum + 15
+		
+		
+		Calendar cal = Calendar.getInstance();
+		String year = Integer.toString(cal.get( cal.YEAR ));
+		String month = Integer.toString(cal.get( cal.MONTH ) + 1);
+		
+		List<String> cardList = new ArrayList<>();
+		
+		if(loginVO.getCbc().equals("Y")) 
+			cardList.add("'비씨카드'");
+		if(loginVO.getCct().equals("Y")) 
+			cardList.add("'씨티카드'");
+		if(loginVO.getChd().equals("Y"))
+			cardList.add("'현대카드'");
+		if(loginVO.getCjbb().equals("Y"))
+			cardList.add("'전북은행카드'");
+		if(loginVO.getCjjb().equals("Y"))
+			cardList.add("'제주은행카드'");
+		if(loginVO.getCkjb().equals("Y"))
+			cardList.add("'광주은행카드'");
+		if(loginVO.getCkm().equals("Y"))
+			cardList.add("'국민카드'");
+		if(loginVO.getClt().equals("Y"))
+			cardList.add("'롯데카드'");
+		if(loginVO.getCnh().equals("Y"))
+			cardList.add("'농협카드'");
+		if(loginVO.getCsh().equals("Y"))
+			cardList.add("'신한카드'");
+		if(loginVO.getCshb().equals("Y"))
+			cardList.add("'수협은행카드'");
+		if(loginVO.getCss().equals("Y"))
+			cardList.add("'삼성카드'");
+		if(loginVO.getCwr().equals("Y"))
+			cardList.add("'우리카드'");
+				
+		
+		//처음 보여주는 데이터는 현재 달이다. 사용자가 선택하는 기간을 처리하는 것은 mypage.jsp에서 ajax로 처리
+		//현재 월 구하기
+		
+		System.out.println(transPeriod);
+		
+		if(transPeriod.equals("thisMonth"))
+			
+		if(transPeriod.equals("2weeks"))
+			
+		if(transPeriod.equals("1month"))
+			
+		if(transPeriod.equals("3month"))
+			
+		
+	
+		
+		if(month.length() == 1) {
+			month = "0" + month;
+		}
+		
+		String period = year+month;
+		
+		System.out.println("period : " + period);
+
+		String resiNum = loginVO.getResiNum();
+		List<CardTransactionVO> cardTrans;
+		
+		if(cardList.isEmpty()) {
+			
+			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
+			cardTrans = mypageService.getCardTrans(resiNum, period, lastNum);
+
+			
+		} else {
+			
+			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
+			cardTrans = mypageService.getCardTrans(resiNum, cardListString, period, lastNum);
+			
+		}
+		
+		
+		return cardTrans;
+		
+	}
 	
 	
 }

@@ -688,6 +688,7 @@
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 	
+	
 	function getMoreList(){
 		
 		alert('getMoreList() 버튼 작동합니다');
@@ -721,7 +722,66 @@
 		<option>1개월</option>
 		<option>3개월</option> */
 		
+
 		
+		/*
+	     $.ajax({
+	 		
+	    	 url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod + '/' + lastNum,
+	         //url : '${ pageContext.request.contextPath }/mypage/transaction/' + transPeriod,
+	         type : "get",
+	         //dataType : "json",
+	         data : {
+	        	 
+	        	 "lastNum":lastNum
+
+	         },
+	         
+	         
+	         success : function(data) {
+	        	 
+				let data = JSON.parse(data);
+
+	             if(data.length < 10){
+	            	 
+	                 $("#transBtn").remove();   // 더보기 버튼을 div 클래스로 줘야 할 수도 있음
+	                 
+	             }else{
+	            	 
+	             	var addListHtml ="";
+		             if(data.length > 0){
+		                 
+		                 for(var i = 0; i < data.length; i++) {
+		                     var idx = Number(lastNum) + Number(i) + 1;   
+		                     // 글번호 : lastNum 이  10단위로 증가되기 때문에 lastNum + i (+1은 i는 0부터 시작하므로 )
+		                    
+		                     
+		                     // 특수문자 쓰려면, 그 앞에 \ 붙이면 된다.
+		                     addListHtml += "<li>";
+		                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
+		                     addListHtml += "<span>" + data[i].time + "</span>&nbsp;&nbsp;";
+		                     addListHtml += "<span>국내 | </span>";
+		                     addListHtml += "<span>" + data[i].payment + " | </span>";
+		                     addListHtml += "<span>정상 | </span>";
+		                     addListHtml += "<span>" + data[i].code + "</span>";
+		                     addListHtml += "<div>";
+		                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + data[i].content + "</span>";
+		                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" + data[i].means + ")</span>";
+		                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+		                     addListHtml += "<span>" + data[i].amount + "</span>"; 
+		                     addListHtml += "</div>";
+		                     addListHtml += "</div>";
+		                     addListHtml += "</li>";
+		                     
+		                     
+		                 }
+		                 
+		                 $("#transUl").append(addListHtml);
+		             }
+	             }
+	         }
+	     });
+		*/
 		
 		
 		
