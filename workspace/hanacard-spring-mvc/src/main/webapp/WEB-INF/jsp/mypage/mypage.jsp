@@ -754,7 +754,8 @@
 				 //console.log(JSON.stringify(data))
 	        	 console.log('===========more===========');
 	        	 
-				 
+				 alert('more.length : ' + more.length);
+				 alert('data.length : ' + data.length);
 				 
 	            // let list = JSON.parse(data)
 		          /*  $('#replyList').html('');
@@ -775,8 +776,10 @@
 	        	 
 	        	// alert('more : ' + more);
 
-	        	 
+		         $("#transUl").empty();
 	             if(more.length < 15){
+	            	 
+	            	 alert('<15 로직을 탑니다.');
 	            	 
 	                 var addListHtml ="";
 		             $(more).each(function(){
@@ -795,11 +798,12 @@
 	                     addListHtml += "</div>";
 	                     addListHtml += "</div>";
 	                     addListHtml += "</li>";
+	                     addListHtml += "<hr>";
 		            	 
 		             })
 
 	                 
-	                 $("#transBtn").remove();   // 더보기 버튼을 div 클래스로 줘야 할 수도 있음
+	                 $("#transMoreBtn").remove();   // 더보기 버튼을 div 클래스로 줘야 할 수도 있음
 	                 
 	                 
 	             } else{
@@ -817,11 +821,14 @@
 	                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + this.content + "</span>";
 	                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" +this.means + ")</span>";
 	                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
-	                     addListHtml += "<span>" + this.amount + "</span>"; 
+	                     //addListHtml += "<span>" + this.amount + "</span>"; 
+	                     addListHtml += "<span style = \"float : right; font-size: 20px; color: black; font-weight : bolder;\">" + numberWithCommas(this.amount) + "원</span>";   
+
 	                     addListHtml += "</div>";
 	                     addListHtml += "</div>";
 	                     addListHtml += "</li>";
-		            	 
+	                     addListHtml += "<hr>";
+
 		             })
 	             }
 	             
