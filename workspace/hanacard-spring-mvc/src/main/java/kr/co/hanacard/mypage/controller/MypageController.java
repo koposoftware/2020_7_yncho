@@ -609,11 +609,6 @@ public class MypageController {
 		// 거래내역 데이터 더보기 누를 시 AJAX로 15건 더 가져오기 
 		// 요청하고자 하는 기간 : ROWNUM <= lastNum + 15
 		
-		
-		Calendar cal = Calendar.getInstance();
-		String year = Integer.toString(cal.get( cal.YEAR ));
-		String month = Integer.toString(cal.get( cal.MONTH ) + 1);
-		
 		List<String> cardList = new ArrayList<>();
 		
 		if(loginVO.getCbc().equals("Y")) 
@@ -649,23 +644,38 @@ public class MypageController {
 		
 		System.out.println(transPeriod);
 		
-		if(transPeriod.equals("thisMonth"))
-			
-		if(transPeriod.equals("2weeks"))
-			
-		if(transPeriod.equals("1month"))
-			
-		if(transPeriod.equals("3month"))
-			
+		Calendar cal = Calendar.getInstance();
+		String year = Integer.toString(cal.get( cal.YEAR ));
+		String month = Integer.toString(cal.get( cal.MONTH ) + 1);
+				
+//		if(transPeriod.equals("thisMonth")) {
+//			if(month.length() == 1) {
+//				month = "0" + month;
+//			}
+//			period = year + month;
+//		}
+//		if(transPeriod.equals("2weeks")) {
+//			if(month.length() == 1) {
+//				month = "0" + month;
+//			}
+//		}
+//		if(transPeriod.equals("1month")) {
+//			if(month.length() == 1) {
+//				month = "0" + month;
+//			}
+//		}
+//		if(transPeriod.equals("3month")) {
+//			if(month.length() == 1) {
+//				month = "0" + month;
+//			}
+//		}
 		
-	
 		
 		if(month.length() == 1) {
 			month = "0" + month;
 		}
 		
-		String period = year+month;
-		
+		String period = year + month;
 		System.out.println("period : " + period);
 
 		String resiNum = loginVO.getResiNum();
@@ -674,13 +684,13 @@ public class MypageController {
 		if(cardList.isEmpty()) {
 			
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
-			cardTrans = mypageService.getCardTrans(resiNum, period, lastNum);
+			cardTrans = mypageService.getCardTrans(resiNum, transPeriod, lastNum);
 
 			
 		} else {
 			
 			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
-			cardTrans = mypageService.getCardTrans(resiNum, cardListString, period, lastNum);
+			cardTrans = mypageService.getCardTransOpen(resiNum, cardListString, transPeriod, lastNum);
 			
 		}
 		

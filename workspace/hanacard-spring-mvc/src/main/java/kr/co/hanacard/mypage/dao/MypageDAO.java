@@ -24,8 +24,8 @@ public interface MypageDAO {
 	 public void doUpdateLink(Map<String, String> map);
 	 
 	 
-	 public List<CardTransactionVO> getCardTrans(String resiNum, String period, String lastNum);
-	 public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period, String lastNum);
+	 public List<CardTransactionVO> getCardTrans(String resiNum, String transPeriod, String lastNum);
+	 public List<CardTransactionVO> getCardTransOpen(String resiNum, String cardListString, String transPeriod, String lastNum);
 	 
 	 
 }

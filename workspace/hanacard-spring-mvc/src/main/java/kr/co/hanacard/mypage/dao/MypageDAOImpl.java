@@ -160,10 +160,10 @@ public class MypageDAOImpl implements MypageDAO{
 	}
 
 	@Override
-	public List<CardTransactionVO> getCardTrans(String resiNum, String period, String lastNum) {
+	public List<CardTransactionVO> getCardTrans(String resiNum, String transPeriod, String lastNum) {
 		Map<String, String> map = new HashMap<>();
 		map.put("resiNum", resiNum);
-		map.put("period", period);
+		map.put("transPeriod", transPeriod);
 		map.put("lastNum", lastNum);
 
 		List<CardTransactionVO> cardTransVO = sqlSession.selectList("mypage.dao.MypageDAO.getCardTransaction", map);
@@ -172,10 +172,10 @@ public class MypageDAOImpl implements MypageDAO{
 	}
 
 	@Override
-	public List<CardTransactionVO> getCardTrans(String resiNum, String cardListString, String period, String lastNum) {
+	public List<CardTransactionVO> getCardTransOpen(String resiNum, String cardListString, String transPeriod, String lastNum) {
 		Map<String, String> map = new HashMap<>();
 		map.put("resiNum", resiNum);
-		map.put("period", period);
+		map.put("transPeriod", transPeriod);
 		map.put("cardListString", cardListString);
 		map.put("lastNum", lastNum);
 

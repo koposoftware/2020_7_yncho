@@ -118,30 +118,32 @@ public class MemberController {
 					
 			
 			
-			//처음 보여주는 데이터는 현재 달이다. 사용자가 선택하는 기간을 처리하는 것은 mypage.jsp에서 ajax로 처리
-			//현재 월 구하기
-			Calendar cal = Calendar.getInstance();
-			String year = Integer.toString(cal.get( cal.YEAR ));
-			String month = Integer.toString(cal.get( cal.MONTH ) + 1);
-			if(month.length() == 1) {
-				month = "0" + month;
-			}
-			String period = year+month;
-			
-			System.out.println("period : " + period);
+//			//처음 보여주는 데이터는 현재 달이다. 사용자가 선택하는 기간을 처리하는 것은 mypage.jsp에서 ajax로 처리
+//			//현재 월 구하기
+//			Calendar cal = Calendar.getInstance();
+//			String year = Integer.toString(cal.get( cal.YEAR ));
+//			String month = Integer.toString(cal.get( cal.MONTH ) + 1);
+//			if(month.length() == 1) {
+//				month = "0" + month;
+//			}
+//			String period = year+month;
+//			System.out.println("period : " + period);
 
+			String transPeriod = "thisMonth";
+			
+			
 			String resiNum = loginVO.getResiNum();
 			if(cardList.isEmpty()) {
 				
 				System.out.println("하나카드 외 연동된 카드사가 없습니다.");
-				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, period, "0");
+				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 
 				
 			} else {
 				
 				String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
-				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, cardListString, period, "0");
+				List<CardTransactionVO> cardTrans = mypageService.getCardTransOpen(resiNum, cardListString, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
 			}
