@@ -1464,7 +1464,7 @@
 					<div class="card shadow mb-4">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요</h6>
+							<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요 ${yearSum}</h6>
 						</div>
 						<!-- Card Body -->
 						<div class="card-body">
@@ -1526,7 +1526,7 @@
 
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">영역별 소비 금액</h6>
+							<h6 class="m-0 font-weight-bold text-primary">영역별 소비 금액 ${cateSum}</h6>
 						</div>
 						<div class="card-body"  style ="height : 365px">
 							<div class="chart-bar">

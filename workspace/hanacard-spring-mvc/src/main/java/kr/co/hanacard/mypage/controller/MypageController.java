@@ -140,11 +140,18 @@ public class MypageController {
 		if(loginVO.getCwr().equals("Y"))
 			cardList.add("'우리카드'");
 				
+		long yearSum = 0;
 		
 		//GetMapping이므로, 현재년도의 자료를 조회하는 것이다.
 		if(cardList.isEmpty()) {
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
 			mypageVO = mypageService.getTopCurrentYear(resiNum);
+			
+			yearSum = mypageVO.getJan() + mypageVO.getFeb() + mypageVO.getMar() + mypageVO.getApr() + mypageVO.getMay() + mypageVO.getJun() 
+							+ mypageVO.getJul() + mypageVO.getAug() + mypageVO.getSept() + mypageVO.getOct() + mypageVO.getNov() + mypageVO.getDec();
+			
+			session.setAttribute("yearSum", yearSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+
 			
 			
 		} else {
@@ -153,6 +160,12 @@ public class MypageController {
 			String cardListString = String.join(",", cardList); // 똑똑하군. element가 하나만 있으면, 콤마를 붙이지 않고 그요소 그대로를내보낸다. "신한카드" 처럼
 			System.out.println("cardListString : " + cardListString);
 			mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
+			
+			yearSum = mypageVO.getJan() + mypageVO.getFeb() + mypageVO.getMar() + mypageVO.getApr() + mypageVO.getMay() + mypageVO.getJun() 
+			+ mypageVO.getJul() + mypageVO.getAug() + mypageVO.getSept() + mypageVO.getOct() + mypageVO.getNov() + mypageVO.getDec();
+			
+			session.setAttribute("yearSum", yearSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+
 			
 		}
 		
@@ -227,11 +240,17 @@ public class MypageController {
 			cardList.add("'우리카드'");
 				
 		
+		long yearSum = 0;
+		
 		//PostMapping이므로 특정 연도를 조회
 		if(cardList.isEmpty()) {
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
 			mypageVO = mypageService.getTopSpecific(resiNum, year);
 
+			yearSum = mypageVO.getJan() + mypageVO.getFeb() + mypageVO.getMar() + mypageVO.getApr() + mypageVO.getMay() + mypageVO.getJun() 
+			+ mypageVO.getJul() + mypageVO.getAug() + mypageVO.getSept() + mypageVO.getOct() + mypageVO.getNov() + mypageVO.getDec();
+
+			session.setAttribute("yearSum", yearSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
 			
 		} else {
 			System.out.println("/mypage/topspecific/${year}");
@@ -242,6 +261,11 @@ public class MypageController {
 			System.out.println("cardListString : " + cardListString);
 			mypageVO = mypageService.getTopSpecific(resiNum, cardListString, year);
 			//mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
+			
+			yearSum = mypageVO.getJan() + mypageVO.getFeb() + mypageVO.getMar() + mypageVO.getApr() + mypageVO.getMay() + mypageVO.getJun() 
+			+ mypageVO.getJul() + mypageVO.getAug() + mypageVO.getSept() + mypageVO.getOct() + mypageVO.getNov() + mypageVO.getDec();
+
+			session.setAttribute("yearSum", yearSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
 			
 		}
 		
@@ -301,6 +325,9 @@ public class MypageController {
 			cardList.add("'우리카드'");
 				
 		
+		long cateSum = 0;
+
+		
 		//PostMapping이므로 특정 연,월을 조회
 		if(cardList.isEmpty()) {
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
@@ -313,6 +340,11 @@ public class MypageController {
 			// WHERE 연도 == YEAR AND 월 == MONTH 여야함
 			// 근데 월이 all로 넘어오면..흠
 			// 마이바티스는 동적으로 작동해서  MONTH 부분 all이면 처리안되게 해볼까. 그럼 all이 null로 들어가야하네.
+
+			cateSum = mypageVO.getI1() + mypageVO.getI2() + mypageVO.getI3() + mypageVO.getI4() + mypageVO.getI5() + mypageVO.getI6() + mypageVO.getI7() + mypageVO.getI8()
+			+ mypageVO.getI9() + mypageVO.getI10() + mypageVO.getI11() + mypageVO.getI12() + mypageVO.getI13();
+			
+			session.setAttribute("cateSum", cateSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
 
 			
 		} else {
@@ -330,6 +362,13 @@ public class MypageController {
 			mypageVO = mypageService.getBottomSpecific(resiNum, cardListString, year, month);
 			//mypageVO = mypageService.getTopCurrentYear(resiNum, cardListString);
 			
+			
+
+			cateSum = mypageVO.getI1() + mypageVO.getI2() + mypageVO.getI3() + mypageVO.getI4() + mypageVO.getI5() + mypageVO.getI6() + mypageVO.getI7() + mypageVO.getI8()
+			+ mypageVO.getI9() + mypageVO.getI10() + mypageVO.getI11() + mypageVO.getI12() + mypageVO.getI13();
+			
+			session.setAttribute("cateSum", cateSum); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+
 		}
 		
 		
