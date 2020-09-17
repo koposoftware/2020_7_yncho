@@ -96,6 +96,14 @@
 
 				//alert('ajax 새로고침이 update 떄문인가 => 아님.')
 				myLineChart.update();
+				
+				
+				// 연간 소비개요 합계금액 ajax 반영
+				let yearSum = list.jan + list.feb + list.mar + list.apr + list.may + list.jun + list.jul + list.aug + list.sept + list.oct + list.nov + list.dec;
+				yearSum = numberWithCommas(yearSum);
+
+				$('#yearSumH').text("합계 : " + yearSum + "원");
+				
 
 			},
 			error : function() {
@@ -143,6 +151,7 @@
 				console.log('==========getBotttomSpecific===========')
 				
 				
+				// i3 반영안되어있음.
 		 		let trans_gas = list.i1 + list.i2;
 				let leisure_travel_flight = list.i4 + list.i5 + list.i6;
 				let mart_shopping = list.i7 + list.i8;
@@ -158,7 +167,6 @@
 			
 				myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
 					life, food_beverage, communication];
- 
 				
  				/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
 					list.life, list.food_beverage, list.communication];
@@ -211,7 +219,7 @@
 				
 				myBarChart.update();
 				myPieChart.update();
-
+				
 			},
 			error : function() {
 				
@@ -543,6 +551,13 @@
 				    } */
 				myBarChart.update();
 				myPieChart.update();
+				
+				
+				// 영역별 소비 합계금액 ajax 반영
+				let cateSum = trans_gas + leisure_travel_flight + mart_shopping + pet + health_medical + life + food_beverage + communication;
+				cateSum = numberWithCommas(cateSum);
+				$('#cateSumH').text("합계 : " + cateSum + "원");
+				
 				
 				
 				$.ajax({
@@ -1464,7 +1479,10 @@
 					<div class="card shadow mb-4">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">연간 소비 개요 ${yearSum}</h6>
+							<h6 class="m-0 font-weight-bold text-primary" style="display:inline;">연간 소비 개요</h6>
+							<h6 id = "yearSumH" class="m-0 font-weight-bold text-primary" style="display:inline;">합계 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${yearSum}"/>원</h6>
+							<%-- <h6 class="m-0 font-weight-bold text-primary" style="display:inline;">합계 : ${yearSum}원</h6> --%>
+							<%-- <h6 class="m-0 font-weight-bold text-primary">연간 소비 개요 ${yearSum}</h6> --%>
 						</div>
 						<!-- Card Body -->
 						<div class="card-body">
@@ -1525,8 +1543,14 @@
 				<div class="col-xl-8 col-lg-7">
 
 					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">영역별 소비 금액 ${cateSum}</h6>
+						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+						<!-- <div class="card-header py-3"> -->
+						<!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"> -->
+						
+							<h6 class="m-0 font-weight-bold text-primary" style="display:inline;">영역별 소비 금액 </h6>
+							<h6 id="cateSumH" class="m-0 font-weight-bold text-primary" style="display:inline;">합계 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${cateSum}"/>원</h6>
+							<%-- <h6 class="m-0 font-weight-bold text-primary" style="display:inline;">합계 : ${cateSum}원</h6> --%>
+							<%-- <h6 class="m-0 font-weight-bold text-primary">영역별 소비 금액 ${cateSum}</h6> --%>
 						</div>
 						<div class="card-body"  style ="height : 365px">
 							<div class="chart-bar">
@@ -2019,6 +2043,13 @@
 
 					
 					myLineChart.update();
+					
+					
+					// 연간 소비개요 합계금액 ajax 반영
+					let yearSum = list.jan + list.feb + list.mar + list.apr + list.may + list.jun + list.jul + list.aug + list.sept + list.oct + list.nov + list.dec;
+					yearSum = numberWithCommas(yearSum);
+
+					$('#yearSumH').text("합계 : " + yearSum + "원");
 
 				},
 				error : function() {
@@ -2496,6 +2527,11 @@
 					myBarChart.update();
 					myPieChart.update();
 					
+					
+					// 영역별 소비 합계금액 ajax 반영
+					let cateSum = trans_gas + leisure_travel_flight + mart_shopping + pet + health_medical + life + food_beverage + communication;
+					cateSum = numberWithCommas(cateSum);
+					$('#cateSumH').text("합계 : " + cateSum + "원");
 					
 					$.ajax({
 						//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
