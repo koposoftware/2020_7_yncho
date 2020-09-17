@@ -120,6 +120,8 @@
 	} */
 	
 	
+	
+	/* 사용안함. getBottomAndReco로 대체
 	function getBottomSpecific() {
 		
 		
@@ -168,53 +170,6 @@
 				myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
 					life, food_beverage, communication];
 				
- 				/* myBarChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.communication];
-			
-				myPieChart.data.datasets[0].data = [list.trans_gas, list.leisure_travel_flight, list.mart_shopping, list.pet, list.health_medical,
-					list.life, list.food_beverage, list.communication];   */
-				
-					
-					
-				/* var tmpTotal = list.trans_gas + list.communication + list.mart_shopping + list.pet + list.health_medical + 
-								list.life + list.food_beverage + list.leisure_travel_flight */
-				
-				/* myPieChart.options.tooltips.callbacks.label = function(tooltipItem, data) { 
-														            var indice = tooltipItem.index;     
-														            
-														            //추가 코드
-														            var dataset = myPieChart.data.datasets[tooltipItem.datasetIndex];
-														            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-																		return previousValue + currentValue;
-																	});
-														            
-																	var currentValue = dataset.data[tooltipItem.index];
-																	var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
-														            //추가코드
-																	
-																	return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
-																	//return  data.labels[indice] +': '+ percentage + '%';
-														        }   */
-					
-				    /* callbacks: {
-				        label: function(tooltipItem, data) { 
-				            var indice = tooltipItem.index;     
-				            
-				            //추가 코드
-				            var dataset = data.datasets[tooltipItem.datasetIndex];
-				            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-								return previousValue + currentValue;
-							});
-				            
-							var currentValue = dataset.data[tooltipItem.index];
-							var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
-				            //추가코드
-							
-							//return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
-							return  data.labels[indice] +': '+ percentage + '%';
-				        }
-				    } */
-				
 				
 				
 				myBarChart.update();
@@ -229,6 +184,8 @@
 		})
 		
 	};
+	
+	*/
 	
 	
 	function doReflect(){
