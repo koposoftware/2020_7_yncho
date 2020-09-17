@@ -334,8 +334,8 @@
 				//alert('ajax 성공');
 			
 				getTopSpecific();
-				getBottomSpecific();
-				
+				//getBottomSpecific();
+				getBottomAndReco();
 
 			},
 			error : function() {
