@@ -844,7 +844,7 @@
 				error : function() {
 					
 					alert('거래내역 ajax 실패')
-					
+					 
 				}
 	     });
 		
@@ -1204,11 +1204,12 @@
 					<div class="card border-left-success shadow h-100 py">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> -->
 						<div class="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">개인 정보</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div> 
 						</div>
 						<div class="card-body">
 							<div class="row no-gutters align-items-center">
-								<div class="col mr-2">
+								<div>
+								<!-- <div class="col mr-2"> -->
 									<%-- <div class= "h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>
 									<!-- <div class= "h3 text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div> -->
 									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div> --%>
@@ -1225,11 +1226,79 @@
 									</div>
 									<hr>
 								</div>
+								
+								<div>
+								<!-- <div class="col mr-2"> -->
+									<%-- <div class= "h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>
+									<!-- <div class= "h3 text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div> -->
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div> --%>
+									
+									<div>
+										<span>하나 THE 30</span>&nbsp;&nbsp;&nbsp;
+									</div>
+									<div>
+										<span>${loginVO.name}님은 일반회원입니다</span>&nbsp;&nbsp;&nbsp; 
+									</div>
+									<div>
+										<button type="button" class="btn btn-light btn-sm"><a href = "https://www.hanacard.co.kr/OPY01400000N.web?schID=pcd&mID=OPY01400000N&">하나 더(THE) 30</a></button> 
+										<button type="button" class="btn btn-light btn-sm"><a href = "https://hanathemall.eiparkclub.com/" >하나 더(THE) 몰</a></button>
+									</div>
+									<hr>
+								</div>
+								
 								<div class="col-auto">
 									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
 								</div>
 							</div>
 						</div>
+						
+						
+						
+						<%-- <div class="card-body">
+							<div class="row no-gutters align-items-center">
+								<div class="col mr-2">
+									<div class= "h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>
+									<!-- <div class= "h3 text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div> -->
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div>
+									
+									<div>
+										<span>연락처</span>&nbsp;&nbsp;&nbsp; ${loginVO.phone}
+									</div>
+									<div>
+										<span>이메일</span>&nbsp;&nbsp;&nbsp; ${loginVO.email}
+									</div>
+									<div>
+										<button type="button" class="btn btn-light btn-sm">개인정보 변경</button> 
+										<button type="button" class="btn btn-light btn-sm">마케팅 수신동의 변경</button>
+									</div>
+									<hr>
+								</div>
+								
+								<div class="col mr-2">
+									<div class= "h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>
+									<!-- <div class= "h3 text-xs font-weight-bold text-success text-uppercase mb-1">결제 예정 금액</div> -->
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div>
+									
+									<div>
+										<span>하나 THE 30</span>&nbsp;&nbsp;&nbsp;
+									</div>
+									<div>
+										<span>${loginVO.name}님은 일반회원입니다</span>&nbsp;&nbsp;&nbsp; 
+									</div>
+									<div>
+										<button type="button" class="btn btn-light btn-sm"><a href = "https://www.hanacard.co.kr/OPY01400000N.web?schID=pcd&mID=OPY01400000N&">하나 더(THE) 30</a></button> 
+										<button type="button" class="btn btn-light btn-sm"><a href = "https://hanathemall.eiparkclub.com/" >하나 더(THE) 몰</a></button>
+									</div>
+									<hr>
+								</div>
+								
+								<div class="col-auto">
+									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+								</div>
+							</div>
+						</div> --%>
+						
+						
 					</div>
 				</div>
 

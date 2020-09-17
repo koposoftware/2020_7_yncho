@@ -146,6 +146,7 @@ public class MypageController {
 			System.out.println("하나카드 외 연동된 카드사가 없습니다.");
 			mypageVO = mypageService.getTopCurrentYear(resiNum);
 			
+			
 		} else {
 			System.out.println("/mypage/topcurrent");
 			System.out.println("타 카드사와 연동되어 있습니다.");
