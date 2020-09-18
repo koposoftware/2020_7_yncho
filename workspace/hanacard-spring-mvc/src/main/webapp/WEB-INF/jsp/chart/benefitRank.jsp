@@ -93,7 +93,7 @@
 							<%-- <form action="${ pageContext.request.contextPath }/mypage/update" method="post"> --%>
 							<%-- <form action = "${ pageContext.request.contextPath }/mypage" method = "post"> --%>
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">타사 카드 거래내역 연동</h5>
+								<h5 class="modal-title" id="exampleModalLabel">인기 혜택별 순위</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
 									<span aria-hidden="true">&times;</span>
@@ -101,45 +101,13 @@
 							</div>
 							<div class="modal-body">
 								<!-- Material unchecked -->
+								
+								<!-- <p>인기 혜택별 순위</p> -->
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="csh" name="card" value="csh"> <label class="form-check-label" for="materialUnchecked">신한카드</label>
+									<a href = "#" data-dismiss="modal">마트/쇼핑</a>
 								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="css" name="card" value="css"> <label class="form-check-label" for="materialUnchecked">삼성카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="chd" name="card" value="chd"> <label class="form-check-label" for="materialUnchecked">현대카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="ckm" name="card" value="ckm"> <label class="form-check-label" for="materialUnchecked">국민카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="clt" name="card" value="clt"> <label class="form-check-label" for="materialUnchecked">롯데카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cwr" name="card" value="cwr"> <label class="form-check-label" for="materialUnchecked">우리카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cbc" name="card" value="cbc"> <label class="form-check-label" for="materialUnchecked">비씨카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cct" name="card" value="cct"> <label class="form-check-label" for="materialUnchecked">씨티카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cnh" name="card" value="cnh"> <label class="form-check-label" for="materialUnchecked">농협카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cshb" name="card" value="cshb"> <label class="form-check-label" for="materialUnchecked">수협은행카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="ckjb" name="card" value="ckjb"> <label class="form-check-label" for="materialUnchecked">광주은행카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cjbb" name="card" value="cjbb"> <label class="form-check-label" for="materialUnchecked">전북은행카드</label>
-								</div>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="cjjb" name="card" value="cjjb"> <label class="form-check-label" for="materialUnchecked">제주은행카드</label>
-								</div>
+								
+								
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-primary" id="modalBtn">연동하기</button>
