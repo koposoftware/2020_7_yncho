@@ -22,6 +22,14 @@
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
 <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
+
+<style>
+	.modal-backdrop {
+	   background-color: rgb(0,0,0,0.1);
+	}
+</style>
+
+
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>
@@ -63,13 +71,91 @@
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
 		<div class="container">
-			<!-- <div class="container-fluid"> -->
 			<br>
-			<!-- <div class="container-fluid"> -->
 			<div>
-				<h1>인기 혜택별 순위입니다.</h1>
+										
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline;">마트/쇼핑 혜택 TOP3</h1>
+				<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<!-- <h1>마트/쇼핑 혜택 TOP3</h1>  -->
 			</div>
-			
+
+			<!-- Button trigger modal -->
+			<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
+			<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">타사 카드 거래내역 연동</button> -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<form name="mform">
+							<%-- <form action="${ pageContext.request.contextPath }/mypage/update" method="post"> --%>
+							<%-- <form action = "${ pageContext.request.contextPath }/mypage" method = "post"> --%>
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">타사 카드 거래내역 연동</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<!-- Material unchecked -->
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="csh" name="card" value="csh"> <label class="form-check-label" for="materialUnchecked">신한카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="css" name="card" value="css"> <label class="form-check-label" for="materialUnchecked">삼성카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="chd" name="card" value="chd"> <label class="form-check-label" for="materialUnchecked">현대카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="ckm" name="card" value="ckm"> <label class="form-check-label" for="materialUnchecked">국민카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="clt" name="card" value="clt"> <label class="form-check-label" for="materialUnchecked">롯데카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cwr" name="card" value="cwr"> <label class="form-check-label" for="materialUnchecked">우리카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cbc" name="card" value="cbc"> <label class="form-check-label" for="materialUnchecked">비씨카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cct" name="card" value="cct"> <label class="form-check-label" for="materialUnchecked">씨티카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cnh" name="card" value="cnh"> <label class="form-check-label" for="materialUnchecked">농협카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cshb" name="card" value="cshb"> <label class="form-check-label" for="materialUnchecked">수협은행카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="ckjb" name="card" value="ckjb"> <label class="form-check-label" for="materialUnchecked">광주은행카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cjbb" name="card" value="cjbb"> <label class="form-check-label" for="materialUnchecked">전북은행카드</label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="cjjb" name="card" value="cjjb"> <label class="form-check-label" for="materialUnchecked">제주은행카드</label>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" id="modalBtn">연동하기</button>
+								<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" id = "modalBtn">연동하기</button> -->
+								<!-- dismiss : 해산. 즉 버튼을 누르면 모달창을 닫음 -->
+								<!-- <button type="submit" class="btn btn-primary" id = "modalBtn">연동하기</button> -->
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+								<!-- dismiss : 해산. 즉 닫는다. -->
+								<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
 			<div>
 				<%-- ${hanaList} --%>
 				<hr size = "5">
