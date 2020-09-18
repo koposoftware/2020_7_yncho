@@ -89,6 +89,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 
+						<!-- 이건 단순 이동이라 form 태그 필요없다. 수정 go -->
 						<form name="mform">
 							<%-- <form action="${ pageContext.request.contextPath }/mypage/update" method="post"> --%>
 							<%-- <form action = "${ pageContext.request.contextPath }/mypage" method = "post"> --%>
