@@ -1012,7 +1012,9 @@
 		<%-- 페이지 소개 시작 --%>
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
-				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> <span class="current">마이페이지</span>
+				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span>마이페이지</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span class="current">종합 대시보드</span>
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>

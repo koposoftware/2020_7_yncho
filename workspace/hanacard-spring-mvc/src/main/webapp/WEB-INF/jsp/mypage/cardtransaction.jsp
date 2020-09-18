@@ -22,74 +22,14 @@
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
 <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
-<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script> 
+<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
+<script>
 
-<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
-<style>
-.accordion {
-	background-color: #eee;
-	color: #444;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: left;
-	outline: none;
-	font-size: 15px;
-	transition: 0.4s;
-}
+</script>
 
-.active, .accordion:hover {
-	background-color: #ccc;
-}
-
-.accordion:after {
-	content: '\002B';
-	color: #777;
-	font-weight: bold;
-	float: right;
-	margin-left: 5px;
-}
-
-.active:after {
-	content: "\2212";
-}
-
-.panel {
-	padding: 0 18px;
-	background-color: white;
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.2s ease-out;
-}
-</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-	<!-- <script type="text/javascript">
-		var acc = document.getElementsByClassName("accordion");
-		var i;
-
-		for (i = 0; i < acc.length; i++) {
-			acc[i].addEventListener("click", function() {
-				/* Toggle between adding and removing the "active" class,
-				to highlight the button that controls the panel */
-				this.classList.toggle("active");
-
-				/* Toggle between hiding and showing the active panel */
-				var panel = this.nextElementSibling;
-				if (panel.style.display === "block") {
-					panel.style.display = "none";
-				} else {
-					panel.style.display = "block";
-				}
-			});
-		}
-	</script> -->
-
 	<!-- .site-wrap starts -->
 	<div class="site-wrap">
 		
@@ -103,108 +43,31 @@
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
 						<h2 class="mb-0">마이페이지</h2>
-						<p>나만의 카드 생활</p>
+						<p>카드이용내역</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		
 		<%-- 페이지 소개 시작 --%>
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
 				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span>마이페이지</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span class="current">보유카드정보</span>
+				<span>마이페이지</span>
+				<span class="current">카드이용내역</span>
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>
+		
 
-
-
-	
-			
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
 		<div class="container">
-			<br>
 			<!-- <div class="container-fluid"> -->
-			<div>
-				<h1>카드 보유 목록입니다.</h1>
-			</div>
-			<div>
-				<%-- ${hanaList} --%>
-				<hr size = "5">
-				<ul type = "none">
-					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
-					<c:forEach items = "${hanaList}" var ="card">
-						<li><img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
-							<span>${ card.cardProductName }</span>
-							<span>${ card.cardNum }</span>
-							<span>${ card.regDate }</span>
-							
-							<%-- <div>${ card }</div>
-							<div>${ cardNum }</div> --%>
-						
-						</li>
-						<hr>
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 134px; height : 84px;">${ card }</li> --%>
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 67px; height : 42px;">${ card }</li> --%>
-						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
-						<!-- <li style = "display: inline-block;">  -->
-						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
-						
-						<!-- <img class="ui-li-icon" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;">  -->
-			
-							<%-- <span><img src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;"></span> 
-							<span>${loginVO.id} | 신청일 2020.00.00 | 정상</span> --%>
-							<%-- <span>
-								<dt>${hanaList[0]}</dt>
-								<dd>${loginVO.id} | 신청일 2020.00.00 | 정상</dd>
-							</span> --%>
-						</li>
-						<br>
-					</c:forEach>
-				</ul>
-			</div>
 
-
-
-			<button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
-			<div class="panel">
-				<ul>
-					<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
-					<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
-					<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>
-				</ul>
-			</div>
-			<br>
-
-		
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
-
-
-		<script>
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-
-			for (i = 0; i < acc.length; i++) {
-				acc[i].addEventListener("click", function() {
-					this.classList.toggle("active");
-					var panel = this.nextElementSibling;
-					if (panel.style.maxHeight) {
-						panel.style.maxHeight = null;
-					} else {
-						panel.style.maxHeight = panel.scrollHeight + "px";
-					}
-				});
-			}
-		</script>
-
-
-
+		
 
 		<!-- Page level plugins -->
 		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
