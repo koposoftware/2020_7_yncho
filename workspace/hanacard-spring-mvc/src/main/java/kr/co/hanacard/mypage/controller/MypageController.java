@@ -805,4 +805,15 @@ public class MypageController {
 	}
 	
 	
+	@GetMapping("/mypage/transaction")
+	public ModelAndView getMyTransaction() {
+	//public ModelAndView getMyCard(HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/mypage/transaction"); //jsp 경로. View resolver의 suffix 등등 설정에 의해 이렇게만 써도 됨. 
+		
+		return mav;
+	}
+	
+	
 }
