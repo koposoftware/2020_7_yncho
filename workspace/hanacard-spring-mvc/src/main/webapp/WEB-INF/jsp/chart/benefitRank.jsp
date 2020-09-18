@@ -103,21 +103,41 @@
 								<!-- Material unchecked -->
 								
 								<!-- <p>인기 혜택별 순위</p> -->
-								<div class="form-check">
+								<!-- <div class="form-check">
 									<a href = "#" data-dismiss="modal">마트/쇼핑</a>
-								</div>
+								</div> -->
 								
+								<p><a href = "#" data-dismiss="modal">마트/쇼핑</a></p>
+								<p><a href = "#" data-dismiss="modal">교통/주유</a></p>
+								<p><a href = "#" data-dismiss="modal">레저/여행/항공</a></p>
+								<p><a href = "#" data-dismiss="modal">반려동물</a></p>
+								<p><a href = "#" data-dismiss="modal">보건/의료</a></p>
+								<p><a href = "#" data-dismiss="modal">생활</a></p>
+								<p><a href = "#" data-dismiss="modal">식음료</a></p>
+								<p><a href = "#" data-dismiss="modal">통신</a></p>
+								
+								
+								<div><a href = "#" data-dismiss="modal">마트/쇼핑</a></div>
+								<div><a href = "#" data-dismiss="modal">교통/주유</a></div>
+								<div><a href = "#" data-dismiss="modal">레저/여행/항공</a></div>
+								<div><a href = "#" data-dismiss="modal">반려동물</a></div>
+								<div><a href = "#" data-dismiss="modal">보건/의료</a></div>
+								<div><a href = "#" data-dismiss="modal">생활</a></div>
+								<div><a href = "#" data-dismiss="modal">식음료</a></div>
+								<div><a href = "#" data-dismiss="modal">통신</a></div>
 								
 							</div>
-							<div class="modal-footer">
+							
+							<!-- <div class="modal-footer">
 								<button type="button" class="btn btn-primary" id="modalBtn">연동하기</button>
-								<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" id = "modalBtn">연동하기</button> -->
-								<!-- dismiss : 해산. 즉 버튼을 누르면 모달창을 닫음 -->
-								<!-- <button type="submit" class="btn btn-primary" id = "modalBtn">연동하기</button> -->
+								<button type="button" class="btn btn-primary" data-dismiss="modal" id = "modalBtn">연동하기</button>
+								dismiss : 해산. 즉 버튼을 누르면 모달창을 닫음
+								<button type="submit" class="btn btn-primary" id = "modalBtn">연동하기</button>
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-								<!-- dismiss : 해산. 즉 닫는다. -->
-								<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-							</div>
+								dismiss : 해산. 즉 닫는다.
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div> -->
+							
 						</form>
 					</div>
 				</div>
