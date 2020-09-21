@@ -27,12 +27,23 @@
 	.modal-backdrop {
 	   background-color: rgb(0,0,0,0.1);
 	}
+	
+	
 </style>
 
 
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>
+$(document).ready(function(){
+	
+	/* $('#start').click(function(){
+		alert('hello');
+		
+	}) */
+	
+	
+});
 
 </script>
 
@@ -74,28 +85,39 @@
 		<!-- <div class="container"> -->
 			<br>
 			<div>
+				<!-- <div style = "display: table-cell; vertical-align: middle;">
+					<h1 class="m-0 font-weight-bold text-primary" style="display:inline;">마트/쇼핑 혜택 TOP3</h1>
+					이 문서내에 id가 exampleMoal인 것을 참조
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				</div> -->
 										
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline;">마트/쇼핑 혜택 TOP3</h1>
-				<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
-				<!-- <h1>마트/쇼핑 혜택 TOP3</h1>  -->
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">마트/쇼핑 혜택 TOP3</h1>
+				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<div style = "vertical-align: high;">
+				<!-- <div style = "margin-bottom: auto;"> -->
+					<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
+				</div>
 				
 				
 				<!-- <select class="form-control form-control-lg">
 					<option>Large select</option>
 				</select> -->
 				
+				<!-- <div align="center">
 				<div align="center">
-				<!-- <div align="center"> -->
-					<select style = "width: 200px;" class="form-control form-control-md"> <!-- lg, md, sm -->
+					<select style = "width: 200px;" class="form-control form-control-md"> lg, md, sm
 						<option>2020년 9월</option>
 						<option>2020년 8월</option>
 						<option>2020년 7월</option>
 					</select>
-				</div>
+				</div> -->
 				
 				<!-- <input type="month"> -->
-				<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+				
+				<div>
+					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<button>조회</button>
+				</div>
 				
 				<!-- <input type="datetime-local"> -->
 				
