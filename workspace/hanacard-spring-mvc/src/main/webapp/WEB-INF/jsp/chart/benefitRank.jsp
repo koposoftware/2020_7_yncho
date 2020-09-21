@@ -70,7 +70,8 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
+		<div class="container" align="center">
+		<!-- <div class="container"> -->
 			<br>
 			<div>
 										
@@ -78,13 +79,33 @@
 				<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				<!-- <h1>마트/쇼핑 혜택 TOP3</h1>  -->
+				
+				
+				<!-- <select class="form-control form-control-lg">
+					<option>Large select</option>
+				</select> -->
+				
+				<div align="center">
+				<!-- <div align="center"> -->
+					<select style = "width: 200px;" class="form-control form-control-md"> <!-- lg, md, sm -->
+						<option>2020년 9월</option>
+						<option>2020년 8월</option>
+						<option>2020년 7월</option>
+					</select>
+				</div>
+				
+				<!-- <input type="month"> -->
+				<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+				
+				<!-- <input type="datetime-local"> -->
+				
 			</div>
 
 			<!-- Button trigger modal -->
 			<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
 			<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">타사 카드 거래내역 연동</button> -->
 
-			<!-- Modal -->
+			<!-- Modal (1)-->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -148,7 +169,7 @@
 					</div>
 				</div>
 			</div>
-
+			
 
 			<div>
 				<%-- ${hanaList} --%>
