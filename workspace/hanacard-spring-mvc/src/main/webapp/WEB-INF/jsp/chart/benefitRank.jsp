@@ -91,7 +91,7 @@ $(document).ready(function(){
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				</div> -->
 										
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">마트/쇼핑 혜택 TOP3</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활 혜택 TOP3</h1>
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				<div style = "vertical-align: high;">
 				<!-- <div style = "margin-bottom: auto;"> -->
