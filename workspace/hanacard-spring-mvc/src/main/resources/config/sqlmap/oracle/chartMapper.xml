@@ -5,8 +5,14 @@
 
 <mapper namespace ="chart.dao.ChartDAO">
 
+
+	<!-- <resultMap type="ChartVO" id ="chartMap">
+		<result column="view_cnt" property ="viewCnt"/>
+		<result column="reg_date" property ="regDate"/>
+	</resultMap> -->
+	
 	<select id = "getTopLife" resultType = "ChartVO">
-	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE )CARD_PRODUCT_CODE, COUNT(CARD_PRODUCT_CODE) 
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
 	FROM CARD_CONTRACT C
 		WHERE CARD_PRODUCT_CODE IN (4,5,7) AND REG_DATE = TO_DATE('1801', 'YY/MM') 
 	GROUP BY(CARD_PRODUCT_CODE)

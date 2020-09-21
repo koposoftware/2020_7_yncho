@@ -35,15 +35,51 @@
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>
-$(document).ready(function(){
-	
-	/* $('#start').click(function(){
-		alert('hello');
+	$(document).ready(function(){
 		
-	}) */
+		/* $('#start').click(function(){
+			alert('hello');
+			
+		}) */
+		
+		
+	});
 	
 	
-});
+	function getTop() {
+		
+		$.ajax({
+			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			url : '${ pageContext.request.contextPath }/chart/benefitrank/life',
+			type : 'get', 
+			//async : false,
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+				
+				
+				alert('차트 alert 성공');
+				alert('data: ' + data);
+				/* let test = JSON.parse(data);
+			
+				let totalValue = parseInt(test[0][0]);
+				let totalCardName = test[1][0];
+				let firstTotal = totalCardName.substring(0, 1);
+				
+				if(firstTotal == '#'){
+					totalCardName = totalCardName.substring(1, totalCardName.length)
+				} */
+
+
+			},
+			error : function() {
+				
+				alert('차트 ajax 실패')
+				
+			}
+		})
+		
+	}
+	
+
 
 </script>
 
@@ -197,7 +233,7 @@ $(document).ready(function(){
 				<%-- ${hanaList} --%>
 				<hr size = "5">
 				<ul type = "none"> 
-				
+					
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${hanaList}" var ="card" varStatus="loop">
 						<li>
@@ -218,9 +254,33 @@ $(document).ready(function(){
 							</div>
 						</li>
 						<br>
-						<!-- <hr> -->
-						<!-- <br> -->
 					</c:forEach>
+					
+					
+					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<c:forEach items = "${topList}" var ="top" varStatus="loop">
+						<li>
+							<div style = "background-color: #E8F5FF;">
+							<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span>
+							<!-- <span style = "middlevertical-align: middle"> -->
+							<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
+								<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+							</span>
+							<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
+							<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+							<%-- <span style ="font-size: 30px; vertical-align: bottom;">${ card.cardProductName }</span> --%>
+							<%-- <span>${ card.cardNum }</span>
+							<span>${ card.regDate }</span> --%>
+							</div>
+						</li>
+						<br>
+					</c:forEach>
+					
+					
+					
 				</ul>
 			</div>
 		</div>
@@ -248,6 +308,7 @@ $(document).ready(function(){
 
 		<script>
 		
+		/*
 		$.ajax({
 			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
 			url : '${ pageContext.request.contextPath }/chart/benefitrank/life',
@@ -255,27 +316,16 @@ $(document).ready(function(){
 			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 				
-				
 				alert('차트 alert 성공');
-				/* let test = JSON.parse(data);
-			
-				let totalValue = parseInt(test[0][0]);
-				let totalCardName = test[1][0];
-				let firstTotal = totalCardName.substring(0, 1);
-				
-				if(firstTotal == '#'){
-					totalCardName = totalCardName.substring(1, totalCardName.length)
-				} */
-
-
+				alert('data: ' + data);
+	
 			},
 			error : function() {
 				
 				alert('차트 ajax 실패')
-				
 			}
 		})
-		
+		*/
 
 		
 		</script>

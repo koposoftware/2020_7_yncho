@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.hanacard.chart.service.ChartService;
+import kr.co.hanacard.chart.vo.ChartVO;
 import kr.co.hanacard.member.service.MemberService;
 import kr.co.hanacard.member.vo.MemberVO;
 import kr.co.hanacard.member.vo.OwncardVO;
@@ -26,7 +28,7 @@ import kr.co.hanacard.mypage.vo.CardTransactionVO;
 
 
 //@SessionAttributes({"loginVO", "boardVO"}) 식으로 배열로 만들 수 있다.
-@SessionAttributes({"loginVO", "hanaList", "cardTrans"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@SessionAttributes({"loginVO", "hanaList", "cardTrans", "topList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 //@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 @Controller
 public class MemberController {
@@ -38,6 +40,9 @@ public class MemberController {
 	
 	@Autowired
 	private MypageService mypageService;
+	
+	@Autowired
+	private ChartService chartService;
 	
 	
 //	@RequestMapping(value="/login", method = RequestMethod.GET)
@@ -138,6 +143,9 @@ public class MemberController {
 				System.out.println("하나카드 외 연동된 카드사가 없습니다.");
 				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
+				
+				List<ChartVO> topList = chartService.getTopLife();
+				mav.addObject("topList", topList);
 
 				
 			} else {
@@ -146,6 +154,8 @@ public class MemberController {
 				List<CardTransactionVO> cardTrans = mypageService.getCardTransOpen(resiNum, cardListString, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
+				List<ChartVO> topList = chartService.getTopLife();
+				mav.addObject("topList", topList);
 			}
 			
 		}
