@@ -9,5 +9,7 @@
 		<typeAlias type="kr.co.hanacard.mypage.vo.MypageVO" alias = "MypageVO"/>
 		<typeAlias type="kr.co.hanacard.member.vo.OwncardVO" alias = "OwncardVO"/>
 		<typeAlias type="kr.co.hanacard.mypage.vo.CardTransactionVO" alias = "CardTransVO"/>
+		<typeAlias type="kr.co.hanacard.chart.vo.ChartVO" alias = "ChartVO"/>
+		
 	</typeAliases>
 </configuration>

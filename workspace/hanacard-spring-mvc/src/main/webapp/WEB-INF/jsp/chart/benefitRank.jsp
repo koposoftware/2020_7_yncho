@@ -245,6 +245,46 @@ $(document).ready(function(){
 		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script> -->
 		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script> -->
 
+
+		<script>
+		
+		$.ajax({
+			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			url : '${ pageContext.request.contextPath }/chart/benefitrank/life',
+			type : 'get', 
+			//async : false,
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+				
+				
+				alert('차트 alert 성공');
+				/* let test = JSON.parse(data);
+			
+				let totalValue = parseInt(test[0][0]);
+				let totalCardName = test[1][0];
+				let firstTotal = totalCardName.substring(0, 1);
+				
+				if(firstTotal == '#'){
+					totalCardName = totalCardName.substring(1, totalCardName.length)
+				} */
+
+
+			},
+			error : function() {
+				
+				alert('차트 ajax 실패')
+				
+			}
+		})
+		
+
+		
+		</script>
+
+
+
+
+
+
 		<!-- /.container-fluid -->
 		<footer>
 			<jsp:include page="../include/footer.jsp" />
