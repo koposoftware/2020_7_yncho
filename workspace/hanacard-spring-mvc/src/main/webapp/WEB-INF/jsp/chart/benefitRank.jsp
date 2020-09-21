@@ -108,24 +108,29 @@
 									<a href = "#" data-dismiss="modal">마트/쇼핑</a>
 								</div> -->
 								
-								<p><a href = "#" data-dismiss="modal">마트/쇼핑</a></p>
+								<!-- <p><a href = "#" data-dismiss="modal">마트/쇼핑</a></p>
 								<p><a href = "#" data-dismiss="modal">교통/주유</a></p>
 								<p><a href = "#" data-dismiss="modal">레저/여행/항공</a></p>
 								<p><a href = "#" data-dismiss="modal">반려동물</a></p>
 								<p><a href = "#" data-dismiss="modal">보건/의료</a></p>
 								<p><a href = "#" data-dismiss="modal">생활</a></p>
 								<p><a href = "#" data-dismiss="modal">식음료</a></p>
-								<p><a href = "#" data-dismiss="modal">통신</a></p>
+								<p><a href = "#" data-dismiss="modal">통신</a></p> -->
 								
 								
-								<div><a href = "#" data-dismiss="modal">마트/쇼핑</a></div>
+								<!-- <div><a href = "#" data-dismiss="modal">마트/쇼핑</a></div>
 								<div><a href = "#" data-dismiss="modal">교통/주유</a></div>
 								<div><a href = "#" data-dismiss="modal">레저/여행/항공</a></div>
 								<div><a href = "#" data-dismiss="modal">반려동물</a></div>
 								<div><a href = "#" data-dismiss="modal">보건/의료</a></div>
 								<div><a href = "#" data-dismiss="modal">생활</a></div>
 								<div><a href = "#" data-dismiss="modal">식음료</a></div>
-								<div><a href = "#" data-dismiss="modal">통신</a></div>
+								<div><a href = "#" data-dismiss="modal">통신</a></div> -->
+								
+								<div><a href = "#" data-dismiss="modal">생활</a></div>
+								<div><a href = "#" data-dismiss="modal">마트/쇼핑</a></div>
+								<div><a href = "#" data-dismiss="modal">통신/교통</a></div> 
+								<div><a href = "#" data-dismiss="modal">레저/여행/항공</a></div>
 								
 							</div>
 							

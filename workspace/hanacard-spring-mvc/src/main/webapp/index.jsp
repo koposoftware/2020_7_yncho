@@ -90,7 +90,8 @@
                     <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
                     <li><a href="${ pageContext.request.contextPath }/chart/benefitRank">인기혜택별순위</a></li>
                     <li><a href="${ pageContext.request.contextPath }/chart/annualfeeRank">연회비별순위</a></li>
-                    <li><a href="${ pageContext.request.contextPath }/chart/performRank">전월실적별순위</a></li>
+                    <li><a href="${ pageContext.request.contextPath }/chart/performRank">카드타입별순위</a></li>
+                    <%-- <li><a href="${ pageContext.request.contextPath }/chart/performRank">전월실적별순위</a></li> --%>
                     <!-- <li><a href="about.html">전월실적별순위</a></li> -->
                   </ul>
                 </li>
@@ -155,7 +156,7 @@
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
               <h1>INNOVATOR by</h1>
-              <h1>KEB Hana Card</h1>
+              <h1>Hana Card</h1>
             
               <!-- <h1>고객님과 함께 하나카드의 새로운 도전을 시작합니다.</h1> -->
               <!-- <h1>INNOVATOR by KEB Hana Card</h1> -->
