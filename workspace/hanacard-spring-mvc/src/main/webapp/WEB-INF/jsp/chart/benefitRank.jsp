@@ -88,6 +88,62 @@
 		        $("#ulList").empty();
 		        
 		        //이 이후에 다시 ul태그 내에 forEach 돌면서 li태그 추가해야 함.
+		        var addListHtml ="";
+		        
+		        
+		        /*
+		        
+		           var addListHtml ="";
+		             $(more).each(function(){
+		                 addListHtml += "<li>";
+	                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
+	                     addListHtml += "<span>" + more[i].time + "</span>&nbsp;&nbsp;";
+	                     addListHtml += "<span>국내 | </span>";
+	                     addListHtml += "<span>" + more[i].payment + " | </span>";
+	                     addListHtml += "<span>정상 | </span>";
+	                     addListHtml += "<span>" + more[i].code + "</span>";
+	                     addListHtml += "<div>";
+	                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + more[i].content + "</span>";
+	                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" + more[i].means + ")</span>";
+	                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+	                     addListHtml += "<span>" + more[i].amount + "</span>"; 
+	                     addListHtml += "</div>";
+	                     addListHtml += "</div>";
+	                     addListHtml += "</li>";
+	                     addListHtml += "<hr>";
+		            	 
+		             })
+		        
+		        */
+		        
+		        
+		        /*
+		        
+		        	 // let list = JSON.parse(data)
+		             $('#replyList').html('');
+		             alert('언제 뜨는데 이게?')
+		             $(list).each(function(){
+		                console.log(this)
+		                let str='';
+		                str += '<hr>'
+		                str += '<div>'
+		                str+= '<strong>'+this.content+'</strong>';
+		                str+= '  ('+ this.writer +')';
+		                str+= '  '+ this.regDate;
+		                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
+		                str += '</div>'
+		                //$('#replyList').append(str); // 또는 반복문 끝나고 append
+		             }) 
+		             
+		             $('#replyList').append(str); // 또는 반복문 끝나고 append
+		        
+		        */
+		        
+		        
+		        
+		        
+		        
+		        
 		        
 		        
 		        /*
