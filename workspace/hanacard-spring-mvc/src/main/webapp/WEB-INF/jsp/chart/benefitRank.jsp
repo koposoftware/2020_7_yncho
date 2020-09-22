@@ -237,30 +237,6 @@
 				<ul type = "none"> 
 					
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
-					<c:forEach items = "${hanaList}" var ="card" varStatus="loop">
-						<li>
-							<div style = "background-color: #E8F5FF;">
-							<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<span>
-							<!-- <span style = "middlevertical-align: middle"> -->
-							<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
-								
-								<img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;">
-							</span>
-							<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
-							<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<span style ="font-size: 30px; vertical-align: sub; color: black;">${ card.cardProductName }</span>
-							<%-- <span style ="font-size: 30px; vertical-align: bottom;">${ card.cardProductName }</span> --%>
-							<%-- <span>${ card.cardNum }</span>
-							<span>${ card.regDate }</span> --%>
-							</div>
-						</li>
-						<br>
-					</c:forEach>
-					
-					
-					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${topList}" var ="top" varStatus="loop">
 						<li>
 							<div style = "background-color: #E8F5FF;">
@@ -299,8 +275,6 @@
 						</li>
 						<br>
 					</c:forEach>
-					
-					
 					
 				</ul>
 			</div>
