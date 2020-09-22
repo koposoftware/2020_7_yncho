@@ -14,14 +14,16 @@ public interface ChartService {
 //	private long life;
 //	private long food_beverage;
 //	private long communication;
-	
-	 List<ChartVO> getTopTG();
-	 ChartVO getTopLTF();
-	 ChartVO getTopMS();
-	 ChartVO getTopPet();
-	 ChartVO getTopHM();
-	 List<ChartVO> getTopLife();
-	 ChartVO getTopFB();
-	 ChartVO getTopComm();
+
+//	List<ChartVO> getTopTG();
+//	ChartVO getTopLTF();
+//	ChartVO getTopMS();
+//	ChartVO getTopPet();
+//	ChartVO getTopHM();
+//	List<ChartVO> getTopLife();
+//	ChartVO getTopFB();
+//	ChartVO getTopComm();
+
+	List<ChartVO> getBenefitSortList(String category, String year, String month);
 
 }

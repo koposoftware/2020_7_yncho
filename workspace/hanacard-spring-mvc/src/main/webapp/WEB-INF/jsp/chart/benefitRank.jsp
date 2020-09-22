@@ -44,15 +44,37 @@
 			
 		}) */
 		
+		$('#searchBtn').click(function(){
+			
+			getTopThree();
+			
+		})
 		
 	});
 	
 	
-	function getTop() {
+	function getTopThree() {
+		
+		let category = $('#category').text();
+		if(category == '생활')
+			category = 'life';
+		if(category == '마트/쇼핑')
+			category = 'mart_shopping';
+		if(category == '통신/교통')
+			category = 'comm_trans';
+		if(category == '레저/여행/항공')
+			category = 'leisure_travle_flight';
+			
+		let year = $('#start').val().substring(2,4);
+		let month = $('#start').val().substring(5, 7);		
+		
+		alert('year : ' + year);
+		alert('month : ' + month);
+		
 		
 		$.ajax({
 			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
-			url : '${ pageContext.request.contextPath }/chart/benefitrank/life',
+			url : '${ pageContext.request.contextPath }/chart/benefitrank/' + category + '/' + year + '/' + month,
 			type : 'get', 
 			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
@@ -60,15 +82,39 @@
 				
 				alert('차트 alert 성공');
 				alert('data: ' + data);
-				/* let test = JSON.parse(data);
-			
-				let totalValue = parseInt(test[0][0]);
-				let totalCardName = test[1][0];
-				let firstTotal = totalCardName.substring(0, 1);
+				let list = JSON.parse(data);
+				alert('list: ' + list);
 				
-				if(firstTotal == '#'){
-					totalCardName = totalCardName.substring(1, totalCardName.length)
-				} */
+		        $("#ulList").empty();
+		        
+		        //이 이후에 다시 ul태그 내에 forEach 돌면서 li태그 추가해야 함.
+		        
+		        
+		        /*
+				<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
+				<li>
+					<div style = "background-color: #E8F5FF;">
+						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span>
+							<c:choose>
+								<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+									<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+								</c:when>
+								<c:otherwise>
+									<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+								</c:otherwise>
+							</c:choose>
+						</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+					</div>
+				</li>
+				<br>
+			</c:forEach>
+			
+			*/
+		        
+
 
 
 			},
@@ -130,8 +176,11 @@
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				</div> -->
 										
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활 혜택 TOP3</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> 혜택 TOP3</h1>
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				
+				
 				<div style = "vertical-align: high;">
 				<!-- <div style = "margin-bottom: auto;"> -->
 					<!-- 이 문서내에 id가 exampleMoal인 것을 참조 -->
@@ -155,7 +204,7 @@
 				
 				<div>
 					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
-					<button>조회</button>
+					<button id = "searchBtn">조회</button>
 				</div>
 				
 				<!-- <input type="datetime-local"> -->
@@ -235,10 +284,10 @@
 			<div>
 				<%-- ${hanaList} --%>
 				<hr size = "5">
-				<ul type = "none"> 
+				<ul id = "ulList" type = "none"> 
 					
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
-					<c:forEach items = "${topList}" var ="top" varStatus="loop">
+					<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
 						<li>
 							<div style = "background-color: #E8F5FF;">
 							<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -6,20 +6,17 @@ import kr.co.hanacard.chart.vo.ChartVO;
 
 public interface ChartDAO {
 
-	List<ChartVO> getTopTG();
+//	List<ChartVO> getTopTG();
+//	ChartVO getTopLTF();
+//	ChartVO getTopMS();
+//	ChartVO getTopPet();
+//	ChartVO getTopHM();
+//	List<ChartVO> getTopLife();
+//	ChartVO getTopFB();
+//	ChartVO getTopComm();
+	
+	List<ChartVO> getBenefitSortList(String category, String year, String month);
 
-	ChartVO getTopLTF();
-
-	ChartVO getTopMS();
-
-	ChartVO getTopPet();
-
-	ChartVO getTopHM();
-
-	List<ChartVO> getTopLife();
-
-	ChartVO getTopFB();
-
-	ChartVO getTopComm();
+	
 
 }

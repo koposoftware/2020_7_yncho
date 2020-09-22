@@ -18,5 +18,22 @@
 	GROUP BY(CARD_PRODUCT_CODE)
 	
 	</select>
+		
+	
+	<select id = "getBenefitSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+		WHERE CARD_PRODUCT_CODE IN <if test = "category == 'life'">(4, 5, 6, 7, 8, 19, 3)</if>
+									<if test = "category == 'mart_shopping'">(9, 10, 11, 2)</if>
+									<if test = "category == 'comm_trans'">(12, 13, 1)</if>
+									<if test = "category == 'leisure_travle_flight'">(14, 15, 16, 17, 18)</if>
+									
+				AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM') 
+	GROUP BY(CARD_PRODUCT_CODE)
+	
+	</select>
+	
+	
+	
 
 </mapper>

@@ -18,59 +18,47 @@ public class ChartDAOImpl implements ChartDAO{
 	//마이바티스 연동을 위해, SqlSessionTemplet 객체가 있어야 한다.
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+
+	@Override
+	public List<ChartVO> getBenefitSortList(String category, String year, String month) {
+		
+		
+		/*
+
+		 	if(category == '생활')
+				category = 'life';
+			if(category == '마트/쇼핑')
+				category = 'mart_shopping';
+			if(category == '통신/교통')
+				category = 'comm_trans';
+			if(category == '레저/여행/항공')
+				category = 'leisure_travle_flight'; 
+				
+		 */
+		
+		
+		
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("category", category);
+		
+		
+		String year_month = year + month;
+		map.put("year_month", year_month);
+
+		System.out.println("CharDAOImple 단 category ==> " + category );
+		System.out.println("CharDAOImple 단 year_month ==> " + year_month );
+		
+		List<ChartVO> benefitSortList = sqlSession.selectList("chart.dao.ChartDAO.getBenefitSortList", map);
+		
+		System.out.println("CharDAOImple 단 benefitSortList ==> " + benefitSortList );
+		
+		
+		return benefitSortList;		
+		
+	}
 	
 	
-	@Override
-	public List<ChartVO> getTopTG() {
-		
-		return null;
-		
 	
-	}
-
-	@Override
-	public ChartVO getTopLTF() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ChartVO getTopMS() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ChartVO getTopPet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ChartVO getTopHM() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ChartVO> getTopLife() {
-
-		List<ChartVO> chartList = sqlSession.selectList("chart.dao.ChartDAO.getTopLife");
-		
-		return chartList;
-		
-	}
-
-	@Override
-	public ChartVO getTopFB() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ChartVO getTopComm() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

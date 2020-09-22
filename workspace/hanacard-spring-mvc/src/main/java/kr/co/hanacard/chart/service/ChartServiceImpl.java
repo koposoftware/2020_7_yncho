@@ -14,58 +14,14 @@ public class ChartServiceImpl implements ChartService {
 	
 	@Autowired
 	private ChartDAO chartDAO;
-	
-	
-	@Override
-	public List<ChartVO> getTopTG() {
-		// TODO Auto-generated method stub
-		
-		return chartDAO.getTopTG();
-	}
 
 	@Override
-	public ChartVO getTopLTF() {
+	public List<ChartVO> getBenefitSortList(String category, String year, String month) {
 		// TODO Auto-generated method stub
-		return chartDAO.getTopLTF();
-	}
-
-	@Override
-	public ChartVO getTopMS() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopMS();
-	}
-
-	@Override
-	public ChartVO getTopPet() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopPet();
-	}
-
-	@Override
-	public ChartVO getTopHM() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopHM();
-	}
-
-	@Override
-	public List<ChartVO> getTopLife() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopLife();
-	}
-
-	@Override
-	public ChartVO getTopFB() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopFB();
-	}
-
-	@Override
-	public ChartVO getTopComm() {
-		// TODO Auto-generated method stub
-		return chartDAO.getTopComm();
+		return chartDAO.getBenefitSortList(category, year, month);
 	}
 	
-	
+
 
 
 }

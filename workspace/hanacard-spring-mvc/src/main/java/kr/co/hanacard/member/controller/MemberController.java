@@ -28,7 +28,7 @@ import kr.co.hanacard.mypage.vo.CardTransactionVO;
 
 
 //@SessionAttributes({"loginVO", "boardVO"}) 식으로 배열로 만들 수 있다.
-@SessionAttributes({"loginVO", "hanaList", "cardTrans", "topList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@SessionAttributes({"loginVO", "hanaList", "cardTrans", "benefitSortList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 //@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 @Controller
 public class MemberController {
@@ -144,8 +144,10 @@ public class MemberController {
 				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
-				List<ChartVO> topList = chartService.getTopLife();
-				mav.addObject("topList", topList);
+				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
+				mav.addObject("benefitSortList", benefitSortList);
+				
+				System.out.println("benefitSortList ===> " + benefitSortList);
 
 				
 			} else {
@@ -154,8 +156,15 @@ public class MemberController {
 				List<CardTransactionVO> cardTrans = mypageService.getCardTransOpen(resiNum, cardListString, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
-				List<ChartVO> topList = chartService.getTopLife();
-				mav.addObject("topList", topList);
+//				List<ChartVO> topList = chartService.getTopLife();
+//				mav.addObject("topList", topList);
+				
+				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
+				mav.addObject("benefitSortList", benefitSortList);
+				
+				System.out.println("benefitSortList ===> " + benefitSortList);
+
+				
 			}
 			
 		}
