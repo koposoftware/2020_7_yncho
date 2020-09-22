@@ -57,7 +57,7 @@
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="${ pageContext.request.contextPath }/chart" class="nav-link text-left">나만의 차트</a>
+                  <a href="${ pageContext.request.contextPath }/chart" class="nav-link text-left">하나 차트</a>
                   <ul class="dropdown">
                     <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
                     <li><a href="${ pageContext.request.contextPath }/chart/benefitRank">인기혜택별순위</a></li>
