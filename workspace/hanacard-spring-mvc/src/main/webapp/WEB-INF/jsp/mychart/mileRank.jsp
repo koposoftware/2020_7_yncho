@@ -53,8 +53,8 @@
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
 				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span>나만의 차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span class="current">연회비별순위</span>
+				<span>나만의차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span class="current">마일리지순위</span>
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>

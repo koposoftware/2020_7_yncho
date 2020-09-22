@@ -49,6 +49,12 @@ public class ChartController {
 		return "/chart/performRank";
 	}
 	
+	@GetMapping("/chart/ageRank")
+	public String ageChart() {
+		
+		return "/chart/ageRank";
+	}
+	
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/chart/benefitrank/life") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.

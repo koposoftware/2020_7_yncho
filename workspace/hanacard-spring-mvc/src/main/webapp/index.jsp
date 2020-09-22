@@ -100,6 +100,7 @@
                   <ul class="dropdown">
                     <!-- <li><a href="teachers.html">카드타입별순위</a></li> -->
                     <li><a href="${ pageContext.request.contextPath }/chart/benefitRank">인기혜택별순위</a></li>
+                    <li><a href="${ pageContext.request.contextPath }/chart/ageRank">연령대별순위</a></li>
                     <li><a href="${ pageContext.request.contextPath }/chart/annualfeeRank">연회비별순위</a></li>
                     <li><a href="${ pageContext.request.contextPath }/chart/performRank">카드타입별순위</a></li>
                     <%-- <li><a href="${ pageContext.request.contextPath }/chart/performRank">전월실적별순위</a></li> --%>
