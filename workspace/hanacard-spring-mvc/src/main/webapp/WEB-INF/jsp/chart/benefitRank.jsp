@@ -99,7 +99,7 @@
 			<div class="container">
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
-						<h2 class="mb-0">나만의 차트</h2>
+						<h2 class="mb-0">하나차트</h2>
 						<p>손님들이 선호하는 카드를 살펴보세요.</p>
 						<%-- <p>${loginVO.name}님을 위한 차트입니다.</p> --%>
 					</div>
@@ -111,7 +111,7 @@
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
 				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span>나만의차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span>하나차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
 				<span class="current">인기혜택별순위</span>			
 			</div>
 		</div>
