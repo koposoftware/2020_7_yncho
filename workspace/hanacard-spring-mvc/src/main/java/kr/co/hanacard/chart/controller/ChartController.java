@@ -43,10 +43,10 @@ public class ChartController {
 		return "/chart/annualfeeRank";
 	}
 	
-	@GetMapping("/chart/performRank")
+	@GetMapping("/chart/typeRank")
 	public String performChart() {
 		
-		return "/chart/performRank";
+		return "/chart/typeRank";
 	}
 	
 	@GetMapping("/chart/ageRank")

@@ -55,7 +55,7 @@
 			<div class="container">
 				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
 				<span>하나차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span class="current">전월실적별순위</span>					
+				<span class="current">카드타입별순위</span>					
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>
