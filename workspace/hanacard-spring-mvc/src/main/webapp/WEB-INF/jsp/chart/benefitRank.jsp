@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
     
 <!DOCTYPE html>
 <html>
@@ -242,6 +244,7 @@
 							<span>
 							<!-- <span style = "middlevertical-align: middle"> -->
 							<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
+								
 								<img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;">
 							</span>
 							<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
@@ -265,7 +268,25 @@
 							<span>
 							<!-- <span style = "middlevertical-align: middle"> -->
 							<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
-								<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+								
+								<c:choose>
+								<%-- 	<c:when test="${ fn:substring(top.cardName, 0, 1) == # }">
+										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+									</c:when> --%>
+									<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+									</c:when>
+									
+									<%-- <c:when test="${ fn:substring(top.cardName, 0, 1) eq '#' }">
+										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+									</c:when> --%>
+									
+									<c:otherwise>
+										<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+									</c:otherwise>
+								</c:choose>
+								
+								<%-- <img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;"> --%>
 							</span>
 							<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
 							<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
