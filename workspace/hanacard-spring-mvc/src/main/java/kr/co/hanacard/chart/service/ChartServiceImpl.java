@@ -17,9 +17,17 @@ public class ChartServiceImpl implements ChartService {
 
 	@Override
 	public List<ChartVO> getBenefitSortList(String category, String year, String month) {
-		// TODO Auto-generated method stub
+
 		return chartDAO.getBenefitSortList(category, year, month);
 	}
+
+	@Override
+	public List<ChartVO> getAgeSortList(String category, String year, String month) {
+		
+		return chartDAO.getAgeSortList(category, year, month);
+	}
+	
+	
 	
 
 

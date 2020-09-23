@@ -124,7 +124,7 @@ function doChangeCondition(obj){
 				<ul id = "ulList" type = "none"> 
 					
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
-					<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
+					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li>
 							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
 							<!-- <div style = "background-color: #E8F5FF;"> -->

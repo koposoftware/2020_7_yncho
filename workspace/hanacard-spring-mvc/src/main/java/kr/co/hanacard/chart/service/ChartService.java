@@ -25,5 +25,6 @@ public interface ChartService {
 //	ChartVO getTopComm();
 
 	List<ChartVO> getBenefitSortList(String category, String year, String month);
+	List<ChartVO> getAgeSortList(String category, String year, String month);
 
 }

@@ -57,6 +57,32 @@ public class ChartDAOImpl implements ChartDAO{
 		return benefitSortList;		
 		
 	}
+
+	@Override
+	public List<ChartVO> getAgeSortList(String category, String year, String month) {
+		
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("category", category);
+		
+		String year_month = year + month;
+		map.put("year_month", year_month);
+
+		System.out.println("CharDAOImple 단 category ==> " + category );
+		System.out.println("CharDAOImple 단 year_month ==> " + year_month );
+		
+		List<ChartVO> ageSortList = sqlSession.selectList("chart.dao.ChartDAO.getAgeSortList", map);
+		
+		System.out.println("CharDAOImple 단 ageSortList ==> " + ageSortList );
+		
+		
+		
+		
+		return ageSortList;
+	}
+	
+	
+	
 	
 	
 	
