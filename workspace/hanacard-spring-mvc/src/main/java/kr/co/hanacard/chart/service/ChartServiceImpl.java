@@ -32,6 +32,12 @@ public class ChartServiceImpl implements ChartService {
 
 		return chartDAO.getAnnualfeeSortList(category, year, month);
 	}
+
+	@Override
+	public List<ChartVO> getTypeSortList(String category, String year, String month) {
+
+		return chartDAO.getTypeSortList(category, year, month);
+	}
 	
 	
 	

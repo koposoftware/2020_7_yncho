@@ -28,7 +28,7 @@ import kr.co.hanacard.mypage.vo.CardTransactionVO;
 
 
 //@SessionAttributes({"loginVO", "boardVO"}) 식으로 배열로 만들 수 있다.
-@SessionAttributes({"loginVO", "hanaList", "cardTrans", "benefitSortList", "ageSortList", "annualfeeSortList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@SessionAttributes({"loginVO", "hanaList", "cardTrans", "benefitSortList", "ageSortList", "annualfeeSortList", "typeSortList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 //@SessionAttributes("loginVO") // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
 @Controller
 public class MemberController {
@@ -173,9 +173,11 @@ public class MemberController {
 			List<ChartVO> ageSortList = chartService.getAgeSortList("all", "20", "09"); // 전연령 / 20년 / 9월
 			mav.addObject("ageSortList", ageSortList);
 			
-			
 			List<ChartVO> annualfeeSortList = chartService.getAnnualfeeSortList("from0", "20", "09"); // 연회비 없음 ~ 1만원 / 20년 / 9월
 			mav.addObject("annualfeeSortList", annualfeeSortList);
+			
+			List<ChartVO> typeSortList = chartService.getTypeSortList("1q", "20", "09"); // 1Q+카드 / 20년 / 9월
+			mav.addObject("typeSortList", typeSortList);
 
 			
 			

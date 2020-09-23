@@ -21,6 +21,7 @@ public interface ChartDAO {
 	
 	List<ChartVO> getAnnualfeeSortList(String category, String year, String month);
 
+	List<ChartVO> getTypeSortList(String category, String year, String month);
 
 
 }

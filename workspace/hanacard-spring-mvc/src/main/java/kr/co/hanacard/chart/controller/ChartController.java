@@ -118,6 +118,17 @@ public class ChartController {
 		return annualfeeSortList;
 	}
 	
+	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
+	@GetMapping("/chart/typerank/{category}/{year}/{month}") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
+	public List<ChartVO> getTopType(@PathVariable("category") String category, @PathVariable("year") String year, @PathVariable("month") String month) {
+		
+		
+		List<ChartVO> typeSortList = chartService.getTypeSortList(category, year, month);
+		
+		
+		return typeSortList;
+	}
+	
 	
 	
 	

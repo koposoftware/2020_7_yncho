@@ -71,5 +71,24 @@
 	
 	</select>
 	
+	
+	
+	<select id = "getTypeSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+									
+		WHERE CARD_PRODUCT_CODE IN <if test = "category == '1q'">(1, 2, 3)</if>
+								   <if test = "category == 'credit'">(4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)</if>
+								   <if test = "category == 'aff'">(777)</if>
+								   <if test = "category == 'check'">(888)</if>
+								   <if test = "category == 'prepaid'">(999)</if>
+		
+		AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')
+		
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+	
 
 </mapper>
