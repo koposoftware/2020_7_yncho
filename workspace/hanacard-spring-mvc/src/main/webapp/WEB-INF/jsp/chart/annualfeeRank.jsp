@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,7 @@
 					<div class="col-lg-7">
 						<h2 class="mb-0">하나차트</h2>
 						<%-- <p>${loginVO.name}님을 위한 차트입니다.</p> --%>
-						<p>손님들이 선호하는 카드를 살펴보세요.</p>
+						<p>연회비별로 손님들이 선호하는 카드를 살펴보세요.</p>
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +43,7 @@
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
 						<h2 class="mb-0">하나차트</h2>
-						<p>손님들이 선호하는 카드를 살펴보세요.</p>
+						<p>연령대별로 손님들이 선호하는 카드를 살펴보세요.</p>
 						<%-- <p>${loginVO.name}님을 위한 차트입니다.</p> --%>
 					</div>
 				</div>
@@ -63,8 +63,80 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
-			<!-- <div class="container-fluid"> -->
+		<div class="container" align="center">
+			<br>
+			<div>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">전 연령</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				
+				<div>
+					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<button id = "searchBtn">조회</button>
+				</div>
+				
+			</div>
+
+			<!-- Modal (1)-->
+			<!-- ID가 exampleModal 인 것을 참조 -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<!-- 이건 단순 이동이라 form 태그 필요없다. 수정 go -->
+						<form name="mform">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">인기 혜택별 순위</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('all')">전 연령</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('20')">20대</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('30')">30대</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('40')">40대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('50')">50대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('60')">60대 이상</a></div>  
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+
+			<div align="left">
+				<hr size = "5">
+				<ul id = "ulList" type = "none"> 
+					
+					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
+						<li>
+							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
+							<!-- <div style = "background-color: #E8F5FF;"> -->
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>
+									<c:choose>
+										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when>
+										<c:otherwise>
+											<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+										</c:otherwise>
+									</c:choose>
+								</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+							</div>
+						</li>
+						<br>
+					</c:forEach>
+					
+				</ul>
+			</div>
 
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>

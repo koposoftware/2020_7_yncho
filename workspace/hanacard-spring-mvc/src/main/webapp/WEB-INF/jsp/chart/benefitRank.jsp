@@ -26,11 +26,11 @@
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
 
 <style>
+
 	.modal-backdrop {
 	   background-color: rgb(0,0,0,0.1);
 	}
-	
-	
+		
 </style>
 
 
@@ -202,7 +202,7 @@
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
 						<h2 class="mb-0">하나차트</h2>
-						<p>손님들이 선호하는 카드를 살펴보세요.</p>
+						<p>혜택별로 손님들이 선호하는 카드를 살펴보세요.</p>
 						<%-- <p>${loginVO.name}님을 위한 차트입니다.</p> --%>
 					</div>
 				</div>
