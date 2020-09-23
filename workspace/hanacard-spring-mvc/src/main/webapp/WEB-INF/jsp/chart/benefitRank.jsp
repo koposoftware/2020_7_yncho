@@ -79,7 +79,6 @@
 			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 				
-				
 				alert('차트 alert 성공');
 				alert('data: ' + data);
 				let list = JSON.parse(data);
@@ -87,91 +86,47 @@
 				
 		        $("#ulList").empty();
 		        
+		        
+		        
+	           var addListHtml ="";
+	             $(list).each(function(index){
+	            	 
+	            	 alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
+	            	 
+	            	 addListHtml += "<li>";
+	            	 addListHtml += "<div style = \"background-color: #E8F5FF;\">";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span>";
+	            	 
+	            	 
+	            	 
+	            	 if(this.cardName.substring(0,1) == '#'){
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName.substring(1, this.cardName.length)  + ".png\" style = \"width : 132px; height : 84px;\">";
+
+	            	 } else{
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName + ".png\" style = \"width : 132px; height : 84px;\">";
+
+	            	 }
+	            	 
+	            	 addListHtml += "</span>";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
+	            	 addListHtml += "</div>";
+	            	 addListHtml += "</li>";
+	            	 addListHtml += "<br>";
+	            	 
+	            	 /* addListHtml += this.cardName.substring(0,1);
+	            	 addListHtml += this.cardName;
+	            	 addListHtml += this.count; */
+	            	 
+	             })
+	             
+		        $('#ulList').append(addListHtml); // 또는 반복문 끝나고 append
+
+		        
 		        //이 이후에 다시 ul태그 내에 forEach 돌면서 li태그 추가해야 함.
-		        var addListHtml ="";
-		        
-		        
-		        /*
-		        
-		           var addListHtml ="";
-		             $(more).each(function(){
-		                 addListHtml += "<li>";
-	                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
-	                     addListHtml += "<span>" + more[i].time + "</span>&nbsp;&nbsp;";
-	                     addListHtml += "<span>국내 | </span>";
-	                     addListHtml += "<span>" + more[i].payment + " | </span>";
-	                     addListHtml += "<span>정상 | </span>";
-	                     addListHtml += "<span>" + more[i].code + "</span>";
-	                     addListHtml += "<div>";
-	                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + more[i].content + "</span>";
-	                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" + more[i].means + ")</span>";
-	                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
-	                     addListHtml += "<span>" + more[i].amount + "</span>"; 
-	                     addListHtml += "</div>";
-	                     addListHtml += "</div>";
-	                     addListHtml += "</li>";
-	                     addListHtml += "<hr>";
-		            	 
-		             })
-		        
-		        */
-		        
-		        
-		        /*
-		        
-		        	 // let list = JSON.parse(data)
-		             $('#replyList').html('');
-		             alert('언제 뜨는데 이게?')
-		             $(list).each(function(){
-		                console.log(this)
-		                let str='';
-		                str += '<hr>'
-		                str += '<div>'
-		                str+= '<strong>'+this.content+'</strong>';
-		                str+= '  ('+ this.writer +')';
-		                str+= '  '+ this.regDate;
-		                str+= '  '+ '<button class = "delBtn" id ='  + this.no + '>삭제</button>'
-		                str += '</div>'
-		                //$('#replyList').append(str); // 또는 반복문 끝나고 append
-		             }) 
-		             
-		             $('#replyList').append(str); // 또는 반복문 끝나고 append
-		        
-		        */
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        /*
-				<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
-				<li>
-					<div style = "background-color: #E8F5FF;">
-						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<span>
-							<c:choose>
-								<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
-									<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
-								</c:when>
-								<c:otherwise>
-									<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
-								</c:otherwise>
-							</c:choose>
-						</span>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
-					</div>
-				</li>
-				<br>
-			</c:forEach>
-			
-			*/
-		        
-
-
 
 			},
 			error : function() {
