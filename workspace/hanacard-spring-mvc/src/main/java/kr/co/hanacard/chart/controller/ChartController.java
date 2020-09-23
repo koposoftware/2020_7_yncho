@@ -60,7 +60,7 @@ public class ChartController {
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/chart/benefitrank/{category}/{year}/{month}") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
-	public List<ChartVO> getTopLife(@PathVariable("category") String category, @PathVariable("year") String year, @PathVariable("month") String month) {
+	public List<ChartVO> getTopBenefit(@PathVariable("category") String category, @PathVariable("year") String year, @PathVariable("month") String month) {
 		
 		/*
 		 * 		if(category == '생활')
