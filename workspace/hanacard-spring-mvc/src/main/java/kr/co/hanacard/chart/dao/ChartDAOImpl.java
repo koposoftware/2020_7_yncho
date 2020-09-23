@@ -80,6 +80,30 @@ public class ChartDAOImpl implements ChartDAO{
 		
 		return ageSortList;
 	}
+
+	
+	
+	@Override
+	public List<ChartVO> getAnnualfeeSortList(String category, String year, String month) {
+		Map<String, String> map = new HashMap<>();
+		map.put("category", category);
+		
+		String year_month = year + month;
+		map.put("year_month", year_month);
+
+		System.out.println("CharDAOImple 단 category ==> " + category );
+		System.out.println("CharDAOImple 단 year_month ==> " + year_month );
+		
+		List<ChartVO> annualfeeSortList = sqlSession.selectList("chart.dao.ChartDAO.getAnnualfeeSortList", map);
+		
+		System.out.println("CharDAOImple 단 annualfeeSortList ==> " + annualfeeSortList );
+		
+		
+		
+		return annualfeeSortList;
+	}
+	
+	
 	
 	
 	

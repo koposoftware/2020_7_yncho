@@ -50,5 +50,26 @@
 	
 	</select>
 	
+	
+	<select id = "getAnnualfeeSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+									
+		WHERE CARD_PRODUCT_CODE IN <if test = "category == 'from0'">(12, 1, 2, 3)</if>
+								   <if test = "category == 'from1'">(8, 7, 16, 10, 6, 5, 19, 9, 13, 4)</if>
+								   <if test = "category == 'from2'">(11, 14, 15, 18, 17)</if>
+		
+		AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')
+		<!-- AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM') -->
+		
+		<!-- <if test = "category == '0'"> WHERE CARD_PRODUCT_CODE IN(12, 1, 2, 3) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if>
+		<if test = "category == '1'"> WHERE CARD_PRODUCT_CODE IN(8, 7, 16, 10, 6, 5, 19, 9, 13, 4) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if>
+		<if test = "category == '2'"> WHERE CARD_PRODUCT_CODE IN(11, 14, 15, 18, 17) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if> -->
+		
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+	
 
 </mapper>

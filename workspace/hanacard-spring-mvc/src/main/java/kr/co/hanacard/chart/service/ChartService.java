@@ -26,5 +26,7 @@ public interface ChartService {
 
 	List<ChartVO> getBenefitSortList(String category, String year, String month);
 	List<ChartVO> getAgeSortList(String category, String year, String month);
+	List<ChartVO> getAnnualfeeSortList(String category, String year, String month);
+	
 
 }

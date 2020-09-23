@@ -23,10 +23,128 @@
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
 <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
+
+<style>
+
+	.modal-backdrop {
+	   background-color: rgb(0,0,0,0.1);
+	}
+		
+</style>
+
+
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>
 
+	$(document).ready(function(){
+		
+		
+		$('#searchBtn').click(function(){
+			
+			getTopThree();
+			
+		})
+		
+		
+	});
+	
+	
+	function getTopThree() {
+		
+		let category = $('#category').text();
+		if(category == '1만원 미만')
+			category = 'from0';
+		if(category == '1만원 이상 ~ 2만원 미만')
+			category = 'from1';
+		if(category == '2만원 이상')
+			category = 'from2';
+			
+		let year = $('#start').val().substring(2,4);
+		let month = $('#start').val().substring(5, 7);		
+		
+		
+		$.ajax({
+			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			url : '${ pageContext.request.contextPath }/chart/annualfeerank/' + category + '/' + year + '/' + month,
+			type : 'get', 
+			//async : false,
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+				
+				alert('연령별 alert 성공');
+				//alert('data: ' + data);
+				let list = JSON.parse(data);
+				//alert('list: ' + list);
+				
+		        $("#ulList").empty();
+		        
+		        
+		        
+	           var addListHtml ="";
+	             $(list).each(function(index){
+	            	 
+	            	 //alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
+	            	 
+	            	 addListHtml += "<li>";
+	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span>";
+	            	 
+	            	 
+	            	 
+	            	 if(this.cardName.substring(0,1) == '#'){
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName.substring(1, this.cardName.length)  + ".png\" style = \"width : 132px; height : 84px;\">";
+	
+	            	 } else{
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName + ".png\" style = \"width : 132px; height : 84px;\">";
+	
+	            	 }
+	            	 
+	            	 addListHtml += "</span>";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
+	            	 addListHtml += "</div>";
+	            	 addListHtml += "</li>";
+	            	 addListHtml += "<br>";
+	            	 
+	            	 /* addListHtml += this.cardName.substring(0,1);
+	            	 addListHtml += this.cardName;
+	            	 addListHtml += this.count; */
+	            	 
+	             })
+	             
+		        $('#ulList').append(addListHtml); // 또는 반복문 끝나고 append
+	
+		        
+		        //이 이후에 다시 ul태그 내에 forEach 돌면서 li태그 추가해야 함.
+	
+			},
+			error : function() {
+				
+				alert('차트 ajax 실패')
+				
+			}
+		})
+		
+	}
+	
+	
+	
+	function doChangeCondition(obj){
+		
+		alert('함수호출이 가능합니다.');
+		alert('obj => ' + obj);
+		//$('#category').text();
+		$('#category').text(obj);
+		
+		
+		getTopThree();
+		
+		
+	}
 </script>
 
 </head>
@@ -64,10 +182,81 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
-			<!-- <div class="container-fluid"> -->
+		<div class="container" align="center">
+			<br>
+			<div>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">연회비 </h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">1만원 미만</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				
+				<div>
+					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<button id = "searchBtn">조회</button>
+				</div>
+				
+			</div>
+
+			<!-- Modal (1)-->
+			<!-- ID가 exampleModal 인 것을 참조 -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<!-- 이건 단순 이동이라 form 태그 필요없다. 수정 go -->
+						<form name="mform">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">연회비별 순위</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1만원 미만')">1만원 미만</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1만원 이상 ~ 2만원 미만')">1만원 이상 ~ 2만원 미만</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('2만원 이상')">2만원 이상</a></div> 
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+
+			<div align="left">
+				<hr size = "5">
+				<ul id = "ulList" type = "none"> 
+					
+					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<c:forEach items = "${annualfeeSortList}" var ="top" varStatus="loop">
+						<li>
+							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
+							<!-- <div style = "background-color: #E8F5FF;"> -->
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>
+									<c:choose>
+										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when>
+										<c:otherwise>
+											<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+										</c:otherwise>
+									</c:choose>
+								</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+							</div>
+						</li>
+						<br>
+					</c:forEach>
+					
+				</ul>
+			</div>
 
 		</div>
+
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
 		
 
