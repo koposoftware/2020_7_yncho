@@ -50,6 +50,33 @@
 			
 		})
 		
+		
+		/* $('#lifeA').click(function(){
+			
+			alert('life');
+			
+		})
+		
+		$('#mart_shoppingA').click(function(){
+			
+			alert('mart_shoppingA');
+			
+		})
+		
+		$('#comm_transA').click(function(){
+			
+			alert('comm_transA');
+			
+		})
+		
+		$('#leisure_travle_flightA').click(function(){
+			
+			alert('leisure_travle_flightA');
+			
+		}) */
+		
+		
+		
 	});
 	
 	
@@ -64,6 +91,9 @@
 			category = 'comm_trans';
 		if(category == '레저/여행/항공')
 			category = 'leisure_travle_flight';
+		
+			
+		alert('ajax category ==> ' + category)
 			
 		let year = $('#start').val().substring(2,4);
 		let month = $('#start').val().substring(5, 7);		
@@ -136,6 +166,20 @@
 				
 			}
 		})
+		
+	}
+	
+	
+	function doChangeCondition(obj){
+		
+		alert('함수호출이 가능합니다.');
+		alert('obj => ' + obj);
+		//$('#category').text();
+		$('#category').text(obj);
+		
+		
+		getTopThree();
+		
 		
 	}
 	
@@ -228,6 +272,7 @@
 			<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">타사 카드 거래내역 연동</button> -->
 
 			<!-- Modal (1)-->
+			<!-- ID가 exampleModal 인 것을 참조 -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -270,10 +315,23 @@
 								<div><a href = "#" data-dismiss="modal">식음료</a></div>
 								<div><a href = "#" data-dismiss="modal">통신</a></div> -->
 								
-								<div><a href = "#" data-dismiss="modal">생활</a></div>
-								<div><a href = "#" data-dismiss="modal">마트/쇼핑</a></div>
-								<div><a href = "#" data-dismiss="modal">통신/교통</a></div> 
-								<div><a href = "#" data-dismiss="modal">레저/여행/항공</a></div>
+								<!-- a태그는 .click 안먹히네 그냥 아래 onclick 하자.
+								
+								<div><a class = "categoryA" id = "lifeA" href = "#" data-dismiss="modal" >생활</a></div>
+								<div><a class = "categoryA" id = "mart_shoppingA" href = "#" data-dismiss="modal" >마트/쇼핑</a></div>
+								<div><a class = "categoryA" id = "comm_transA" href = "#" data-dismiss="modal" >통신/교통</a></div> 
+								<div><a class = "categoryA" id = "leisure_travle_flightA" href = "#" data-dismiss="modal" >레저/여행/항공</a></div>  -->
+								
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('생활')">생활</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('마트/쇼핑')">마트/쇼핑</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('통신/교통')">통신/교통</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('레저/여행/항공')">레저/여행/항공</a></div>  
+								
+								<!-- <div><button data-dismiss="modal">생활</button></div>
+								<div><button data-dismiss="modal">마트/쇼핑</button></div>
+								<div><button data-dismiss="modal">통신/교통</button></div> 
+								<div><button data-dismiss="modal">레저/여행/항공</button></div> -->
+								
 								
 							</div>
 							
