@@ -16,6 +16,7 @@
 	FROM CARD_CONTRACT C
 		WHERE CARD_PRODUCT_CODE IN (4,5,7) AND REG_DATE = TO_DATE('1801', 'YY/MM') 
 	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
 	
 	</select>
 		
@@ -30,6 +31,7 @@
 									
 				AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM') 
 	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
 	
 	</select>
 	
