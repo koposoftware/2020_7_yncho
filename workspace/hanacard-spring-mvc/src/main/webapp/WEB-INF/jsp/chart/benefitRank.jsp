@@ -93,13 +93,13 @@
 			category = 'leisure_travle_flight';
 		
 			
-		alert('ajax category ==> ' + category)
+		//alert('ajax category ==> ' + category)
 			
 		let year = $('#start').val().substring(2,4);
 		let month = $('#start').val().substring(5, 7);		
 		
-		alert('year : ' + year);
-		alert('month : ' + month);
+		//alert('year : ' + year);
+		//alert('month : ' + month);
 		
 		
 		$.ajax({
@@ -109,10 +109,10 @@
 			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 				
-				alert('차트 alert 성공');
-				alert('data: ' + data);
+				//alert('차트 alert 성공');
+				//alert('data: ' + data);
 				let list = JSON.parse(data);
-				alert('list: ' + list);
+				//alert('list: ' + list);
 				
 		        $("#ulList").empty();
 		        
@@ -172,8 +172,8 @@
 	
 	function doChangeCondition(obj){
 		
-		alert('함수호출이 가능합니다.');
-		alert('obj => ' + obj);
+		//alert('함수호출이 가능합니다.');
+		//alert('obj => ' + obj);
 		//$('#category').text();
 		$('#category').text(obj);
 		
