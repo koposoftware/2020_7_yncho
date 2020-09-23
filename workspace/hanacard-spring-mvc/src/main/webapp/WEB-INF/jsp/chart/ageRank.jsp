@@ -22,22 +22,136 @@
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
 <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
+
+
+<style>
+
+	.modal-backdrop {
+	   background-color: rgb(0,0,0,0.1);
+	}
+		
+</style>
+
+
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>
 
-function doChangeCondition(obj){
+	$(document).ready(function(){
+		
+		
+		$('#searchBtn').click(function(){
+			
+			getTopThree();
+			
+		})
+		
+		
+	});
 	
-	alert('함수호출이 가능합니다.');
-	alert('obj => ' + obj);
-	//$('#category').text();
-	$('#category').text(obj);
+	
+	function getTopThree() {
+		
+		let category = $('#category').text();
+		if(category == '전 연령')
+			category = 'all';
+		if(category == '20대')
+			category = '20';
+		if(category == '30대')
+			category = '30';
+		if(category == '40대')
+			category = '40';
+		if(category == '50대')
+			category = '50';
+		if(category == '60대 이상')
+			category = '60';
+			
+			
+		let year = $('#start').val().substring(2,4);
+		let month = $('#start').val().substring(5, 7);		
+		
+		
+		$.ajax({
+			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+			url : '${ pageContext.request.contextPath }/chart/agerank/' + category + '/' + year + '/' + month,
+			type : 'get', 
+			//async : false,
+			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+				
+				//alert('차트 alert 성공');
+				//alert('data: ' + data);
+				let list = JSON.parse(data);
+				//alert('list: ' + list);
+				
+		        $("#ulList").empty();
+		        
+		        
+		        
+	           var addListHtml ="";
+	             $(list).each(function(index){
+	            	 
+	            	 //alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
+	            	 
+	            	 addListHtml += "<li>";
+	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span>";
+	            	 
+	            	 
+	            	 
+	            	 if(this.cardName.substring(0,1) == '#'){
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName.substring(1, this.cardName.length)  + ".png\" style = \"width : 132px; height : 84px;\">";
+	
+	            	 } else{
+	            		 
+		            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + this.cardName + ".png\" style = \"width : 132px; height : 84px;\">";
+	
+	            	 }
+	            	 
+	            	 addListHtml += "</span>";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
+	            	 addListHtml += "</div>";
+	            	 addListHtml += "</li>";
+	            	 addListHtml += "<br>";
+	            	 
+	            	 /* addListHtml += this.cardName.substring(0,1);
+	            	 addListHtml += this.cardName;
+	            	 addListHtml += this.count; */
+	            	 
+	             })
+	             
+		        $('#ulList').append(addListHtml); // 또는 반복문 끝나고 append
+	
+		        
+		        //이 이후에 다시 ul태그 내에 forEach 돌면서 li태그 추가해야 함.
+	
+			},
+			error : function() {
+				
+				alert('차트 ajax 실패')
+				
+			}
+		})
+		
+	}
 	
 	
-	//getTopThree();
 	
-	
-}
+	function doChangeCondition(obj){
+		
+		alert('함수호출이 가능합니다.');
+		alert('obj => ' + obj);
+		//$('#category').text();
+		$('#category').text(obj);
+		
+		
+		getTopThree();
+		
+		
+	}
 </script>
 
 </head>
