@@ -78,7 +78,7 @@
 			//async : false,
 			success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
 				
-				//alert('차트 alert 성공');
+				alert('연령별 alert 성공');
 				//alert('data: ' + data);
 				let list = JSON.parse(data);
 				//alert('list: ' + list);
