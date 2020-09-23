@@ -26,6 +26,18 @@
 
 <script>
 
+function doChangeCondition(obj){
+	
+	alert('함수호출이 가능합니다.');
+	alert('obj => ' + obj);
+	//$('#category').text();
+	$('#category').text(obj);
+	
+	
+	//getTopThree();
+	
+	
+}
 </script>
 
 </head>
@@ -86,7 +98,7 @@
 						<!-- 이건 단순 이동이라 form 태그 필요없다. 수정 go -->
 						<form name="mform">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">인기 혜택별 순위</h5>
+								<h5 class="modal-title" id="exampleModalLabel">연령대별 순위</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<!-- X표시를 눌러도 dismiss(닫기) 되도록 -->
 									<span aria-hidden="true">&times;</span>
@@ -94,12 +106,12 @@
 							</div>
 							<div class="modal-body">
 								
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('all')">전 연령</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('20')">20대</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('30')">30대</a></div> 
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('40')">40대</a></div>  
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('50')">50대</a></div>  
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('60')">60대 이상</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('전 연령')">전 연령</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('20대')">20대</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('30대')">30대</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('40대')">40대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('50대')">50대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('60대 이상')">60대 이상</a></div>  
 							</div>
 						</form>
 					</div>
