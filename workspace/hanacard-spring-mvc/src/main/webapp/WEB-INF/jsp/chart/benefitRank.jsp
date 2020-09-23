@@ -91,11 +91,12 @@
 	           var addListHtml ="";
 	             $(list).each(function(index){
 	            	 
-	            	 alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
+	            	 //alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
 	            	 
 	            	 addListHtml += "<li>";
-	            	 addListHtml += "<div style = \"background-color: #E8F5FF;\">";
-	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span>";
 	            	 
 	            	 
@@ -111,7 +112,7 @@
 	            	 }
 	            	 
 	            	 addListHtml += "</span>";
-	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
 	            	 addListHtml += "</div>";
 	            	 addListHtml += "</li>";
@@ -292,7 +293,10 @@
 			</div>
 			
 
-			<div>
+			<div align="left">
+			<!-- <div> -->
+			<!-- <div align="left" style = "border-left:1px solid lightgrey;"> -->
+			<!-- <div align="left" style = "border:1px solid gold;"> -->
 				<%-- ${hanaList} --%>
 				<hr size = "5">
 				<ul id = "ulList" type = "none"> 
@@ -300,38 +304,40 @@
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${benefitSortList}" var ="top" varStatus="loop">
 						<li>
-							<div style = "background-color: #E8F5FF;">
-							<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<span>
-							<!-- <span style = "middlevertical-align: middle"> -->
-							<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
-								
-								<c:choose>
-								<%-- 	<c:when test="${ fn:substring(top.cardName, 0, 1) == # }">
-										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
-									</c:when> --%>
-									<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
-										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
-									</c:when>
+							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
+							<!-- <div style = "background-color: #E8F5FF;"> -->
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>
+								<!-- <span style = "middlevertical-align: middle"> -->
+								<!-- <span style = "display: table-cell; vertical-align: middlevertical-align: middle"> -->
 									
-									<%-- <c:when test="${ fn:substring(top.cardName, 0, 1) eq '#' }">
-										<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
-									</c:when> --%>
+									<c:choose>
+									<%-- 	<c:when test="${ fn:substring(top.cardName, 0, 1) == # }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when> --%>
+										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when>
+										
+										<%-- <c:when test="${ fn:substring(top.cardName, 0, 1) eq '#' }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when> --%>
+										
+										<c:otherwise>
+											<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+										</c:otherwise>
+									</c:choose>
 									
-									<c:otherwise>
-										<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
-									</c:otherwise>
-								</c:choose>
-								
-								<%-- <img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;"> --%>
-							</span>
-							<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
-							<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
-							<%-- <span style ="font-size: 30px; vertical-align: bottom;">${ card.cardProductName }</span> --%>
-							<%-- <span>${ card.cardNum }</span>
-							<span>${ card.regDate }</span> --%>
+									<%-- <img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;"> --%>
+								</span>
+								<%-- <img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 132px; height : 84px;"> --%>
+								<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+								<%-- <span style ="font-size: 30px; vertical-align: bottom;">${ card.cardProductName }</span> --%>
+								<%-- <span>${ card.cardNum }</span>
+								<span>${ card.regDate }</span> --%>
 							</div>
 						</li>
 						<br>
