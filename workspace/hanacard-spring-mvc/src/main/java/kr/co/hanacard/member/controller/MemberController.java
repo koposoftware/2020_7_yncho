@@ -144,10 +144,9 @@ public class MemberController {
 				List<CardTransactionVO> cardTrans = mypageService.getCardTrans(resiNum, transPeriod, "0");
 				mav.addObject("cardTrans", cardTrans);
 				
-				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
-				mav.addObject("benefitSortList", benefitSortList);
-				
-				System.out.println("benefitSortList ===> " + benefitSortList);
+//				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
+//				mav.addObject("benefitSortList", benefitSortList);
+//				System.out.println("benefitSortList ===> " + benefitSortList);
 
 				
 			} else {
@@ -159,13 +158,20 @@ public class MemberController {
 //				List<ChartVO> topList = chartService.getTopLife();
 //				mav.addObject("topList", topList);
 				
-				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
-				mav.addObject("benefitSortList", benefitSortList);
-				
-				System.out.println("benefitSortList ===> " + benefitSortList);
+//				List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
+//				mav.addObject("benefitSortList", benefitSortList);
+//				System.out.println("benefitSortList ===> " + benefitSortList);
 
 				
 			}
+			
+			
+			List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09");
+			mav.addObject("benefitSortList", benefitSortList);
+			System.out.println("benefitSortList ===> " + benefitSortList);
+			
+			
+			
 			
 		}
 		
