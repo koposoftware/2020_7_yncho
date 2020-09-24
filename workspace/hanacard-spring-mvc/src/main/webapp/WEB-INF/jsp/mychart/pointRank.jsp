@@ -63,10 +63,10 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
-			<!-- <div class="container-fluid"> -->
-
-		</div>
+		
+		
+		
+		
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
 		
 
