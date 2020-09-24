@@ -214,7 +214,9 @@
 		<div class="container" align="center">
 			<br>
 			<div>
+				<!-- <h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">통합 혜택</h1> -->
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">통합 혜택</h1>
+				<h3 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">(할인&적립)</h3>
 				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
 				
 				<div>
