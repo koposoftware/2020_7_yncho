@@ -212,7 +212,7 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-				<div class="container" align="center">
+		<div class="container" align="center">
 			<br>
 			<div>
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">마일리지 카드</h1>
