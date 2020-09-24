@@ -82,8 +82,7 @@
 				<hr size = "5">
 				<ul id = "ulList" type = "none"> 
 					
-					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
-					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
+					<%-- <c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li>
 							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
 							<!-- <div style = "background-color: #E8F5FF;"> -->
@@ -104,7 +103,7 @@
 							</div>
 						</li>
 						<br>
-					</c:forEach>
+					</c:forEach> --%>
 					
 				</ul>
 			</div>
@@ -115,6 +114,165 @@
 
 		<!-- Page level plugins -->
 		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
+		
+		
+		<script>
+		
+			let year = $('#bottomYear').val().substring(0,4);
+			let month = $('#bottomMonth').val();
+			
+			if(month == '전체'){
+				month = 'all';
+			} else{
+				month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+				if(month.length == 1)
+					month = '0' + month;
+			}
+			
+	
+			$.ajax({
+				url : '${ pageContext.request.contextPath }/mypage/bottomspecific/' + year + '/' + month,
+				type : 'get', 
+				//async : false,
+				success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+	
+					console.log('==========getBotttomSpecific===========')
+					console.log(data);
+					let list = JSON.parse(data);
+					console.log(list);
+					console.log('==========getBotttomSpecific===========')
+					
+					
+			 		let trans_gas = list.i1 + list.i2;
+					let leisure_travel_flight = list.i4 + list.i5 + list.i6;
+					let mart_shopping = list.i7 + list.i8;
+					let pet = list.i9;
+					let health_medical = list.i10;
+					let life = list.i11;
+					let food_beverage = list.i12;
+					let communication = list.i13;
+					
+	
+					myBarChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+						life, food_beverage, communication];
+				
+					myPieChart.data.datasets[0].data = [trans_gas, leisure_travel_flight, mart_shopping, pet, health_medical,
+						life, food_beverage, communication];
+	 
+					myBarChart.update();
+					myPieChart.update();
+					
+					
+					// 영역별 소비 합계금액 ajax 반영
+					let cateSum = trans_gas + leisure_travel_flight + mart_shopping + pet + health_medical + life + food_beverage + communication;
+					cateSum = numberWithCommas(cateSum);
+					$('#cateSumH').text("합계 : " + cateSum + "원");
+					
+					$.ajax({
+						//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+						url : '${ pageContext.request.contextPath }/mypage/recocard',
+						type : 'get', 
+						//async : false,
+						success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+							
+							let test = JSON.parse(data);
+						
+							let totalValue = parseInt(test[0][0]);
+							let totalCardName = test[1][0];
+							let firstTotal = totalCardName.substring(0, 1);
+							
+							if(firstTotal == '#'){
+								totalCardName = totalCardName.substring(1, totalCardName.length)
+							}
+							
+							
+							let disValue = parseInt(test[2][0]);
+							let disCardName = test[3][0];
+							let firstDis = disCardName.substring(0, 1);
+							
+							if(firstDis == '#'){
+								disCardName = disCardName.substring(1, disCardName.length)
+							}
+							
+							
+							let pointValue = parseInt(test[4][0]);
+							let pointCardName = test[5][0];
+							let firstPoint = pointCardName.substring(0, 1);
+							
+							if(firstPoint == '#'){
+								pointCardName = pointCardName.substring(1, pointCardName.length)
+							}
+							
+							
+							let mileValue = parseInt(test[6][0]);
+							let mileCardName = test[7][0];
+							let firstMile = mileCardName.substring(0, 1);
+							
+							if(firstMile == '#'){
+								mileCardName = mileCardName.substring(1, mileCardName.length)
+							}
+							
+							
+							
+							//let attr = $('#recocardImage').attr('src');
+							let path = '/hanacard-spring-mvc/resources/images/';
+							path = path + totalCardName + '.png';
+							$('#recocardImageTotal').attr('src', path);
+							
+							$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextTotal').html('소비를 통합하시면, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+							
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + disCardName + '.png';
+							$('#recocardImageDis').attr('src', path);
+							
+							$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextDis').html('소비를 통합하시면, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리실 수 있어요!');
+						
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + pointCardName + '.png';
+							$('#recocardImagePoint').attr('src', path);
+							
+							$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextPoint').html('소비를 통합하시면, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리실 수 있어요!');
+							
+							
+							
+							path = '/hanacard-spring-mvc/resources/images/';
+							path = path + mileCardName + '.png';
+							$('#recocardImageMile').attr('src', path);
+							
+							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
+							$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
+	
+							
+	
+						},
+						error : function() {
+							
+							alert('ajax 실패')
+							
+						}
+					})
+					
+	
+				},
+				error : function() {
+					
+					alert('ajax 실패')
+					
+				}
+			})
+		
+		</script>
+		
+		
 
 		<!-- Bootstrap core JavaScript-->
 		<script src="/hanacard-spring-mvc/resources/vendor/jquery/jquery.min.js"></script>
@@ -146,6 +304,9 @@
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78" /></svg>
 	</div>
+
+
+
 
 	<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="/hanacard-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>

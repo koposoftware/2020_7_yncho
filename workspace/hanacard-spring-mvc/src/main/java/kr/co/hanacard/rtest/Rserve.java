@@ -19,10 +19,19 @@ public class Rserve {
 
 			
 			c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result2 <- getTopDisList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result3 <- getTopMileList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result4 <- getTopPointList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result5 <- getTopTotalList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+
 			//c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
 			//c.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
 			
 			RList table = c.eval("result").asList();
+			RList table2 = c.eval("result2").asList();
+			RList table3 = c.eval("result3").asList();
+			RList table4 = c.eval("result4").asList();
+			RList table5 = c.eval("result5").asList();
 			
 			
 			int cols = table.size();
