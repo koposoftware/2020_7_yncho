@@ -100,6 +100,73 @@
 				cateSum = numberWithCommas(cateSum);
 				$('#cateSumH').text("합계 : " + cateSum + "원");
 				
+				
+				
+				
+				
+				let category = 'discount';
+				
+				$.ajax({
+					
+					
+					//@GetMapping("/mychart/{category}")
+					//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+					//url : '${ pageContext.request.contextPath }/mypage/recocard',
+					url : '${ pageContext.request.contextPath }/mychart/' + category,
+					type : 'get', 
+					//async : false,
+					success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+						
+						//alert('data : '   + data);
+						//let test = JSON.parse(data);
+						//alert('data : '   + data);
+						//console.log(data);
+						
+						
+						let list = JSON.parse(data);
+						
+						
+				        $("#ulList").empty();
+				        
+			           var addListHtml ="";
+			           for(i = 0; i < list[0].length; i++){
+			        		 addListHtml += "<li>";
+			            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+			            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (i + 1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			            	 addListHtml += "<span>";
+			            	 
+	 						if(list[0][i].substring(0,1) == '#'){
+			            		 
+				            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0][i].substring(1, list[0][i].length)  + ".png\" style = \"width : 132px; height : 84px;\">";
+			
+			            	 } else{
+			            		 
+				            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0][i] + ".png\" style = \"width : 132px; height : 84px;\">";
+			
+			            	 }
+	 						
+	 				    	 addListHtml += "</span>";
+			            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + list[0][i] + '&nbsp;&nbsp;&nbsp;￦' + numberWithCommas(parseInt(list[1][i])) + " 할인 혜택</span>";
+			            	 addListHtml += "</div>";
+			            	 addListHtml += "</li>";
+			            	 addListHtml += "<br>";
+			            	 
+			           }
+			           
+			           $('#ulList').append(addListHtml);
+			           
+					},
+					error : function() {
+						
+						alert('ajax 실패')
+						
+					}
+				})
+				
+				
+				
 
 			},
 			error : function() {
@@ -254,6 +321,7 @@
 				<hr size = "5">
 				<ul id = "ulList" type = "none"> 
 					
+					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<%-- <c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li>
 							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
@@ -530,6 +598,71 @@
 					let cateSum = trans_gas + leisure_travel_flight + mart_shopping + pet + health_medical + life + food_beverage + communication;
 					cateSum = numberWithCommas(cateSum);
 					$('#cateSumH').text("합계 : " + cateSum + "원");
+					
+					
+					
+					
+					let category = 'discount';
+					
+					$.ajax({
+						
+						
+						//@GetMapping("/mychart/{category}")
+						//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
+						//url : '${ pageContext.request.contextPath }/mypage/recocard',
+						url : '${ pageContext.request.contextPath }/mychart/' + category,
+						type : 'get', 
+						//async : false,
+						success : function(data) { // data의 type : string --> json으로 바꾸자  ::  이용~ 
+							
+							//alert('data : '   + data);
+							//let test = JSON.parse(data);
+							//alert('data : '   + data);
+							//console.log(data);
+							
+							
+							let list = JSON.parse(data);
+							
+							
+					        $("#ulList").empty();
+					        
+				           var addListHtml ="";
+				           for(i = 0; i < list[0].length; i++){
+				        		 addListHtml += "<li>";
+				            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+				            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (i + 1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				            	 addListHtml += "<span>";
+				            	 
+		 						if(list[0][i].substring(0,1) == '#'){
+				            		 
+					            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0][i].substring(1, list[0][i].length)  + ".png\" style = \"width : 132px; height : 84px;\">";
+				
+				            	 } else{
+				            		 
+					            	 addListHtml += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0][i] + ".png\" style = \"width : 132px; height : 84px;\">";
+				
+				            	 }
+		 						
+		 				    	 addListHtml += "</span>";
+				            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + list[0][i] + '&nbsp;&nbsp;&nbsp;￦' + numberWithCommas(parseInt(list[1][i])) + " 할인 혜택</span>";
+				            	 addListHtml += "</div>";
+				            	 addListHtml += "</li>";
+				            	 addListHtml += "<br>";
+				            	 
+				           }
+				           
+				           $('#ulList').append(addListHtml);
+				           
+						},
+						error : function() {
+							
+							alert('ajax 실패')
+							
+						}
+					})
+					
 					
 					
 

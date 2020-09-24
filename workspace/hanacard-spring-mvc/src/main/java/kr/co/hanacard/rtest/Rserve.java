@@ -49,6 +49,37 @@ public class Rserve {
 				}
 			}
 			
+			
+			System.out.println("===================table2==================");
+			int cols2 = table2.size();
+			int rows2 = table2.at(0).length();
+			
+			String[][] s2 = new String[cols2][];
+			
+			for (int i = 0; i < cols2; i++) {
+				s2[i] = table2.at(i).asStrings();
+			}
+			
+			for (int i = 0; i < cols2; i++) {
+				for (int j = 0; j < rows2; j++) {
+					System.out.println(s2[i][j]);
+				}
+			}
+			
+			System.out.println("=======================");
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			//System.out.println("total num : " + s[0][0]);
 			//System.out.println("best card : " + s[1][0]);
 			
