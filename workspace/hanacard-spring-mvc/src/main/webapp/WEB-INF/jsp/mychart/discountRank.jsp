@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
     
 <!DOCTYPE html>
 <html>
@@ -62,8 +64,50 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
-			<!-- <div class="container-fluid"> -->
+		<div class="container" align="center">
+			<br>
+			<div>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">할인 카드</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				
+				<div>
+					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<button id = "searchBtn">조회</button>
+				</div>
+				
+			</div>
+
+
+			<div align="left">
+				<hr size = "5">
+				<ul id = "ulList" type = "none"> 
+					
+					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
+						<li>
+							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
+							<!-- <div style = "background-color: #E8F5FF;"> -->
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>
+									<c:choose>
+										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
+											<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(top.cardName, 1, fn:length(top.cardName)) }.png" style = "width : 132px; height : 84px;">
+										</c:when>
+										<c:otherwise>
+											<img src="/hanacard-spring-mvc/resources/images/${ top.cardName }.png" style = "width : 132px; height : 84px;">
+										</c:otherwise>
+									</c:choose>
+								</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+							</div>
+						</li>
+						<br>
+					</c:forEach>
+					
+				</ul>
+			</div>
 
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
