@@ -80,7 +80,7 @@
                   <ul class="dropdown">
                     <li><a href="${ pageContext.request.contextPath }/mypage">종합 대시보드</a></li>
                     <li><a href="${ pageContext.request.contextPath }/mypage/owncard">보유카드정보</a></li>
-                    <li><a href="${ pageContext.request.contextPath }/mypage/transaction">카드이용내역</a></li>
+                    <%-- <li><a href="${ pageContext.request.contextPath }/mypage/transaction">카드이용내역</a></li> --%>
                   </ul>
                 </li>
                 <li class="has-children">
