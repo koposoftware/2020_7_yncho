@@ -94,6 +94,8 @@
 			<mvc:exclude-mapping path="/board"/> 
 			<mvc:exclude-mapping path="/logout"/> 
 			<mvc:exclude-mapping path="/resources/**"/> <!-- resources/ 밑에있는 모든 것도 다 인터셉터 실행 노노해 -->
+			<mvc:exclude-mapping path="/search/**"/> 
+			
 			<ref bean ="loginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
