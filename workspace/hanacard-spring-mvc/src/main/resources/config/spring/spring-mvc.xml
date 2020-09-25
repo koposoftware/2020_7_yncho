@@ -2,13 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context   
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<context:component-scan base-package="kr.co.hanacard" /> <!-- 클래스에 Coponent 등의 어노테이션을 붙이면, 자동으로 인스턴스를 만들어서 컨테이너로 관리하겠다. 즉, kr.co.hanacard.~~ 등 하부의 패키지내용까지 다 인스턴스 등록 -->
 	<!-- <context:component-scan base-package="kr.ac.kopo" />    디버깅의 중요성... 하...-->
@@ -78,5 +81,35 @@
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
 	</mvc:view-resolvers>
+	
+	
+		<bean class = "kr.co.hanacard.interceptor.LoginInterceptor" id="loginInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 슬래쉬 뒤에 어떤것이 오더라도 interceptor가 동작하게 하겠다. -->
+			<!-- <mvc:mapping path="/board/write"/> --> <!-- board/write 아래에 있는 모든 경로로 요청이 올때 실행된다. -->
+			<!-- <mvc:mapping path="/board/*"/> --> <!-- board 아래에 있는 경로로 들어오는 것은 모두! -->
+			<mvc:mapping path="/**/"/>  <!-- 어떤 depth로 들어오든 간에. 이렇게하면, login을 눌러도 login으로 계쏙 redirect 해서 redirect 횟수 초과됨 -->
+			<mvc:exclude-mapping path="/login"/> <!-- login 경로로 들어왔을 때는, 인터셉터가 실행되지 않는다! -->
+			<mvc:exclude-mapping path="/board"/> 
+			<mvc:exclude-mapping path="/logout"/> 
+			<mvc:exclude-mapping path="/resources/**"/> <!-- resources/ 밑에있는 모든 것도 다 인터셉터 실행 노노해 -->
+			<ref bean ="loginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 트랜잭션 처리 -->
+	<!-- dataSource 정체 : 위에 올려보면, DB설정할 때 dataSource 라는 id로 bean을 등록했음. 그럼 dataSource라는 이름으로 getBean 해서 쓸 수 도 있음 -->
+	<!-- dataSource 빈을, 아래 transactionManager에서 속성주입한다. (아하 DB관련 처리를 하겠다는 소리지요) 이때문에 private SqlSessionTemplate sqlSession; 을 쓸 때 SQL 트랜잭션 처리가 가능하겠네.  -->
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>	
+	
+	<!-- tx에 관련된 어노테이션 쓰겠다(?) -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+	
+	
 
 </beans>
