@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="chart.dao.ChartDAO">
+
+
+	<!-- <resultMap type="ChartVO" id ="chartMap">
+		<result column="view_cnt" property ="viewCnt"/>
+		<result column="reg_date" property ="regDate"/>
+	</resultMap> -->
+	
+	<select id = "getTopLife" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+		WHERE CARD_PRODUCT_CODE IN (4,5,7) AND REG_DATE = TO_DATE('1801', 'YY/MM') 
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+		
+	
+	<select id = "getBenefitSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+		WHERE CARD_PRODUCT_CODE IN <if test = "category == 'life'">(4, 5, 6, 7, 8, 19, 3)</if>
+									<if test = "category == 'mart_shopping'">(9, 10, 11, 2)</if>
+									<if test = "category == 'comm_trans'">(12, 13, 1)</if>
+									<if test = "category == 'leisure_travle_flight'">(14, 15, 16, 17, 18)</if>
+									
+				AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM') 
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+	
+	<select id = "getAgeSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+									
+		<if test = "category == 'all'"> WHERE REG_DATE = TO_DATE(#{year_month} , 'YY/MM')</if>
+		<if test = "category == '20'"> WHERE SUBSTR(RESI_NUM, 0, 2) BETWEEN '92' AND '99' AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM')</if>
+		<if test = "category == '30'"> WHERE SUBSTR(RESI_NUM, 0, 2) BETWEEN '82' AND '91' AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM')</if>
+		<if test = "category == '40'"> WHERE SUBSTR(RESI_NUM, 0, 2) BETWEEN '72' AND '81' AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM')</if>
+		<if test = "category == '50'"> WHERE SUBSTR(RESI_NUM, 0, 2) BETWEEN '62' AND '71' AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM')</if>
+		<if test = "category == '60'"> <![CDATA[ WHERE SUBSTR(RESI_NUM, 0, 2)  < 62 AND REG_DATE = TO_DATE(#{year_month} , 'YY/MM')  ]]> </if>
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+	
+	
+	<select id = "getAnnualfeeSortList" parameterType = "map" resultType = "ChartVO">
+	SELECT (SELECT CARD_PRODUCT_NAME FROM CARD_PRODUCT_LIST L WHERE L.CARD_PRODUCT_CODE = C.CARD_PRODUCT_CODE ) AS cardName , COUNT(CARD_PRODUCT_CODE)  AS count
+	FROM CARD_CONTRACT C
+									
+		<if test = "category == '0'"> WHERE CARD_PRODUCT_CODE IN(12, 1, 2, 3) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if>
+		
+		<if test = "category == '1'"> WHERE CARD_PRODUCT_CODE IN(8, 7, 16, 10, 6, 5, 19, 9, 13, 4) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if>
+		
+		<if test = "category == '2'"> WHERE CARD_PRODUCT_CODE IN(11, 14, 15, 18, 17) AND REG_DATE = TO_DATE(#{year_month}, 'YY/MM')</if>
+		
+	GROUP BY(CARD_PRODUCT_CODE)
+	ORDER BY count DESC
+	
+	</select>
+	
+
+</mapper>

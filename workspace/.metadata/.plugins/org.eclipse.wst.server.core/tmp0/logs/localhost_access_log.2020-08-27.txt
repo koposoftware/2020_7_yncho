@@ -1,0 +1,11 @@
+127.0.0.1 - - [27/Aug/2020:23:10:56 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:10:58 +0900] "GET /hanacard-spring-mvc/index.jsp HTTP/1.1" 200 21125
+127.0.0.1 - - [27/Aug/2020:23:14:11 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:13 +0900] "GET /hanacard-spring-mvc/index.jsp HTTP/1.1" 200 21125
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:13 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:34 +0900] "GET /hanacard-spring-mvc/login HTTP/1.1" 200 14638
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:39 +0900] "POST /hanacard-spring-mvc/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:39 +0900] "GET /hanacard-spring-mvc/login HTTP/1.1" 200 14638
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:43 +0900] "POST /hanacard-spring-mvc/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:43 +0900] "GET /hanacard-spring-mvc/ HTTP/1.1" 200 20990
+0:0:0:0:0:0:0:1 - - [27/Aug/2020:23:14:46 +0900] "GET /hanacard-spring-mvc/mypage HTTP/1.1" 200 25923

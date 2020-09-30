@@ -1,0 +1,118 @@
+package kr.co.hanacard.board.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
+import kr.co.hanacard.board.service.BoardService;
+import kr.co.hanacard.board.vo.BoardVO;
+import kr.co.hanacard.member.vo.MemberVO;
+
+//@SessionAttributes({"loginVO", "hanaList"}) // mav.addObject() 메소드로 저장하는 객체이름이 loginVO라면, 세션에 등록하라!
+@Controller
+public class BoardController {
+	
+	
+	@Autowired //BoardService 클래스 위에 어노테이션이 있기 때문에, 빈이 생성되기 때문에 Autowired 하면 자동으로 그것을 여기에 자동으로 넣는다. new 할 필요가 없다.
+	private BoardService boardService;
+	
+	
+//	@GetMapping("/board")
+//	public String baseChart() {
+//		
+//		return "/board/list";
+//	}
+	
+	
+	//<mvc:mapping path="/board"/> 으로 설정한 경우, @RequestMapping("/board") 아래에 있는 메소드가 실행되기 전에 prehandle() 실행된다. 
+	@RequestMapping("/board") // http://localhost:9999/Mission-Spring/board 이 경로로 요청이 오면, 아래의 메소드를 실행시킨다.
+	public ModelAndView list() {
+		
+		List<BoardVO> boardList = boardService.selectAllBoard(); //서비스 객체는, DAO와 연동되어 원하는 sql 실행후 결과를 가져온다.
+		ModelAndView mav = new ModelAndView("board/list"); //포워드 시킬 jsp 주소다. spring-mvc.xml에 view-resolvers 태그에 정해둠.
+		mav.addObject("boardList", boardList); //HttpServletRequest. request영역에 올림.
+		
+		System.out.println("======> " + boardList.get(0));
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping("/board/{no}") // { } 내의 이름은 임의로 본인이 정하는 것.
+	public ModelAndView detail(@PathVariable("no") int boardNo) {  
+		//PathVariable 어노테이션을 활용해서 url에서 넘어오는 {no} 값을  int boardNo에 넣겠다.
+		
+		
+		BoardVO board = boardService.selectByNo(boardNo);
+		
+		
+		System.out.println("boardNo : " + boardNo);
+		ModelAndView mav = new ModelAndView("board/detail");
+		mav.addObject("board", board);
+		return mav;
+	}
+	
+	
+	@GetMapping("/board/write") // 아래 메소드에 return 값을 void로 하면, 매핑시킨 주소로 foward 한다.
+	public String writeForm(Mode model, HttpSession session) { //ModelAndView 할 때의 Model임.
+		// ModelAndView는 forward 시킬 주소 + 공유역역에 등록시키려는 객체 둘다 가지고 있음
+		// Model 공유영역에 등록시키려는 객체를 가지고 있음
+		
+		BoardVO board = new BoardVO(); 
+		MemberVO loginVO = (MemberVO)session.getAttribute("loginVO"); // 매개변수에 HttpSession session 써서 사용할 수 있는 것임.
+		
+		if (loginVO != null)
+			board.setWriter(loginVO.getId());
+		
+		
+		//board.setTitle("hello"); 이거 해놓으면 그냥 작성자에hello가 적혀있음
+		
+		model.addAttribute("boardVO", board); // form:form 태그 내의 commandName과 매핑됨.
+		
+		
+		// request 영역에 등록됨
+		// 등록된 객체는 해당 jsp에서 commandName="boardVO"으로 해당 객체를 가져오고, 
+		// <form:input path="title"/>으로 boardVO.getTitle()을 호출하게 된다.
+		// 그리고 그 jsp에서 form태그 내에서 submit을 누르면, POST 방식으로 호출하게 되고 아래의 @PostMapping에 해당하는 메소드가 실행된다.
+		
+		return "board/write"; // 포워드하는 주소. view-resolver에 의해  'WEB-INF/jsp'  ~~~ '.jsp' 자동으로 붙인다.
+	}
+	
+	@PostMapping("/board/write") // POST 방식으로(즉 form태그에서 submit) http://localhost:9999/Mission-Spring/board/write에 요청이 오면, 아래의 메소드가 실행된다.
+	public String write(@Valid BoardVO boardVO, BindingResult result) { 
+		
+		//BoardVO에 @NotEmpty 어노테이션을 붙임.
+		//@Valid 어노테이션으로 BoardVO boardVO에 대한 validation check을 하겠다고 알려줌!
+			// BoardVO 클래스에서 다양한 어노테이션을 활용해서 validation check을 할 수 있다.
+				// @NotEmpty(message = "필수항목입니다.")
+				// @Length
+				// @Pattern 
+		//그리고 그 결과를 BindingResult result가 알고있다.
+		//hasErrors() 메소드를 통해 필수항목을 썼는지 안썼는지 알 수 있다.
+		
+		System.out.println(boardVO);
+		System.out.println("result.hasErrors() : " +  result.hasErrors());
+		
+		if(result.hasErrors()) {
+			System.out.println("오류 발생");
+			return "board/write"; // 이것도 jsp 경로다.  WEB-INF/jsp/board/write.jsp
+		}
+		
+		boardService.insertPost(boardVO);
+		return "redirect:/board"; // redirect는 주소다. http://localhost:9999/Mission-Spring/board
+	}
+	
+	
+
+}

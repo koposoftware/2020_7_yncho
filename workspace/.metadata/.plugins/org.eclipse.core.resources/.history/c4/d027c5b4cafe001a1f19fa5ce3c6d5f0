@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace = "board.dao.BoardDAO">
+
+	<!-- 자바의 Map이 아니고, Mapping 즉 매핑하는 것임. -->
+	<!-- type alias를 xml에서 정했음. 원래는 패키지명+자바파일명까지 써줘야 했음. -->
+	<resultMap type="BoardVO" id ="boardMap">
+		<result column="view_cnt" property ="viewCnt"/>
+		<result column="reg_date" property ="regDate"/>
+	</resultMap>
+
+
+	<select id="selectByNo" resultMap="boardMap" parameterType="int">
+		select no, title, writer, content, view_cnt, to_char(reg_date, 'yyyy-mm-dd') as reg_date
+		from t_board
+		where no = #{no}
+	</select>
+
+
+	<select id="selectAll" resultMap="boardMap">
+		select * from t_board
+	</select>
+	
+	<insert id="insert" parameterType="BoardVO">
+		insert into t_board(no, originid, groupid, title, writer, content)
+      	values(seq_t_board_no.nextval, 0, 0, #{title}, #{writer}, #{content})
+    </insert>
+	
+	<!-- 댓글 카운트 증가 -->
+	<update id = "incrementReplyCnt" parameterType = "int">
+		update t_board
+			set reply_cnt = reply_cnt + 1
+		where no = #{no}
+	
+	</update>
+	
+	<!-- 댓글 카운트 감소 -->
+	<update id = "decrementReplyCnt" parameterType = "int">
+	update t_board
+			set reply_cnt = reply_cnt - 1
+		where no = #{no}
+	</update>
+	
+</mapper>

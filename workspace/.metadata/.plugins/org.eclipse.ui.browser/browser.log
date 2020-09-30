@@ -1,0 +1,289 @@
+
+9월 01, 2020 21:13:56.97 NEW SESSION
+9월 01, 2020 21:13:56.97 [18476:4748:0901/211356.958:ERROR:socket_stream.cc(219)] Closing stream with result -2
+
+9월 04, 2020 09:07:17.49 NEW SESSION
+9월 04, 2020 09:07:17.49 [20760:22396:0904/090717.494:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 05, 2020 14:55:22.67 NEW SESSION
+9월 05, 2020 14:55:22.67 [19988:17444:0905/145522.672:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 05, 2020 23:01:11.30 [19988:18764:0905/230111.305:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.312 s for first_image_paint 0.297 s
+9월 05, 2020 23:01:12.31 [19988:18764:0905/230112.314:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.312 s for first_image_paint 0.297 s
+9월 05, 2020 23:01:13.66 [19988:18764:0905/230113.668:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.312 s for first_image_paint 0.297 s
+
+9월 07, 2020 13:08:09.06 NEW SESSION
+9월 07, 2020 13:08:09.06 [600:21260:0907/130809.060:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 07, 2020 14:04:22.63 [600:21788:0907/140422.639:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:04:48.95 [600:21788:0907/140448.952:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:05:33.31 [600:21788:0907/140533.311:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:05:56.62 [600:21788:0907/140556.627:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:06:47.33 [600:21788:0907/140647.335:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:07:15.88 [600:21788:0907/140715.885:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:08:23.17 [600:21788:0907/140823.177:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:08:49.78 [600:21788:0907/140849.779:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 07, 2020 14:09:31.24 [600:21788:0907/140931.239:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9월 07, 2020 23:26:31.72 NEW SESSION
+9월 07, 2020 23:26:31.72 [9008:23308:0907/232631.722:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 08, 2020 08:51:26.50 NEW SESSION
+9월 08, 2020 08:51:26.50 [22416:14692:0908/085126.502:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 08, 2020 14:26:52.67 [22416:25180:0908/142652.675:ERROR:mouse_cursor_monitor_win.cc(105)] Capture: Unable to get cursor info. Error = 5
+9월 08, 2020 14:26:52.69 [22416:25180:0908/142652.676:ERROR:dxgi_output_duplicator.cc(169)] Failed to capture frame, error 000001AAC54E61A0, code -2005270490
+9월 08, 2020 14:26:52.73 [22416:25180:0908/142652.737:ERROR:screen_capturer_win_directx.cc(140)] DxgiDuplicatorController failed to capture desktop, error code Duplication failed
+9월 08, 2020 21:47:18.99 [33224:2996:0908/214718.999:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 08, 2020 22:25:15.15 [33224:22492:0908/222515.157:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.16 [33224:22492:0908/222515.165:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.18 [33224:22492:0908/222515.183:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.19 [33224:22492:0908/222515.191:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.19 [33224:22492:0908/222515.197:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.20 [33224:22492:0908/222515.206:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.21 [33224:22492:0908/222515.213:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.22 [33224:22492:0908/222515.220:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:25:15.22 [33224:22492:0908/222515.227:ERROR:CONSOLE(17)] "Error: Empty event listener's location", source: devtools://devtools/bundled/event_listeners/event_listeners.js (17)
+9월 08, 2020 22:44:29.37 [33348:15636:0908/224429.369:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 09, 2020 17:26:08.97 NEW SESSION
+9월 09, 2020 17:26:08.97 [12812:3012:0909/172608.959:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 09, 2020 17:28:30.38 [12812:13084:0909/172830.382:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 17:28:30.38 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 17:29:01.80 [12812:13084:0909/172901.804:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 17:29:01.81 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 17:31:13.12 [12812:13084:0909/173113.121:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 17:31:13.12 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 17:57:48.83 [12812:13084:0909/175748.834:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 17:57:48.84 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 17:57:52.99 [12812:13084:0909/175752.994:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 17:57:53.00 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:05:01.80 [12812:13084:0909/190501.805:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:05:01.81 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:11:59.56 [12812:13084:0909/191159.567:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:11:59.57 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:13:06.39 [12812:13084:0909/191306.394:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:13:06.40 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:17:33.84 [12812:13084:0909/191733.848:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:17:33.85 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:18:53.66 [12812:13084:0909/191853.665:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:18:53.67 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:20:00.58 [12812:13084:0909/192000.584:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:20:00.59 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:21:28.18 [12812:13084:0909/192128.183:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:21:28.19 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:23:47.01 [12812:13084:0909/192347.019:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:23:47.02 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:28:26.92 [12812:13084:0909/192826.927:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:28:26.93 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:30:00.32 [12812:13084:0909/193000.321:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:30:00.33 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:39:55.83 [12812:13084:0909/193955.830:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:39:55.83 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:48:16.84 [12812:13084:0909/194816.842:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 19:48:16.84 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 19:58:22.81 [12812:13804:0909/195822.809:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 19:58:50.92 [12812:13804:0909/195850.923:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 20:03:23.05 [12812:13084:0909/200323.056:ERROR:CONSOLE(1)] "Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'strict-dynamic' 'sha256-1+GSDjMMklBjZY0QiWq+tGupCvajw4Xbn46ect2mZgM=' 'sha256-2mX1M62Fd0u8q0dQY2mRsK5S1NS9jJuQAvyE8tD0dkQ=' 'sha256-EtIKSV82ixJHE3AzqhoiVbUGKG+Kd8XS0fFToow29o0=' 'sha256-QSyFltV9X3gkyBrg+SMfKvZNXmqPQc6K4B6OYhTuXmw=' 'sha256-ANdtIo91Yk/zh1YKZ+IXKP1pb00awOjEFMAUld02F6A=' 'sha256-CbH+xPsBKQxVw5d9blISLDeuMSe1M+dJ4xfArFynIfw=' 'sha256-lA+EURA/fC0TZq1ATYZvxIQHBc9iTAaBcI+dFMmTn9I=' 'sha256-9RWB/dt3JdkMkmFWT1x7Bd4Mnpgba4OJivFHXr0K47I='". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+9월 09, 2020 20:03:23.06 ", source: chrome-search://local-ntp/local-ntp.html (1)
+9월 09, 2020 20:09:40.14 [12812:13804:0909/200940.148:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 20:10:04.18 [12812:13804:0909/201004.179:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 23:45:00.45 [12812:13804:0909/234500.456:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 23:45:25.86 [12812:13804:0909/234525.864:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 23:46:14.61 [12812:13804:0909/234614.613:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 09, 2020 23:46:17.79 [12812:13804:0909/234617.792:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 09, 2020 23:47:44.42 [12812:13804:0909/234744.420:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 01:52:35.96 [12812:13804:0910/015235.966:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 01:53:00.82 [12812:13804:0910/015300.824:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 01:53:51.73 [12812:13804:0910/015351.732:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 10, 2020 01:53:54.90 [12812:13804:0910/015354.904:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 01:55:24.89 [12812:13804:0910/015524.893:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 13:49:59.59 [18496:30216:0910/134959.593:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 10, 2020 13:51:39.49 NEW SESSION
+9월 10, 2020 13:51:39.49 [27524:24028:0910/135139.494:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 10, 2020 14:23:55.22 [27524:23360:0910/142355.226:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 14:24:19.26 [27524:23360:0910/142419.267:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 14:36:25.00 [27524:23360:0910/143625.001:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 14:36:48.65 [27524:23360:0910/143648.651:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:15:47.73 [27524:23360:0910/151547.733:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:16:14.27 [27524:23360:0910/151614.270:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:33:09.77 [27524:23360:0910/153309.778:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:33:34.25 [27524:23360:0910/153334.259:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:34:24.95 [27524:23360:0910/153424.955:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 10, 2020 15:34:28.14 [27524:23360:0910/153428.140:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 15:35:35.14 [12896:20700:0910/153535.146:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 10, 2020 17:16:40.89 [12896:23704:0910/171640.889:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 17:17:08.90 [12896:23704:0910/171708.906:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 18:47:22.77 [12896:23704:0910/184722.778:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 18:47:46.62 [12896:23704:0910/184746.628:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 10, 2020 19:37:31.82 [12896:23704:0910/193731.824:ERROR:socket_stream.cc(219)] Closing stream with result -2
+
+9월 11, 2020 02:22:50.69 NEW SESSION
+9월 11, 2020 02:22:50.69 [4028:12048:0911/022250.686:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 11, 2020 16:32:10.77 NEW SESSION
+9월 11, 2020 16:32:10.77 [18080:11292:0911/163210.759:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 11, 2020 16:40:47.70 [22792:5776:0911/164047.707:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 11, 2020 17:35:03.46 [22792:21988:0911/173503.460:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 11, 2020 17:35:32.66 [22792:21988:0911/173532.659:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9월 12, 2020 10:34:19.52 NEW SESSION
+9월 12, 2020 10:34:19.52 [25264:28104:0912/103419.514:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 12, 2020 11:21:49.04 [25264:11832:0912/112149.041:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 12, 2020 12:02:33.25 [25264:11832:0912/120233.254:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 12, 2020 12:02:55.56 [25264:11832:0912/120255.560:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 12, 2020 13:29:54.10 [25264:11832:0912/132954.105:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 12, 2020 13:30:22.05 [25264:11832:0912/133022.050:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 12, 2020 13:58:48.65 [25264:11832:0912/135848.650:ERROR:socket_stream.cc(219)] Closing stream with result -2
+
+9월 13, 2020 17:15:09.44 NEW SESSION
+9월 13, 2020 17:15:09.44 [21140:20748:0913/171509.439:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 13, 2020 19:18:12.74 NEW SESSION
+9월 13, 2020 19:18:12.74 [2740:7464:0913/191812.734:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 13, 2020 19:30:21.14 [2740:1680:0913/193021.146:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 13, 2020 19:30:43.20 [2740:1680:0913/193043.208:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 14, 2020 09:10:32.94 [25092:7032:0914/091032.944:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 14, 2020 11:12:00.82 [29708:9644:0914/111200.824:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 14, 2020 13:35:08.77 [29708:24148:0914/133508.771:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 14, 2020 14:05:47.60 [29708:24148:0914/140547.602:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9월 15, 2020 09:12:28.68 NEW SESSION
+9월 15, 2020 09:12:28.68 [26436:14260:0915/091228.680:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 09:57:39.93 [23408:12320:0915/095739.931:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 09:57:54.11 [30440:24324:0915/095754.113:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 09:59:09.83 [23960:28908:0915/095909.831:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 10:01:57.69 [29728:20820:0915/100157.694:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 10:02:42.37 [27612:12176:0915/100242.376:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 15, 2020 10:07:05.64 NEW SESSION
+9월 15, 2020 10:07:05.64 [32728:7052:0915/100705.643:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 10:20:14.36 [23096:3988:0915/102014.368:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 10:24:11.33 [30164:19780:0915/102411.332:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 15, 2020 10:38:10.36 [30164:22432:0915/103810.364:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2020 16:41:50.91 [28712:29088:0915/164150.918:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 16, 2020 09:07:04.18 NEW SESSION
+9월 16, 2020 09:07:04.18 [14508:14964:0916/090704.161:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 09:15:01.80 [10120:23236:0916/091501.805:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 09:20:45.64 [19872:22940:0916/092045.647:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 10:04:04.60 [23724:21960:0916/100404.600:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 10:04:23.26 [16880:13072:0916/100423.259:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 16, 2020 10:12:33.07 NEW SESSION
+9월 16, 2020 10:12:33.08 [16480:25924:0916/101233.078:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 10:29:43.97 [10284:12092:0916/102943.979:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 10:32:06.62 [1628:26572:0916/103206.629:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 10:33:14.59 [26220:23044:0916/103314.590:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 16, 2020 11:09:09.70 NEW SESSION
+9월 16, 2020 11:09:09.70 [24528:24832:0916/110909.706:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 12:30:42.60 [24528:14280:0916/123042.607:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 12:30:54.34 [24528:14280:0916/123054.343:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 12:31:11.12 [24528:14280:0916/123111.122:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 12:31:15.51 [24528:14280:0916/123115.514:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 12:31:21.92 [24528:14280:0916/123121.921:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 12:31:33.98 [24528:14280:0916/123133.984:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 16, 2020 14:13:58.29 [21484:28720:0916/141358.299:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 15:10:58.50 [7288:22880:0916/151058.502:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 15:25:55.77 [12896:7228:0916/152555.774:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 16, 2020 15:26:41.85 [21500:15292:0916/152641.850:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 17, 2020 09:37:22.21 NEW SESSION
+9월 17, 2020 09:37:22.21 [18052:5752:0917/093722.169:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 17, 2020 12:25:36.30 [31696:18404:0917/122536.301:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 17, 2020 12:35:41.51 [31696:11648:0917/123541.516:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 17, 2020 13:20:37.98 [31696:11648:0917/132037.983:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 17, 2020 13:20:38.12 [31696:11648:0917/132038.124:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 17, 2020 13:21:03.07 [31696:11648:0917/132103.070:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -109
+9월 17, 2020 13:21:08.54 [31696:11648:0917/132108.544:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 17, 2020 13:21:16.75 [31696:11648:0917/132116.755:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 17, 2020 13:21:39.12 [31696:11648:0917/132139.120:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 17, 2020 13:22:09.07 [31696:11648:0917/132209.074:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 17, 2020 16:07:31.51 [8408:30876:0917/160731.516:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 17, 2020 16:23:36.67 [31268:19008:0917/162336.671:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 17, 2020 17:14:55.87 NEW SESSION
+9월 17, 2020 17:14:55.87 [6100:12296:0917/171455.870:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 17, 2020 17:35:43.70 [26748:29304:0917/173543.703:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 17, 2020 17:47:46.95 NEW SESSION
+9월 17, 2020 17:47:46.95 [15088:13188:0917/174746.954:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 17, 2020 19:12:34.78 NEW SESSION
+9월 17, 2020 19:12:34.78 [24536:5280:0917/191234.752:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 17, 2020 21:09:38.79 [24536:6280:0917/210938.790:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 17, 2020 21:45:47.60 [24536:6280:0917/214547.600:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9월 20, 2020 12:13:35.58 NEW SESSION
+9월 20, 2020 12:13:35.58 [5796:11040:0920/121335.487:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 20, 2020 13:02:38.32 [5796:5104:0920/130238.322:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 20, 2020 15:20:52.65 [5796:5104:0920/152052.653:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 20, 2020 15:20:57.89 [5796:23632:0920/152057.890:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9월 20, 2020 15:20:58.45 [5796:18900:0920/152058.457:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9월 20, 2020 15:56:14.51 [21044:18960:0920/155614.518:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 20, 2020 15:56:43.17 [21368:10588:0920/155643.170:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 20, 2020 19:20:19.45 [21368:14512:0920/192019.452:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 20, 2020 19:53:06.35 [21368:14512:0920/195306.358:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 20, 2020 19:53:07.68 [21368:29748:0920/195307.683:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+9월 20, 2020 20:54:37.42 [21368:14512:0920/205437.421:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+
+9월 21, 2020 18:17:58.67 NEW SESSION
+9월 21, 2020 18:17:58.67 [16216:26008:0921/181758.580:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 21, 2020 19:35:19.02 [3420:16348:0921/193519.022:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 21, 2020 20:25:06.16 [3420:19492:0921/202506.168:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 21, 2020 20:35:01.54 [3420:19492:0921/203501.541:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 21, 2020 22:03:31.94 [3420:19492:0921/220331.942:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+
+9월 22, 2020 09:13:47.40 NEW SESSION
+9월 22, 2020 09:13:47.40 [7256:15592:0922/091347.384:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 14:17:12.87 [7256:17692:0922/141712.870:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -118
+9월 22, 2020 14:17:41.88 [7256:17692:0922/141741.886:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 22, 2020 14:18:38.89 [7256:17692:0922/141838.891:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 22, 2020 14:20:38.34 [7256:17692:0922/142038.347:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 22, 2020 14:24:00.33 [7256:17692:0922/142400.335:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 22, 2020 14:30:23.28 [7256:17692:0922/143023.284:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 22, 2020 14:40:23.28 [7256:17692:0922/144023.287:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+
+9월 22, 2020 18:58:27.18 NEW SESSION
+9월 22, 2020 18:58:27.18 [5248:7608:0922/185827.162:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 22, 2020 19:52:55.07 NEW SESSION
+9월 22, 2020 19:52:55.07 [10092:12244:0922/195255.076:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 21:35:00.37 [13448:20892:0922/213500.375:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 22, 2020 21:36:46.87 [6408:22492:0922/213646.873:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 22, 2020 21:47:00.32 NEW SESSION
+9월 22, 2020 21:47:00.32 [15124:13484:0922/214700.328:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 24, 2020 10:54:35.31 NEW SESSION
+9월 24, 2020 10:54:35.31 [24052:17156:0924/105435.290:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 24, 2020 10:54:50.46 [23472:7868:0924/105450.464:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 24, 2020 11:56:10.65 [23472:23860:0924/115610.650:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 24, 2020 12:15:54.67 [23472:23860:0924/121554.671:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 12:41:16.96 [23472:23860:0924/124116.961:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 24, 2020 15:11:32.67 [23472:23860:0924/151132.675:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 24, 2020 16:28:44.24 [23308:21008:0924/162844.248:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 24, 2020 16:49:56.06 [2424:15112:0924/164956.059:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 24, 2020 19:12:29.16 [2424:22376:0924/191229.165:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 24, 2020 19:37:34.72 [2424:22376:0924/193734.722:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 21:20:37.59 [2424:22376:0924/212037.594:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 21:20:52.64 [2424:22376:0924/212052.642:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 21:41:02.45 [2424:22376:0924/214102.453:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 24, 2020 21:41:02.49 [2424:22376:0924/214102.466:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -109
+9월 24, 2020 21:41:05.71 [2424:22376:0924/214105.712:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 21:41:12.00 [2424:22376:0924/214112.009:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 24, 2020 21:41:15.50 [2424:22376:0924/214115.504:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+
+9월 24, 2020 22:11:38.89 NEW SESSION
+9월 24, 2020 22:11:38.89 [28584:13108:0924/221138.870:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 25, 2020 09:06:05.66 NEW SESSION
+9월 25, 2020 09:06:05.66 [1920:31684:0925/090605.649:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:28:04.37 [20972:26076:0925/112804.374:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:31:09.14 [17304:3560:0925/113109.145:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:32:08.48 [31736:15696:0925/113208.489:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:32:27.42 [18324:2692:0925/113227.423:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:33:11.40 [23124:3016:0925/113311.399:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+9월 25, 2020 11:34:02.46 [28604:15628:0925/113402.462:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
+
+9월 26, 2020 10:35:05.61 NEW SESSION
+9월 26, 2020 10:35:05.61 [9960:18172:0926/103505.596:ERROR:media_history_store.cc(363)] Failed to create or update the media history store.
