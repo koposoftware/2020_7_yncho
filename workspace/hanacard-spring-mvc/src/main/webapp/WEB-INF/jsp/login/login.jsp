@@ -132,7 +132,7 @@
 		                    <div class="row">
 		                        <div class="col-md-12 form-group">
 		                            <label for="id">아이디</label>
-		                            <input type="text" id="id" class="form-control form-control-lg" name = "id" onkeyup="fnUpper()">
+		                            <input type="text" autocomplete="off" id="id" class="form-control form-control-lg" name = "id" onkeyup="fnUpper()">
 		                        </div>
 		                        <div class="col-md-12 form-group">
 		                            <label for="password">비밀번호</label>
