@@ -108,8 +108,8 @@
 	        <div class="container">
 	          <div class="row align-items-end justify-content-center text-center">
 	            <div class="col-lg-7">
-	              <h2 class="mb-0">Login</h2>
-	              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+	              <h2 class="mb-0">로그인</h2>
+	              <p>Smart Life를 선도하는 Smart 금융, Hana Card</p>
 	            </div>
 	          </div>
 	        </div>
