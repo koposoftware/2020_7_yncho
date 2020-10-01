@@ -857,7 +857,7 @@
 
 	</select>
 	
-	<select id = "getBottomSpecific" parameterType = "map" resultType ="MypageVO">
+	<select id = "getBottomSpecificOri2" parameterType = "map" resultType ="MypageVO">
 	
 		WITH WHOLE AS( SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
 		                FROM CARD_TRANSACTION
@@ -1043,6 +1043,43 @@
 
 	</select>
 	
+	<select id = "getBottomSpecific" parameterType = "map" resultType ="MypageVO">
+		                        
+		WITH WHOLE AS
+		(
+		    SELECT INDUSTRY_CODE CD, CARD_TRANSACTION_AMOUNT AMT
+		    FROM CARD_TRANSACTION
+		    WHERE CARD_NUM IN (SELECT CARD_NUM FROM CARD_CONTRACT WHERE RESI_NUM = #{resiNum})
+		          <if test = "month == 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >= TO_DATE(#{year}||'01', 'YYYYMM')
+		          ]]> 
+		          </if>		
+		           <if test = "month != 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >=  TO_DATE(#{year}||#{month}, 'YYYYMM')
+		          AND CARD_TRANSACTION_TIME <  ADD_MONTHS(TO_DATE(#{year}||#{month}, 'YYYYMM'), 1)
+		          ]]> 
+		          </if>		
+		      	          
+		)
+		SELECT NVL(SUM(CASE WHEN CD IN ('I1') THEN AMT END), 0) i1
+		     , NVL(SUM(CASE WHEN CD IN ('I2') THEN AMT END), 0) i2
+		     , NVL(SUM(CASE WHEN CD IN ('I3') THEN AMT END), 0) i3
+		     , NVL(SUM(CASE WHEN CD IN ('I4') THEN AMT END), 0) i4
+		     , NVL(SUM(CASE WHEN CD IN ('I5') THEN AMT END), 0) i5
+		     , NVL(SUM(CASE WHEN CD IN ('I6') THEN AMT END), 0) i6
+		     , NVL(SUM(CASE WHEN CD IN ('I7') THEN AMT END), 0) i7
+		     , NVL(SUM(CASE WHEN CD IN ('I8') THEN AMT END), 0) i8
+		     , NVL(SUM(CASE WHEN CD IN ('I9') THEN AMT END), 0) i9
+		     , NVL(SUM(CASE WHEN CD IN ('I10') THEN AMT END), 0) i10
+		     , NVL(SUM(CASE WHEN CD IN ('I11') THEN AMT END), 0) i11
+		     , NVL(SUM(CASE WHEN CD IN ('I12') THEN AMT END), 0) i12
+		     , NVL(SUM(CASE WHEN CD IN ('I13') THEN AMT END), 0) i13
+		  FROM WHOLE
+
+	</select>
+	
 	<select id = "getBottomSpecificOpenOri" parameterType = "map" resultType ="MypageVO">
 		WITH WHOLE AS (SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
 		                FROM CARD_TRANSACTION
@@ -1179,7 +1216,7 @@
 	</select>
 	
 	
-	<select id = "getBottomSpecificOpen" parameterType = "map" resultType ="MypageVO">
+	<select id = "getBottomSpecificOpenOri2" parameterType = "map" resultType ="MypageVO">
 		WITH WHOLE AS (SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_AMOUNT, CARD_TRANSACTION_CONTENT, INDUSTRY_CODE
 		                FROM CARD_TRANSACTION
 		                WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT WHERE RESI_NUM = #{resiNum})
@@ -1373,6 +1410,60 @@
 		             FROM DUAL)
 		       WHERE RESULT IS NOT NULL OR ROWNUM = 1) SUBQUERY13
         WHERE ROWNUM = 1
+	</select>
+	
+	<select id = "getBottomSpecificOpen" parameterType = "map" resultType ="MypageVO">
+		                        
+		WITH WHOLE AS
+		(
+		    SELECT INDUSTRY_CODE CD, CARD_TRANSACTION_AMOUNT AMT
+		    FROM CARD_TRANSACTION
+		    WHERE CARD_NUM IN (SELECT CARD_NUM FROM CARD_CONTRACT WHERE RESI_NUM = #{resiNum})
+		          <if test = "month == 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >= TO_DATE(#{year}||'01', 'YYYYMM')
+		          ]]> 
+		          </if>		
+		           <if test = "month != 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >=  TO_DATE(#{year}||#{month}, 'YYYYMM')
+		          AND CARD_TRANSACTION_TIME <  ADD_MONTHS(TO_DATE(#{year}||#{month}, 'YYYYMM'), 1)
+		          ]]> 
+		          </if>	
+		    UNION ALL	
+		    
+		    SELECT INDUSTRY_CODE CD, CARD_TRANSACTION_AMOUNT AMT
+		    FROM OPEN_CARD_TRANSACTION
+		    WHERE RESI_NUM = #{resiNum}
+		          AND MEANS IN (${cardListString})
+		          <if test = "month == 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >= TO_DATE(#{year}||'01', 'YYYYMM')
+		          ]]> 
+		          </if>		
+		           <if test = "month != 'all'">
+		          <![CDATA[
+		          AND CARD_TRANSACTION_TIME >=  TO_DATE(#{year}||#{month}, 'YYYYMM')
+		          AND CARD_TRANSACTION_TIME <  ADD_MONTHS(TO_DATE(#{year}||#{month}, 'YYYYMM'), 1)
+		          ]]> 
+		          </if>	
+		    
+		      	          
+		)
+		SELECT NVL(SUM(CASE WHEN CD IN ('I1') THEN AMT END), 0) i1
+		     , NVL(SUM(CASE WHEN CD IN ('I2') THEN AMT END), 0) i2
+		     , NVL(SUM(CASE WHEN CD IN ('I3') THEN AMT END), 0) i3
+		     , NVL(SUM(CASE WHEN CD IN ('I4') THEN AMT END), 0) i4
+		     , NVL(SUM(CASE WHEN CD IN ('I5') THEN AMT END), 0) i5
+		     , NVL(SUM(CASE WHEN CD IN ('I6') THEN AMT END), 0) i6
+		     , NVL(SUM(CASE WHEN CD IN ('I7') THEN AMT END), 0) i7
+		     , NVL(SUM(CASE WHEN CD IN ('I8') THEN AMT END), 0) i8
+		     , NVL(SUM(CASE WHEN CD IN ('I9') THEN AMT END), 0) i9
+		     , NVL(SUM(CASE WHEN CD IN ('I10') THEN AMT END), 0) i10
+		     , NVL(SUM(CASE WHEN CD IN ('I11') THEN AMT END), 0) i11
+		     , NVL(SUM(CASE WHEN CD IN ('I12') THEN AMT END), 0) i12
+		     , NVL(SUM(CASE WHEN CD IN ('I13') THEN AMT END), 0) i13
+		  FROM WHOLE
 	</select>
 
 
