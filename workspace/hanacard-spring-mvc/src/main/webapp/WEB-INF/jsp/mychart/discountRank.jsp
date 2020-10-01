@@ -218,8 +218,9 @@
 		<!-- Begin Page Content -->
 		<div class="container" align="center">
 			<br>
+			<br>
 			<div>
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">할인 혜택</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; ">할인 혜택</h1>
 				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
 				
 				<!-- <div>

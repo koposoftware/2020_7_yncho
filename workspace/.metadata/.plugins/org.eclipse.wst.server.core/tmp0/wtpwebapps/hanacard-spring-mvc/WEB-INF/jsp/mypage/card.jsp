@@ -123,24 +123,25 @@
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>
-
-
-
-	
 			
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
 		<div class="container">
 			<br>
-			<!-- <div class="container-fluid"> -->
-			<div>
-				<h1>카드 보유 목록입니다.</h1>
+			<br>
+
+			<div align="center">
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">카드 보유 목록</h1>
 			</div>
+			<br>
+			
+
 			<div>
 				<%-- ${hanaList} --%>
-				<hr size = "5">
+				<!-- <hr size = "5"> -->
 				<ul type = "none">
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<hr>
 					<c:forEach items = "${hanaList}" var ="card">
 						<li><img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
 						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>

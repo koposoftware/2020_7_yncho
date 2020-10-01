@@ -185,6 +185,7 @@
 		<!-- Begin Page Content -->
 		<div class="container" align="center">
 			<br>
+			<br>
 			<div>
 				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">연회비 </h1>
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">1만원 미만</h1>
