@@ -232,7 +232,7 @@
 	
 	</select>
 
-	<select id = "getTopCurrentYearOpen" parameterType = "map" resultType ="MypageVO">
+	<select id = "getTopCurrentYearOpenOri" parameterType = "map" resultType ="MypageVO">
 		WITH WHOLE AS (SELECT T.CARD_TRANSACTION_TIME, T.CARD_TRANSACTION_CONTENT, T.CARD_TRANSACTION_AMOUNT, T.PAYMENT, (SELECT L.CARD_PRODUCT_NAME 
                                                                 FROM CARD_PRODUCT_LIST L 
                                                                 WHERE L.CARD_PRODUCT_CODE = (SELECT C.CARD_PRODUCT_CODE
@@ -408,6 +408,48 @@
 		       WHERE NUM IS NOT NULL OR ROWNUM = 1) SUBQUERY12
 		WHERE ROWNUM = 1
 		<!-- 세미콜론 쓰지 않는 것에 주의! 또한 ROWNUM <=1 하니까 빨간 밑줄 뜬다. 에러는 안나겠지만, 그냥 등호(=)로 바꿔줌. -->
+	
+	</select>
+	
+	<select id = "getTopCurrentYearOpen" parameterType = "map" resultType ="MypageVO">
+		WITH WHOLE AS 
+		(
+			SELECT T.CARD_TRANSACTION_TIME, T.CARD_TRANSACTION_CONTENT, T.CARD_TRANSACTION_AMOUNT, 
+                        (SELECT VALUE FROM COMMON_CODE WHERE CODE = T.PAYMENT) AS PAYMENT, (SELECT L.CARD_PRODUCT_NAME 
+                                                                                    FROM CARD_PRODUCT_LIST L 
+                                                                                    WHERE L.CARD_PRODUCT_CODE = (SELECT C.CARD_PRODUCT_CODE
+                                                                                                                FROM CARD_CONTRACT C
+                                                                                                                WHERE C.CARD_NUM = T.CARD_NUM)
+                                                                                    ) AS MEANS
+            FROM CARD_TRANSACTION T 
+            WHERE CARD_NUM IN(SELECT CARD_NUM FROM CARD_CONTRACT WHERE RESI_NUM = #{resiNum})
+            
+            UNION ALL 
+            
+            SELECT CARD_TRANSACTION_TIME, CARD_TRANSACTION_CONTENT, CARD_TRANSACTION_AMOUNT, PAYMENT, MEANS
+            FROM OPEN_CARD_TRANSACTION
+            WHERE RESI_NUM = #{resiNum} AND MEANS IN (${cardListString}) <!-- $ # 차이가 있음! java 단에서 싱글쿼테이션 붙여서 날라오기 때문에 $ 쓴다. -->
+            
+            ORDER BY CARD_TRANSACTION_TIME
+        )
+        
+           SELECT NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'01', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'01', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) jan
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'02', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'02', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) feb
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'03', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'03', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) mar
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'04', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'04', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) apr
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'05', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'05', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) may
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'06', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'06', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) jun
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'07', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'07', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) jul
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'08', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'08', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) aug
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'09', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'09', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) sept
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'10', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'10', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) oct
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'11', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'11', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) nov
+            , NVL(SUM(CASE WHEN CARD_TRANSACTION_TIME BETWEEN TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'12', 'YYYYMM') AND ADD_MONTHS(TO_DATE(TO_CHAR(SYSDATE, 'YYYY')||'12', 'YYYYMM'), 1) THEN CARD_TRANSACTION_AMOUNT END), 0) dec
+
+
+		  FROM WHOLE
+		<!-- 세미콜론 쓰지 않는 것에 주의! 또한 ROWNUM <=1 하니까 빨간 밑줄 뜬다. 에러는 안나겠지만, 그냥 등호(=)로 바꿔줌. -->
+	
 	
 	</select>
 	
