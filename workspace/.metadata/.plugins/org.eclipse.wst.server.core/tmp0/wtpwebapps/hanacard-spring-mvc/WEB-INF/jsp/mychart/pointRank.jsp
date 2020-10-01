@@ -216,10 +216,10 @@
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">적립 혜택</h1>
 				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
 				
-				<div>
+				<!-- <div>
 					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
 					<button id = "searchBtn">조회</button>
-				</div>
+				</div> -->
 				
 			</div>
 			
