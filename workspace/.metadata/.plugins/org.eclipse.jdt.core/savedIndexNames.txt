@@ -14,7 +14,6 @@ INDEX VERSION 1.131+D:\workspace\2020_7_yncho\workspace\.metadata\.plugins\org.e
 1565265462.index
 1373630882.index
 2198314142.index
-2097284686.index
 711050520.index
 3186284575.index
 615226062.index

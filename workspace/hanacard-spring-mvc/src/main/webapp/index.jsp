@@ -246,7 +246,7 @@
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
             <h2 class="section-title-underline mb-3">
-              <span>혜택별 BEST CARD</span>
+              <span style ="font-weight: bold;">혜택별 BEST CARD</span>
             </h2>
             <p>이번 달 혜택별 BEST CARD를 살펴보세요!</p>
           </div>
