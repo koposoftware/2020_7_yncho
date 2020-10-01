@@ -183,13 +183,13 @@
     
 
 
-    <div class="site-section">
+    <!-- <div class="site-section">
       <div class="container">
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-4 mb-5">
             <h2 class="section-title-underline mb-5">
               <span>전체 BEST 3 CARD</span>
-              <!-- <span>Why Academics Works</span> -->
+              <span>Why Academics Works</span>
             </h2>
           </div>
         </div>
@@ -199,6 +199,7 @@
             <div class="feature-1 border">
               <div class="icon-wrapper bg-primary">
                 <span class="flaticon-mortarboard text-white"></span>
+                <span style ="color: white; font-size: 40px;">1</span>
               </div>
               <div class="feature-1-content">
                 <h2>Personalize Learning</h2>
@@ -211,6 +212,7 @@
             <div class="feature-1 border">
               <div class="icon-wrapper bg-primary">
                 <span class="flaticon-school-material text-white"></span>
+                <span style ="color: white; font-size: 40px;">2</span>
               </div>
               <div class="feature-1-content">
                 <h2>Trusted Courses</h2>
@@ -223,6 +225,7 @@
             <div class="feature-1 border">
               <div class="icon-wrapper bg-primary">
                 <span class="flaticon-library text-white"></span>
+                <span style ="color: white; font-size: 40px;">3</span>
               </div>
               <div class="feature-1-content">
                 <h2>Tools for Students</h2>
@@ -233,7 +236,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="site-section">
@@ -243,9 +246,9 @@
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
             <h2 class="section-title-underline mb-3">
-              <span>영역별 BEST CARD</span>
+              <span>혜택별 BEST CARD</span>
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?</p>
+            <p>이번 달 혜택별 BEST CARD를 살펴보세요!</p>
           </div>
         </div>
 
@@ -254,12 +257,12 @@
               <div class="owl-slide-3 owl-carousel">
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_1.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/Any PLUS 카드.png" alt="Image" class="img-fluid"></a>
+                      <!-- <div class="price">연 ￦5,000</div> -->
+                      <div class="category"><h3>SMART ANY(스마트 애니)카드</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
+                      <h2>생활 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -267,19 +270,19 @@
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
                       </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                      <p class="desc mb-4">전월실적, 이용횟수, 할인한도 제한없이 모든 가맹점 0.8% 청구할인</p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
                     </div>
                   </div>
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_2.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Web Design</h3></div>  
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/모두의 쇼핑.png" alt="Image" class="img-fluid"></a>
+                      <!-- <div class="price">$99.00</div> -->
+                      <div class="category"><h3>모두의 쇼핑</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
+                      <h2>마트/쇼핑 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -287,19 +290,19 @@
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
                       </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                      <p class="desc mb-4">모바일 전용 카드로 즐기는 쇼핑 혜택!</p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
                     </div>
                   </div>
       
                   <div class="course-1-item">
                     <figure class="thumnail">
-                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_3.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Arithmetic</h3></div>  
+                      <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/CLUB SK(클럽 SK)카드.png" alt="Image" class="img-fluid"></a>
+                      <!-- <div class="price">$99.00</div> -->
+                      <div class="category"><h3>CLUB SK(클럽 SK)카드</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
+                      <h2>통신/교통 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -307,19 +310,19 @@
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
                       </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="courses-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                      <p class="desc mb-4">100만 고객이 선택한 SK의 모든 혜택</p>
+                      <p><a href="courses-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
                     </div>
                   </div>
 
                   <div class="course-1-item">
                     <figure class="thumnail">
-                        <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_4.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
+                        <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/My Trip 1Q Global VIVA.png" alt="Image" class="img-fluid"></a>
+                      <!-- <div class="price">$99.00</div> -->
+                      <div class="category"><h3>My Trip 1Q Global VIVA</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
+                      <h2>레저/여행/항공 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -327,12 +330,12 @@
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
                       </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                      <p class="desc mb-4">해외여행을 위한 MUST HAVE 카드</p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
                     </div>
                   </div>
       
-                  <div class="course-1-item">
+                  <!-- <div class="course-1-item">
                     <figure class="thumnail">
                         <a href="course-single.html"><img src="/hanacard-spring-mvc/resources/images/course_5.jpg" alt="Image" class="img-fluid"></a>
                       <div class="price">$99.00</div>
@@ -370,7 +373,7 @@
                       <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
                       <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                     </div>
-                  </div>
+                  </div> -->
       
               </div>
       
