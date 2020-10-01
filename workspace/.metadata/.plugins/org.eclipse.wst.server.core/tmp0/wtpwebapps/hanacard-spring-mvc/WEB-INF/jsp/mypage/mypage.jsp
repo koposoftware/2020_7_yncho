@@ -1112,6 +1112,8 @@
 						<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap">  -->
 						<!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
 						<div class="card-body">
+						
+						
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
 								<!-- <div class="col mr-2"> -->
@@ -1149,6 +1151,7 @@
 						</div>
 					
 						<div class="card-body">
+						
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
 									<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>  -->
@@ -1159,7 +1162,8 @@
 									<br>
 									<br>
 									<div style = "text-align: right">
-										<span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span> --%>
 										<!-- <span class="h1 mb-0 font-weight-bold text-gray-800"><script>numberWithCommas(${mypageVO.sept})</script></span> -->
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800 justify-content-end" >${mypageVO.sept}</span> --%>
@@ -1183,6 +1187,7 @@
 							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div> 
 						</div>
 						<div class="card-body">
+						
 							<div class="row no-gutters align-items-center">
 								<div>
 								<!-- <div class="col mr-2"> -->
