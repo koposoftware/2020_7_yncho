@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Academics &mdash; Website by Colorlib</title>
+<title>하나카드</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
+  
+  <link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
+  
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -245,9 +248,9 @@
 
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
-            <h2 class="section-title-underline mb-3">
+            <h1 class="section-title-underline mb-3">
               <span style ="font-weight: bold;">혜택별 BEST CARD</span>
-            </h2>
+            </h1>
             <p>이번 달 혜택별 BEST CARD를 살펴보세요!</p>
           </div>
         </div>
@@ -380,11 +383,16 @@
           </div>
         </div>
 
-        
+      
         
       </div>
     </div>
-
+    
+	  <br>
+      <br>
+      <br>
+      <br>
+      <br>
 	
 
 
