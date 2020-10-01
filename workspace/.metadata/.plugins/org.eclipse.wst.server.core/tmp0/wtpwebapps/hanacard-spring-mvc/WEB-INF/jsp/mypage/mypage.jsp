@@ -1211,7 +1211,7 @@
 										<span>하나 THE 30</span>&nbsp;&nbsp;&nbsp;
 									</div>
 									<div>
-										<span>${loginVO.name}님은 일반회원입니다</span>&nbsp;&nbsp;&nbsp; 
+										<span>${loginVO.name}님은 <b>일반회원</b>입니다</span>&nbsp;&nbsp;&nbsp; 
 									</div>
 									<div>
 										<button type="button" class="btn btn-light btn-sm"><a href = "https://www.hanacard.co.kr/OPY01400000N.web?schID=pcd&mID=OPY01400000N&">하나 더(THE) 30</a></button> 
@@ -1562,7 +1562,10 @@
 							<h5 class="card-title" id = "recocardTitleTotal">통합 BEST</h5>
 							<p class="card-text" id ="recocardTextTotal">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">카드 보러가기</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1579,7 +1582,10 @@
 							<h5 class="card-title" id = "recocardTitleDis">할인 BEST</h5>
 							<p class="card-text" id ="recocardTextDis">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">카드 보러가기</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1596,7 +1602,10 @@
 							<h5 class="card-title" id = "recocardTitlePoint">적립 BEST</h5>
 							<p class="card-text" id ="recocardTextPoint">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">카드 보러가기</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1613,7 +1622,10 @@
 							<h5 class="card-title" id = "recocardTitleMile">마일리지 BEST</h5>
 							<p class="card-text" id ="recocardTextMile">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">카드 보러가기</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -2573,8 +2585,7 @@
 							$('#recocardImageMile').attr('src', path);
 							
 							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
-
+							$('#recocardTextMile').html('소비를 통합하시면, &nbsp;&nbsp; \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
 							
 							
 							//alert('추천카드 성공');
