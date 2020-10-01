@@ -270,8 +270,8 @@
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
                       </div>
-                      <p class="desc mb-4">전월실적, 이용횟수, 할인한도 제한없이 모든 가맹점 0.8% 청구할인</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
+                      <p class="desc mb-4">모든 가맹점 0.8% 청구할인</p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러가기</a></p>
                     </div>
                   </div>
       
@@ -291,7 +291,7 @@
                         <span class="icon-star2 text-warning"></span>
                       </div>
                       <p class="desc mb-4">모바일 전용 카드로 즐기는 쇼핑 혜택!</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러가기</a></p>
                     </div>
                   </div>
       
@@ -311,7 +311,7 @@
                         <span class="icon-star2 text-warning"></span>
                       </div>
                       <p class="desc mb-4">100만 고객이 선택한 SK의 모든 혜택</p>
-                      <p><a href="courses-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
+                      <p><a href="courses-single.html" class="btn btn-primary rounded-0 px-4">카드 보러가기</a></p>
                     </div>
                   </div>
 
@@ -331,7 +331,7 @@
                         <span class="icon-star2 text-warning"></span>
                       </div>
                       <p class="desc mb-4">해외여행을 위한 MUST HAVE 카드</p>
-                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러 가기</a></p>
+                      <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">카드 보러가기</a></p>
                     </div>
                   </div>
       
