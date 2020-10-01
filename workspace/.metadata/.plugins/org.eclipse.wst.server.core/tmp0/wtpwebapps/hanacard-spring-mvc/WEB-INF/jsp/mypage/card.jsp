@@ -171,19 +171,28 @@
 						</li>
 						<br>
 					</c:forEach>
+					<button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
+					<div class="panel">
+						<ul>
+							<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
+							<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
+							<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>
+						</ul>
+					</div>
 				</ul>
 			</div>
 
 
 
-			<button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
+			<!-- <button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
 			<div class="panel">
 				<ul>
 					<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
 					<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
 					<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>
 				</ul>
-			</div>
+			</div> -->
+			
 			<br>
 
 		
