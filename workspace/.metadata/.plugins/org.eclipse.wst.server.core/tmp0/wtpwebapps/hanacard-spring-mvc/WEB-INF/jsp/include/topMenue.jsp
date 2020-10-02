@@ -41,7 +41,8 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="${ pageContext.request.contextPath }/index.jsp" class="d-block">
-              <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid">
+              <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down3.png" alt="Image" class="img-fluid">
+              <!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
             </a>
           </div>
           <div class="mr-auto">
