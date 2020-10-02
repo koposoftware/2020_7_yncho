@@ -265,6 +265,12 @@
 
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
+          	<br>
+          	<br>
+          	<br>
+          	<br>
+          	<br>
+          	<br>
             <h1 class="section-title-underline mb-3">
             	<div style ="border-bottom: 1px solid #bcbcbc; font-family : HanaCM; font-weight: bold;">혜택별 BEST CARD</div>
               <!-- <span style ="font-weight: bold;">혜택별 BEST CARD</span> -->
