@@ -125,7 +125,7 @@
 	            	 //alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
 	            	 
 	            	 addListHtml += "<li>";
-	            	 addListHtml += "<div style = \"background-color: #F5F5DC; box-shadow: 15px 15px 15px grey;\">";
+	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 15px 15px 15px grey;\">";
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span style = \"vertical-align: middle; font-size: 100px; color: #696969;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span>";
@@ -283,7 +283,7 @@
 						<br>
 						<br>
 						<br>
-						<div align="center" style = "width : 450px; font-weight : bold; font-size: 120px; color: #ff6e61; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div align="center" style = "width : 450px; font-weight : bold; font-size: 120px; color: #293250; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<!-- <div align="center" style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -366,7 +366,8 @@
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li> 
-							<div style = "background-color: #F5F5DC; box-shadow: 15px 15px 15px grey;">
+							<div style = "background-color: #E8F5FF; box-shadow: 15px 15px 15px grey;">
+							<!-- <div style = "background-color: #F5F5DC; box-shadow: 15px 15px 15px grey;"> -->
 							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey; width :100%;"> -->
 							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
 							<!-- <div style = "background-color: #E8F5FF;"> -->
