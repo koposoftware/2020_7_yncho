@@ -174,8 +174,10 @@
           <div class="row align-items-center">
             <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
               <!-- <h1>Smart Life를 선도하는 Smart 금융 </h1> -->
-              <h1>Smart Life</h1>
-              <h1>Smart Finance</h1>
+              <!-- <h1>Smart Life</h1>
+              <h1>Smart Finance</h1> -->
+              <h1>SMART LIFE</h1>
+              <h1>SMART FINANCE</h1>
               <!-- <h3>Smart Life를 선도하는 Smart 금융 </h3> -->
               <!-- <h5>INNOVATOR by KEB Hana Card</h5> -->
             </div>
@@ -280,7 +282,7 @@
                       <div class="category"><h3>SMART ANY(스마트 애니)카드</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>생활 혜택 BEST</h2>
+                      <h2 style = "font-family: HanaUL">생활 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -300,7 +302,7 @@
                       <div class="category"><h3>모두의 쇼핑</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>마트/쇼핑 혜택 BEST</h2>
+                      <h2 style = "font-family: HanaUL">마트/쇼핑 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -320,7 +322,7 @@
                       <div class="category"><h3>CLUB SK(클럽 SK)카드</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>통신/교통 혜택 BEST</h2>
+                      <h2 style = "font-family: HanaUL">통신/교통 혜택 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>
@@ -340,7 +342,7 @@
                       <div class="category"><h3>My Trip 1Q Global VIVA</h3></div>  
                     </figure>
                     <div class="course-1-content pb-4">
-                      <h2>레저/여행/항공 BEST</h2>
+                      <h2 style = "font-family: HanaUL">레저/여행/항공 BEST</h2>
                       <div class="rating text-center mb-3">
                         <span class="icon-star2 text-warning"></span>
                         <span class="icon-star2 text-warning"></span>

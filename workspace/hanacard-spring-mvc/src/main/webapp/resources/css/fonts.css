@@ -42,6 +42,19 @@ li {
 }  
 
 
+h1, h2, h3, h4, h5 {
+	
+	font-family: HanaCM;
+	
+}
+
+p{
+	
+	font-family: HanaUL;
+	font-size: 22px;
+	
+}
+
 
 /*
 
