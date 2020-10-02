@@ -637,7 +637,7 @@
 				        		 addListHtml += "<li>";
 				            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
 				            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-				            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (i + 1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: #696969;\">" + (i + 1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				            	 addListHtml += "<span>";
 				            	 
 		 						if(list[0][i].substring(0,1) == '#'){
@@ -652,7 +652,7 @@
 		 						
 		 				    	 addListHtml += "</span>";
 				            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-				            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + list[0][i] + '&nbsp;&nbsp;&nbsp;￦' + numberWithCommas(parseInt(list[1][i])) + " 할인&적립 혜택</span>";
+				            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: #696969;\">" + list[0][i] + '&nbsp;&nbsp;&nbsp;￦' + numberWithCommas(parseInt(list[1][i])) + " 할인&적립 혜택</span>";
 				            	 addListHtml += "</div>";
 				            	 addListHtml += "</li>";
 				            	 addListHtml += "<br>";
