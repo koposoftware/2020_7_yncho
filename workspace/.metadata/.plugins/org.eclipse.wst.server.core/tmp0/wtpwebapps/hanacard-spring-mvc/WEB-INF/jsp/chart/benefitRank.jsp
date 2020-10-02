@@ -97,12 +97,19 @@
 			
 		//alert('ajax category ==> ' + category)
 			
-		let year = $('#start').val().substring(2,4);
-		let month = $('#start').val().substring(5, 7);		
+		//let year = $('#start').val().substring(2,4);
+		//let month = $('#start').val().substring(5, 7);		
 		
-		//alert('year : ' + year);
-		//alert('month : ' + month);
+		let year = $('#bottomYear').val().substring(0,4);
+		let month = $('#bottomMonth').val();
 		
+		if(month == '전체'){
+			month = 'all';
+		} else{
+			month = $('#bottomMonth').val().slice(0,-1); //끝문자부터 자르기
+			if(month.length == 1)
+				month = '0' + month;
+		}
 		
 		$.ajax({
 			//url : '${ pageContext.request.contextPath }/mypage/recocard/' + year + '/' + month,
@@ -130,7 +137,6 @@
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span>";
-	            	 
 	            	 
 	            	 
 	            	 if(this.cardName.substring(0,1) == '#'){
@@ -261,10 +267,49 @@
 				
 				<!-- <input type="month"> -->
 				
-				<div>
+				<!-- <div>
 					<input type="month" id="start" name="start" min="2018-01" value="2020-10" style ="font-size: 20px;">
 					<button id = "searchBtn">조회</button>
+				</div> -->
+				
+				<%-- 소비 패턴 버튼 시작 --%>
+				<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
+					<!-- Example single danger button -->
+	
+					<select class="selectpicker" data-style="btn-success" id="bottomYear" style ="font-family: sans-serif;">
+						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<option>2020년</option>
+						<option>2019년</option>
+						<option>2018년</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;
+					<select class="selectpicker" data-style="btn-success" id="bottomMonth" style ="font-family: sans-serif;">
+						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<option>전체</option>
+						<option>1월</option>
+						<option>2월</option>
+						<option>3월</option>
+						<option>4월</option>
+						<option>5월</option>
+						<option>6월</option>
+						<option>7월</option>
+						<option>8월</option>
+						<option>9월</option>
+						<option>10월</option>
+						<option>11월</option>
+						<option>12월</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="searchBtn">
+					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
+						<i class="fas fa-download fa-sm text-white-50"></i> 조회
+					</button>
+					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
+	
 				</div>
+				<%-- 소비 패턴 버튼 끝 --%>
+				
+				
 				
 				<!-- <input type="datetime-local"> -->
 				

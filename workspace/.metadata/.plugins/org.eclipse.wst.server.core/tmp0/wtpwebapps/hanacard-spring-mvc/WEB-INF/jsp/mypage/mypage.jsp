@@ -1179,7 +1179,7 @@
 									<br>
 									<br>
 									<div style = "text-align: right">
-										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory; font-family: HanaCM;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory; font-family: HanaCM;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.oct}"/></span>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span> --%>
