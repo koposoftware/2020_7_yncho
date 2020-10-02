@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@font-face { 
+	
+	font-family: hanaCM;
+	src: url('/hanacard-spring-mvc/resources/fonts/hana/HanaCM.ttf');
+
+}
+
+
+/*
+
+* {
+	
+	font-family: HanaCM;
+	font-size: 20px;
+}
+
+*/

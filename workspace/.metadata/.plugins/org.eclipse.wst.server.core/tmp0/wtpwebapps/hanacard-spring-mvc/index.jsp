@@ -23,7 +23,16 @@
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
   
+
   <link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
+  
+  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
+    
+  <!-- <style>
+  	body { font-family: 'Times New Roman', Times, Arial, Helvetica, sans-serif; }
+  </style> -->
+  
+  
   
 </head>
 
@@ -42,6 +51,7 @@
 
 
     <div class="py-2 bg-light">
+    <!-- <div class="py-2 bg-light"> -->
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-9 d-none d-lg-block">
@@ -65,6 +75,7 @@
         </div>
       </div>
     </div>
+    
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
