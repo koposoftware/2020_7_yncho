@@ -98,10 +98,27 @@
 				let list = JSON.parse(data);
 				//alert('list: ' + list);
 				
+		        $("#topImg").empty();
+		        $("#topName").empty();
+		        
+		        
+		        var addTopImg ="";
+		        addTopImg += "<br>";
+			   	 if(list[0].cardName.substring(0,1) == '#'){
+			   		addTopImg += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0].cardName.substring(1, list[0].cardName.length)  + ".png\" style = \"width : 198px; height : 126px;\">";
+	        	 } else{
+	        		 addTopImg += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0].cardName + ".png\" style = \"width : 198px; height : 126px;\">";
+	        	 }		        
+			   	 
+		        var addTopName ="";
+		        addTopName += "<div id=\"topName\" align=\"left\" style = \"width : 310px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + list[0].cardName + "</div>";
+		        
+		        
+		        $('#topImg').append(addTopImg); 
+		        $('#topName').append(addTopName); 
+		        
+		        
 		        $("#ulList").empty();
-		        
-		        
-		        
 	           var addListHtml ="";
 	             $(list).each(function(index){
 	            	 
@@ -266,24 +283,33 @@
 						<br>
 						<br>
 						<br>
-						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div align="center" style = "width : 450px; font-weight : bold; font-size: 120px; color: #ff6e61; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<!-- <div align="center" style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						
-						<span style = "width : 40%;">
+						<div id="topImg" align="center" style ="width : 170px; vertical-align: middle; display: inline-block; float : left;">
+						<!-- <div id="topImg" align="center" style ="width : 170px; vertical-align: middle; display: inline-block; float : left;"> -->
+						<!-- <div id="topImg" align="center" style = "width : 40%; display: inline-block;"> -->
 							<c:choose>
 								<c:when test="${ fn:substring(ageSortList[0].cardName, 0, 1) == '#'  }">
+									<br>
 									<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(ageSortList[0].cardName, 1, fn:length(ageSortList[0].cardName)) }.png" style = "width : 198px; height : 126px;">
 								</c:when>
 								<c:otherwise>
-									<img src="/hanacard-spring-mvc/resources/images/${ ageSortList[0].cardName }.png" style = "width : 264px; height : 168px;">
+									<br>
+									<img src="/hanacard-spring-mvc/resources/images/${ ageSortList[0].cardName }.png" style = "width : 198px; height : 126px;">
 								</c:otherwise>
 							</c:choose>
-						</span>
+						</div>
 						
 						<%-- ${ageSortList[0].cardName} --%>
-						<span style = "vertical-align: middle; font-size: 30px; color: #696969; width : 30%; font-family: HanaM;">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span>
+						<br>
+						<br>
+						<div id="topName" align="left" style = "width : 310px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</div>
+						<%-- <div id="topName" align="center" style = "vertical-align: middle; font-size: 30px; color: #696969; width : 30%; font-family: HanaM; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</div> --%>
 						<%-- <span style = "vertical-align: middle; font-size: 30px; color: black; text-shadow: 5px 5px 5px black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span> --%>
 						
 						<%-- ${ageSortList[0].cardName} --%>

@@ -85,7 +85,7 @@ public class ChartController {
 	
 	@ResponseBody // ajax 사용할 때 쓰는 어노테이션(forward 시킬 주소가 필요없음)
 	@GetMapping("/chart/agerank/{category}/{year}/{month}") // 해당 주소로 get 방식으로 request가 왔을 때 아래의 메소드가 실행된다.
-	public List<ChartVO> getTopAge(@PathVariable("category") String category, @PathVariable("year") String year, @PathVariable("month") String month) {
+	public List<ChartVO> getTopAge(@PathVariable("category") String category, @PathVariable("year") String year, @PathVariable("month") String month, HttpSession session) {
 		
 		/*
 		 * 		if(category == '생활')
@@ -100,8 +100,8 @@ public class ChartController {
 		
 		List<ChartVO> ageSortList = chartService.getAgeSortList(category, year, month);
 		
-		
-		//List<ChartVO> list = chartService.getTopLife();
+		//session.setAttribute("ageSortList", ageSortList); // 굳이 addObject로 등록했다가 @SessionAttributes에 적을필요가 없이 이렇게 하면 되네..
+
 		
 		return ageSortList;
 	}
