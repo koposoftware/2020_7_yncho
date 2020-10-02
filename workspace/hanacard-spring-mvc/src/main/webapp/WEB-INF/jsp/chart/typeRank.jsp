@@ -108,7 +108,7 @@
 	            	 addListHtml += "<li>";
 	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: #696969;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span>";
 	            	 
 	            	 
@@ -125,7 +125,7 @@
 	            	 
 	            	 addListHtml += "</span>";
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
+	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: #696969;\">" + this.cardName + "</span>";
 	            	 addListHtml += "</div>";
 	            	 addListHtml += "</li>";
 	            	 addListHtml += "<br>";
@@ -294,7 +294,7 @@
 							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
 							<!-- <div style = "background-color: #E8F5FF;"> -->
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #696969;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span>
 									<c:choose>
 										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
@@ -306,7 +306,7 @@
 									</c:choose>
 								</span>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+								<span style ="font-size: 30px; vertical-align: sub; color: #696969;">${ top.cardName }</span>
 							</div>
 						</li>
 						<br>
