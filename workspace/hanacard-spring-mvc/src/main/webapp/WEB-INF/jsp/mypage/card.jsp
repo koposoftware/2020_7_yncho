@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,7 +132,7 @@
 			<br>
 
 			<div align="center">
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">카드 보유 목록</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">보유카드정보</h1>
 			</div>
 			<br>
 			
@@ -143,11 +144,40 @@
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<hr>
 					<c:forEach items = "${hanaList}" var ="card">
-						<li><img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
-							<span>${ card.cardProductName }</span>
-							<span>${ card.cardNum }</span>
-							<span>${ card.regDate }</span>
+						<li>
+							<div style = "display: inline-block;">
+							<!-- <div style = "display: inline-block; width: 30%;"> -->
+								<img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
+								<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
+							</div>
+						
+							<div style = "display: inline-block; vertical-align: middle; margin-left: 30px;" >
+							<!-- <div style = "display: inline-block; height : 168px;"> -->
+							<!-- <div style = "display: inline-block; margin-left: 5px;"> -->
+							
+								<div>
+								<!-- <div style ="height : 100px; vertical-align: bottom;"> -->
+									<c:set var="TextValue" value="${ card.cardNum }"/>
+									<span>${ fn:substring(TextValue, 0,4) } </span>
+									<span>-****-****-</span>
+									<span>${ fn:substring(TextValue, 12,16) } </span>
+									<a href="#" class="btn btn-dark btn-sm" style ="text-align: center;">카드번호/유효기간 보기</a>
+									
+									<%-- <span>${ card.cardNum }</span> --%>
+								</div>
+								<div>
+								<!-- <div style="height : 100px; vertical-align: middle;"> -->
+									<span>${ card.cardProductName } | </span>
+									<span>서울교통(후불) | </span>
+									<c:set var="TextValue2" value="${ card.regDate }"/>
+									<%-- <span>${ card.regDate }</span> --%>
+									<span>신청일 ${ fn:substring(TextValue2, 0,4) }. </span>
+									<span>${ fn:substring(TextValue2, 5,7) }. </span>
+									<span>${ fn:substring(TextValue2, 8,10) } | 정상</span>
+								</div>
+							
+							
+							</div>
 							
 							<%-- <div>${ card }</div>
 							<div>${ cardNum }</div> --%>
@@ -169,11 +199,16 @@
 								<dd>${loginVO.id} | 신청일 2020.00.00 | 정상</dd>
 							</span> --%>
 						</li>
-						<br>
+						<!-- <br> -->
 					</c:forEach>
-					<button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
+					<br>
+					
+											<!-- 	<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
+					
+					<button class="accordion" style = "height : 80px; font-size: 20px; background-color: #F8F8F8; box-shadow: 5px 5px 5px grey; ">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
 					<div class="panel">
 						<ul>
+							<br>
 							<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
 							<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
 							<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>

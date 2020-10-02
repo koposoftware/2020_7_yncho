@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="보유카드 정보 안내"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="month == &apos;all&apos;"/>
-			<item value="AND CARD_TRANSACTION_TIME &gt;= TO_DATE(#{year}||&apos;01&apos;, &apos;YYYYMM&apos;)"/>
-			<item value="mypageVO.getI1"/>
-			<item value="getBottom"/>
-			<item value="getTopCurrentYear"/>
-			<item value="카드 보러"/>
-			<item value="소비를"/>
-			<item value="카드 보러가기"/>
-			<item value="보유 카드"/>
-			<item value="일반"/>
-			<item value="전체 Be"/>
-			<item value="question"/>
-			<item value="ques"/>
-			<item value="have a"/>
-			<item value="hava a "/>
+			<item value="보유카드 정보 안내"/>
+			<item value="대시보드 전체를 담고있는 컨테이너 "/>
+			<item value="혜택"/>
+			<item value="할인 혜택"/>
+			<item value="통합 혜택"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;$(&apos;#recocardTextTotal&apos;).html(&apos;소비를 통합하시고, &lt;br&gt; &lt;span style =&quot;text-decoration: underline;&quot;&gt;&lt;b&gt;&apos; + numberWithCommas(totalValue) + &apos;(원)&lt;/b&gt;&lt;/span&gt;의 혜택을 누리세요!&apos;);"/>
+			<item value="혜택별 "/>
+			<item value="혜택별"/>
+			<item value="이번 달 "/>
+			<item value="보유카드"/>
+			<item value="ivory"/>
+			<item value="recocardText"/>
+			<item value="recocardTextTotal"/>
+			<item value="통합 BEST"/>
+			<item value="소비패턴 기반"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1199"/>
-		<item key="DIALOG_Y_ORIGIN" value="626"/>
+		<item key="DIALOG_X_ORIGIN" value="1284"/>
+		<item key="DIALOG_Y_ORIGIN" value="469"/>
 		<item key="DIALOG_WIDTH" value="515"/>
 		<item key="DIALOG_HEIGHT" value="580"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
