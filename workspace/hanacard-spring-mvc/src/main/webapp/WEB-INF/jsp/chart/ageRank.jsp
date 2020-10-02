@@ -125,9 +125,9 @@
 	            	 //alert('this.cardName.substring(0,1) ===> ' + this.cardName.substring(0,1) );
 	            	 
 	            	 addListHtml += "<li>";
-	            	 addListHtml += "<div style = \"background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;\">";
+	            	 addListHtml += "<div style = \"background-color: #F5F5DC; box-shadow: 15px 15px 15px grey;\">";
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	            	 addListHtml += "<span style = \"vertical-align: middle; font-weight : bold; font-size: 100px; color: black;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	            	 addListHtml += "<span style = \"vertical-align: middle; font-size: 100px; color: #696969;\">" + (index+1) + "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	            	 addListHtml += "<span>";
 	            	 
 	            	 
@@ -144,7 +144,7 @@
 	            	 
 	            	 addListHtml += "</span>";
 	            	 addListHtml += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color: black;\">" + this.cardName + "</span>";
+	            	 addListHtml += "<span style =\"font-size: 30px; vertical-align: sub; color:  #696969;\">" + this.cardName + "</span>";
 	            	 addListHtml += "</div>";
 	            	 addListHtml += "</li>";
 	            	 addListHtml += "<br>";
@@ -366,7 +366,7 @@
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li> 
-							<div style = "background-color: #F5F5DC; box-shadow: 15px 15px 15px grey; width :100%;">
+							<div style = "background-color: #F5F5DC; box-shadow: 15px 15px 15px grey;">
 							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey; width :100%;"> -->
 							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
 							<!-- <div style = "background-color: #E8F5FF;"> -->
