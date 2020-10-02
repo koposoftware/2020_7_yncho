@@ -26,14 +26,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
 
-<!-- <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css"> -->
-
-<style>
-  	li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	}  
-</style>
+<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
 
 
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>

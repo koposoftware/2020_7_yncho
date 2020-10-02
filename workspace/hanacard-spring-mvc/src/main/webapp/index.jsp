@@ -32,27 +32,6 @@
   	body { font-family: 'Times New Roman', Times, Arial, Helvetica, sans-serif; }
   </style> -->
   
-  <style>
-  /* 	ul li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	} */
-  	
-  	li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	}  
-  	
-  	/* .dropdown {
-  	
-  		font-size: 20px;
-  		font-family: HanaUL;
-  	} */
-  
-  </style>
-  
-  
-  
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

@@ -27,26 +27,6 @@
 <link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
 <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
 
-  <style>
-  /* 	ul li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	} */
-  	
-  	li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	}  
-  	
-  	/* .dropdown {
-  	
-  		font-size: 20px;
-  		font-family: HanaUL;
-  	} */
-  
-  </style>
-
-
 <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
 
 <script>

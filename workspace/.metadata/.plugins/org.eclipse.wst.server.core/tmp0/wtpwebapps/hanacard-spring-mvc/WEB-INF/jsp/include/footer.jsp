@@ -13,28 +13,28 @@
             <p><a href="#">hanacard</a></p>
           </div>
           <div class="col-lg-3">
-            <h3 class="footer-heading"><span>나만의차트</span></h3>
+            <h1 class="footer-heading"><span>나만의차트</span></h1>
             <ul class="list-unstyled">
-                <li><a href="#">통합순위</a></li>
-                <li><a href="#">할인순위</a></li>
-                <li><a href="#">적립순위</a></li>
-                <li><a href="#">마일리지순위</a></li>
+                <li style = "font-size: 18px;"><a href="#">통합순위</a></li>
+                <li style = "font-size: 18px;"><a href="#">할인순위</a></li>
+                <li style = "font-size: 18px;"><a href="#">적립순위</a></li>
+                <li style = "font-size: 18px;"><a href="#">마일리지순위</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
               <h3 class="footer-heading"><span>하나차트</span></h3>
               <ul class="list-unstyled">
-                  <li><a href="#">인기혜택별순위</a></li>
-                  <li><a href="#">연령대별순위</a></li>
-                  <li><a href="#">연회비별순위</a></li>
-                  <li><a href="#">카드타입별순위</a></li>
+                  <li style = "font-size: 18px;"><a href="#">인기혜택별순위</a></li>
+                  <li style = "font-size: 18px;"><a href="#">연령대별순위</a></li>
+                  <li style = "font-size: 18px;"><a href="#">연회비별순위</a></li>
+                  <li style = "font-size: 18px;"><a href="#">카드타입별순위</a></li>
               </ul>
           </div>
           <div class="col-lg-3">
               <h3 class="footer-heading"><span>고객센터</span></h3>
               <ul class="list-unstyled">
-                  <li><a href="#">자주묻는질문</a></li>
-                  <li><a href="#">Q&A</a></li>
+                  <li style = "font-size: 18px;"><a href="#">자주묻는질문</a></li>
+                  <li style = "font-size: 18px;"><a href="#">Q&A</a></li>
               </ul>
           </div>
         </div>

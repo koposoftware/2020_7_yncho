@@ -64,22 +64,6 @@
 	  padding-top: 140px;
 	  font-size: 14px;
 	}
-	
-  /* 	ul li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	} */
-  	
-  	li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	}  
-  	
-  	/* .dropdown {
-  	
-  		font-size: 20px;
-  		font-family: HanaUL;
-  	} */
   
 </style>
 

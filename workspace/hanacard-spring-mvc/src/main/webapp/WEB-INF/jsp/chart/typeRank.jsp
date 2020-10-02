@@ -33,11 +33,6 @@
 	   background-color: rgb(0,0,0,0.1);
 	}
 		
-		
-	li {
-  		font-family: HanaUL;
-  		font-size: 22px;
-  	}  
 </style>
 
 
