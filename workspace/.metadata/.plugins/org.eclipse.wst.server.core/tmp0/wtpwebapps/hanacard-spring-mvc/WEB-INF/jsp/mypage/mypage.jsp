@@ -1335,6 +1335,8 @@
 			</div>
 			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
+
+			<br>
 			<%-- 소비 개요 버튼 시작 --%>
 			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 			<!-- <div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5"> -->
@@ -1650,14 +1652,41 @@
 			<%-- 카드추천 끝 --%> 
 			
 			
+			<br>
 			<%-- 카드 거래내역 시작 --%>
-			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+			<div class="d-sm-flex align-items-center mb-4 mt-5">
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5"> -->
+				<div style = "display: inline-block; width : 50%; height : 100%; vertical-align: middle;">
+					<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">카드 이용 내역</span>
+				</div>
+				
+				<div style = "display: inline-block; width : 100%; height : 100%; vertical-align: middle;" align="right">
+					<div style = "vertical-align: middle; display: inline-block;">
+						<select class="selectpicker" data-style="btn-success" id="transPeriod">
+							<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+							<option>이번 달</option>
+							<option>2주</option>
+							<option>1개월</option>
+							<option>3개월</option>
+						</select>
+					</div>
+					&nbsp;&nbsp;
+					<div style = "display: inline-block;">
+						<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+						<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
+							<i class="fas fa-download fa-sm text-white-50"></i> 조회
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">카드 이용 내역</span>
-				<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: black;">카드 이용 내역</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: black;">카드 이용 내역</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span>
 					<select class="selectpicker" data-style="btn-success" id="transPeriod">
-						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<select class="selectpicker" multiple data-max-options="2">
 						<option>이번 달</option>
 						<option>2주</option>
 						<option>1개월</option>
@@ -1665,12 +1694,12 @@
 					</select>
 					&nbsp;&nbsp;
 					<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()">
 						<i class="fas fa-download fa-sm text-white-50"></i> 조회
 					</button>
 				</span>
 				
-			</div>
+			</div> -->
 			
 			<div>
 				<hr style="height:2px;border-width:0;color:gray;background-color:gray">
