@@ -266,7 +266,7 @@
 						<br>
 						<br>
 						<br>
-						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -283,7 +283,7 @@
 						</span>
 						
 						<%-- ${ageSortList[0].cardName} --%>
-						<span style = "vertical-align: middle; font-size: 30px; color: black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span>
+						<span style = "vertical-align: middle; font-size: 30px; color: #696969; width : 30%; font-family: HanaM;">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span>
 						<%-- <span style = "vertical-align: middle; font-size: 30px; color: black; text-shadow: 5px 5px 5px black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span> --%>
 						
 						<%-- ${ageSortList[0].cardName} --%>
@@ -340,11 +340,14 @@
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
 						<li> 
-							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey; width :100%;">
+							<div style = "background-color: #F5F5DC; box-shadow: 15px 15px 15px grey; width :100%;">
+							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey; width :100%;"> -->
 							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
 							<!-- <div style = "background-color: #E8F5FF;"> -->
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span style = "vertical-align: middle; font-size: 100px; color: #696969;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<%-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #696969;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --%>
+								<%-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --%>
 								<span>
 									<c:choose>
 										<c:when test="${ fn:substring(top.cardName, 0, 1) == '#' }">
@@ -356,7 +359,8 @@
 									</c:choose>
 								</span>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span>
+								<span style ="font-size: 30px; vertical-align: sub; color: #696969;">${ top.cardName }</span>
+								<%-- <span style ="font-size: 30px; vertical-align: sub; color: black;">${ top.cardName }</span> --%>
 							</div>
 						</li>
 						<br>
@@ -364,6 +368,9 @@
 					
 				</ul>
 			</div>
+			<br>
+			<br>
+			<br>
 
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
