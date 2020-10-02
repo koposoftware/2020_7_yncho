@@ -220,7 +220,7 @@
 				</div> -->
 				
 				
-				<%-- 소비 패턴 버튼 시작 --%>
+				<%-- 버튼 시작 --%>
 				<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 					<!-- Example single danger button -->
 	
@@ -255,10 +255,47 @@
 					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 	
 				</div>
-				<%-- 소비 패턴 버튼 끝 --%>
+				<%-- 버튼 끝 --%>
 				
-				
-				
+				<div style = "height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg');">
+				<!-- <div style = "height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg'); box-shadow: 20px 20px 20px grey;"> -->
+				<!-- <div style = "border: 1px solid red; height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg');"> -->
+				<!-- <div style = "border: 1px solid red; height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/bg_1.jpg');"> -->
+					
+					<div>
+						<br>
+						<br>
+						<br>
+						<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black; text-shadow: 5px 5px 5px black">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+						
+						<span style = "width : 40%;">
+							<c:choose>
+								<c:when test="${ fn:substring(ageSortList[0].cardName, 0, 1) == '#'  }">
+									<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(ageSortList[0].cardName, 1, fn:length(ageSortList[0].cardName)) }.png" style = "width : 198px; height : 126px;">
+								</c:when>
+								<c:otherwise>
+									<img src="/hanacard-spring-mvc/resources/images/${ ageSortList[0].cardName }.png" style = "width : 264px; height : 168px;">
+								</c:otherwise>
+							</c:choose>
+						</span>
+						
+						<%-- ${ageSortList[0].cardName} --%>
+						<span style = "vertical-align: middle; font-size: 30px; color: black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span>
+						<%-- <span style = "vertical-align: middle; font-size: 30px; color: black; text-shadow: 5px 5px 5px black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span> --%>
+						
+						<%-- ${ageSortList[0].cardName} --%>
+						
+					</div>
+					
+					<!-- <div>
+						<button>&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;</button>
+					</div> -->
+					
+									
+				</div>
 				
 			</div>
 
@@ -292,14 +329,19 @@
 			</div>
 			
 
+			<hr size = "5">
+			<br>
 			<div align="left">
-				<hr size = "5">
-				<ul id = "ulList" type = "none"> 
+				<!-- <hr size = "5"> -->
+				<ul id = "ulList" type ="none"> 
+				<!-- <ul id = "ulList" type = "none" style = "width = 100%;">  -->
+				<!-- <ul id = "ulList" type = "none"> --> 
 					
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
 					<c:forEach items = "${ageSortList}" var ="top" varStatus="loop">
-						<li>
-							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;">
+						<li> 
+							<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey; width :100%;">
+							<!-- <div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
 							<!-- <div style = "background-color: #E8F5FF;"> -->
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: black;">${loop.count}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
