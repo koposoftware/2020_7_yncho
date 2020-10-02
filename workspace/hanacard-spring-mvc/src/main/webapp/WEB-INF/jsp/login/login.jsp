@@ -21,6 +21,14 @@
   <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
 <link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
+<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
+
+<style>
+  	li {
+  		font-family: HanaUL;
+  		font-size: 22px;
+  	}  
+</style>
 
 <script>
 

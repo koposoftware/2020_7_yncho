@@ -7,6 +7,34 @@
 
 }
 
+@font-face { 
+	
+	font-family: hanaB;
+	src: url('/hanacard-spring-mvc/resources/fonts/hana/HanaB.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: HanaL;
+	src: url('/hanacard-spring-mvc/resources/fonts/hana/HanaL.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: hanaM;
+	src: url('/hanacard-spring-mvc/resources/fonts/hana/HanaM.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: hanaUL;
+	src: url('/hanacard-spring-mvc/resources/fonts/hana/HanaUL.ttf');
+
+}
+
 
 /*
 

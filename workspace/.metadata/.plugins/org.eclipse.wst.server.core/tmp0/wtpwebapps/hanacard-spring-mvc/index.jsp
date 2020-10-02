@@ -32,6 +32,25 @@
   	body { font-family: 'Times New Roman', Times, Arial, Helvetica, sans-serif; }
   </style> -->
   
+  <style>
+  /* 	ul li {
+  		font-family: HanaUL;
+  		font-size: 22px;
+  	} */
+  	
+  	li {
+  		font-family: HanaUL;
+  		font-size: 22px;
+  	}  
+  	
+  	/* .dropdown {
+  	
+  		font-size: 20px;
+  		font-family: HanaUL;
+  	} */
+  
+  </style>
+  
   
   
 </head>
@@ -51,6 +70,7 @@
 
 
     <div class="py-2 bg-light">
+    <!-- <div class="py-2 bg-light" style = "font-family: HanaUL; font-size: 20px;"> -->
     <!-- <div class="py-2 bg-light"> -->
       <div class="container">
         <div class="row align-items-center">
@@ -77,6 +97,8 @@
     </div>
     
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+    <!-- <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner" style = "font-family: HanaL; font-size: 22px;"> -->
+    <!-- <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner"> -->
 
       <div class="container">
         <div class="d-flex align-items-center">
@@ -92,6 +114,8 @@
                 <!-- <li class="active"> -->
                   <a href = "${ pageContext.request.contextPath }/mypage" class="nav-link text-left">마이페이지</a>
                   <ul class="dropdown">
+                  <!-- <ul class="dropdown" style = "font-family: HanaL; font-size: 50px;"> -->
+                  <!-- <ul class="dropdown"> -->
                     <li><a href="${ pageContext.request.contextPath }/mypage">종합 대시보드</a></li>
                     <li><a href="${ pageContext.request.contextPath }/mypage/owncard">보유카드정보</a></li>
                     <%-- <li><a href="${ pageContext.request.contextPath }/mypage/transaction">카드이용내역</a></li> --%>
