@@ -1449,10 +1449,11 @@
 						<option>2019년</option>
 						<option>2018년</option>
 					</select>
-					&nbsp;&nbsp;
+					&nbsp;
 					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id = "topBtn" style = "float :right;"> 
 					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">  -->
-						<i class="fas fa-download fa-sm text-white-50"></i> 조회
+						조회
+						<!-- <i class="fas fa-download fa-sm text-white-50"></i> 조회 -->
 					</button>
 					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 				</div>
@@ -1498,7 +1499,7 @@
 					<option>2019년</option>
 					<option>2018년</option>
 				</select>
-				&nbsp;&nbsp;&nbsp;
+				&nbsp;
 				<select class="selectpicker" data-style="btn-success" id="bottomMonth" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>전체</option>
@@ -1515,7 +1516,7 @@
 					<option>11월</option>
 					<option>12월</option>
 				</select>
-				&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;
 				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="bottomBtn">
 				<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
@@ -1687,11 +1688,12 @@
 							<option>3개월</option>
 						</select>
 					</div>
-					&nbsp;&nbsp;
+					&nbsp;
 					<div style = "display: inline-block;">
 						<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 						<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
-							<i class="fas fa-download fa-sm text-white-50"></i> 조회
+							<!-- <i class="fas fa-download fa-sm text-white-50"></i> 조회 -->
+							조회
 						</button>
 					</div>
 				</div>
