@@ -237,14 +237,14 @@
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 
-				<select class="selectpicker" data-style="btn-success" id="bottomYear">
+				<select class="selectpicker" data-style="btn-success" id="bottomYear" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>2020년</option>
 					<option>2019년</option>
 					<option>2018년</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<select class="selectpicker" data-style="btn-success" id="bottomMonth">
+				<select class="selectpicker" data-style="btn-success" id="bottomMonth" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>전체</option>
 					<option>1월</option>

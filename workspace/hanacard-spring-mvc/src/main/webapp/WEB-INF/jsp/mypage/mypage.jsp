@@ -576,7 +576,8 @@
 						$('#recocardImageTotal').attr('src', path);
 						
 						$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextTotal').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+						$('#recocardTextTotal').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextTotal').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
 						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 						
 						//$('#recocardTextTotal').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
@@ -587,7 +588,8 @@
 						$('#recocardImageDis').attr('src', path);
 						
 						$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextDis').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+						$('#recocardTextDis').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextDis').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
 					
 						
 						
@@ -596,7 +598,8 @@
 						$('#recocardImagePoint').attr('src', path);
 						
 						$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextPoint').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+						$('#recocardTextPoint').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextPoint').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
 						
 						
 						
@@ -605,7 +608,8 @@
 						$('#recocardImageMile').attr('src', path);
 						
 						$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextMile').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!');
+						$('#recocardTextMile').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextMile').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!');
 
 						
 						
@@ -1439,7 +1443,7 @@
 				</div>
 				
 				<div>
-					<select class="selectpicker" data-style="btn-success" id ="topYear">
+					<select class="selectpicker" data-style="btn-success" id ="topYear" style ="font-family: sans-serif;">
 						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 						<option>2020년</option>
 						<option>2019년</option>
@@ -1488,14 +1492,14 @@
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 
-				<select class="selectpicker" data-style="btn-success" id="bottomYear">
+				<select class="selectpicker" data-style="btn-success" id="bottomYear" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>2020년</option>
 					<option>2019년</option>
 					<option>2018년</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;
-				<select class="selectpicker" data-style="btn-success" id="bottomMonth">
+				<select class="selectpicker" data-style="btn-success" id="bottomMonth" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>전체</option>
 					<option>1월</option>
@@ -1675,7 +1679,7 @@
 				
 				<div style = "display: inline-block; width : 100%; height : 100%; vertical-align: middle;" align="right">
 					<div style = "vertical-align: middle; display: inline-block;">
-						<select class="selectpicker" data-style="btn-success" id="transPeriod">
+						<select class="selectpicker" data-style="btn-success" id="transPeriod" style ="font-family: sans-serif;">
 							<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 							<option>이번 달</option>
 							<option>2주</option>

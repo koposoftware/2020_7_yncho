@@ -199,7 +199,7 @@
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				
 				<div>
-					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<input type="month" id="start" name="start" min="2018-01" value="2020-10" style ="font-size: 20px;">
 					<button id = "searchBtn">조회</button>
 				</div>
 				

@@ -262,7 +262,7 @@
 				<!-- <input type="month"> -->
 				
 				<div>
-					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
+					<input type="month" id="start" name="start" min="2018-01" value="2020-10" style ="font-size: 20px;">
 					<button id = "searchBtn">조회</button>
 				</div>
 				
