@@ -1057,7 +1057,8 @@
 					</div>
 				</div> -->
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;" >
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;" >
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;" > -->
 				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;" > -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 				<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
@@ -1071,7 +1072,8 @@
 						</div> -->
 
 						<div class ="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1" style = "font-family: HanaCM;">보유 카드</div>
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</div> -->
 						</div>
 						
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -1081,7 +1083,7 @@
 										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0].cardProductName}.png" alt="slide" style ="height: 180px;"></a>
 										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a> --%>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${hanaList[0].cardProductName}</div>
+										<div style = "text-align: center; font-size: 20px;">${hanaList[0].cardProductName}</div>
 										<%-- <div style = "text-align: center;">${hanaList[0]}</div> --%>
 									</div>
 								<c:forEach items = "${hanaList}" var ="card" varStatus = "vs" begin = "1">
@@ -1089,7 +1091,7 @@
 										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card.cardProductName}.png" alt="slide" style ="height: 180px;"></a>
 										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a> --%>
 										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${card.cardProductName}</div>
+										<div style = "text-align: center; font-size: 20px;">${card.cardProductName}</div>
 										<%-- <div style = "text-align: center;">${card}</div> --%>
 									</div>
 								</c:forEach>
@@ -1136,8 +1138,8 @@
 									
 									<!-- <div class="h5 mb-0 font-weight-bold text-gray-800">개인카드</div> -->
 									<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">가족카드 <span class="badge badge-dark">0</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard" style = "font-family: HanaUL;">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard" style = "font-family: HanaUL;">가족카드 <span class="badge badge-dark">0</span></a></span>
 								</div>
 								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -1148,14 +1150,16 @@
 				</div>
 
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;">
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;"> -->
 				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;"> -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 ">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> py : 카드 상단 여백! -->
 					
 						<div class ="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 결제 예정 금액</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1"  style = "font-family: HanaCM;">이번 달 결제 예정 금액</div> 
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 결제 예정 금액</div>  -->
 						</div>
 					
 						<div class="card-body">
@@ -1169,13 +1173,15 @@
 									<br>
 									<br>
 									<br>
+									<br>
 									<div style = "text-align: right">
-										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory; font-family: HanaCM;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span> --%>
 										<!-- <span class="h1 mb-0 font-weight-bold text-gray-800"><script>numberWithCommas(${mypageVO.sept})</script></span> -->
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800 justify-content-end" >${mypageVO.sept}</span> --%>
-										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end">원</span>
+										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end" style = "font-family: HanaCM;">원</span>
 										<!-- <span class="h3 mb-0 font-weight-bold text-gray-800" style = "float : right">원</span> -->
 									</div>
 								</div>
@@ -1187,12 +1193,14 @@
 					</div>
 				</div>
 				
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;">
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;"> -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 py">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> -->
 						<div class="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1"  style = "font-family: HanaCM;">회원 정보</div> 
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div>  -->
 						</div>
 						<div class="card-body">
 						
@@ -1204,10 +1212,12 @@
 									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div> --%>
 									
 									<div>
-										<span>연락처</span>&nbsp;&nbsp;&nbsp; ${loginVO.phone}
+										<span>연락처&nbsp;&nbsp;&nbsp;${loginVO.phone}</span>
+										<%-- <span>연락처</span>&nbsp;&nbsp;&nbsp; ${loginVO.phone} --%>
 									</div>
 									<div>
-										<span>이메일</span>&nbsp;&nbsp;&nbsp; ${loginVO.email}
+										<span>이메일&nbsp;&nbsp;&nbsp;${loginVO.email}</span>
+										<%-- <span>이메일 </span>&nbsp;&nbsp;&nbsp; ${loginVO.email} --%>
 									</div>
 									<div>
 										<button type="button" class="btn btn-light btn-sm">개인정보 변경</button> 
@@ -2605,7 +2615,8 @@
 							$('#recocardImageTotal').attr('src', path);
 							
 							$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextTotal').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+							$('#recocardTextTotal').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextTotal').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
 							//$('#recocardTextTotal').html('소비를 통합하시고, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리세요!');
 							//$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
 							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
@@ -2618,7 +2629,8 @@
 							
 							$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 							//$('#recocardTextDis').html('소비를 통합하시고, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리세요!');
-							$('#recocardTextDis').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+							$('#recocardTextDis').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextDis').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
 						
 							
 							
@@ -2628,7 +2640,8 @@
 							
 							$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
 							//$('#recocardTextPoint').html('소비를 통합하시고, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리세요!');
-							$('#recocardTextPoint').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+							$('#recocardTextPoint').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextPoint').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
 							
 							
 							
@@ -2637,7 +2650,8 @@
 							$('#recocardImageMile').attr('src', path);
 							
 							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextMile').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
+							$('#recocardTextMile').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
+							//$('#recocardTextMile').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
 							//$('#recocardTextMile').html('소비를 통합하시면, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!'); 
 							
 							
