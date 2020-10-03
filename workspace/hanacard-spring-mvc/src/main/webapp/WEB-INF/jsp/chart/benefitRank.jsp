@@ -262,7 +262,8 @@
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">생활 혜택 TOP Chart</h1>
 				<!-- <h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활</h1>
 				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> 혜택 TOP3</h1> -->
-				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<button style = "vertical-align: sub;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<!-- <button style = "vertical-align: sub;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">조건 변경</button> -->
 				
 				
 				<div style = "vertical-align: high;">

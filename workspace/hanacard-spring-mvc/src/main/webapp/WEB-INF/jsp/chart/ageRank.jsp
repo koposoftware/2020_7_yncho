@@ -229,7 +229,9 @@
 			
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">전 연령 TOP Chart</h1>
 				<!-- <h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1> -->
-				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<!-- <button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button> -->
+				<button style = "vertical-align: sub;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
+				<!-- <button style = "vertical-align: sub;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">조건 변경</button> -->
 				
 				<!-- <div>
 					<input type="month" id="start" name="start" min="2018-01" value="2020-10" style ="font-size: 20px;">
