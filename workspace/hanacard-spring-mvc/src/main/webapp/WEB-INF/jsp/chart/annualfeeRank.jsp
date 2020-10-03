@@ -55,11 +55,11 @@
 	function getTopThree() {
 		
 		let category = $('#category').text();
-		if(category == '1만원 미만')
+		if(category == '연회비 1만원 미만 TOP Chart')
 			category = 'from0';
-		if(category == '1만원 이상 ~ 2만원 미만')
+		if(category == '연회비 1만원 이상 ~ 2만원 미만 TOP Chart')
 			category = 'from1';
-		if(category == '2만원 이상')
+		if(category == '연회비 2만원 이상 TOP Chart')
 			category = 'from2';
 			
 		//let year = $('#start').val().substring(2,4);
@@ -218,9 +218,10 @@
 			<br>
 			<br>
 			<div>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">연회비 </h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">연회비 1만원 미만 TOP Chart</h1>
+				<!-- <h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">연회비 </h1>
 				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">1만원 미만</h1>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1> --> 
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				
 				<!-- <div>
@@ -320,9 +321,9 @@
 							</div>
 							<div class="modal-body">
 								
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1만원 미만')">1만원 미만</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1만원 이상 ~ 2만원 미만')">1만원 이상 ~ 2만원 미만</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('2만원 이상')">2만원 이상</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('연회비 1만원 미만 TOP Chart')">1만원 미만</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('연회비 1만원 이상 ~ 2만원 미만 TOP Chart')">1만원 이상 ~ 2만원 미만</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('연회비 2만원 이상 TOP Chart')">2만원 이상</a></div> 
 							</div>
 						</form>
 					</div>

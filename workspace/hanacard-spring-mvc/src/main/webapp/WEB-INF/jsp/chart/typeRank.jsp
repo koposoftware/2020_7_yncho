@@ -56,15 +56,15 @@
 	function getTopThree() {
 		
 		let category = $('#category').text();
-		if(category == '1Q+ 카드')
+		if(category == '1Q+ 카드 TOP Chart')
 			category = '1q';
-		if(category == '신용카드')
+		if(category == '신용카드 TOP Chart')
 			category = 'credit';
-		if(category == '제휴카드')
+		if(category == '제휴카드 TOP Chart')
 			category = 'aff';
-		if(category == '체크카드')
+		if(category == '체크카드 TOP Chart')
 			category = 'check';
-		if(category == '선불카드')
+		if(category == '선불카드 TOP Chart')
 			category = 'prepaid';
 			
 		//let year = $('#start').val().substring(2,4);
@@ -226,8 +226,9 @@
 			<br>
 			<br>
 			<div>
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">1Q+ 카드</h1>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">1Q+ 카드 TOP Chart</h1>
+				<!-- <h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">1Q+ 카드</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1> -->
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				
 				<!-- <div>
@@ -324,11 +325,11 @@
 							</div>
 							<div class="modal-body">
 								
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1Q+ 카드')">1Q+ 카드</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('신용카드')">신용카드</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('제휴카드')">제휴카드</a></div> 
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('체크카드')">체크카드</a></div> 
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('선불카드')">선불카드</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('1Q+ 카드 TOP Chart')">1Q+ 카드</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('신용카드 TOP Chart')">신용카드</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('제휴카드 TOP Chart')">제휴카드</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('체크카드 TOP Chart')">체크카드</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('선불카드 TOP Chart')">선불카드</a></div> 
 							</div>
 						</form>
 					</div>

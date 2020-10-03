@@ -85,13 +85,13 @@
 	function getTopThree() {
 		
 		let category = $('#category').text();
-		if(category == '생활')
+		if(category == '생활 혜택 TOP Chart')
 			category = 'life';
-		if(category == '마트/쇼핑')
+		if(category == '마트/쇼핑 혜택 TOP Chart')
 			category = 'mart_shopping';
-		if(category == '통신/교통')
+		if(category == '통신/교통 혜택 TOP Chart')
 			category = 'comm_trans';
-		if(category == '레저/여행/항공')
+		if(category == '레저/여행/항공 혜택 TOP Chart')
 			category = 'leisure_travle_flight';
 		
 			
@@ -259,8 +259,9 @@
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				</div> -->
 										
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활</h1>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> 혜택 TOP3</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">생활 혜택 TOP Chart</h1>
+				<!-- <h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">생활</h1>
+				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> 혜택 TOP3</h1> -->
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				
 				
@@ -422,10 +423,10 @@
 								<div><a class = "categoryA" id = "comm_transA" href = "#" data-dismiss="modal" >통신/교통</a></div> 
 								<div><a class = "categoryA" id = "leisure_travle_flightA" href = "#" data-dismiss="modal" >레저/여행/항공</a></div>  -->
 								
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('생활')">생활</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('마트/쇼핑')">마트/쇼핑</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('통신/교통')">통신/교통</a></div> 
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('레저/여행/항공')">레저/여행/항공</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('생활 혜택 TOP Chart')">생활</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('마트/쇼핑 혜택 TOP Chart')">마트/쇼핑</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('통신/교통 혜택 TOP Chart')">통신/교통</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('레저/여행/항공 혜택 TOP Chart')">레저/여행/항공</a></div>  
 								
 								<!-- <div><button data-dismiss="modal">생활</button></div>
 								<div><button data-dismiss="modal">마트/쇼핑</button></div>

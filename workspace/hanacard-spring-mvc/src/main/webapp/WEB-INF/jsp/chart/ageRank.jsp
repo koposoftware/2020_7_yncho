@@ -57,17 +57,17 @@
 	function getTopThree() {
 		
 		let category = $('#category').text();
-		if(category == '전 연령')
+		if(category == '전 연령 TOP Chart')
 			category = 'all';
-		if(category == '20대')
+		if(category == '20대 TOP Chart')
 			category = '20';
-		if(category == '30대')
+		if(category == '30대 TOP Chart')
 			category = '30';
-		if(category == '40대')
+		if(category == '40대 TOP Chart')
 			category = '40';
-		if(category == '50대')
+		if(category == '50대 TOP Chart')
 			category = '50';
-		if(category == '60대 이상')
+		if(category == '60대 이상 TOP Chart')
 			category = '60';
 			
 			
@@ -227,8 +227,8 @@
 			<div>
 			
 			
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; ">전 연령</h1>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">전 연령 TOP Chart</h1>
+				<!-- <h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1> -->
 				<button style = "vertical-align: super;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">조건 변경</button>
 				
 				<!-- <div>
@@ -347,12 +347,12 @@
 							</div>
 							<div class="modal-body">
 								
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('전 연령')">전 연령</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('20대')">20대</a></div>
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('30대')">30대</a></div> 
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('40대')">40대</a></div>  
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('50대')">50대</a></div>  
-								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('60대 이상')">60대 이상</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('전 연령 TOP Chart')">전 연령</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('20대 TOP Chart')">20대</a></div>
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('30대 TOP Chart')">30대</a></div> 
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('40대 TOP Chart')">40대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('50대 TOP Chart')">50대</a></div>  
+								<div><a href = "#" data-dismiss="modal" onclick ="doChangeCondition('60대 이상 TOP Chart')">60대 이상</a></div>  
 							</div>
 						</form>
 					</div>
