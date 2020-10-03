@@ -182,17 +182,19 @@ public class MemberController {
 			}
 			
 			
-			List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "10"); // 생활 / 20년 /9월
+			List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "2020", "all"); // 생활 / 20년 /all
+			//List<ChartVO> benefitSortList = chartService.getBenefitSortList(category, year, month);
+			
 			mav.addObject("benefitSortList", benefitSortList);
 			System.out.println("benefitSortList ===> " + benefitSortList);
 			
-			List<ChartVO> ageSortList = chartService.getAgeSortList("all", "20", "10"); // 전연령 / 20년 / 9월
+			List<ChartVO> ageSortList = chartService.getAgeSortList("all", "2020", "all"); // 전연령 / 20년 / all
 			mav.addObject("ageSortList", ageSortList);
 			
-			List<ChartVO> annualfeeSortList = chartService.getAnnualfeeSortList("from0", "20", "10"); // 연회비 없음 ~ 1만원 / 20년 / 9월
+			List<ChartVO> annualfeeSortList = chartService.getAnnualfeeSortList("from0", "2020", "all"); // 연회비 없음 ~ 1만원 / 20년 / all
 			mav.addObject("annualfeeSortList", annualfeeSortList);
 			
-			List<ChartVO> typeSortList = chartService.getTypeSortList("1q", "20", "10"); // 1Q+카드 / 20년 / 9월
+			List<ChartVO> typeSortList = chartService.getTypeSortList("1q", "2020", "all"); // 1Q+카드 / 20년 / all
 			mav.addObject("typeSortList", typeSortList);
 
 			
