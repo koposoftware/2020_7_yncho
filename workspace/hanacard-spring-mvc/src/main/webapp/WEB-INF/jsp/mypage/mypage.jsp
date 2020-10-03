@@ -1711,6 +1711,7 @@
 							<option>2주</option>
 							<option>1개월</option>
 							<option>3개월</option>
+							<option>기간 설정</option>
 						</select>
 					</div>
 					&nbsp;
