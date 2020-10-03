@@ -219,8 +219,8 @@
 			<br>
 			<br>
 			<div>
-				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">적립 혜택</h1>
-				<h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;"> TOP3</h1>
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;">적립 혜택 TOP Chart</h1>
+				<!-- <h1 class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub; border-bottom:  8px solid #57c4d0;"> TOP Chart</h1> -->
 				
 				<!-- <div>
 					<input type="month" id="start" name="start" min="2018-01" value="2020-09">
