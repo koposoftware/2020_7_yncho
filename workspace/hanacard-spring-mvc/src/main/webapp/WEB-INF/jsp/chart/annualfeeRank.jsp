@@ -89,10 +89,29 @@
 				let list = JSON.parse(data);
 				//alert('list: ' + list);
 				
+				
+		        $("#topImg").empty();
+		        $("#topName").empty();
+		        
+		        
+		        var addTopImg ="";
+		        addTopImg += "<br>";
+			   	 if(list[0].cardName.substring(0,1) == '#'){
+			   		addTopImg += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0].cardName.substring(1, list[0].cardName.length)  + ".png\" style = \"width : 198px; height : 126px;\">";
+	        	 } else{
+	        		 addTopImg += "<img src=\"/hanacard-spring-mvc/resources/images/" + list[0].cardName + ".png\" style = \"width : 198px; height : 126px;\">";
+	        	 }		        
+			   	 
+		        var addTopName ="";
+		        addTopName += "<div id=\"topName\" align=\"left\" style = \"width : 360px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + list[0].cardName + "</div>";
+		        
+		        
+		        $('#topImg').append(addTopImg); 
+		        $('#topName').append(addTopName); 
+				
+				
+				
 		        $("#ulList").empty();
-		        
-		        
-		        
 	           var addListHtml ="";
 	             $(list).each(function(index){
 	            	 
@@ -245,6 +264,40 @@
 	
 				</div>
 				<%-- 소비 패턴 버튼 끝 --%>
+				
+				
+				<%-- Top1 이미지 시작 --%>
+				<div style = "height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg');">
+					<div>
+						<br>
+						<br>
+						<br>
+						<div align="center" style = "width : 400px; font-weight : bold; font-size: 120px; color: #293250; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div id="topImg" align="center" style ="width : 170px; vertical-align: middle; display: inline-block; float : left;">
+							<c:choose>
+								<c:when test="${ fn:substring(annualfeeSortList[0].cardName, 0, 1) == '#'  }">
+									<br>
+									<img src="/hanacard-spring-mvc/resources/images/${ fn:substring(annualfeeSortList[0].cardName, 1, fn:length(annualfeeSortList[0].cardName)) }.png" style = "width : 198px; height : 126px;">
+								</c:when>
+								<c:otherwise>
+									<br>
+									<img src="/hanacard-spring-mvc/resources/images/${ annualfeeSortList[0].cardName }.png" style = "width : 198px; height : 126px;">
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<br>
+						<br>
+						<div id="topName" align="left" style = "width : 360px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${annualfeeSortList[0].cardName}</div>
+					</div>
+					
+					<!-- <div>
+						<button>&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;</button>
+					</div> -->
+					
+									
+				</div>
+				<%-- Top1 이미지 끝 --%>
+				
 				
 				
 				

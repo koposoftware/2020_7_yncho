@@ -111,7 +111,7 @@
 	        	 }		        
 			   	 
 		        var addTopName ="";
-		        addTopName += "<div id=\"topName\" align=\"left\" style = \"width : 310px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + list[0].cardName + "</div>";
+		        addTopName += "<div id=\"topName\" align=\"left\" style = \"width : 360px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + list[0].cardName + "</div>";
 		        
 		        
 		        $('#topImg').append(addTopImg); 
@@ -274,6 +274,9 @@
 				</div>
 				<%-- 버튼 끝 --%>
 				
+				
+				
+				<%-- Top1 이미지 시작 --%>
 				<div style = "height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg');">
 				<!-- <div style = "height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg'); box-shadow: 20px 20px 20px grey;"> -->
 				<!-- <div style = "border: 1px solid red; height : 350px; vertical-align: middle; background-image: url('/hanacard-spring-mvc/resources/images/cardback2.jpg');"> -->
@@ -283,7 +286,7 @@
 						<br>
 						<br>
 						<br>
-						<div align="center" style = "width : 450px; font-weight : bold; font-size: 120px; color: #293250; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div align="center" style = "width : 400px; font-weight : bold; font-size: 120px; color: #293250; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<!-- <div align="center" style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM; display: inline-block; float: left;">TOP 1</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; width : 30%; font-family: HanaM;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 						<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 100px; color: #ff6e61; text-shadow: 5px 5px 5px black; width : 30%;">TOP 1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -308,7 +311,7 @@
 						<%-- ${ageSortList[0].cardName} --%>
 						<br>
 						<br>
-						<div id="topName" align="left" style = "width : 310px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</div>
+						<div id="topName" align="left" style = "width : 360px; font-size: 30px; color: #696969; font-family: HanaM; display: inline-block; float : left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</div>
 						<%-- <div id="topName" align="center" style = "vertical-align: middle; font-size: 30px; color: #696969; width : 30%; font-family: HanaM; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</div> --%>
 						<%-- <span style = "vertical-align: middle; font-size: 30px; color: black; text-shadow: 5px 5px 5px black; width : 30%; ">&nbsp;&nbsp;&nbsp;&nbsp;${ageSortList[0].cardName}</span> --%>
 						
@@ -322,6 +325,8 @@
 					
 									
 				</div>
+				<%-- Top1 이미지 끝 --%>
+				
 				
 			</div>
 
