@@ -1626,7 +1626,7 @@
 							<br>
 							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
 							<div align="center">
-								<a href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+								<a id= "totalHref" href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 							</div>
 						</div>
 					</div>
@@ -2652,6 +2652,19 @@
 							//$('#recocardTextTotal').html('소비를 통합하시고, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리세요!');
 							//$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
 							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+
+							if(test[1][0] == '모두의 쇼핑'){
+								
+								$('#totalHref').attr("href", "https://www.hanacard.co.kr/OPI41000000D.web?schID=pcd&mID=PI41011881P&CD_PD_SEQ=11881&");
+								
+							} else if(test[1][0] == '모두의 건강'){
+								
+								$('#totalHref').attr("href", "https://www.hanacard.co.kr/OPI41000000D.web?schID=pcd&mID=PI41012687P&CD_PD_SEQ=12687&");
+							}
+							
+							
+							
+							
 							
 							
 							
@@ -2685,6 +2698,8 @@
 							$('#recocardTextMile').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
 							//$('#recocardTextMile').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
 							//$('#recocardTextMile').html('소비를 통합하시면, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!'); 
+							
+
 							
 							
 							//alert('추천카드 성공')
