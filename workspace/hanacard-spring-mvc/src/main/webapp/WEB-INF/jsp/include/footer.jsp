@@ -7,8 +7,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
-            <p class="mb-4"><img src="/hanacard-spring-mvc/resources/images/logo_foot.png" alt="Image" class="img-fluid"></p>
-            <!-- <p class="mb-4"><img src="/hanacard-spring-mvc/resources/images/logo.png" alt="Image" class="img-fluid"></p> -->
+            <p class="mb-4"><img src="/resources/images/logo_foot.png" alt="Image" class="img-fluid"></p>
+            <!-- <p class="mb-4"><img src="/resources/images/logo.png" alt="Image" class="img-fluid"></p> -->
             <p>Smart Life를 선도하는 Smart 금융, INNOVATOR by Hana Card.</p>  
             <p><a href="#">hanacard</a></p>
           </div>

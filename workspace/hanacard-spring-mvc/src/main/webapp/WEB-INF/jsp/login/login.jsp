@@ -7,21 +7,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
+<!--   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="/resources/css/aos.css">
+  <link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+<link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+<link rel="stylesheet" href="/resources/css/fonts.css"> -->
+
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/icomoon/style.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery-ui.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
-  <link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
-<link rel="icon" type="image/png" sizes="16x16" href ="/hanacard-spring-mvc/resources/images/favicon16.png">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/fonts.css">
+  <link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="/resources/css/aos.css">
+  <link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+  
+
+  <link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+  
+  <link rel="stylesheet" href="/resources/css/fonts.css">
+  
 
 <script>
 
@@ -106,7 +126,7 @@
 	<%-- header 태그가 topMenue.jsp내에 있어서 <header>로 감싸면 제대로 안나옴. --%>
 	<jsp:include page="../include/topMenue.jsp"/>
     
-	    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/hanacard-spring-mvc/resources/images/bg_1.jpg')">
+	    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/resources/images/bg_1.jpg')">
 	        <div class="container">
 	          <div class="row align-items-end justify-content-center text-center">
 	            <div class="col-lg-7">
@@ -205,21 +225,37 @@
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
 
-  <script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery-ui.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/popper.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/bootstrap.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/owl.carousel.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.stellar.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.countdown.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/bootstrap-datepicker.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.easing.1.3.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/aos.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.fancybox.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.sticky.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/jquery.mb.YTPlayer.min.js"></script>
-  <script src="/hanacard-spring-mvc/resources/js/main.js"></script>
+  <!-- <script src="/resources/js/jquery-3.3.1.min.js"></script>
+  <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/resources/js/jquery-ui.js"></script>
+  <script src="/resources/js/popper.min.js"></script>
+  <script src="/resources/js/bootstrap.min.js"></script>
+  <script src="/resources/js/owl.carousel.min.js"></script>
+  <script src="/resources/js/jquery.stellar.min.js"></script>
+  <script src="/resources/js/jquery.countdown.min.js"></script>
+  <script src="/resources/js/bootstrap-datepicker.min.js"></script>
+  <script src="/resources/js/jquery.easing.1.3.js"></script>
+  <script src="/resources/js/aos.js"></script>
+  <script src="/resources/js/jquery.fancybox.min.js"></script>
+  <script src="/resources/js/jquery.sticky.js"></script>
+  <script src="/resources/js/jquery.mb.YTPlayer.min.js"></script>
+  <script src="/resources/js/main.js"></script> -->
+  
+  <script src="/resources/js/jquery-3.3.1.min.js"></script>
+  <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/resources/js/jquery-ui.js"></script>
+  <script src="/resources/js/popper.min.js"></script>
+  <script src="/resources/js/bootstrap.min.js"></script>
+  <script src="/resources/js/owl.carousel.min.js"></script>
+  <script src="/resources/js/jquery.stellar.min.js"></script>
+  <script src="/resources/js/jquery.countdown.min.js"></script>
+  <script src="/resources/js/bootstrap-datepicker.min.js"></script>
+  <script src="/resources/js/jquery.easing.1.3.js"></script>
+  <script src="/resources/js/aos.js"></script>
+  <script src="/resources/js/jquery.fancybox.min.js"></script>
+  <script src="/resources/js/jquery.sticky.js"></script>
+  <script src="/resources/js/jquery.mb.YTPlayer.min.js"></script>
+  <script src="/resources/js/main.js"></script>
 
 </body>
 </html>
