@@ -20,7 +20,7 @@
 
 ## 2-2. 시스템 아키텍처
 
-<img src="archi.png" /><br>
+<img src="/2020_7_yncho/archi.png" /><br>
 
 
  
@@ -125,7 +125,7 @@ Etc : Yona & Git
     <tr>
       <td>이름</td>
       <td>조영남</td>
-      <td><img src="/jo2.jpg" alt="properties5" /></td>
+      <td><img src="/2020_7_yncho/jo2.jpg" alt="properties5" /></td>
     </tr>
     <tr>
       <td>연락처</td>
