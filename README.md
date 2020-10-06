@@ -155,7 +155,7 @@ Etc : Yona & Git
     </tr>
 	<tr>
       <td> </td>
-      <td>Analysis - R, Pythonr</td>
+      <td>Analysis - R, Python</td>
       <td> </td>
     </tr>
 	<tr>
