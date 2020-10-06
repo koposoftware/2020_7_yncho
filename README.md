@@ -148,25 +148,62 @@ Etc : Yona & Git
 
 # 4. 본인 소개
 
-| 이름 | 조영남 | ![pic](/조영남.jpg) |
-| ---- | ------ | ------------------- |
-|      |        |                     |
-
-| 연락처 | datetime1929(@)gmail.com |
-| ------ | ------------------------ |
-|        |                          |
-
-| skill set | Frontend - HTML, CSS, Javascript |
-| --------- | -------------------------------- |
-|           |                                  |
-
-|      | Backend - Java, Spring, Oracle, MySQL |      |      | Cloud - AWS, GCP |      | Etc - Git, Tableau, Jira, Yona, Docker |
-| ---- | ------------------------------------- | ---- | ---- | ---------------- | ---- | -------------------------------------- |
-|      |                                       |      |      |                  |      |                                        |
-
-|자격증| 정보처리기사, SQLD, ADSP  |
-
-|수상| AI 활용 빅데이터 분석 공모전 창조경제혁신센터장상 (동서발전·한국마이크로소프트) |
-|주요 경력|  빅데이터 분석 솔루션 개발(R 분석 모듈 담당) |
-
-|병역| 특수전사령부 부중대장·정보작전장교  |
+<table>
+  <tbody>
+    <tr>
+      <td>이름</td>
+      <td>조영남</td>
+      <td><img src="/jo.jpg" alt="properties5" /></td>
+    </tr>
+    <tr>
+      <td>연락처</td>
+      <td>datetime1929(@)gmail.com</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>skill set</td>
+      <td>Frontend - HTML, CSS, Javascript</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Backend - Java, Spring, Oracle, MySQL</td>
+      <td> </td>
+    </tr>
+	<tr>
+      <td> </td>
+      <td>Cloud - AWS, Gcp</td>
+      <td> </td>
+    </tr>
+	<tr>
+      <td> </td>
+      <td>Etc - Git, Tableau, Jira, Yona, Docker</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>자격증</td>
+      <td>정보처리기사, SQLD, ADSP</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>수상</td>
+      <td>창조경제혁신센터장상 - AI 활용 빅데이터 분석 공모전(동서발전·한국마이크로소프트)</td>
+      <td> </td>
+    </tr>
+	<tr>
+      <td> </td>
+      <td>모범상 - 경북대학교 총장 모범상</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>특기사항</td>
+	  <td>2019.04 ~ 2020.03 빅데이터 분석 솔루션 개발(R 분석 모듈 담당)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2016.03 ~ 2018.06 특수전사령부 부중대장·정보작전장교</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
