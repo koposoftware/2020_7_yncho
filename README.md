@@ -18,10 +18,10 @@
 
 [제안서_카드추천 서비스.pdf](/조영남_카드추천서비스_제안서.pdf)<br>
 
-## 2-2. 시스템 아키텍쳐 및 ERD
+## 2-2. 시스템 아키텍처
 
-<img src="architecture.png" /><br>
-<img src="ERD.png"/><br>
+<img src="archi.png" /><br>
+
 
  
 
@@ -57,17 +57,13 @@
 
 Spring MVC 기반 웹 애플리케이션 제작<br>
 클라우드(GCP) 환경 내 서버 구축<br>
-
 도커 활용 서비스 배포<br>
-
 Yona & Git 활용 이슈트래킹 및 버전 관리<br>
 R 기반 분석 연산 모듈 개발<br>
 MyBatis 활용 동적 쿼리 작성<br>
 Chart.js 활용 시각화<br>
 대용량 더미데 데이터 생성<br>
-
 INDEX 생성 및 쿼리 튜닝
-
 <br>
 
 ### 개발 환경
@@ -81,57 +77,33 @@ Language : Java, Jsp, Javascript, R<br>
 Framework : Spring, MyBatis, Bootstrap<br>
 DB : Oracle<br>
 Server : Apache, Tomcat<br>
-
 Cloud : GCP<br>
-
 Etc : Yona & Git
 <br>
 
 ### 주요 기능
 
 **마이페이지**<br>
-
 - 보유 카드 목록<br>
-
 - 결제 예정 금액<br>
-
 - 회원 정보<br>
-
 - 타사 카드 거래내역 연동<br>
-
 - 연간 소비 개요<br>
-
 - 영역별 소비 비율<br>
-
 - 소비패턴 기반 추천 카드 제안<br>
-
 - 카드 이용 내역<br>
 
- 
-
 **나만의 차트**<br>
-
 - 통합 순위<br>
-
 - 할인 순위<br>
-
 - 적립 순위<br>
-
 - 마일리지 순위<br>
 
-
-
 **하나 차트**<br>
-
 - 인기 혜택별 순위<br>
-
 - 연령대별 순위<br>
-
 - 연회비별 순위<br>
-
-- 카드타입별 순위
-
-  <br>
+- 카드타입별 순위<br>
 
 ### 기대효과
 
@@ -153,7 +125,7 @@ Etc : Yona & Git
     <tr>
       <td>이름</td>
       <td>조영남</td>
-      <td><img src="/jo.jpg" alt="properties5" /></td>
+      <td><img src="/jo2.jpg" alt="properties5" /></td>
     </tr>
     <tr>
       <td>연락처</td>
@@ -192,7 +164,7 @@ Etc : Yona & Git
     </tr>
 	<tr>
       <td> </td>
-      <td>모범상 - 경북대학교 총장 모범상</td>
+      <td>경북대학교 총장 모범상</td>
       <td> </td>
     </tr>
     <tr>
