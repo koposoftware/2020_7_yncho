@@ -155,6 +155,11 @@ Etc : Yona & Git
     </tr>
 	<tr>
       <td> </td>
+      <td>Analysis - R, Pythonr</td>
+      <td> </td>
+    </tr>
+	<tr>
+      <td> </td>
       <td>Etc - Git, Tableau, Jira, Yona, Docker</td>
       <td> </td>
     </tr>
