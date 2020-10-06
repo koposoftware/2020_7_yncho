@@ -19,10 +19,19 @@ public class Rserve {
 
 			
 			c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result2 <- getTopDisList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result3 <- getTopMileList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result4 <- getTopPointList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+			c.eval("result5 <- getTopTotalList(1,2,3,4,5,6,7,8,9,10,11,12,13)");
+
 			//c.eval("result <- getBestOneCard(1,2,3,4,5,6,7,8,9,10,11,12,13)");
 			//c.eval("df <- doReadCSV('"+ dataPath + upFileNm+ "')");
 			
 			RList table = c.eval("result").asList();
+			RList table2 = c.eval("result2").asList();
+			RList table3 = c.eval("result3").asList();
+			RList table4 = c.eval("result4").asList();
+			RList table5 = c.eval("result5").asList();
 			
 			
 			int cols = table.size();
@@ -39,6 +48,37 @@ public class Rserve {
 					System.out.println(s[i][j]);
 				}
 			}
+			
+			
+			System.out.println("===================table2==================");
+			int cols2 = table2.size();
+			int rows2 = table2.at(0).length();
+			
+			String[][] s2 = new String[cols2][];
+			
+			for (int i = 0; i < cols2; i++) {
+				s2[i] = table2.at(i).asStrings();
+			}
+			
+			for (int i = 0; i < cols2; i++) {
+				for (int j = 0; j < rows2; j++) {
+					System.out.println(s2[i][j]);
+				}
+			}
+			
+			System.out.println("=======================");
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			//System.out.println("total num : " + s[0][0]);
 			//System.out.println("best card : " + s[1][0]);

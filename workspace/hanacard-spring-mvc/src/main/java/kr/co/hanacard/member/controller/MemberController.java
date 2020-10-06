@@ -76,7 +76,23 @@ public class MemberController {
 			mav.setViewName("redirect:/login");
 		} else {
 			// 로그인 성공
-			mav.setViewName("redirect:/"); // ModelAndView 생성자에 넣으면 자동으로 setViewName이 되는거였겠군?
+			
+			
+			String dest = (String) session.getAttribute("dest");
+			System.out.println("dest ========> " + dest);
+			System.out.println("dest ========> " + dest);
+			System.out.println("dest ========> " + dest);
+			System.out.println("dest ========> " + dest);
+			
+			if(dest==null) {
+				
+				mav.setViewName("redirect:/"); // ModelAndView 생성자에 넣으면 자동으로 setViewName이 되는거였겠군?
+				
+			} else {
+				mav.setViewName("redirect:" + dest); // dest 값은 이런 식이다. /board/2   즉 => http://localhost:9999/Mission-Spring/board/2
+				session.removeAttribute("dest"); //이제 이 정보가 필요 없기 때문에 세션에 등록된 dest 객체를 지운다.
+			}
+			
 			mav.addObject("loginVO", loginVO);
 			// 이렇게 하면 사용자 정보가 세션에 저장되지 않는다. 왜? addObject() 하면 request 영역에 저장되기 때문이다.
 			// 그렇게 하려면 어떻게 해야하는가 : 클래스 위에 @SessionAttributes 어노테이션을 붙인다.
@@ -166,17 +182,19 @@ public class MemberController {
 			}
 			
 			
-			List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "20", "09"); // 생활 / 20년 /9월
+			List<ChartVO> benefitSortList = chartService.getBenefitSortList("life", "2020", "all"); // 생활 / 20년 /all
+			//List<ChartVO> benefitSortList = chartService.getBenefitSortList(category, year, month);
+			
 			mav.addObject("benefitSortList", benefitSortList);
 			System.out.println("benefitSortList ===> " + benefitSortList);
 			
-			List<ChartVO> ageSortList = chartService.getAgeSortList("all", "20", "09"); // 전연령 / 20년 / 9월
+			List<ChartVO> ageSortList = chartService.getAgeSortList("all", "2020", "all"); // 전연령 / 20년 / all
 			mav.addObject("ageSortList", ageSortList);
 			
-			List<ChartVO> annualfeeSortList = chartService.getAnnualfeeSortList("from0", "20", "09"); // 연회비 없음 ~ 1만원 / 20년 / 9월
+			List<ChartVO> annualfeeSortList = chartService.getAnnualfeeSortList("from0", "2020", "all"); // 연회비 없음 ~ 1만원 / 20년 / all
 			mav.addObject("annualfeeSortList", annualfeeSortList);
 			
-			List<ChartVO> typeSortList = chartService.getTypeSortList("1q", "20", "09"); // 1Q+카드 / 20년 / 9월
+			List<ChartVO> typeSortList = chartService.getTypeSortList("1q", "2020", "all"); // 1Q+카드 / 20년 / all
 			mav.addObject("typeSortList", typeSortList);
 
 			

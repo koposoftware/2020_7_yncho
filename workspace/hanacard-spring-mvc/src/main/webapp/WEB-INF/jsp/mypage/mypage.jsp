@@ -5,24 +5,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Academics &mdash; Website by Colorlib</title>
+<title>하나카드</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery-ui.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery.fancybox.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
-<link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
-<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
+<!-- <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="/resources/css/aos.css">
+<link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/css/style.css">
+
+<link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+<link rel="stylesheet" href="/resources/css/fonts.css">
+
+<link rel="stylesheet" href="/resources/css/fonts.css"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="/resources/css/aos.css">
+  <link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+  
+
+  <link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+  
+  <link rel="stylesheet" href="/resources/css/fonts.css">
+
+
+<script src="/resources/js/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript">
 
@@ -371,7 +397,7 @@
 				//$('#recocard').text(data);
 				
 				let attr = $('#recocardImage').attr('src');
-				let path = '/hanacard-spring-mvc/resources/images/';
+				let path = '/resources/images/';
 				path = path + cardname + '.png';
 				$('#recocardImage').attr('src', path);
 				
@@ -384,11 +410,11 @@
 				
 				//alert(path);
 				
-				//alert(path); // /hanacard-spring-mvc/resources/images/#tag1카드 Orange.png
+				//alert(path); // /resources/images/#tag1카드 Orange.png
 				//$('#recocardImage').attr('src', path);
-				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/tag1카드 Orange.png');
-				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/1Q My Cafe.png');
-				//$('#recocardImage').attr('src', '/hanacard-spring-mvc/resources/images/#tag1카드 Orange.png');
+				//$('#recocardImage').attr('src', '/resources/images/tag1카드 Orange.png');
+				//$('#recocardImage').attr('src', '/resources/images/1Q My Cafe.png');
+				//$('#recocardImage').attr('src', '/resources/images/#tag1카드 Orange.png');
 				
 				//$('#recocardImage').attr('src','/material/images/jQuery/asimo.png');
 				//alert(attr);
@@ -564,40 +590,45 @@
 						
 						
 						//let attr = $('#recocardImage').attr('src');
-						let path = '/hanacard-spring-mvc/resources/images/';
+						let path = '/resources/images/';
 						path = path + totalCardName + '.png';
 						$('#recocardImageTotal').attr('src', path);
 						
 						$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextTotal').html('소비를 통합하시면, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextTotal').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextTotal').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
 						//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
 						
+						//$('#recocardTextTotal').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+
 						
-						
-						path = '/hanacard-spring-mvc/resources/images/';
+						path = '/resources/images/';
 						path = path + disCardName + '.png';
 						$('#recocardImageDis').attr('src', path);
 						
 						$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextDis').html('소비를 통합하시면, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextDis').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextDis').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
 					
 						
 						
-						path = '/hanacard-spring-mvc/resources/images/';
+						path = '/resources/images/';
 						path = path + pointCardName + '.png';
 						$('#recocardImagePoint').attr('src', path);
 						
 						$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextPoint').html('소비를 통합하시면, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextPoint').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextPoint').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
 						
 						
 						
-						path = '/hanacard-spring-mvc/resources/images/';
+						path = '/resources/images/';
 						path = path + mileCardName + '.png';
 						$('#recocardImageMile').attr('src', path);
 						
 						$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-						$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
+						$('#recocardTextMile').html('소비를 통합하시고, <br><span><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!');
+						//$('#recocardTextMile').html('소비를 통합하시고, <br><span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!');
 
 						
 						
@@ -625,7 +656,7 @@
 						//$('#recocard').text(data);
 						
 						let attr = $('#recocardImage').attr('src');
-						let path = '/hanacard-spring-mvc/resources/images/';
+						let path = '/resources/images/';
 						path = path + cardname + '.png';
 						$('#recocardImage').attr('src', path);
 						
@@ -913,9 +944,34 @@
 		         $("#transUl").empty();
 	             if(more.length < 15){
 	            	 
+	            	 
+	            	  var addListHtml ="";
+			             $(more).each(function(){
+			                 addListHtml += "<li>";
+		                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
+		                     addListHtml += "<span>" + this.time + "</span>&nbsp;&nbsp;";
+		                     addListHtml += "<span>국내 | </span>";
+		                     addListHtml += "<span>" + this.payment + " | </span>";
+		                     addListHtml += "<span>정상 | </span>";
+		                     addListHtml += "<span>" + this.code + "</span>";
+		                     addListHtml += "<div>";
+		                     addListHtml += "<span style = \"font-size: 20px; color: black; font-weight : bolder;\">" + this.content + "</span>";
+		                     addListHtml += "<span style = \"color: black; font-weight : bolder;\">(" +this.means + ")</span>";
+		                     addListHtml += "<span style = \"float : right;\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+		                     //addListHtml += "<span>" + this.amount + "</span>"; 
+		                     addListHtml += "<span style = \"float : right; font-size: 20px; color: black; font-weight : bolder;\">" + numberWithCommas(this.amount) + "원</span>";   
+
+		                     addListHtml += "</div>";
+		                     addListHtml += "</div>";
+		                     addListHtml += "</li>";
+		                     addListHtml += "<hr>";
+
+			             })
+			             
+	            	 
 	            	 //alert('<15 로직을 탑니다.');
 	            	 
-	                 var addListHtml ="";
+	                 /* var addListHtml ="";
 		             $(more).each(function(){
 		                 addListHtml += "<li>";
 	                     addListHtml += "<div style = \"margin-top: 30px; margin-bottom: 30px;\">";
@@ -934,7 +990,7 @@
 	                     addListHtml += "</li>";
 	                     addListHtml += "<hr>";
 		            	 
-		             })
+		             }) */
 
 	                 
 		             //일단 더보기 없애는 기능은 잠시 보류
@@ -998,7 +1054,7 @@
 		<jsp:include page="../include/topMenue.jsp" />
 
 		<%-- 섹션 시작 : section 태그로 감싸도 제대로 안나온다. 붙이지 말자.--%>
-		<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/hanacard-spring-mvc/resources/images/bg_1.jpg')">
+		<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/resources/images/bg_1.jpg')">
 			<div class="container">
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
@@ -1022,7 +1078,9 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
+		<div class="container" >
+		
+			<br>
 			<br>
 			<!-- <div class="container-fluid"> -->
 
@@ -1047,7 +1105,8 @@
 					</div>
 				</div> -->
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;" >
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;" >
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;" > -->
 				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;" > -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 				<!-- col-md-6(열-디바이스크기-열크기) margin top , margin bottom , -->
@@ -1061,37 +1120,38 @@
 						</div> -->
 
 						<div class ="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1" style = "font-family: HanaCM;">보유 카드</div>
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드</div> -->
 						</div>
 						
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 							
 									<div class="carousel-item active">
-										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0].cardProductName}.png" alt="slide" style ="height: 180px;"></a>
-										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a> --%>
-										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${hanaList[0].cardProductName}</div>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/resources/images/${hanaList[0].cardProductName}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a> --%>
+										<%-- <img class="d-block w-100" src="/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
+										<div style = "text-align: center; font-size: 20px;">${hanaList[0].cardProductName}</div>
 										<%-- <div style = "text-align: center;">${hanaList[0]}</div> --%>
 									</div>
 								<c:forEach items = "${hanaList}" var ="card" varStatus = "vs" begin = "1">
 									<div class="carousel-item">
-										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card.cardProductName}.png" alt="slide" style ="height: 180px;"></a>
-										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a> --%>
-										<%-- <img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
-										<div style = "text-align: center;">${card.cardProductName}</div>
+										<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/resources/images/${card.cardProductName}.png" alt="slide" style ="height: 180px;"></a>
+										<%-- <a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/resources/images/${card}.png" alt="slide" style ="height: 180px;"></a> --%>
+										<%-- <img class="d-block w-100" src="/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;"> --%>
+										<div style = "text-align: center; font-size: 20px;">${card.cardProductName}</div>
 										<%-- <div style = "text-align: center;">${card}</div> --%>
 									</div>
 								</c:forEach>
 								<%-- <div class="carousel-item active">
-									<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;">
+									<a  href = "${ pageContext.request.contextPath }/mypage/owncard"><img class="d-block w-100" src="/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 180px;"></a>
+									<img class="d-block w-100" src="/resources/images/${hanaList[0]}.png" alt="slide" style ="height: 200px;">
 									<div style = "text-align: center;">${hanaList[0]}</div>
 								</div>
 								<div class="carousel-item">
 									<!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 180px;">
-									<img class="d-block w-100" src="/hanacard-spring-mvc/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;">
+									<img class="d-block w-100" src="/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 180px;">
+									<img class="d-block w-100" src="/resources/images/${hanaList[1]}.png" alt="slide" style ="height: 200px;">
 									<div style = "text-align: center;"><a href = "${ pageContext.request.contextPath }/mypage/owncard">${hanaList[1]}</a></div>
 								</div> --%>
 								<!-- <div class="carousel-item">
@@ -1105,11 +1165,13 @@
 
 						<%--보유카드 중 첫번째 카드의 이미지를 보여준다. --%>
 						<%-- <a href = "${ pageContext.request.contextPath }/mypage"> </a> --%>
-						<%-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/${hanaList[0]}.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --%> 
-						<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --> 
-						<!-- <img class="card-img-top" src="/hanacard-spring-mvc/resources/images/1Q Daily+.png" alt="Card image cap">  -->
-						<!-- <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
+						<%-- <img class="card-img-top" src="/resources/images/${hanaList[0]}.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --%> 
+						<!-- <img class="card-img-top" src="/resources/images/1Q Daily+.png" alt="Card image cap" style="height: 100%; width: 100%; object-fit: contain"> --> 
+						<!-- <img class="card-img-top" src="/resources/images/1Q Daily+.png" alt="Card image cap">  -->
+						<!-- <img src="/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
 						<div class="card-body">
+						
+						
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
 								<!-- <div class="col mr-2"> -->
@@ -1124,8 +1186,8 @@
 									
 									<!-- <div class="h5 mb-0 font-weight-bold text-gray-800">개인카드</div> -->
 									<span class="text-xs font-weight-bold text-primary text-uppercase mb-1">보유 카드&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
-									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard">가족카드 <span class="badge badge-dark">0</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard" style = "font-family: HanaUL;">개인카드 <span class="badge badge-dark">${hanaList.size()}</span></a></span>
+									<span class="text-xs font-weight-normal text-primary text-uppercase mb-1"> <a href = "${ pageContext.request.contextPath }/mypage/owncard" style = "font-family: HanaUL;">가족카드 <span class="badge badge-dark">0</span></a></span>
 								</div>
 								<!-- <div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -1136,17 +1198,20 @@
 				</div>
 
 				<!-- Earnings (Monthly) Card Example -->
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;">
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;"> -->
 				<!-- <div class="col-xl-4 col-lg-4" style = "height : 300px;"> -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 ">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> py : 카드 상단 여백! -->
 					
 						<div class ="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 결제 예정 금액</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1"  style = "font-family: HanaCM;">이번 달 결제 예정 금액</div> 
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">이번 달 결제 예정 금액</div>  -->
 						</div>
 					
 						<div class="card-body">
+						
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
 									<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">결제 예정 금액</div>  -->
@@ -1156,12 +1221,15 @@
 									<br>
 									<br>
 									<br>
+									<br>
 									<div style = "text-align: right">
-										<span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span>
+										<span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory; font-family: HanaCM;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.oct}"/></span>
+										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800" style="text-shadow: 3px 3px 3px ivory;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
+										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${mypageVO.sept}"/></span> --%>
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</span> --%>
 										<!-- <span class="h1 mb-0 font-weight-bold text-gray-800"><script>numberWithCommas(${mypageVO.sept})</script></span> -->
 										<%-- <span class="h1 mb-0 font-weight-bold text-gray-800 justify-content-end" >${mypageVO.sept}</span> --%>
-										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end">원</span>
+										<span class="h3 mb-0 font-weight-bold text-gray-800 justify-content-end" style = "font-family: HanaCM;">원</span>
 										<!-- <span class="h3 mb-0 font-weight-bold text-gray-800" style = "float : right">원</span> -->
 									</div>
 								</div>
@@ -1173,14 +1241,17 @@
 					</div>
 				</div>
 				
-				<div class="col-xl-4 col-lg-4" style = "height : 320px;">
+				<div class="col-xl-4 col-lg-4" style = "height : 330px;">
+				<!-- <div class="col-xl-4 col-lg-4" style = "height : 320px;"> -->
 				<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					<div class="card border-left-success shadow h-100 py">
 					<!-- <div class="card border-left-success shadow h-100 py-2"> -->
 						<div class="card-header">
-							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div> 
+							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1"  style = "font-family: HanaCM;">회원 정보</div> 
+							<!-- <div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">회원 정보</div>  -->
 						</div>
 						<div class="card-body">
+						
 							<div class="row no-gutters align-items-center">
 								<div>
 								<!-- <div class="col mr-2"> -->
@@ -1189,10 +1260,12 @@
 									<div class="h5 mb-0 font-weight-bold text-gray-800">${mypageVO.sept}</div> --%>
 									
 									<div>
-										<span>연락처</span>&nbsp;&nbsp;&nbsp; ${loginVO.phone}
+										<span>연락처&nbsp;&nbsp;&nbsp;${loginVO.phone}</span>
+										<%-- <span>연락처</span>&nbsp;&nbsp;&nbsp; ${loginVO.phone} --%>
 									</div>
 									<div>
-										<span>이메일</span>&nbsp;&nbsp;&nbsp; ${loginVO.email}
+										<span>이메일&nbsp;&nbsp;&nbsp;${loginVO.email}</span>
+										<%-- <span>이메일 </span>&nbsp;&nbsp;&nbsp; ${loginVO.email} --%>
 									</div>
 									<div>
 										<button type="button" class="btn btn-light btn-sm">개인정보 변경</button> 
@@ -1211,7 +1284,7 @@
 										<span>하나 THE 30</span>&nbsp;&nbsp;&nbsp;
 									</div>
 									<div>
-										<span>${loginVO.name}님은 일반회원입니다</span>&nbsp;&nbsp;&nbsp; 
+										<span>${loginVO.name}님은 <b>일반회원</b>입니다</span>&nbsp;&nbsp;&nbsp; 
 									</div>
 									<div>
 										<button type="button" class="btn btn-light btn-sm"><a href = "https://www.hanacard.co.kr/OPY01400000N.web?schID=pcd&mID=OPY01400000N&">하나 더(THE) 30</a></button> 
@@ -1323,6 +1396,8 @@
 			</div>
 			<%-- 첫번째 로우 끝 : 4개의 작은 카드 --%>
 
+
+			<br>
 			<%-- 소비 개요 버튼 시작 --%>
 			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 			<!-- <div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5"> -->
@@ -1412,16 +1487,17 @@
 				</div>
 				
 				<div>
-					<select class="selectpicker" data-style="btn-success" id ="topYear">
+					<select class="selectpicker" data-style="btn-success" id ="topYear" style ="font-family: sans-serif;">
 						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 						<option>2020년</option>
 						<option>2019년</option>
 						<option>2018년</option>
 					</select>
-					&nbsp;&nbsp;
+					&nbsp;
 					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id = "topBtn" style = "float :right;"> 
 					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getTopSpecific()">  -->
-						<i class="fas fa-download fa-sm text-white-50"></i> 조회
+						조회
+						<!-- <i class="fas fa-download fa-sm text-white-50"></i> 조회 -->
 					</button>
 					<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> 조회</a> -->
 				</div>
@@ -1461,14 +1537,14 @@
 			<div class="d-sm-flex align-items-center justify-content-end mb-4 mt-5">
 				<!-- Example single danger button -->
 
-				<select class="selectpicker" data-style="btn-success" id="bottomYear">
+				<select class="selectpicker" data-style="btn-success" id="bottomYear" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>2020년</option>
 					<option>2019년</option>
 					<option>2018년</option>
 				</select>
-				&nbsp;&nbsp;&nbsp;
-				<select class="selectpicker" data-style="btn-success" id="bottomMonth">
+				&nbsp;
+				<select class="selectpicker" data-style="btn-success" id="bottomMonth" style ="font-family: sans-serif;">
 					<!-- <select class="selectpicker" multiple data-max-options="2"> -->
 					<option>전체</option>
 					<option>1월</option>
@@ -1484,7 +1560,7 @@
 					<option>11월</option>
 					<option>12월</option>
 				</select>
-				&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;
 				<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="bottomBtn">
 				<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
 					<i class="fas fa-download fa-sm text-white-50"></i> 조회
@@ -1545,9 +1621,14 @@
 
 			<%-- 카드추천 시작 --%> 
 			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
-				<h2 class="h3 mb-0 text-gray-800">소비패턴 기반 추천 카드</h2>
+				<!-- <h2 class="h3 mb-0 text-gray-800">소비패턴 기반 추천 카드</h2> -->
+				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">소비패턴 기반 추천 카드</span>
+				<%-- <div>${loginVO.name}님만을 위한 추천 카드입니다.</div> --%>
 				<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 			</div>
+			
+			<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+			<br>
 			<div class="row">
 				
 				<div class="col-xl-3 col-lg-3" style = "height : 450px;">
@@ -1557,12 +1638,15 @@
 							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">통합 BEST</div> 
 						</div>
 						
-						<img id = "recocardImageTotal" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
-						<div class="card-body">
-							<h5 class="card-title" id = "recocardTitleTotal">통합 BEST</h5>
-							<p class="card-text" id ="recocardTextTotal">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+						<img id = "recocardImageTotal" class="card-img-top" src="/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body" style = "background-color: ivory">
+							<h5 class="card-title" id = "recocardTitleTotal" style = "color: black;">통합 BEST</h5>
+							<p class="card-text" id ="recocardTextTotal" style ="font-size: 15px;">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a id= "totalHref" href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1574,12 +1658,15 @@
 							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">할인 BEST</div> 
 						</div>
 						
-						<img id = "recocardImageDis" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title" id = "recocardTitleDis">할인 BEST</h5>
-							<p class="card-text" id ="recocardTextDis">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+						<img id = "recocardImageDis" class="card-img-top" src="/resources/images/HANA.png" alt="Card image cap">
+						<div class="card-body" style = "background-color: ivory">
+							<h5 class="card-title" id = "recocardTitleDis" style = "color: black;">할인 BEST</h5>
+							<p class="card-text" id ="recocardTextDis" style ="font-size: 15px;">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1591,12 +1678,15 @@
 							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">적립 BEST</div> 
 						</div>
 						
-						<img id = "recocardImagePoint" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
-						<div class="card-body">
-							<h5 class="card-title" id = "recocardTitlePoint">적립 BEST</h5>
-							<p class="card-text" id ="recocardTextPoint">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+						<img id = "recocardImagePoint" class="card-img-top" src="/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body" style = "background-color: ivory">
+							<h5 class="card-title" id = "recocardTitlePoint" style = "color: black;">적립 BEST</h5>
+							<p class="card-text" id ="recocardTextPoint" style ="font-size: 15px;">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1608,12 +1698,15 @@
 							<div class="h4 text-xs font-weight-bold text-primary text-uppercase mb-1">마일리지 BEST</div> 
 						</div>
 						
-						<img id = "recocardImageMile" class="card-img-top" src="/hanacard-spring-mvc/resources/images/HANA.png" alt="Card image cap"> 
-						<div class="card-body">
-							<h5 class="card-title" id = "recocardTitleMile">마일리지 BEST</h5>
-							<p class="card-text" id ="recocardTextMile">소비패턴에 기반하여 카드를 추천해드립니다.</p>
+						<img id = "recocardImageMile" class="card-img-top" src="/resources/images/HANA.png" alt="Card image cap"> 
+						<div class="card-body" style = "background-color: ivory">
+							<h5 class="card-title" id = "recocardTitleMile" style = "color: black;">마일리지 BEST</h5>
+							<p class="card-text" id ="recocardTextMile" style ="font-size: 15px;">소비패턴에 기반하여 카드를 추천해드립니다.</p>
 							<br>
-							<a href="#" class="btn btn-primary">카드 보러가기</a>
+							<!-- <a href="#" class="btn btn-primary">카드 보러가기</a> -->
+							<div align="center">
+								<a href="#" class="btn btn-primary" style ="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카드 보러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1621,14 +1714,43 @@
 			<%-- 카드추천 끝 --%> 
 			
 			
+			<br>
 			<%-- 카드 거래내역 시작 --%>
-			<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
+			<div class="d-sm-flex align-items-center mb-4 mt-5">
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5"> -->
+				<div style = "display: inline-block; width : 50%; height : 100%; vertical-align: middle;">
+					<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">카드 이용 내역</span>
+				</div>
+				
+				<div style = "display: inline-block; width : 100%; height : 100%; vertical-align: middle;" align="right">
+					<div style = "vertical-align: middle; display: inline-block;">
+						<select class="selectpicker" data-style="btn-success" id="transPeriod" style ="font-family: sans-serif;">
+							<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+							<option>이번 달</option>
+							<option>2주</option>
+							<option>1개월</option>
+							<option>3개월</option>
+							<option>기간 설정</option>
+						</select>
+					</div>
+					&nbsp;
+					<div style = "display: inline-block;">
+						<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+						<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
+							<!-- <i class="fas fa-download fa-sm text-white-50"></i> 조회 -->
+							조회
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-5">
 				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: gray;">카드 이용 내역</span>
-				<!-- <span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: black;">카드 이용 내역</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+				<span style = "vertical-align: middle; font-weight : bold; font-size: 30px; color: black;">카드 이용 내역</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<span>
 					<select class="selectpicker" data-style="btn-success" id="transPeriod">
-						<!-- <select class="selectpicker" multiple data-max-options="2"> -->
+						<select class="selectpicker" multiple data-max-options="2">
 						<option>이번 달</option>
 						<option>2주</option>
 						<option>1개월</option>
@@ -1636,12 +1758,12 @@
 					</select>
 					&nbsp;&nbsp;
 					<button id="transPeriodBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-					<!-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()"> -->
+					<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="getBottomSpecific()">
 						<i class="fas fa-download fa-sm text-white-50"></i> 조회
 					</button>
 				</span>
 				
-			</div>
+			</div> -->
 			
 			<div>
 				<hr style="height:2px;border-width:0;color:gray;background-color:gray">
@@ -1815,7 +1937,7 @@
 						</div>
 						<div class="card-body">
 							<div class="text-center">
-								<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="/hanacard-spring-mvc/resources/images/undraw_posting_photo.svg" alt="">
+								<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="/resources/images/undraw_posting_photo.svg" alt="">
 							</div>
 							<p>
 								Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!
@@ -1852,7 +1974,7 @@
 		
 
 		<!-- Page level plugins -->
-		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
+		<script src="/resources/vendor/chart.js/Chart.min.js"></script>
 
 		<script>
 			//Area Chart Example
@@ -2417,7 +2539,7 @@
 					//$('#recocard').text(data);
 					
 					let attr = $('#recocardImage').attr('src');
-					let path = '/hanacard-spring-mvc/resources/images/';
+					let path = '/resources/images/';
 					path = path + cardname + '.png';
 					$('#recocardImage').attr('src', path);
 					
@@ -2539,45 +2661,67 @@
 							
 							
 							//let attr = $('#recocardImage').attr('src');
-							let path = '/hanacard-spring-mvc/resources/images/';
+							let path = '/resources/images/';
 							path = path + totalCardName + '.png';
 							$('#recocardImageTotal').attr('src', path);
 							
 							$('#recocardTitleTotal').text(test[1][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextTotal').html('소비를 통합하시면, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextTotal').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextTotal').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(totalValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextTotal').html('소비를 통합하시고, \n' + numberWithCommas(totalValue) + '(원)의 혜택을 누리세요!');
 							//$('#recocardTextTotal').html('소비를 통합하시면, \n' + totalValue + '(원)의 혜택을 누리실 수 있어요!');
 							//$('#recocardText').text('소비를 통합하시면, \n' + value + '(원)의 혜택을 누리실 수 있어요!');
+
+							if(test[1][0] == '모두의 쇼핑'){
+								
+								$('#totalHref').attr("href", "https://www.hanacard.co.kr/OPI41000000D.web?schID=pcd&mID=PI41011881P&CD_PD_SEQ=11881&");
+								
+							} else if(test[1][0] == '모두의 건강'){
+								
+								$('#totalHref').attr("href", "https://www.hanacard.co.kr/OPI41000000D.web?schID=pcd&mID=PI41012687P&CD_PD_SEQ=12687&");
+							}
 							
 							
 							
-							path = '/hanacard-spring-mvc/resources/images/';
+							
+							
+							
+							
+							path = '/resources/images/';
 							path = path + disCardName + '.png';
 							$('#recocardImageDis').attr('src', path);
 							
 							$('#recocardTitleDis').text(test[3][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextDis').html('소비를 통합하시면, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardTextDis').html('소비를 통합하시고, \n' + numberWithCommas(disValue) + '(원)의 혜택을 누리세요!');
+							$('#recocardTextDis').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextDis').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(disValue) + '(원)</b></span>의 혜택을 누리세요!');
 						
 							
 							
-							path = '/hanacard-spring-mvc/resources/images/';
+							path = '/resources/images/';
 							path = path + pointCardName + '.png';
 							$('#recocardImagePoint').attr('src', path);
 							
 							$('#recocardTitlePoint').text(test[5][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextPoint').html('소비를 통합하시면, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리실 수 있어요!');
+							//$('#recocardTextPoint').html('소비를 통합하시고, \n' + numberWithCommas(pointValue) + '(원)의 혜택을 누리세요!');
+							$('#recocardTextPoint').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
+							//$('#recocardTextPoint').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(pointValue) + '(원)</b></span>의 혜택을 누리세요!');
 							
 							
 							
-							path = '/hanacard-spring-mvc/resources/images/';
+							path = '/resources/images/';
 							path = path + mileCardName + '.png';
 							$('#recocardImageMile').attr('src', path);
 							
 							$('#recocardTitleMile').text(test[7][0]); //#tag1 카드인 경우 # 그대로 표현하기위해
-							$('#recocardTextMile').html('소비를 통합하시면, \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!');
+							$('#recocardTextMile').html('소비를 통합하시고, <br> <span><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
+							//$('#recocardTextMile').html('소비를 통합하시고, <br> <span style ="text-decoration: underline;"><b>' + numberWithCommas(mileValue) + '(마일)</b></span>의 혜택을 누리세요!'); 
+							//$('#recocardTextMile').html('소비를 통합하시면, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \n' + numberWithCommas(mileValue) + '(마일)의 혜택을 누리실 수 있어요!'); 
+							
 
 							
 							
-							//alert('추천카드 성공');
+							//alert('추천카드 성공')
 							
 							/*
 							// data는 2차원 스트링 배열이 온다. 
@@ -2601,7 +2745,7 @@
 							//$('#recocard').text(data);
 							
 							let attr = $('#recocardImage').attr('src');
-							let path = '/hanacard-spring-mvc/resources/images/';
+							let path = '/resources/images/';
 							path = path + cardname + '.png';
 							$('#recocardImage').attr('src', path);
 							
@@ -2638,19 +2782,19 @@
 
 
 		<!-- Bootstrap core JavaScript-->
-		<script src="/hanacard-spring-mvc/resources/vendor/jquery/jquery.min.js"></script>
-		<script src="/hanacard-spring-mvc/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/resources/vendor/jquery/jquery.min.js"></script>
+		<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 		<!-- Core plugin JavaScript-->
-		<script src="/hanacard-spring-mvc/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 		<!-- Custom scripts for all pages-->
-		<script src="/hanacard-spring-mvc/resources/js/sb-admin-2.min.js"></script>
+		<script src="/resources/js/sb-admin-2.min.js"></script>
 
 		<!-- Page level custom scripts -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script> -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script> -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-area-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-pie-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-bar-demo.js"></script> -->
 
 		<!-- /.container-fluid -->
 		<footer>
@@ -2668,21 +2812,21 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78" /></svg>
 	</div>
 
-	<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery-ui.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/popper.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/bootstrap.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/owl.carousel.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.stellar.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.countdown.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/bootstrap-datepicker.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.easing.1.3.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/aos.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.fancybox.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.sticky.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/main.js"></script>
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="/resources/js/jquery-ui.js"></script>
+	<script src="/resources/js/popper.min.js"></script>
+	<script src="/resources/js/bootstrap.min.js"></script>
+	<script src="/resources/js/owl.carousel.min.js"></script>
+	<script src="/resources/js/jquery.stellar.min.js"></script>
+	<script src="/resources/js/jquery.countdown.min.js"></script>
+	<script src="/resources/js/bootstrap-datepicker.min.js"></script>
+	<script src="/resources/js/jquery.easing.1.3.js"></script>
+	<script src="/resources/js/aos.js"></script>
+	<script src="/resources/js/jquery.fancybox.min.js"></script>
+	<script src="/resources/js/jquery.sticky.js"></script>
+	<script src="/resources/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="/resources/js/main.js"></script>
 
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
 

@@ -1,28 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Academics &mdash; Website by Colorlib</title>
+<title>하나카드</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery-ui.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/jquery.fancybox.min.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/aos.css">
-<link href="/hanacard-spring-mvc/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/hanacard-spring-mvc/resources/css/style.css">
-<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script> 
+<!-- <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="/resources/css/aos.css">
+<link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/css/style.css">
+
+<link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+<link rel="stylesheet" href="/resources/css/fonts.css"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="/resources/css/aos.css">
+  <link href="/resources/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+  
+
+  <link rel="icon" type="image/png" sizes="16x16" href ="/resources/images/favicon16.png">
+  
+  <link rel="stylesheet" href="/resources/css/fonts.css">
+
+<script src="/resources/js/jquery-3.3.1.min.js"></script> 
 
 
 <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -98,7 +122,7 @@
 		<jsp:include page="../include/topMenue.jsp" />
 
 		<%-- 섹션 시작 : section 태그로 감싸도 제대로 안나온다. 붙이지 말자.--%>
-		<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/hanacard-spring-mvc/resources/images/bg_1.jpg')">
+		<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('/resources/images/bg_1.jpg')">
 			<div class="container">
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
@@ -119,69 +143,111 @@
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>
-
-
-
-	
 			
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
 		<div class="container">
 			<br>
-			<!-- <div class="container-fluid"> -->
-			<div>
-				<h1>카드 보유 목록입니다.</h1>
+			<br>
+
+			<div align="center">
+				<h1 id = "category" class="m-0 font-weight-bold text-primary" style="display:inline; vertical-align: sub;">보유카드정보</h1>
 			</div>
+			<br>
+			
+
 			<div>
 				<%-- ${hanaList} --%>
-				<hr size = "5">
+				<!-- <hr size = "5"> -->
 				<ul type = "none">
 					<%-- <c:forEach items = "${cardList}" var ="card"> --%>
+					<hr>
 					<c:forEach items = "${hanaList}" var ="card">
-						<li><img src="/hanacard-spring-mvc/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
-							<span>${ card.cardProductName }</span>
-							<span>${ card.cardNum }</span>
-							<span>${ card.regDate }</span>
+						<li>
+							<div style = "display: inline-block;">
+							<!-- <div style = "display: inline-block; width: 30%;"> -->
+								<img src="/resources/images/${ card.cardProductName }.png" style = "width : 268px; height : 168px;">
+								<%-- <li><img src="/resources/images/${ card }.png" style = "width : 268px; height : 168px;"> --%>
+							</div>
+						
+							<div style = "display: inline-block; vertical-align: middle; margin-left: 30px;" >
+							<!-- <div style = "display: inline-block; height : 168px;"> -->
+							<!-- <div style = "display: inline-block; margin-left: 5px;"> -->
+							
+								<div>
+								<!-- <div style ="height : 100px; vertical-align: bottom;"> -->
+									<c:set var="TextValue" value="${ card.cardNum }"/>
+									<span>${ fn:substring(TextValue, 0,4) } </span>
+									<span>-****-****-</span>
+									<span>${ fn:substring(TextValue, 12,16) } </span>
+									<a href="#" class="btn btn-dark btn-sm" style ="text-align: center;">카드번호/유효기간 보기</a>
+									
+									<%-- <span>${ card.cardNum }</span> --%>
+								</div>
+								<div>
+								<!-- <div style="height : 100px; vertical-align: middle;"> -->
+									<span>${ card.cardProductName } | </span>
+									<span>서울교통(후불) | </span>
+									<c:set var="TextValue2" value="${ card.regDate }"/>
+									<%-- <span>${ card.regDate }</span> --%>
+									<span>신청일 ${ fn:substring(TextValue2, 0,4) }. </span>
+									<span>${ fn:substring(TextValue2, 5,7) }. </span>
+									<span>${ fn:substring(TextValue2, 8,10) } | 정상</span>
+								</div>
+							
+							
+							</div>
 							
 							<%-- <div>${ card }</div>
 							<div>${ cardNum }</div> --%>
 						
 						</li>
 						<hr>
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 134px; height : 84px;">${ card }</li> --%>
-						<%-- <li><img src="/hanacard-spring-mvc/resources/images/${ card }.png" style = "width : 67px; height : 42px;">${ card }</li> --%>
-						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
+						<%-- <li><img src="/resources/images/${ card }.png" style = "width : 134px; height : 84px;">${ card }</li> --%>
+						<%-- <li><img src="/resources/images/${ card }.png" style = "width : 67px; height : 42px;">${ card }</li> --%>
+						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/resources/images/1Q Special+.png')"> -->
 						<!-- <li style = "display: inline-block;">  -->
-						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/hanacard-spring-mvc/resources/images/1Q Special+.png')"> -->
+						<!-- <li style = "display: inline-block; height: y; list-style-image: url('/resources/images/1Q Special+.png')"> -->
 						
-						<!-- <img class="ui-li-icon" src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;">  -->
+						<!-- <img class="ui-li-icon" src="/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;">  -->
 			
-							<%-- <span><img src="/hanacard-spring-mvc/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;"></span> 
+							<%-- <span><img src="/resources/images/1Q Special+.png" style = "width : 67px; height : 42px;"></span> 
 							<span>${loginVO.id} | 신청일 2020.00.00 | 정상</span> --%>
 							<%-- <span>
 								<dt>${hanaList[0]}</dt>
 								<dd>${loginVO.id} | 신청일 2020.00.00 | 정상</dd>
 							</span> --%>
 						</li>
-						<br>
+						<!-- <br> -->
 					</c:forEach>
+					<br>
+					
+											<!-- 	<div style = "background-color: #E8F5FF; box-shadow: 20px 20px 20px grey;"> -->
+					
+					<button class="accordion" style = "height : 80px; font-size: 20px; background-color: #F8F8F8; box-shadow: 5px 5px 5px grey; ">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
+					<div class="panel">
+						<ul>
+							<br>
+							<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
+							<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
+							<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>
+						</ul>
+					</div>
 				</ul>
 			</div>
 
 
 
-			<button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
+			<!-- <button class="accordion">&nbsp;&nbsp;&nbsp;보유카드 정보 안내</button>
 			<div class="panel">
 				<ul>
 					<li>고객이 발급받으신 카드 중 사용이 가능한 유효카드정보입니다. (본인 및 가족카드)</li>
 					<li>고객 명의의 법인카드는 홈페이지 "법인"회원으로 가입하여 조회하실 수 있습니다.</li>
 					<li>보유하신 카드의 상세 혜택은 목록 중 카드별 "혜택보기" 버튼을 클릭하시면 됩니다.</li>
 				</ul>
-			</div>
+			</div> -->
+			
 			<br>
-
-		
 		</div>
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
 
@@ -207,22 +273,22 @@
 
 
 		<!-- Page level plugins -->
-		<script src="/hanacard-spring-mvc/resources/vendor/chart.js/Chart.min.js"></script>
+		<script src="/resources/vendor/chart.js/Chart.min.js"></script>
 
 		<!-- Bootstrap core JavaScript-->
-		<script src="/hanacard-spring-mvc/resources/vendor/jquery/jquery.min.js"></script>
-		<script src="/hanacard-spring-mvc/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/resources/vendor/jquery/jquery.min.js"></script>
+		<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 		<!-- Core plugin JavaScript-->
-		<script src="/hanacard-spring-mvc/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 		<!-- Custom scripts for all pages-->
-		<script src="/hanacard-spring-mvc/resources/js/sb-admin-2.min.js"></script>
+		<script src="/resources/js/sb-admin-2.min.js"></script>
 
 		<!-- Page level custom scripts -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-area-demo.js"></script> -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-pie-demo.js"></script> -->
-		<!-- <script src="/hanacard-spring-mvc/resources/js/demo/chart-bar-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-area-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-pie-demo.js"></script> -->
+		<!-- <script src="/resources/js/demo/chart-bar-demo.js"></script> -->
 
 		<!-- /.container-fluid -->
 		<footer>
@@ -240,21 +306,21 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78" /></svg>
 	</div>
 
-	<script src="/hanacard-spring-mvc/resources/js/jquery-3.3.1.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery-ui.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/popper.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/bootstrap.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/owl.carousel.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.stellar.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.countdown.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/bootstrap-datepicker.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.easing.1.3.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/aos.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.fancybox.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.sticky.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="/hanacard-spring-mvc/resources/js/main.js"></script>
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="/resources/js/jquery-ui.js"></script>
+	<script src="/resources/js/popper.min.js"></script>
+	<script src="/resources/js/bootstrap.min.js"></script>
+	<script src="/resources/js/owl.carousel.min.js"></script>
+	<script src="/resources/js/jquery.stellar.min.js"></script>
+	<script src="/resources/js/jquery.countdown.min.js"></script>
+	<script src="/resources/js/bootstrap-datepicker.min.js"></script>
+	<script src="/resources/js/jquery.easing.1.3.js"></script>
+	<script src="/resources/js/aos.js"></script>
+	<script src="/resources/js/jquery.fancybox.min.js"></script>
+	<script src="/resources/js/jquery.sticky.js"></script>
+	<script src="/resources/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="/resources/js/main.js"></script>
 
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
 

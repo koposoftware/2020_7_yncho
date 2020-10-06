@@ -16,9 +16,9 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-9 d-none d-lg-block">
-            <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a> 
+            <!-- <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a> 
             <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a> 
-            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
+            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a>  -->
           </div>
           <div class="col-lg-3 text-right">
           	<c:choose>
@@ -41,7 +41,8 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="${ pageContext.request.contextPath }/index.jsp" class="d-block">
-              <img src="/hanacard-spring-mvc/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid">
+              <img src="/resources/images/hanacard_logo_down3.png" alt="Image" class="img-fluid">
+              <!-- <img src="/resources/images/hanacard_logo_down.png" alt="Image" class="img-fluid"> -->
             </a>
           </div>
           <div class="mr-auto">
@@ -53,7 +54,7 @@
                    <ul class="dropdown">
                     <li><a href="${ pageContext.request.contextPath }/mypage">종합 대시보드</a></li>
                     <li><a href="${ pageContext.request.contextPath }/mypage/owncard">보유카드정보</a></li>
-                    <li><a href="${ pageContext.request.contextPath }/mypage/transaction">카드이용내역</a></li>
+                    <%-- <li><a href="${ pageContext.request.contextPath }/mypage/transaction">카드이용내역</a></li> --%>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -104,9 +105,11 @@
           </div>
           <div class="ml-auto">
             <div class="social-wrap">
-              <a href="#"><span class="icon-facebook"></span></a>
-              <a href="#"><span class="icon-twitter"></span></a>
-              <a href="#"><span class="icon-linkedin"></span></a>
+              <a href="https://www.facebook.com/hanacard"><span class="icon-facebook"></span></a>
+              <!-- <a href="#"><span class="icon-twitter"></span></a>
+              <a href="#"><span class="icon-linkedin"></span></a> -->
+              <a href="https://www.instagram.com/global_must_have/"><span class="icon-instagram"></span></a>
+              <a href="https://www.youtube.com/channel/UCsnlgvmpylLeDhxPQvUcMCA"><span class="icon-youtube"></span></a>
 
               <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
                 class="icon-menu h3"></span></a>

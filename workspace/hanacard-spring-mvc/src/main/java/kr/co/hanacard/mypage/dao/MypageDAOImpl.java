@@ -85,6 +85,12 @@ public class MypageDAOImpl implements MypageDAO{
 		map.put("month", month);
 		
 		MypageVO mypageVO = sqlSession.selectOne("mypage.dao.MypageDAO.getBottomSpecific", map);
+		
+		System.out.println("========================");
+		long cateSum = mypageVO.getI1() + mypageVO.getI2() + mypageVO.getI3() + mypageVO.getI4() + mypageVO.getI5() + mypageVO.getI6() + mypageVO.getI7() + mypageVO.getI8()
+		+ mypageVO.getI9() + mypageVO.getI10() + mypageVO.getI11() + mypageVO.getI12() + mypageVO.getI13();
+		System.out.println("getBottomSpecific  cateSum ===> " + cateSum);
+		System.out.println("========================");
 
 		//하드코딩이다. mypageVO를 mypagetopVO, mypagebottomVO로 나누어야 한다. 
 		// 지금은 혹시나 월별 소비합계랑과 영역별 소비합계를 같이 사용할 일이 있지 않을까싶어서 그냥 두는 것임.

@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "form" uri ="http://www.springframework.org/tags/form" %>
+
     
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <title>Academics &mdash; Website by Colorlib</title> -->
 <title>하나카드</title>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,12 +31,58 @@
   
   <link rel="stylesheet" href="/resources/css/fonts.css">
 
+<style>
+	th{
+		text-align: "center"
+	}
+	
+	.error{
+		color : red
+	}
+	
+	
+	
+	h2 {
+	  text-align: center;
+	  padding: 20px 0;
+	}
+	
+	.table-bordered {
+	  border: 1px solid #ddd !important;
+	}
+	
+	table caption {
+		padding: .5em 0;
+	}
+	
+	@media screen and (max-width: 767px) {
+	  table caption {
+	    display: none;
+	  }
+	}
+	
+	.p {
+	  text-align: center;
+	  padding-top: 140px;
+	  font-size: 14px;
+	}
+  
+</style>
+
+
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
-<!-- <script src="/resources/js/jquery-3.3.1.min.js"></script> -->
-
-
 
 <script>
+
+	function goWriteForm() {
+		//location.href = "writeForm.jsp";
+		location.href = "${ pageContext.request.contextPath }/board/write";
+	}
+	
+	function doAction(boardNO){
+		//location.href = "${ pageContext.request.contextPath }/board/detail?no=" + boardNO;   ==> 이전 형태다.
+		location.href = "${ pageContext.request.contextPath }/board/" + boardNO; // 이런 방식으로 해보고싶다. 근데 왜 pageContext.request.contextPath로 가져오는거지?
+	}
 
 </script>
 
@@ -52,8 +100,8 @@
 			<div class="container">
 				<div class="row align-items-end justify-content-center text-center">
 					<div class="col-lg-7">
-						<h2 class="mb-0">나만의 차트</h2>
-						<p>${loginVO.name}님을 위한 차트입니다.</p>
+						<h2 class="mb-0">고객센터</h2>
+						<p>${loginVO.name}님, 무엇을 도와드릴까요?</p>
 					</div>
 				</div>
 			</div>
@@ -63,8 +111,9 @@
 		<div class="custom-breadcrumns border-bottom">
 			<div class="container">
 				<a href="index.html">Home</a> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span>나만의 차트</span> <span class="mx-3 icon-keyboard_arrow_right"></span> 
-				<span class="current">연회비별순위</span>
+				<span class="current">고객센터</span> 
+				<!-- <span class="mx-3 icon-keyboard_arrow_right"></span> 
+				<span class="current">연회비별순위</span> -->
 			</div>
 		</div>
 		<%-- 페이지 소개 끝 --%>
@@ -72,10 +121,41 @@
 
 		<%-- 본문 코드 시작 : 대시보드 전체를 담고있는 컨테이너 --%>
 		<!-- Begin Page Content -->
-		<div class="container">
-			<!-- <div class="container-fluid"> -->
-
+			<div align = "center">
+			<hr width = "80%">
+			<h2>게시물 등록폼</h2>
+			<hr width = "80%">
+			<br>
+			
+			<!-- 공유영역에 commandName이 boardVO인 객체를 찾는다. 그리고 path를 통해 getter로 가져온다.  -->
+			<!-- action 속성이 없으면, 자동으로 똑같은 경로에 POST 방식으로 값이 날라감. -->
+			<form:form  commandName="boardVO" method="post" >
+	         <table class = "table" border="1" style="width:80%">
+	            <tr>
+	               <th width="23%">제목</th>
+	               <td>
+	                  <!-- path는 게터, 세터 역할을 함. 즉, getTitle() setTitle()이 된다.  -->
+	                  <form:input path="title"/>  <form:errors path ="title" class="error"/> <!--getTitle()값이 null이면,  @NotEmpty(message = "필수항목입니다.") 에 적은 메세지가 나온다. -->
+	               </td>
+	            </tr>
+	            <tr>
+	               <th width="23%">글쓴이</th>
+	               <td>
+	                  <form:input path="writer"/><form:errors path ="writer" class="error"/>
+	               </td>
+	            </tr>
+	            <tr>
+	               <th width="23%">내용</th>
+	               <td>
+	                  <form:textarea path="content" rows="4" cols="100" /><form:errors path ="content" class="error"/>
+	               </td>
+	            </tr>
+	         </table>
+	         <button>등록</button>
+	      </form:form>
+			
 		</div>
+		
 		<%-- 본문 코드 끝 : 대시보드 전체를 담고있는 컨테이너 --%>
 		
 

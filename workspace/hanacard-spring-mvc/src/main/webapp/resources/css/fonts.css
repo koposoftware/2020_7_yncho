@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+@font-face { 
+	
+	font-family: hanaCM;
+	src: url('/resources/fonts/hana/HanaCM.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: hanaB;
+	src: url('/resources/fonts/hana/HanaB.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: HanaL;
+	src: url('/resources/fonts/hana/HanaL.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: hanaM;
+	src: url('/resources/fonts/hana/HanaM.ttf');
+
+}
+
+@font-face { 
+	
+	font-family: hanaUL;
+	src: url('/resources/fonts/hana/HanaUL.ttf');
+
+}
+
+
+li {
+	font-family: HanaUL;
+	font-size: 22px;
+}  
+
+
+h1, h2, h3, h4, h5 {
+	
+	font-family: HanaCM;
+	
+}
+
+p{
+	
+	font-family: HanaUL;
+	font-size: 22px;
+	
+}
+
+div{
+	
+	font-family: HanaUL;
+	
+}
+
+span{
+	
+	font-family: HanaUL;
+	font-size: 18px;
+	
+}
+
+a{
+	font-family: HanaUL;
+	
+}
+
+/*
+
+* {
+	
+	font-family: HanaCM;
+	font-size: 20px;
+}
+
+*/
